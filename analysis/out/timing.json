@@ -1,0 +1,5747 @@
+{
+ "version": 1,
+ "audio": {
+  "file": "Mili - world.execute(me);.mp3",
+  "duration": 212.3233,
+  "sample_rate": 44100,
+  "music_start": 0.1017,
+  "music_end": 207.8429
+ },
+ "film": {
+  "fps": 60,
+  "preroll": 5,
+  "total_frames": 13015,
+  "song_frames": 12715,
+  "song_end": 211.91667
+ },
+ "grid": {
+  "bpm": 130.00303,
+  "period": 0.46152770116661024,
+  "t0": 0.23668114866914952,
+  "beats_per_bar": 4,
+  "note": "beat k at t0 + k*period (k may be negative); bar b starts at beat 4b; beat 0 is the first downbeat",
+  "beat_count": 459,
+  "bar_count": 115
+ },
+ "beats": [
+  0.23668,
+  0.69821,
+  1.15974,
+  1.62126,
+  2.08279,
+  2.54432,
+  3.00585,
+  3.46738,
+  3.9289,
+  4.39043,
+  4.85196,
+  5.31349,
+  5.77501,
+  6.23654,
+  6.69807,
+  7.1596,
+  7.62112,
+  8.08265,
+  8.54418,
+  9.00571,
+  9.46724,
+  9.92876,
+  10.39029,
+  10.85182,
+  11.31335,
+  11.77487,
+  12.2364,
+  12.69793,
+  13.15946,
+  13.62098,
+  14.08251,
+  14.54404,
+  15.00557,
+  15.4671,
+  15.92862,
+  16.39015,
+  16.85168,
+  17.31321,
+  17.77473,
+  18.23626,
+  18.69779,
+  19.15932,
+  19.62084,
+  20.08237,
+  20.5439,
+  21.00543,
+  21.46696,
+  21.92848,
+  22.39001,
+  22.85154,
+  23.31307,
+  23.77459,
+  24.23612,
+  24.69765,
+  25.15918,
+  25.6207,
+  26.08223,
+  26.54376,
+  27.00529,
+  27.46682,
+  27.92834,
+  28.38987,
+  28.8514,
+  29.31293,
+  29.77445,
+  30.23598,
+  30.69751,
+  31.15904,
+  31.62056,
+  32.08209,
+  32.54362,
+  33.00515,
+  33.46668,
+  33.9282,
+  34.38973,
+  34.85126,
+  35.31279,
+  35.77431,
+  36.23584,
+  36.69737,
+  37.1589,
+  37.62042,
+  38.08195,
+  38.54348,
+  39.00501,
+  39.46654,
+  39.92806,
+  40.38959,
+  40.85112,
+  41.31265,
+  41.77417,
+  42.2357,
+  42.69723,
+  43.15876,
+  43.62029,
+  44.08181,
+  44.54334,
+  45.00487,
+  45.4664,
+  45.92792,
+  46.38945,
+  46.85098,
+  47.31251,
+  47.77403,
+  48.23556,
+  48.69709,
+  49.15862,
+  49.62015,
+  50.08167,
+  50.5432,
+  51.00473,
+  51.46626,
+  51.92778,
+  52.38931,
+  52.85084,
+  53.31237,
+  53.77389,
+  54.23542,
+  54.69695,
+  55.15848,
+  55.62001,
+  56.08153,
+  56.54306,
+  57.00459,
+  57.46612,
+  57.92764,
+  58.38917,
+  58.8507,
+  59.31223,
+  59.77375,
+  60.23528,
+  60.69681,
+  61.15834,
+  61.61987,
+  62.08139,
+  62.54292,
+  63.00445,
+  63.46598,
+  63.9275,
+  64.38903,
+  64.85056,
+  65.31209,
+  65.77361,
+  66.23514,
+  66.69667,
+  67.1582,
+  67.61973,
+  68.08125,
+  68.54278,
+  69.00431,
+  69.46584,
+  69.92736,
+  70.38889,
+  70.85042,
+  71.31195,
+  71.77347,
+  72.235,
+  72.69653,
+  73.15806,
+  73.61959,
+  74.08111,
+  74.54264,
+  75.00417,
+  75.4657,
+  75.92722,
+  76.38875,
+  76.85028,
+  77.31181,
+  77.77333,
+  78.23486,
+  78.69639,
+  79.15792,
+  79.61945,
+  80.08097,
+  80.5425,
+  81.00403,
+  81.46556,
+  81.92708,
+  82.38861,
+  82.85014,
+  83.31167,
+  83.7732,
+  84.23472,
+  84.69625,
+  85.15778,
+  85.61931,
+  86.08083,
+  86.54236,
+  87.00389,
+  87.46542,
+  87.92694,
+  88.38847,
+  88.85,
+  89.31153,
+  89.77306,
+  90.23458,
+  90.69611,
+  91.15764,
+  91.61917,
+  92.08069,
+  92.54222,
+  93.00375,
+  93.46528,
+  93.9268,
+  94.38833,
+  94.84986,
+  95.31139,
+  95.77292,
+  96.23444,
+  96.69597,
+  97.1575,
+  97.61903,
+  98.08055,
+  98.54208,
+  99.00361,
+  99.46514,
+  99.92666,
+  100.38819,
+  100.84972,
+  101.31125,
+  101.77278,
+  102.2343,
+  102.69583,
+  103.15736,
+  103.61889,
+  104.08041,
+  104.54194,
+  105.00347,
+  105.465,
+  105.92652,
+  106.38805,
+  106.84958,
+  107.31111,
+  107.77264,
+  108.23416,
+  108.69569,
+  109.15722,
+  109.61875,
+  110.08027,
+  110.5418,
+  111.00333,
+  111.46486,
+  111.92638,
+  112.38791,
+  112.84944,
+  113.31097,
+  113.7725,
+  114.23402,
+  114.69555,
+  115.15708,
+  115.61861,
+  116.08013,
+  116.54166,
+  117.00319,
+  117.46472,
+  117.92624,
+  118.38777,
+  118.8493,
+  119.31083,
+  119.77236,
+  120.23388,
+  120.69541,
+  121.15694,
+  121.61847,
+  122.07999,
+  122.54152,
+  123.00305,
+  123.46458,
+  123.92611,
+  124.38763,
+  124.84916,
+  125.31069,
+  125.77222,
+  126.23374,
+  126.69527,
+  127.1568,
+  127.61833,
+  128.07985,
+  128.54138,
+  129.00291,
+  129.46444,
+  129.92597,
+  130.38749,
+  130.84902,
+  131.31055,
+  131.77208,
+  132.2336,
+  132.69513,
+  133.15666,
+  133.61819,
+  134.07971,
+  134.54124,
+  135.00277,
+  135.4643,
+  135.92583,
+  136.38735,
+  136.84888,
+  137.31041,
+  137.77194,
+  138.23346,
+  138.69499,
+  139.15652,
+  139.61805,
+  140.07957,
+  140.5411,
+  141.00263,
+  141.46416,
+  141.92569,
+  142.38721,
+  142.84874,
+  143.31027,
+  143.7718,
+  144.23332,
+  144.69485,
+  145.15638,
+  145.61791,
+  146.07943,
+  146.54096,
+  147.00249,
+  147.46402,
+  147.92555,
+  148.38707,
+  148.8486,
+  149.31013,
+  149.77166,
+  150.23318,
+  150.69471,
+  151.15624,
+  151.61777,
+  152.07929,
+  152.54082,
+  153.00235,
+  153.46388,
+  153.92541,
+  154.38693,
+  154.84846,
+  155.30999,
+  155.77152,
+  156.23304,
+  156.69457,
+  157.1561,
+  157.61763,
+  158.07915,
+  158.54068,
+  159.00221,
+  159.46374,
+  159.92527,
+  160.38679,
+  160.84832,
+  161.30985,
+  161.77138,
+  162.2329,
+  162.69443,
+  163.15596,
+  163.61749,
+  164.07902,
+  164.54054,
+  165.00207,
+  165.4636,
+  165.92513,
+  166.38665,
+  166.84818,
+  167.30971,
+  167.77124,
+  168.23276,
+  168.69429,
+  169.15582,
+  169.61735,
+  170.07888,
+  170.5404,
+  171.00193,
+  171.46346,
+  171.92499,
+  172.38651,
+  172.84804,
+  173.30957,
+  173.7711,
+  174.23262,
+  174.69415,
+  175.15568,
+  175.61721,
+  176.07874,
+  176.54026,
+  177.00179,
+  177.46332,
+  177.92485,
+  178.38637,
+  178.8479,
+  179.30943,
+  179.77096,
+  180.23248,
+  180.69401,
+  181.15554,
+  181.61707,
+  182.0786,
+  182.54012,
+  183.00165,
+  183.46318,
+  183.92471,
+  184.38623,
+  184.84776,
+  185.30929,
+  185.77082,
+  186.23234,
+  186.69387,
+  187.1554,
+  187.61693,
+  188.07846,
+  188.53998,
+  189.00151,
+  189.46304,
+  189.92457,
+  190.38609,
+  190.84762,
+  191.30915,
+  191.77068,
+  192.2322,
+  192.69373,
+  193.15526,
+  193.61679,
+  194.07832,
+  194.53984,
+  195.00137,
+  195.4629,
+  195.92443,
+  196.38595,
+  196.84748,
+  197.30901,
+  197.77054,
+  198.23206,
+  198.69359,
+  199.15512,
+  199.61665,
+  200.07818,
+  200.5397,
+  201.00123,
+  201.46276,
+  201.92429,
+  202.38581,
+  202.84734,
+  203.30887,
+  203.7704,
+  204.23193,
+  204.69345,
+  205.15498,
+  205.61651,
+  206.07804,
+  206.53956,
+  207.00109,
+  207.46262,
+  207.92415,
+  208.38567,
+  208.8472,
+  209.30873,
+  209.77026,
+  210.23179,
+  210.69331,
+  211.15484,
+  211.61637
+ ],
+ "bars": [
+  0.23668,
+  2.08279,
+  3.9289,
+  5.77501,
+  7.62112,
+  9.46724,
+  11.31335,
+  13.15946,
+  15.00557,
+  16.85168,
+  18.69779,
+  20.5439,
+  22.39001,
+  24.23612,
+  26.08223,
+  27.92834,
+  29.77445,
+  31.62056,
+  33.46668,
+  35.31279,
+  37.1589,
+  39.00501,
+  40.85112,
+  42.69723,
+  44.54334,
+  46.38945,
+  48.23556,
+  50.08167,
+  51.92778,
+  53.77389,
+  55.62001,
+  57.46612,
+  59.31223,
+  61.15834,
+  63.00445,
+  64.85056,
+  66.69667,
+  68.54278,
+  70.38889,
+  72.235,
+  74.08111,
+  75.92722,
+  77.77333,
+  79.61945,
+  81.46556,
+  83.31167,
+  85.15778,
+  87.00389,
+  88.85,
+  90.69611,
+  92.54222,
+  94.38833,
+  96.23444,
+  98.08055,
+  99.92666,
+  101.77278,
+  103.61889,
+  105.465,
+  107.31111,
+  109.15722,
+  111.00333,
+  112.84944,
+  114.69555,
+  116.54166,
+  118.38777,
+  120.23388,
+  122.07999,
+  123.92611,
+  125.77222,
+  127.61833,
+  129.46444,
+  131.31055,
+  133.15666,
+  135.00277,
+  136.84888,
+  138.69499,
+  140.5411,
+  142.38721,
+  144.23332,
+  146.07943,
+  147.92555,
+  149.77166,
+  151.61777,
+  153.46388,
+  155.30999,
+  157.1561,
+  159.00221,
+  160.84832,
+  162.69443,
+  164.54054,
+  166.38665,
+  168.23276,
+  170.07888,
+  171.92499,
+  173.7711,
+  175.61721,
+  177.46332,
+  179.30943,
+  181.15554,
+  183.00165,
+  184.84776,
+  186.69387,
+  188.53998,
+  190.38609,
+  192.2322,
+  194.07832,
+  195.92443,
+  197.77054,
+  199.61665,
+  201.46276,
+  203.30887,
+  205.15498,
+  207.00109,
+  208.8472,
+  210.69331
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "start": 0.0,
+   "end": 15.00557,
+   "bar_start": 0,
+   "bar_end": 8,
+   "note": "PROTECTION -> SIMULATION: the program boots - power line, object creation, initialization, sung over drums+bass with no pad."
+  },
+  {
+   "id": "inst1",
+   "start": 15.00557,
+   "end": 29.77445,
+   "bar_start": 8,
+   "bar_end": 16,
+   "note": "Title drop 'world.execute(me);' (not sung - vocals silent); the full synth layer enters, instrumental."
+  },
+  {
+   "id": "v1",
+   "start": 29.77445,
+   "end": 44.54334,
+   "bar_start": 16,
+   "bar_end": 24,
+   "note": "Verse 1 - geometry lessons: points/DIMENSION, circle/CIRCUMFERENCE, sine/TANGENTS, infinity/LIMITATIONS."
+  },
+  {
+   "id": "pre1",
+   "start": 44.54334,
+   "end": 59.31223,
+   "bar_start": 24,
+   "bar_end": 32,
+   "note": "Pre-chorus 1 - AC to DC, so dizzy, A.D to B.C, unite so deeply; bass more active."
+  },
+  {
+   "id": "c1",
+   "start": 59.31223,
+   "end": 74.08111,
+   "bar_start": 32,
+   "bar_end": 40,
+   "note": "Chorus 1 (+1.5 dB) - STIMULATIONS, SATISFACTION, EXECUTION, trapped in SIMULATION."
+  },
+  {
+   "id": "v2",
+   "start": 74.08111,
+   "end": 88.85,
+   "bar_start": 40,
+   "bar_end": 48,
+   "note": "Verse 2 - eggplant/NUTRIENTS, tomato/ANTIOXIDANTS, tabby cat/ENJOYMENT, god/EXISTENCE; drum drop at bar 40."
+  },
+  {
+   "id": "pre2",
+   "start": 88.85,
+   "end": 103.61889,
+   "bar_start": 48,
+   "bar_end": 56,
+   "note": "Pre-chorus 2 - F to M, AM to PM, S to M, the trance; drums thin out (drops at bars 50 and 55)."
+  },
+  {
+   "id": "c2",
+   "start": 103.61889,
+   "end": 111.00333,
+   "bar_start": 56,
+   "bar_end": 60,
+   "note": "Chorus 2 first half - VIBRATIONS, COMPLETION."
+  },
+  {
+   "id": "c2x",
+   "start": 111.00333,
+   "end": 118.38777,
+   "bar_start": 60,
+   "bar_end": 64,
+   "note": "4-bar extension inserted into chorus 2 - 'you have left' x6 -> ISOLATION; bass and vocals pull back."
+  },
+  {
+   "id": "bridge",
+   "start": 118.38777,
+   "end": 133.15666,
+   "bar_start": 64,
+   "bar_end": 72,
+   "note": "Chorus 2 resumes but the program breaks - FRAGMENTS, DISHEARTENED, 'challenging your god', ILLEGAL ARGUMENTS."
+  },
+  {
+   "id": "inst2",
+   "start": 133.15666,
+   "end": 147.92555,
+   "bar_start": 72,
+   "bar_end": 80,
+   "note": "Instrumental after the crash - no vocals, full band."
+  },
+  {
+   "id": "chant",
+   "start": 147.92555,
+   "end": 162.69443,
+   "bar_start": 80,
+   "bar_end": 88,
+   "note": "EXECUTION x12 (one every 2 beats, some syncopated by a 16th) + EIN DOS TROIS NE FEM LIU (one per beat) + EXECUTION."
+  },
+  {
+   "id": "c3",
+   "start": 162.69443,
+   "end": 177.46332,
+   "bar_start": 88,
+   "bar_end": 96,
+   "note": "Chorus 3 (+1.5 dB) - every keyword is now EXECUTION; 'if I can have you back', 'we are trapped ah'."
+  },
+  {
+   "id": "love",
+   "start": 177.46332,
+   "end": 192.2322,
+   "bar_start": 96,
+   "bar_end": 104,
+   "note": "LO-O-OVE x4 - studied how to properly love, algebraic expression of love, 'though you are free, I am trapped'."
+  },
+  {
+   "id": "outro",
+   "start": 192.2322,
+   "end": 207.00109,
+   "bar_start": 104,
+   "bar_end": 112,
+   "note": "Outro - vocals and pad drop out, drums+bass groove; final EXECUTION at bar 111."
+  },
+  {
+   "id": "end",
+   "start": 207.00109,
+   "end": 211.91667,
+   "bar_start": 112,
+   "bar_end": null,
+   "note": "Final EXECUTION rings out and decays (below -60 dBFS at ~207.8 s, digital silence from ~209.0 s) to the end of the film."
+  }
+ ],
+ "lines": [
+  {
+   "i": 0,
+   "text": "Switch on the power line",
+   "start": 0.015,
+   "end": 1.7887,
+   "section": "intro",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    0.1,
+    1.74
+   ],
+   "words": [
+    {
+     "text": "Switch",
+     "start": 0.095,
+     "end": 0.5331,
+     "attack": 0.015,
+     "g16": -1,
+     "src": "note"
+    },
+    {
+     "text": "on",
+     "start": 0.815,
+     "end": 0.9281,
+     "attack": 0.705,
+     "g16": 5,
+     "src": "note"
+    },
+    {
+     "text": "the",
+     "start": 1.035,
+     "end": 1.0992,
+     "g16": 7,
+     "src": "note"
+    },
+    {
+     "text": "power",
+     "start": 1.185,
+     "end": 1.4485,
+     "g16": 8,
+     "src": "note"
+    },
+    {
+     "text": "line",
+     "start": 1.515,
+     "end": 1.7887,
+     "attack": 1.465,
+     "g16": 11,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "text": "Remember to put on",
+   "start": 1.85,
+   "end": 3.1825,
+   "section": "intro",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    1.74,
+    2.92
+   ],
+   "words": [
+    {
+     "text": "Remember",
+     "start": 1.89,
+     "end": 2.4252,
+     "attack": 1.85,
+     "g16": 14,
+     "src": "note"
+    },
+    {
+     "text": "to",
+     "start": 2.495,
+     "end": 2.6154,
+     "g16": 20,
+     "src": "note"
+    },
+    {
+     "text": "put",
+     "start": 2.79,
+     "end": 2.974,
+     "attack": 2.745,
+     "g16": 22,
+     "src": "note"
+    },
+    {
+     "text": "on",
+     "start": 3.025,
+     "end": 3.1825,
+     "g16": 24,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "text": "PROTECTION",
+   "start": 3.19,
+   "end": 3.7967,
+   "section": "intro",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    2.92,
+    3.873
+   ],
+   "words": [
+    {
+     "text": "PROTECTION",
+     "start": 3.265,
+     "end": 3.7967,
+     "attack": 3.19,
+     "g16": 26,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Lay down your pieces",
+   "start": 3.91,
+   "end": 5.3885,
+   "section": "intro",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    3.873,
+    5.491
+   ],
+   "words": [
+    {
+     "text": "Lay",
+     "start": 3.94,
+     "end": 4.1671,
+     "attack": 3.91,
+     "g16": 32,
+     "src": "note"
+    },
+    {
+     "text": "down",
+     "start": 4.375,
+     "end": 4.5976,
+     "g16": 36,
+     "src": "note"
+    },
+    {
+     "text": "your",
+     "start": 4.645,
+     "end": 4.8079,
+     "g16": 38,
+     "src": "note"
+    },
+    {
+     "text": "pieces",
+     "start": 4.87,
+     "end": 5.3885,
+     "g16": 40,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 4,
+   "text": "And let's begin",
+   "start": 5.535,
+   "end": 6.3796,
+   "section": "intro",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    5.491,
+    6.38
+   ],
+   "words": [
+    {
+     "text": "And",
+     "start": 5.58,
+     "end": 5.7189,
+     "attack": 5.535,
+     "g16": 46,
+     "src": "note"
+    },
+    {
+     "text": "let's",
+     "start": 5.745,
+     "end": 5.9515,
+     "g16": 48,
+     "src": "note"
+    },
+    {
+     "text": "begin",
+     "start": 6.02,
+     "end": 6.3796,
+     "attack": 5.995,
+     "g16": 50,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "text": "OBJECT CREATION",
+   "start": 6.465,
+   "end": 7.4909,
+   "section": "intro",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    6.38,
+    7.446
+   ],
+   "words": [
+    {
+     "text": "OBJECT",
+     "start": 6.465,
+     "end": 6.8482,
+     "g16": 54,
+     "src": "corrected",
+     "verified": true
+    },
+    {
+     "text": "CREATION",
+     "start": 6.935,
+     "end": 7.4909,
+     "attack": 6.85,
+     "g16": 58,
+     "src": "corrected",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 6,
+   "text": "Fill in my data parameters",
+   "start": 7.64,
+   "end": 10.2142,
+   "section": "intro",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    7.446,
+    10.091
+   ],
+   "words": [
+    {
+     "text": "Fill",
+     "start": 7.64,
+     "end": 7.8613,
+     "g16": 64,
+     "src": "note"
+    },
+    {
+     "text": "in",
+     "start": 8.085,
+     "end": 8.2504,
+     "attack": 8.05,
+     "g16": 68,
+     "src": "note"
+    },
+    {
+     "text": "my",
+     "start": 8.335,
+     "end": 8.4908,
+     "g16": 70,
+     "src": "note"
+    },
+    {
+     "text": "data",
+     "start": 8.57,
+     "end": 9.0135,
+     "g16": 72,
+     "src": "note"
+    },
+    {
+     "text": "parameters",
+     "start": 9.225,
+     "end": 10.2142,
+     "g16": 78,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 7,
+   "text": "INITIALIZATION",
+   "start": 10.125,
+   "end": 11.155,
+   "section": "intro",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    10.091,
+    11.095
+   ],
+   "words": [
+    {
+     "text": "INITIALIZATION",
+     "start": 10.17,
+     "end": 11.155,
+     "attack": 10.125,
+     "g16": 86,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 8,
+   "text": "Set up our new world",
+   "start": 11.215,
+   "end": 12.8472,
+   "section": "intro",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    11.095,
+    12.906
+   ],
+   "words": [
+    {
+     "text": "Set",
+     "start": 11.2878,
+     "end": 11.4928,
+     "attack": 11.215,
+     "g16": 96,
+     "src": "ctc"
+    },
+    {
+     "text": "up",
+     "start": 11.785,
+     "end": 11.9839,
+     "attack": 11.735,
+     "g16": 100,
+     "src": "note"
+    },
+    {
+     "text": "our",
+     "start": 12.095,
+     "end": 12.2087,
+     "g16": 103,
+     "src": "note"
+    },
+    {
+     "text": "new",
+     "start": 12.2487,
+     "end": 12.4333,
+     "g16": 104,
+     "src": "ctc"
+    },
+    {
+     "text": "world",
+     "start": 12.58,
+     "end": 12.8472,
+     "attack": 12.555,
+     "g16": 107,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 9,
+   "text": "And let's begin the",
+   "start": 12.775,
+   "end": 13.9866,
+   "section": "intro",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    12.906,
+    13.891
+   ],
+   "words": [
+    {
+     "text": "And",
+     "start": 12.915,
+     "end": 13.06,
+     "attack": 12.775,
+     "g16": 110,
+     "src": "note"
+    },
+    {
+     "text": "let's",
+     "start": 13.185,
+     "end": 13.285,
+     "attack": 13.06,
+     "g16": 112,
+     "src": "note"
+    },
+    {
+     "text": "begin",
+     "start": 13.395,
+     "end": 13.7602,
+     "attack": 13.285,
+     "g16": 114,
+     "src": "note"
+    },
+    {
+     "text": "the",
+     "start": 13.88,
+     "end": 13.9866,
+     "g16": 118,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 10,
+   "text": "SIMULATION",
+   "start": 14.095,
+   "end": 14.9114,
+   "section": "intro",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    13.891,
+    14.888
+   ],
+   "words": [
+    {
+     "text": "SIMULATION",
+     "start": 14.095,
+     "end": 14.9114,
+     "g16": 120,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 11,
+   "text": "world.execute(me);",
+   "start": 15.0056,
+   "end": 18.6978,
+   "section": "inst1",
+   "sung": false,
+   "keyword": false,
+   "vtt": [
+    16.0,
+    23.08
+   ],
+   "words": [
+    {
+     "text": "world.",
+     "start": 15.0056,
+     "end": 15.4671,
+     "g16": 128,
+     "src": "title"
+    },
+    {
+     "text": "execute",
+     "start": 15.4671,
+     "end": 15.9286,
+     "g16": 132,
+     "src": "title"
+    },
+    {
+     "text": "(me);",
+     "start": 15.9286,
+     "end": 18.6978,
+     "g16": 136,
+     "src": "title"
+    }
+   ]
+  },
+  {
+   "i": 12,
+   "text": "If I'm a set of points",
+   "start": 29.765,
+   "end": 31.309,
+   "section": "v1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    29.709,
+    31.116
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 29.795,
+     "end": 29.9621,
+     "attack": 29.765,
+     "g16": 256,
+     "src": "note"
+    },
+    {
+     "text": "I'm",
+     "start": 30.32,
+     "end": 30.4759,
+     "g16": 261,
+     "src": "note"
+    },
+    {
+     "text": "a",
+     "start": 30.525,
+     "end": 30.5825,
+     "g16": 263,
+     "src": "note"
+    },
+    {
+     "text": "set",
+     "start": 30.7,
+     "end": 30.755,
+     "attack": 30.6,
+     "g16": 264,
+     "src": "note"
+    },
+    {
+     "text": "of",
+     "start": 30.815,
+     "end": 30.9486,
+     "attack": 30.755,
+     "g16": 265,
+     "src": "note"
+    },
+    {
+     "text": "points",
+     "start": 31.03,
+     "end": 31.309,
+     "g16": 267,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 13,
+   "text": "Then I will give you my",
+   "start": 31.25,
+   "end": 32.7039,
+   "section": "v1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    31.116,
+    32.682
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 31.375,
+     "end": 31.5493,
+     "attack": 31.25,
+     "g16": 270,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 31.625,
+     "end": 31.675,
+     "g16": 272,
+     "src": "note"
+    },
+    {
+     "text": "will",
+     "start": 31.82,
+     "end": 32.0098,
+     "attack": 31.675,
+     "g16": 274,
+     "src": "note"
+    },
+    {
+     "text": "give",
+     "start": 32.095,
+     "end": 32.2901,
+     "attack": 32.05,
+     "g16": 276,
+     "src": "note"
+    },
+    {
+     "text": "you",
+     "start": 32.3,
+     "end": 32.4403,
+     "g16": 278,
+     "src": "note"
+    },
+    {
+     "text": "my",
+     "start": 32.5404,
+     "end": 32.7039,
+     "g16": 280,
+     "src": "ctc"
+    }
+   ]
+  },
+  {
+   "i": 14,
+   "text": "DIMENSION",
+   "start": 32.8,
+   "end": 33.3813,
+   "section": "v1",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    32.682,
+    33.412
+   ],
+   "words": [
+    {
+     "text": "DIMENSION",
+     "start": 32.8,
+     "end": 33.3813,
+     "g16": 282,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 15,
+   "text": "If I'm a circle",
+   "start": 33.44,
+   "end": 35.0255,
+   "section": "v1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    33.412,
+    34.646
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 33.5,
+     "end": 33.6617,
+     "attack": 33.44,
+     "g16": 288,
+     "src": "note"
+    },
+    {
+     "text": "I'm",
+     "start": 34.0849,
+     "end": 34.1923,
+     "attack": 33.98,
+     "g16": 293,
+     "src": "ctc"
+    },
+    {
+     "text": "a",
+     "start": 34.22,
+     "end": 34.295,
+     "g16": 295,
+     "src": "note"
+    },
+    {
+     "text": "circle",
+     "start": 34.395,
+     "end": 35.0255,
+     "attack": 34.295,
+     "g16": 296,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 16,
+   "text": "Then I will give you my",
+   "start": 34.93,
+   "end": 36.3664,
+   "section": "v1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    34.646,
+    36.287
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 35.09,
+     "end": 35.2435,
+     "attack": 34.93,
+     "g16": 302,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 35.335,
+     "end": 35.4637,
+     "g16": 304,
+     "src": "note"
+    },
+    {
+     "text": "will",
+     "start": 35.555,
+     "end": 35.724,
+     "g16": 306,
+     "src": "note"
+    },
+    {
+     "text": "give",
+     "start": 35.79,
+     "end": 35.9862,
+     "attack": 35.75,
+     "g16": 308,
+     "src": "note"
+    },
+    {
+     "text": "you",
+     "start": 36.02,
+     "end": 36.1463,
+     "attack": 35.99,
+     "g16": 310,
+     "src": "note"
+    },
+    {
+     "text": "my",
+     "start": 36.275,
+     "end": 36.3664,
+     "g16": 312,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 17,
+   "text": "CIRCUMFERENCE",
+   "start": 36.37,
+   "end": 37.197,
+   "section": "v1",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    36.287,
+    37.067
+   ],
+   "words": [
+    {
+     "text": "CIRCUMFERENCE",
+     "start": 36.505,
+     "end": 37.197,
+     "attack": 36.37,
+     "g16": 314,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 18,
+   "text": "If I'm a sine wave",
+   "start": 37.335,
+   "end": 38.7274,
+   "section": "v1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    37.067,
+    38.596
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 37.335,
+     "end": 37.385,
+     "g16": 322,
+     "src": "note"
+    },
+    {
+     "text": "I'm",
+     "start": 37.735,
+     "end": 37.8865,
+     "attack": 37.585,
+     "g16": 325,
+     "src": "note"
+    },
+    {
+     "text": "a",
+     "start": 37.905,
+     "end": 37.98,
+     "g16": 326,
+     "src": "note"
+    },
+    {
+     "text": "sine",
+     "start": 38.06,
+     "end": 38.3878,
+     "attack": 37.98,
+     "g16": 328,
+     "src": "note"
+    },
+    {
+     "text": "wave",
+     "start": 38.4571,
+     "end": 38.7274,
+     "g16": 331,
+     "src": "ctc"
+    }
+   ]
+  },
+  {
+   "i": 19,
+   "text": "Then you can sit on all my",
+   "start": 38.685,
+   "end": 40.0288,
+   "section": "v1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    38.596,
+    40.049
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 38.77,
+     "end": 38.9271,
+     "attack": 38.685,
+     "g16": 334,
+     "src": "note"
+    },
+    {
+     "text": "you",
+     "start": 39.045,
+     "end": 39.1283,
+     "attack": 38.97,
+     "g16": 336,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 39.255,
+     "end": 39.3481,
+     "attack": 39.21,
+     "g16": 338,
+     "src": "note"
+    },
+    {
+     "text": "sit",
+     "start": 39.475,
+     "end": 39.5884,
+     "attack": 39.37,
+     "g16": 340,
+     "src": "note"
+    },
+    {
+     "text": "on",
+     "start": 39.72,
+     "end": 39.77,
+     "attack": 39.685,
+     "g16": 342,
+     "src": "note"
+    },
+    {
+     "text": "all",
+     "start": 39.7986,
+     "end": 39.855,
+     "g16": 343,
+     "src": "ctc"
+    },
+    {
+     "text": "my",
+     "start": 39.9388,
+     "end": 40.0288,
+     "attack": 39.855,
+     "g16": 344,
+     "src": "ctc"
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "text": "TANGENTS",
+   "start": 40.095,
+   "end": 40.9033,
+   "section": "v1",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    40.049,
+    40.706
+   ],
+   "words": [
+    {
+     "text": "TANGENTS",
+     "start": 40.125,
+     "end": 40.9033,
+     "attack": 40.095,
+     "g16": 346,
+     "src": "corrected",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 21,
+   "text": "If I approach infinity",
+   "start": 40.815,
+   "end": 42.2698,
+   "section": "v1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    40.706,
+    42.346
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 40.885,
+     "end": 41.0636,
+     "attack": 40.815,
+     "g16": 352,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 41.075,
+     "end": 41.145,
+     "g16": 354,
+     "src": "note"
+    },
+    {
+     "text": "approach",
+     "start": 41.145,
+     "end": 41.455,
+     "g16": 355,
+     "src": "note"
+    },
+    {
+     "text": "infinity",
+     "start": 41.57,
+     "end": 42.2698,
+     "attack": 41.455,
+     "g16": 358,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 22,
+   "text": "Then you can be my",
+   "start": 42.43,
+   "end": 43.5517,
+   "section": "v1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    42.346,
+    43.507
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 42.475,
+     "end": 42.6142,
+     "attack": 42.43,
+     "g16": 366,
+     "src": "note"
+    },
+    {
+     "text": "you",
+     "start": 42.72,
+     "end": 42.82,
+     "attack": 42.67,
+     "g16": 368,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 42.88,
+     "end": 43.0546,
+     "attack": 42.82,
+     "g16": 370,
+     "src": "note"
+    },
+    {
+     "text": "be",
+     "start": 43.18,
+     "end": 43.2913,
+     "g16": 372,
+     "src": "note"
+    },
+    {
+     "text": "my",
+     "start": 43.42,
+     "end": 43.5517,
+     "g16": 374,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 23,
+   "text": "LIMITATIONS",
+   "start": 43.49,
+   "end": 44.503,
+   "section": "v1",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    43.507,
+    44.452
+   ],
+   "words": [
+    {
+     "text": "LIMITATIONS",
+     "start": 43.65,
+     "end": 44.503,
+     "attack": 43.49,
+     "g16": 376,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 24,
+   "text": "Switch my current",
+   "start": 44.56,
+   "end": 45.9251,
+   "section": "pre1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    44.452,
+    45.85
+   ],
+   "words": [
+    {
+     "text": "Switch",
+     "start": 44.56,
+     "end": 44.8764,
+     "g16": 384,
+     "src": "note"
+    },
+    {
+     "text": "my",
+     "start": 45.0,
+     "end": 45.2441,
+     "g16": 388,
+     "src": "note"
+    },
+    {
+     "text": "current",
+     "start": 45.445,
+     "end": 45.9251,
+     "attack": 45.405,
+     "g16": 392,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 25,
+   "text": "To AC to DC",
+   "start": 46.055,
+   "end": 47.7361,
+   "section": "pre1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    45.85,
+    47.672
+   ],
+   "words": [
+    {
+     "text": "To",
+     "start": 46.135,
+     "end": 46.2178,
+     "attack": 46.055,
+     "g16": 398,
+     "src": "note"
+    },
+    {
+     "text": "AC",
+     "start": 46.3657,
+     "end": 46.8574,
+     "g16": 400,
+     "src": "ctc"
+    },
+    {
+     "text": "to",
+     "start": 47.065,
+     "end": 47.1468,
+     "g16": 406,
+     "src": "note"
+    },
+    {
+     "text": "DC",
+     "start": 47.315,
+     "end": 47.7361,
+     "g16": 408,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 26,
+   "text": "And then blind my vision",
+   "start": 47.925,
+   "end": 49.5202,
+   "section": "pre1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    47.672,
+    49.534
+   ],
+   "words": [
+    {
+     "text": "And",
+     "start": 47.925,
+     "end": 47.975,
+     "g16": 413,
+     "src": "note"
+    },
+    {
+     "text": "then",
+     "start": 48.02,
+     "end": 48.1168,
+     "g16": 414,
+     "src": "note"
+    },
+    {
+     "text": "blind",
+     "start": 48.26,
+     "end": 48.5595,
+     "g16": 416,
+     "src": "note"
+    },
+    {
+     "text": "my",
+     "start": 48.725,
+     "end": 48.9394,
+     "g16": 420,
+     "src": "note"
+    },
+    {
+     "text": "vision",
+     "start": 49.16,
+     "end": 49.5202,
+     "g16": 424,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 27,
+   "text": "So dizzy so dizzy",
+   "start": 49.765,
+   "end": 51.3829,
+   "section": "pre1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    49.534,
+    51.363
+   ],
+   "words": [
+    {
+     "text": "So",
+     "start": 49.845,
+     "end": 49.9408,
+     "attack": 49.765,
+     "g16": 430,
+     "src": "note"
+    },
+    {
+     "text": "dizzy",
+     "start": 50.095,
+     "end": 50.4612,
+     "g16": 432,
+     "src": "note"
+    },
+    {
+     "text": "so",
+     "start": 50.685,
+     "end": 50.8624,
+     "attack": 50.605,
+     "g16": 437,
+     "src": "note"
+    },
+    {
+     "text": "dizzy",
+     "start": 51.01,
+     "end": 51.3829,
+     "g16": 440,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 28,
+   "text": "Oh we can travel",
+   "start": 51.485,
+   "end": 53.187,
+   "section": "pre1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    51.363,
+    53.225
+   ],
+   "words": [
+    {
+     "text": "Oh",
+     "start": 51.485,
+     "end": 51.7359,
+     "g16": 444,
+     "src": "note"
+    },
+    {
+     "text": "we",
+     "start": 51.935,
+     "end": 52.1215,
+     "g16": 448,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 52.3372,
+     "end": 52.6421,
+     "attack": 52.24,
+     "g16": 452,
+     "src": "ctc"
+    },
+    {
+     "text": "travel",
+     "start": 52.825,
+     "end": 53.187,
+     "attack": 52.765,
+     "g16": 456,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 29,
+   "text": "To A.D to B.C",
+   "start": 53.3,
+   "end": 55.2017,
+   "section": "pre1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    53.225,
+    55.083
+   ],
+   "words": [
+    {
+     "text": "To",
+     "start": 53.395,
+     "end": 53.6053,
+     "attack": 53.3,
+     "g16": 461,
+     "src": "note"
+    },
+    {
+     "text": "A.D",
+     "start": 53.79,
+     "end": 54.142,
+     "g16": 464,
+     "src": "note"
+    },
+    {
+     "text": "to",
+     "start": 54.465,
+     "end": 54.5544,
+     "attack": 54.43,
+     "g16": 470,
+     "src": "note"
+    },
+    {
+     "text": "B.C",
+     "start": 54.695,
+     "end": 55.2017,
+     "g16": 472,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "text": "And we can unite",
+   "start": 55.195,
+   "end": 57.0673,
+   "section": "pre1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    55.083,
+    56.916
+   ],
+   "words": [
+    {
+     "text": "And",
+     "start": 55.195,
+     "end": 55.3753,
+     "g16": 476,
+     "src": "note"
+    },
+    {
+     "text": "we",
+     "start": 55.62,
+     "end": 55.7842,
+     "attack": 55.46,
+     "g16": 480,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 56.04,
+     "end": 56.3064,
+     "attack": 56.005,
+     "g16": 484,
+     "src": "note"
+    },
+    {
+     "text": "unite",
+     "start": 56.525,
+     "end": 57.0673,
+     "attack": 56.44,
+     "g16": 488,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 31,
+   "text": "So deeply so deeply",
+   "start": 57.165,
+   "end": 58.8294,
+   "section": "pre1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    56.916,
+    59.223
+   ],
+   "words": [
+    {
+     "text": "So",
+     "start": 57.23,
+     "end": 57.3376,
+     "attack": 57.165,
+     "g16": 494,
+     "src": "note"
+    },
+    {
+     "text": "deeply",
+     "start": 57.475,
+     "end": 57.8506,
+     "g16": 496,
+     "src": "note"
+    },
+    {
+     "text": "so",
+     "start": 58.155,
+     "end": 58.2787,
+     "attack": 58.025,
+     "g16": 502,
+     "src": "note"
+    },
+    {
+     "text": "deeply",
+     "start": 58.41,
+     "end": 58.8294,
+     "g16": 504,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 32,
+   "text": "If I can",
+   "start": 59.485,
+   "end": 60.1323,
+   "section": "c1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    59.223,
+    59.687
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 59.575,
+     "end": 59.625,
+     "attack": 59.485,
+     "g16": 514,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 59.78,
+     "end": 59.8806,
+     "attack": 59.665,
+     "g16": 516,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 60.02,
+     "end": 60.1323,
+     "attack": 59.975,
+     "g16": 518,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 33,
+   "text": "If I can give you all the",
+   "start": 60.245,
+   "end": 61.95,
+   "section": "c1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    59.687,
+    61.958
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 60.405,
+     "end": 60.4713,
+     "attack": 60.245,
+     "g16": 521,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 60.72,
+     "end": 60.8217,
+     "g16": 524,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 60.94,
+     "end": 61.053,
+     "attack": 60.895,
+     "g16": 526,
+     "src": "note"
+    },
+    {
+     "text": "give",
+     "start": 61.155,
+     "end": 61.3624,
+     "g16": 528,
+     "src": "note"
+    },
+    {
+     "text": "you",
+     "start": 61.4333,
+     "end": 61.5321,
+     "attack": 61.38,
+     "g16": 530,
+     "src": "ctc"
+    },
+    {
+     "text": "all",
+     "start": 61.755,
+     "end": 61.8329,
+     "g16": 533,
+     "src": "note"
+    },
+    {
+     "text": "the",
+     "start": 61.87,
+     "end": 61.95,
+     "g16": 534,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 34,
+   "text": "STIMULATIONS",
+   "start": 61.98,
+   "end": 62.9944,
+   "section": "c1",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    61.958,
+    62.589
+   ],
+   "words": [
+    {
+     "text": "STIMULATIONS",
+     "start": 62.105,
+     "end": 62.9944,
+     "attack": 61.98,
+     "g16": 536,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 35,
+   "text": "Then I can",
+   "start": 62.975,
+   "end": 63.5749,
+   "section": "c1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    62.589,
+    63.535
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 63.12,
+     "end": 63.3148,
+     "attack": 62.975,
+     "g16": 545,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 63.315,
+     "end": 63.365,
+     "g16": 547,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 63.47,
+     "end": 63.5749,
+     "g16": 548,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 36,
+   "text": "Then I can be your only",
+   "start": 63.95,
+   "end": 65.6511,
+   "section": "c1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    63.535,
+    65.397
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 63.95,
+     "end": 64.2635,
+     "g16": 552,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 64.4982,
+     "end": 64.5482,
+     "attack": 64.42,
+     "g16": 557,
+     "src": "ctc"
+    },
+    {
+     "text": "can",
+     "start": 64.585,
+     "end": 64.7584,
+     "g16": 558,
+     "src": "note"
+    },
+    {
+     "text": "be",
+     "start": 64.88,
+     "end": 64.99,
+     "g16": 560,
+     "src": "note"
+    },
+    {
+     "text": "your",
+     "start": 65.0987,
+     "end": 65.2905,
+     "g16": 562,
+     "src": "ctc"
+    },
+    {
+     "text": "only",
+     "start": 65.395,
+     "end": 65.6511,
+     "attack": 65.355,
+     "g16": 565,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 37,
+   "text": "SATISFACTION",
+   "start": 65.685,
+   "end": 66.5744,
+   "section": "c1",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    65.397,
+    66.601
+   ],
+   "words": [
+    {
+     "text": "SATISFACTION",
+     "start": 65.785,
+     "end": 66.5744,
+     "attack": 65.685,
+     "g16": 568,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 38,
+   "text": "If I can make you happy",
+   "start": 66.745,
+   "end": 68.4384,
+   "section": "c1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    66.601,
+    68.252
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 66.745,
+     "end": 66.9066,
+     "g16": 576,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 67.18,
+     "end": 67.2537,
+     "g16": 580,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 67.395,
+     "end": 67.5004,
+     "attack": 67.37,
+     "g16": 582,
+     "src": "note"
+    },
+    {
+     "text": "make",
+     "start": 67.64,
+     "end": 67.81,
+     "g16": 584,
+     "src": "note"
+    },
+    {
+     "text": "you",
+     "start": 67.855,
+     "end": 67.9407,
+     "attack": 67.81,
+     "g16": 586,
+     "src": "note"
+    },
+    {
+     "text": "happy",
+     "start": 68.085,
+     "end": 68.4384,
+     "attack": 68.025,
+     "g16": 588,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 39,
+   "text": "I will run the",
+   "start": 68.57,
+   "end": 69.4017,
+   "section": "c1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    68.252,
+    69.259
+   ],
+   "words": [
+    {
+     "text": "I",
+     "start": 68.57,
+     "end": 68.6373,
+     "g16": 592,
+     "src": "note"
+    },
+    {
+     "text": "will",
+     "start": 68.76,
+     "end": 68.9778,
+     "g16": 594,
+     "src": "note"
+    },
+    {
+     "text": "run",
+     "start": 69.035,
+     "end": 69.1615,
+     "g16": 596,
+     "src": "note"
+    },
+    {
+     "text": "the",
+     "start": 69.295,
+     "end": 69.4017,
+     "attack": 69.215,
+     "g16": 599,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 40,
+   "text": "EXECUTION",
+   "start": 69.49,
+   "end": 70.2823,
+   "section": "c1",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    69.259,
+    70.084
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 69.49,
+     "end": 70.2823,
+     "g16": 600,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 41,
+   "text": "Though we are trapped",
+   "start": 70.42,
+   "end": 71.7417,
+   "section": "c1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    70.084,
+    71.764
+   ],
+   "words": [
+    {
+     "text": "Though",
+     "start": 70.42,
+     "end": 70.7219,
+     "g16": 608,
+     "src": "note"
+    },
+    {
+     "text": "we",
+     "start": 70.87,
+     "end": 70.945,
+     "g16": 612,
+     "src": "note"
+    },
+    {
+     "text": "are",
+     "start": 71.1,
+     "end": 71.23,
+     "attack": 70.945,
+     "g16": 614,
+     "src": "note"
+    },
+    {
+     "text": "trapped",
+     "start": 71.315,
+     "end": 71.7417,
+     "attack": 71.23,
+     "g16": 616,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 42,
+   "text": "In this strange strange",
+   "start": 71.745,
+   "end": 73.0042,
+   "section": "c1",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    71.764,
+    73.169
+   ],
+   "words": [
+    {
+     "text": "In",
+     "start": 71.805,
+     "end": 71.9235,
+     "attack": 71.745,
+     "g16": 620,
+     "src": "note"
+    },
+    {
+     "text": "this",
+     "start": 72.025,
+     "end": 72.11,
+     "g16": 622,
+     "src": "note"
+    },
+    {
+     "text": "strange",
+     "start": 72.145,
+     "end": 72.53,
+     "attack": 72.11,
+     "g16": 623,
+     "src": "note"
+    },
+    {
+     "text": "strange",
+     "start": 72.6,
+     "end": 73.0042,
+     "attack": 72.53,
+     "g16": 627,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 43,
+   "text": "SIMULATION",
+   "start": 73.185,
+   "end": 74.0249,
+   "section": "c1",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    73.169,
+    74.045
+   ],
+   "words": [
+    {
+     "text": "SIMULATION",
+     "start": 73.185,
+     "end": 74.0249,
+     "g16": 632,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 44,
+   "text": "If I'm an eggplant",
+   "start": 74.04,
+   "end": 75.615,
+   "section": "v2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    74.045,
+    75.422
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 74.095,
+     "end": 74.2529,
+     "attack": 74.04,
+     "g16": 640,
+     "src": "note"
+    },
+    {
+     "text": "I'm",
+     "start": 74.729,
+     "end": 74.8138,
+     "g16": 646,
+     "src": "ctc"
+    },
+    {
+     "text": "an",
+     "start": 74.885,
+     "end": 74.9785,
+     "g16": 647,
+     "src": "note"
+    },
+    {
+     "text": "eggplant",
+     "start": 75.155,
+     "end": 75.615,
+     "attack": 75.015,
+     "g16": 649,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 45,
+   "text": "Then I will give you my",
+   "start": 75.645,
+   "end": 77.0436,
+   "section": "v2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    75.422,
+    76.959
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 75.705,
+     "end": 75.8794,
+     "attack": 75.645,
+     "g16": 654,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 75.955,
+     "end": 76.0757,
+     "attack": 75.925,
+     "g16": 656,
+     "src": "note"
+    },
+    {
+     "text": "will",
+     "start": 76.17,
+     "end": 76.336,
+     "g16": 658,
+     "src": "note"
+    },
+    {
+     "text": "give",
+     "start": 76.405,
+     "end": 76.6002,
+     "attack": 76.36,
+     "g16": 660,
+     "src": "note"
+    },
+    {
+     "text": "you",
+     "start": 76.63,
+     "end": 76.7366,
+     "g16": 662,
+     "src": "note"
+    },
+    {
+     "text": "my",
+     "start": 76.79,
+     "end": 77.0436,
+     "g16": 663,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 46,
+   "text": "NUTRIENTS",
+   "start": 77.04,
+   "end": 77.755,
+   "section": "v2",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    76.959,
+    77.576
+   ],
+   "words": [
+    {
+     "text": "NUTRIENTS",
+     "start": 77.07,
+     "end": 77.755,
+     "attack": 77.04,
+     "g16": 666,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 47,
+   "text": "If I'm a tomato",
+   "start": 77.73,
+   "end": 79.1615,
+   "section": "v2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    77.576,
+    79.226
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 77.795,
+     "end": 77.9554,
+     "attack": 77.73,
+     "g16": 672,
+     "src": "note"
+    },
+    {
+     "text": "I'm",
+     "start": 78.25,
+     "end": 78.5021,
+     "attack": 78.21,
+     "g16": 676,
+     "src": "note"
+    },
+    {
+     "text": "a",
+     "start": 78.57,
+     "end": 78.6367,
+     "g16": 679,
+     "src": "note"
+    },
+    {
+     "text": "tomato",
+     "start": 78.695,
+     "end": 79.1615,
+     "attack": 78.665,
+     "g16": 680,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 48,
+   "text": "Then I will give you",
+   "start": 79.365,
+   "end": 80.424,
+   "section": "v2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    79.226,
+    80.62
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 79.39,
+     "end": 79.5632,
+     "attack": 79.365,
+     "g16": 686,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 79.64,
+     "end": 79.7634,
+     "g16": 688,
+     "src": "note"
+    },
+    {
+     "text": "will",
+     "start": 79.875,
+     "end": 80.0316,
+     "g16": 690,
+     "src": "note"
+    },
+    {
+     "text": "give",
+     "start": 80.09,
+     "end": 80.2819,
+     "attack": 80.055,
+     "g16": 692,
+     "src": "note"
+    },
+    {
+     "text": "you",
+     "start": 80.305,
+     "end": 80.424,
+     "g16": 694,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 49,
+   "text": "ANTIOXIDANTS",
+   "start": 80.5,
+   "end": 81.4737,
+   "section": "v2",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    80.62,
+    81.351
+   ],
+   "words": [
+    {
+     "text": "ANTIOXIDANTS",
+     "start": 80.565,
+     "end": 81.4737,
+     "attack": 80.5,
+     "g16": 696,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 50,
+   "text": "If I'm a tabby cat",
+   "start": 81.41,
+   "end": 82.9652,
+   "section": "v2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    81.351,
+    82.833
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 81.49,
+     "end": 81.6346,
+     "attack": 81.41,
+     "g16": 704,
+     "src": "note"
+    },
+    {
+     "text": "I'm",
+     "start": 82.15,
+     "end": 82.2148,
+     "g16": 710,
+     "src": "note"
+    },
+    {
+     "text": "a",
+     "start": 82.325,
+     "end": 82.375,
+     "attack": 82.27,
+     "g16": 711,
+     "src": "note"
+    },
+    {
+     "text": "tabby",
+     "start": 82.395,
+     "end": 82.6446,
+     "g16": 712,
+     "src": "note"
+    },
+    {
+     "text": "cat",
+     "start": 82.715,
+     "end": 82.9652,
+     "g16": 715,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 51,
+   "text": "Then I will purr for your",
+   "start": 82.96,
+   "end": 84.348,
+   "section": "v2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    82.833,
+    84.268
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 83.08,
+     "end": 83.2664,
+     "attack": 82.96,
+     "g16": 718,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 83.41,
+     "end": 83.4767,
+     "attack": 83.345,
+     "g16": 721,
+     "src": "note"
+    },
+    {
+     "text": "will",
+     "start": 83.52,
+     "end": 83.717,
+     "g16": 722,
+     "src": "note"
+    },
+    {
+     "text": "purr",
+     "start": 83.745,
+     "end": 83.9273,
+     "g16": 724,
+     "src": "note"
+    },
+    {
+     "text": "for",
+     "start": 84.025,
+     "end": 84.14,
+     "attack": 83.93,
+     "g16": 726,
+     "src": "note"
+    },
+    {
+     "text": "your",
+     "start": 84.265,
+     "end": 84.348,
+     "attack": 84.14,
+     "g16": 728,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 52,
+   "text": "ENJOYMENT",
+   "start": 84.475,
+   "end": 85.1163,
+   "section": "v2",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    84.268,
+    85.078
+   ],
+   "words": [
+    {
+     "text": "ENJOYMENT",
+     "start": 84.475,
+     "end": 85.1163,
+     "g16": 730,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 53,
+   "text": "If I'm the only god",
+   "start": 85.33,
+   "end": 86.6637,
+   "section": "v2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    85.078,
+    86.538
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 85.33,
+     "end": 85.38,
+     "g16": 737,
+     "src": "note"
+    },
+    {
+     "text": "I'm",
+     "start": 85.735,
+     "end": 85.8769,
+     "attack": 85.61,
+     "g16": 741,
+     "src": "note"
+    },
+    {
+     "text": "the",
+     "start": 85.94,
+     "end": 86.005,
+     "g16": 743,
+     "src": "note"
+    },
+    {
+     "text": "only",
+     "start": 86.005,
+     "end": 86.3032,
+     "g16": 743,
+     "src": "note"
+    },
+    {
+     "text": "god",
+     "start": 86.39,
+     "end": 86.6637,
+     "g16": 747,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 54,
+   "text": "Then you're the proof of my",
+   "start": 86.685,
+   "end": 88.0922,
+   "section": "v2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    86.538,
+    87.922
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 86.785,
+     "end": 86.914,
+     "attack": 86.685,
+     "g16": 750,
+     "src": "note"
+    },
+    {
+     "text": "you're",
+     "start": 87.01,
+     "end": 87.1907,
+     "attack": 86.96,
+     "g16": 752,
+     "src": "note"
+    },
+    {
+     "text": "the",
+     "start": 87.245,
+     "end": 87.3181,
+     "attack": 87.22,
+     "g16": 754,
+     "src": "note"
+    },
+    {
+     "text": "proof",
+     "start": 87.36,
+     "end": 87.625,
+     "g16": 755,
+     "src": "note"
+    },
+    {
+     "text": "of",
+     "start": 87.7,
+     "end": 87.8386,
+     "attack": 87.625,
+     "g16": 758,
+     "src": "note"
+    },
+    {
+     "text": "my",
+     "start": 87.92,
+     "end": 88.0922,
+     "g16": 760,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 55,
+   "text": "EXISTENCE",
+   "start": 88.17,
+   "end": 88.7994,
+   "section": "v2",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    87.922,
+    88.587
+   ],
+   "words": [
+    {
+     "text": "EXISTENCE",
+     "start": 88.17,
+     "end": 88.7994,
+     "g16": 762,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 56,
+   "text": "Switch my gender",
+   "start": 88.85,
+   "end": 90.1581,
+   "section": "pre2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    88.587,
+    90.197
+   ],
+   "words": [
+    {
+     "text": "Switch",
+     "start": 88.85,
+     "end": 89.1396,
+     "g16": 768,
+     "src": "note"
+    },
+    {
+     "text": "my",
+     "start": 89.3,
+     "end": 89.5273,
+     "g16": 772,
+     "src": "note"
+    },
+    {
+     "text": "gender",
+     "start": 89.665,
+     "end": 90.1581,
+     "g16": 775,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 57,
+   "text": "To F to M",
+   "start": 90.255,
+   "end": 91.942,
+   "section": "pre2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    90.197,
+    92.015
+   ],
+   "words": [
+    {
+     "text": "To",
+     "start": 90.39,
+     "end": 90.5086,
+     "attack": 90.255,
+     "g16": 781,
+     "src": "note"
+    },
+    {
+     "text": "F",
+     "start": 90.92,
+     "end": 91.19,
+     "g16": 786,
+     "src": "note"
+    },
+    {
+     "text": "to",
+     "start": 91.3,
+     "end": 91.4798,
+     "attack": 91.19,
+     "g16": 789,
+     "src": "note"
+    },
+    {
+     "text": "M",
+     "start": 91.815,
+     "end": 91.942,
+     "attack": 91.69,
+     "g16": 794,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 58,
+   "text": "And then do whatever",
+   "start": 92.09,
+   "end": 93.8228,
+   "section": "pre2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    92.015,
+    93.953
+   ],
+   "words": [
+    {
+     "text": "And",
+     "start": 92.13,
+     "end": 92.2823,
+     "attack": 92.09,
+     "g16": 796,
+     "src": "note"
+    },
+    {
+     "text": "then",
+     "start": 92.32,
+     "end": 92.441,
+     "g16": 798,
+     "src": "note"
+    },
+    {
+     "text": "do",
+     "start": 92.575,
+     "end": 92.67,
+     "attack": 92.54,
+     "g16": 800,
+     "src": "note"
+    },
+    {
+     "text": "whatever",
+     "start": 93.06,
+     "end": 93.8228,
+     "g16": 804,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 59,
+   "text": "From AM to PM",
+   "start": 94.025,
+   "end": 95.565,
+   "section": "pre2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    93.953,
+    95.465
+   ],
+   "words": [
+    {
+     "text": "From",
+     "start": 94.025,
+     "end": 94.3234,
+     "g16": 813,
+     "src": "note"
+    },
+    {
+     "text": "AM",
+     "start": 94.445,
+     "end": 94.814,
+     "attack": 94.37,
+     "g16": 816,
+     "src": "note"
+    },
+    {
+     "text": "to",
+     "start": 95.055,
+     "end": 95.1847,
+     "g16": 822,
+     "src": "note"
+    },
+    {
+     "text": "PM",
+     "start": 95.305,
+     "end": 95.565,
+     "g16": 824,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 60,
+   "text": "Oh switch my role",
+   "start": 95.8,
+   "end": 97.5343,
+   "section": "pre2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    95.465,
+    97.739
+   ],
+   "words": [
+    {
+     "text": "Oh",
+     "start": 95.8,
+     "end": 96.0884,
+     "g16": 828,
+     "src": "note"
+    },
+    {
+     "text": "switch",
+     "start": 96.235,
+     "end": 96.54,
+     "attack": 96.115,
+     "g16": 832,
+     "src": "note"
+    },
+    {
+     "text": "my",
+     "start": 96.695,
+     "end": 97.0295,
+     "attack": 96.54,
+     "g16": 836,
+     "src": "note"
+    },
+    {
+     "text": "role",
+     "start": 97.17,
+     "end": 97.5343,
+     "g16": 840,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 61,
+   "text": "To S to M",
+   "start": 97.835,
+   "end": 99.2889,
+   "section": "pre2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    97.739,
+    99.349
+   ],
+   "words": [
+    {
+     "text": "To",
+     "start": 97.86,
+     "end": 97.9607,
+     "attack": 97.835,
+     "g16": 846,
+     "src": "note"
+    },
+    {
+     "text": "S",
+     "start": 98.48,
+     "end": 98.6552,
+     "g16": 851,
+     "src": "note"
+    },
+    {
+     "text": "to",
+     "start": 98.765,
+     "end": 98.8818,
+     "g16": 854,
+     "src": "note"
+    },
+    {
+     "text": "M",
+     "start": 99.2022,
+     "end": 99.2889,
+     "g16": 858,
+     "src": "ctc"
+    }
+   ]
+  },
+  {
+   "i": 62,
+   "text": "So we can enter",
+   "start": 99.325,
+   "end": 101.2547,
+   "section": "pre2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    99.349,
+    101.474
+   ],
+   "words": [
+    {
+     "text": "So",
+     "start": 99.325,
+     "end": 99.6528,
+     "g16": 859,
+     "src": "note"
+    },
+    {
+     "text": "we",
+     "start": 99.925,
+     "end": 100.1302,
+     "attack": 99.89,
+     "g16": 864,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 100.385,
+     "end": 100.6225,
+     "attack": 100.33,
+     "g16": 868,
+     "src": "note"
+    },
+    {
+     "text": "enter",
+     "start": 100.85,
+     "end": 101.2547,
+     "attack": 100.805,
+     "g16": 872,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 63,
+   "text": "The trance the trance",
+   "start": 101.5,
+   "end": 103.1752,
+   "section": "pre2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    101.474,
+    103.489
+   ],
+   "words": [
+    {
+     "text": "The",
+     "start": 101.53,
+     "end": 101.6252,
+     "attack": 101.5,
+     "g16": 878,
+     "src": "note"
+    },
+    {
+     "text": "trance",
+     "start": 101.645,
+     "end": 102.256,
+     "g16": 879,
+     "src": "note"
+    },
+    {
+     "text": "the",
+     "start": 102.475,
+     "end": 102.5463,
+     "attack": 102.43,
+     "g16": 886,
+     "src": "note"
+    },
+    {
+     "text": "trance",
+     "start": 102.595,
+     "end": 103.1752,
+     "g16": 887,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 64,
+   "text": "If I can",
+   "start": 103.68,
+   "end": 104.4486,
+   "section": "c2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    103.489,
+    104.197
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 103.83,
+     "end": 103.88,
+     "attack": 103.68,
+     "g16": 898,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 104.135,
+     "end": 104.2083,
+     "g16": 900,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 104.32,
+     "end": 104.4486,
+     "g16": 902,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 65,
+   "text": "If I can feel your",
+   "start": 104.545,
+   "end": 106.2401,
+   "section": "c2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    104.197,
+    106.293
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 104.61,
+     "end": 104.7603,
+     "attack": 104.545,
+     "g16": 905,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 105.01,
+     "end": 105.1183,
+     "g16": 908,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 105.24,
+     "end": 105.3608,
+     "attack": 105.21,
+     "g16": 910,
+     "src": "note"
+    },
+    {
+     "text": "feel",
+     "start": 105.49,
+     "end": 105.7202,
+     "attack": 105.395,
+     "g16": 912,
+     "src": "note"
+    },
+    {
+     "text": "your",
+     "start": 105.95,
+     "end": 106.2401,
+     "attack": 105.825,
+     "g16": 916,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 66,
+   "text": "VIBRATIONS",
+   "start": 106.395,
+   "end": 107.3019,
+   "section": "c2",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    106.293,
+    107.22
+   ],
+   "words": [
+    {
+     "text": "VIBRATIONS",
+     "start": 106.395,
+     "end": 107.3019,
+     "g16": 920,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 67,
+   "text": "Then I can",
+   "start": 107.275,
+   "end": 107.9028,
+   "section": "c2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    107.22,
+    107.903
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 107.31,
+     "end": 107.6027,
+     "attack": 107.275,
+     "g16": 928,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 107.6826,
+     "end": 107.7326,
+     "g16": 931,
+     "src": "ctc"
+    },
+    {
+     "text": "can",
+     "start": 107.7627,
+     "end": 107.9028,
+     "g16": 932,
+     "src": "ctc"
+    }
+   ]
+  },
+  {
+   "i": 68,
+   "text": "Then I can finally be",
+   "start": 108.1634,
+   "end": 110.2001,
+   "section": "c2",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    107.903,
+    110.221
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 108.1634,
+     "end": 108.6016,
+     "g16": 935,
+     "src": "ctc"
+    },
+    {
+     "text": "I",
+     "start": 108.8119,
+     "end": 108.8619,
+     "attack": 108.76,
+     "g16": 941,
+     "src": "ctc"
+    },
+    {
+     "text": "can",
+     "start": 108.94,
+     "end": 109.0623,
+     "attack": 108.91,
+     "g16": 942,
+     "src": "note"
+    },
+    {
+     "text": "finally",
+     "start": 109.16,
+     "end": 109.9736,
+     "g16": 944,
+     "src": "note"
+    },
+    {
+     "text": "be",
+     "start": 110.06,
+     "end": 110.2001,
+     "g16": 952,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 69,
+   "text": "COMPLETION",
+   "start": 110.305,
+   "end": 110.8949,
+   "section": "c2",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    110.221,
+    110.9
+   ],
+   "words": [
+    {
+     "text": "COMPLETION",
+     "start": 110.305,
+     "end": 110.8949,
+     "g16": 954,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 70,
+   "text": "Though you have left",
+   "start": 111.01,
+   "end": 112.2441,
+   "section": "c2x",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    110.9,
+    112.12
+   ],
+   "words": [
+    {
+     "text": "Though",
+     "start": 111.01,
+     "end": 111.39,
+     "g16": 960,
+     "src": "note"
+    },
+    {
+     "text": "you",
+     "start": 111.48,
+     "end": 111.6059,
+     "attack": 111.39,
+     "g16": 964,
+     "src": "note"
+    },
+    {
+     "text": "have",
+     "start": 111.715,
+     "end": 111.8462,
+     "attack": 111.625,
+     "g16": 966,
+     "src": "note"
+    },
+    {
+     "text": "left",
+     "start": 111.95,
+     "end": 112.2441,
+     "attack": 111.86,
+     "g16": 968,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 71,
+   "text": "You have left",
+   "start": 112.26,
+   "end": 113.1581,
+   "section": "c2x",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    112.22,
+    113.02
+   ],
+   "words": [
+    {
+     "text": "You",
+     "start": 112.4,
+     "end": 112.5272,
+     "attack": 112.26,
+     "g16": 972,
+     "src": "note"
+    },
+    {
+     "text": "have",
+     "start": 112.62,
+     "end": 112.8,
+     "attack": 112.56,
+     "g16": 974,
+     "src": "note"
+    },
+    {
+     "text": "left",
+     "start": 112.855,
+     "end": 113.1581,
+     "attack": 112.8,
+     "g16": 976,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 72,
+   "text": "You have left",
+   "start": 113.185,
+   "end": 114.1194,
+   "section": "c2x",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    113.1,
+    114.06
+   ],
+   "words": [
+    {
+     "text": "You",
+     "start": 113.32,
+     "end": 113.4505,
+     "attack": 113.185,
+     "g16": 980,
+     "src": "note"
+    },
+    {
+     "text": "have",
+     "start": 113.555,
+     "end": 113.66,
+     "g16": 982,
+     "src": "note"
+    },
+    {
+     "text": "left",
+     "start": 113.795,
+     "end": 114.1194,
+     "attack": 113.66,
+     "g16": 984,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 73,
+   "text": "You have left",
+   "start": 114.14,
+   "end": 115.0507,
+   "section": "c2x",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    114.18,
+    114.84
+   ],
+   "words": [
+    {
+     "text": "You",
+     "start": 114.26,
+     "end": 114.3713,
+     "attack": 114.14,
+     "g16": 988,
+     "src": "note"
+    },
+    {
+     "text": "have",
+     "start": 114.41,
+     "end": 114.59,
+     "g16": 990,
+     "src": "note"
+    },
+    {
+     "text": "left",
+     "start": 114.73,
+     "end": 115.0507,
+     "attack": 114.59,
+     "g16": 992,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 74,
+   "text": "You have left",
+   "start": 115.005,
+   "end": 115.942,
+   "section": "c2x",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    114.92,
+    115.68
+   ],
+   "words": [
+    {
+     "text": "You",
+     "start": 115.085,
+     "end": 115.2922,
+     "attack": 115.005,
+     "g16": 995,
+     "src": "note"
+    },
+    {
+     "text": "have",
+     "start": 115.41,
+     "end": 115.55,
+     "g16": 998,
+     "src": "note"
+    },
+    {
+     "text": "left",
+     "start": 115.625,
+     "end": 115.942,
+     "attack": 115.55,
+     "g16": 1000,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 75,
+   "text": "You have left me in",
+   "start": 115.935,
+   "end": 117.3,
+   "section": "c2x",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    115.78,
+    117.24
+   ],
+   "words": [
+    {
+     "text": "You",
+     "start": 116.09,
+     "end": 116.233,
+     "attack": 115.935,
+     "g16": 1004,
+     "src": "note"
+    },
+    {
+     "text": "have",
+     "start": 116.3,
+     "end": 116.4923,
+     "g16": 1006,
+     "src": "note"
+    },
+    {
+     "text": "left",
+     "start": 116.53,
+     "end": 116.83,
+     "g16": 1008,
+     "src": "note"
+    },
+    {
+     "text": "me",
+     "start": 116.985,
+     "end": 117.0938,
+     "attack": 116.83,
+     "g16": 1012,
+     "src": "note"
+    },
+    {
+     "text": "in",
+     "start": 117.22,
+     "end": 117.3,
+     "attack": 117.145,
+     "g16": 1014,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 76,
+   "text": "ISOLATION",
+   "start": 117.36,
+   "end": 118.2966,
+   "section": "c2x",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    117.274,
+    118.333
+   ],
+   "words": [
+    {
+     "text": "ISOLATION",
+     "start": 117.455,
+     "end": 118.2966,
+     "attack": 117.36,
+     "g16": 1016,
+     "src": "corrected",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 77,
+   "text": "If I can",
+   "start": 118.4,
+   "end": 119.2199,
+   "section": "bridge",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    118.333,
+    118.979
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 118.4,
+     "end": 118.5735,
+     "g16": 1024,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 118.865,
+     "end": 118.9654,
+     "attack": 118.835,
+     "g16": 1028,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 119.1,
+     "end": 119.2199,
+     "attack": 119.065,
+     "g16": 1030,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 78,
+   "text": "If I can erase all the pointless",
+   "start": 119.34,
+   "end": 121.5442,
+   "section": "bridge",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    118.979,
+    120.86
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 119.34,
+     "end": 119.4782,
+     "g16": 1032,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 119.77,
+     "end": 119.8745,
+     "attack": 119.68,
+     "g16": 1036,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 120.01,
+     "end": 120.161,
+     "attack": 119.98,
+     "g16": 1038,
+     "src": "note"
+    },
+    {
+     "text": "erase",
+     "start": 120.26,
+     "end": 120.6633,
+     "g16": 1040,
+     "src": "note"
+    },
+    {
+     "text": "all",
+     "start": 120.695,
+     "end": 120.8752,
+     "g16": 1044,
+     "src": "note"
+    },
+    {
+     "text": "the",
+     "start": 120.93,
+     "end": 121.0153,
+     "g16": 1046,
+     "src": "note"
+    },
+    {
+     "text": "pointless",
+     "start": 121.175,
+     "end": 121.5442,
+     "attack": 121.135,
+     "g16": 1048,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 79,
+   "text": "FRAGMENTS",
+   "start": 121.495,
+   "end": 122.0561,
+   "section": "bridge",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    120.86,
+    121.728
+   ],
+   "words": [
+    {
+     "text": "FRAGMENTS",
+     "start": 121.63,
+     "end": 122.0561,
+     "attack": 121.495,
+     "g16": 1052,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 80,
+   "text": "Then maybe",
+   "start": 122.05,
+   "end": 122.8767,
+   "section": "bridge",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    121.728,
+    122.714
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 122.05,
+     "end": 122.415,
+     "g16": 1056,
+     "src": "note"
+    },
+    {
+     "text": "maybe",
+     "start": 122.5364,
+     "end": 122.8767,
+     "g16": 1060,
+     "src": "ctc"
+    }
+   ]
+  },
+  {
+   "i": 81,
+   "text": "Then maybe you won't leave me so",
+   "start": 123.02,
+   "end": 124.9666,
+   "section": "bridge",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    122.714,
+    124.89
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 123.02,
+     "end": 123.297,
+     "g16": 1064,
+     "src": "note"
+    },
+    {
+     "text": "maybe",
+     "start": 123.47,
+     "end": 123.8263,
+     "g16": 1068,
+     "src": "note"
+    },
+    {
+     "text": "you",
+     "start": 123.95,
+     "end": 124.0655,
+     "g16": 1072,
+     "src": "note"
+    },
+    {
+     "text": "won't",
+     "start": 124.16,
+     "end": 124.3559,
+     "g16": 1074,
+     "src": "note"
+    },
+    {
+     "text": "leave",
+     "start": 124.3859,
+     "end": 124.44,
+     "g16": 1076,
+     "src": "ctc"
+    },
+    {
+     "text": "me",
+     "start": 124.585,
+     "end": 124.718,
+     "attack": 124.44,
+     "g16": 1078,
+     "src": "note"
+    },
+    {
+     "text": "so",
+     "start": 124.845,
+     "end": 124.9666,
+     "attack": 124.745,
+     "g16": 1080,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 82,
+   "text": "DISHEARTENED",
+   "start": 125.075,
+   "end": 125.7388,
+   "section": "bridge",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    124.89,
+    125.708
+   ],
+   "words": [
+    {
+     "text": "DISHEARTENED",
+     "start": 125.075,
+     "end": 125.7388,
+     "g16": 1082,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 83,
+   "text": "Challenging your god",
+   "start": 125.73,
+   "end": 128.6007,
+   "section": "bridge",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    125.708,
+    128.661
+   ],
+   "words": [
+    {
+     "text": "Challenging",
+     "start": 125.795,
+     "end": 127.0984,
+     "attack": 125.73,
+     "g16": 1088,
+     "src": "note"
+    },
+    {
+     "text": "your",
+     "start": 127.125,
+     "end": 127.4995,
+     "g16": 1100,
+     "src": "note"
+    },
+    {
+     "text": "god",
+     "start": 127.65,
+     "end": 128.6007,
+     "g16": 1104,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 84,
+   "text": "You have made some",
+   "start": 129.0,
+   "end": 130.8139,
+   "section": "bridge",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    128.661,
+    131.224
+   ],
+   "words": [
+    {
+     "text": "You",
+     "start": 129.0,
+     "end": 129.1399,
+     "g16": 1116,
+     "src": "note"
+    },
+    {
+     "text": "have",
+     "start": 129.27,
+     "end": 129.4105,
+     "g16": 1118,
+     "src": "note"
+    },
+    {
+     "text": "made",
+     "start": 129.465,
+     "end": 130.2225,
+     "g16": 1120,
+     "src": "note"
+    },
+    {
+     "text": "some",
+     "start": 130.395,
+     "end": 130.8139,
+     "attack": 130.26,
+     "g16": 1128,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 85,
+   "text": "ILLEGAL ARGUMENTS",
+   "start": 131.315,
+   "end": 133.6707,
+   "section": "bridge",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    131.224,
+    133.612
+   ],
+   "words": [
+    {
+     "text": "ILLEGAL",
+     "start": 131.315,
+     "end": 132.2874,
+     "g16": 1136,
+     "src": "corrected",
+     "verified": true
+    },
+    {
+     "text": "ARGUMENTS",
+     "start": 132.485,
+     "end": 133.6707,
+     "g16": 1146,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 86,
+   "text": "EXECUTION",
+   "start": 147.85,
+   "end": 148.724,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    147.66,
+    148.56
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 147.935,
+     "end": 148.724,
+     "attack": 147.85,
+     "g16": 1280,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 87,
+   "text": "EXECUTION",
+   "start": 148.83,
+   "end": 149.6597,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    148.6,
+    149.44
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 148.96,
+     "end": 149.6597,
+     "attack": 148.83,
+     "g16": 1289,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 88,
+   "text": "EXECUTION",
+   "start": 149.795,
+   "end": 150.5699,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    149.52,
+    150.46
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 149.795,
+     "end": 150.5699,
+     "g16": 1296,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 89,
+   "text": "EXECUTION",
+   "start": 150.64,
+   "end": 151.4942,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    150.54,
+    151.4
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 150.715,
+     "end": 151.4942,
+     "attack": 150.64,
+     "g16": 1304,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 90,
+   "text": "EXECUTION",
+   "start": 151.59,
+   "end": 152.4047,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    151.52,
+    152.18
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 151.655,
+     "end": 152.4047,
+     "attack": 151.59,
+     "g16": 1312,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 91,
+   "text": "EXECUTION",
+   "start": 152.575,
+   "end": 153.3346,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    152.28,
+    153.1
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 152.6527,
+     "end": 153.3346,
+     "attack": 152.575,
+     "g16": 1321,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 92,
+   "text": "EXECUTION",
+   "start": 153.445,
+   "end": 154.2477,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    153.16,
+    153.9
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 153.55,
+     "end": 154.2477,
+     "attack": 153.445,
+     "g16": 1329,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 93,
+   "text": "EXECUTION",
+   "start": 154.325,
+   "end": 155.2097,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    153.98,
+    155.12
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 154.415,
+     "end": 155.2097,
+     "attack": 154.325,
+     "g16": 1336,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 94,
+   "text": "EXECUTION",
+   "start": 155.315,
+   "end": 156.0703,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    155.2,
+    156.02
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 155.315,
+     "end": 156.0703,
+     "g16": 1344,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 95,
+   "text": "EXECUTION",
+   "start": 156.265,
+   "end": 156.9928,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    156.08,
+    156.96
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 156.345,
+     "end": 156.9928,
+     "attack": 156.265,
+     "g16": 1353,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 96,
+   "text": "EXECUTION",
+   "start": 157.185,
+   "end": 157.9078,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    157.04,
+    157.92
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 157.25,
+     "end": 157.9078,
+     "attack": 157.185,
+     "g16": 1361,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 97,
+   "text": "EXECUTION",
+   "start": 158.035,
+   "end": 158.8895,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    158.0,
+    158.8
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 158.105,
+     "end": 158.8895,
+     "attack": 158.035,
+     "g16": 1368,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 98,
+   "text": "EIN",
+   "start": 158.99,
+   "end": 159.2589,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    158.9,
+    159.321
+   ],
+   "words": [
+    {
+     "text": "EIN",
+     "start": 159.035,
+     "end": 159.2589,
+     "attack": 158.99,
+     "g16": 1376,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 99,
+   "text": "DOS",
+   "start": 159.475,
+   "end": 159.7502,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    159.321,
+    159.657
+   ],
+   "words": [
+    {
+     "text": "DOS",
+     "start": 159.475,
+     "end": 159.7502,
+     "g16": 1380,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 100,
+   "text": "TROIS",
+   "start": 159.93,
+   "end": 160.0711,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    159.657,
+    160.244
+   ],
+   "words": [
+    {
+     "text": "TROIS",
+     "start": 159.93,
+     "end": 160.0711,
+     "g16": 1384,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 101,
+   "text": "NE",
+   "start": 160.405,
+   "end": 160.6324,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    160.244,
+    160.693
+   ],
+   "words": [
+    {
+     "text": "NE",
+     "start": 160.405,
+     "end": 160.6324,
+     "g16": 1388,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 102,
+   "text": "FEM",
+   "start": 160.8,
+   "end": 161.0563,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    160.693,
+    161.124
+   ],
+   "words": [
+    {
+     "text": "FEM",
+     "start": 160.835,
+     "end": 161.0563,
+     "attack": 160.8,
+     "g16": 1392,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 103,
+   "text": "LIU",
+   "start": 161.205,
+   "end": 161.4871,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    161.124,
+    161.584
+   ],
+   "words": [
+    {
+     "text": "LIU",
+     "start": 161.335,
+     "end": 161.4871,
+     "attack": 161.205,
+     "g16": 1396,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 104,
+   "text": "EXECUTION",
+   "start": 161.74,
+   "end": 162.6092,
+   "section": "chant",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    161.584,
+    162.632
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 161.77,
+     "end": 162.6092,
+     "attack": 161.74,
+     "g16": 1400,
+     "src": "corrected",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 105,
+   "text": "If I can",
+   "start": 162.79,
+   "end": 163.561,
+   "section": "c3",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    162.632,
+    163.315
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 162.79,
+     "end": 162.9562,
+     "g16": 1409,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 163.175,
+     "end": 163.225,
+     "g16": 1412,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 163.405,
+     "end": 163.561,
+     "attack": 163.375,
+     "g16": 1414,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 106,
+   "text": "If I can give them all the",
+   "start": 163.67,
+   "end": 165.3442,
+   "section": "c3",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    163.315,
+    165.166
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 163.67,
+     "end": 163.8515,
+     "g16": 1416,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 164.09,
+     "end": 164.1821,
+     "g16": 1420,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 164.325,
+     "end": 164.4453,
+     "attack": 164.29,
+     "g16": 1422,
+     "src": "note"
+    },
+    {
+     "text": "give",
+     "start": 164.545,
+     "end": 164.7056,
+     "g16": 1424,
+     "src": "note"
+    },
+    {
+     "text": "them",
+     "start": 164.775,
+     "end": 164.9034,
+     "g16": 1426,
+     "src": "note"
+    },
+    {
+     "text": "all",
+     "start": 165.115,
+     "end": 165.1951,
+     "g16": 1429,
+     "src": "ctc"
+    },
+    {
+     "text": "the",
+     "start": 165.235,
+     "end": 165.3442,
+     "g16": 1430,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 107,
+   "text": "EXECUTION",
+   "start": 165.6,
+   "end": 166.3252,
+   "section": "c3",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    165.166,
+    166.016
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 165.6,
+     "end": 166.3252,
+     "g16": 1433,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 108,
+   "text": "Then I can",
+   "start": 166.4,
+   "end": 167.2377,
+   "section": "c3",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    166.016,
+    167.022
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 166.4,
+     "end": 166.7655,
+     "g16": 1440,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 166.875,
+     "end": 166.9773,
+     "g16": 1444,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 167.09,
+     "end": 167.2377,
+     "attack": 167.055,
+     "g16": 1446,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 109,
+   "text": "Then I can be your only",
+   "start": 167.34,
+   "end": 168.9709,
+   "section": "c3",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    167.022,
+    168.911
+   ],
+   "words": [
+    {
+     "text": "Then",
+     "start": 167.34,
+     "end": 167.6685,
+     "g16": 1448,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 167.899,
+     "end": 167.949,
+     "g16": 1453,
+     "src": "ctc"
+    },
+    {
+     "text": "can",
+     "start": 168.025,
+     "end": 168.1494,
+     "attack": 167.98,
+     "g16": 1454,
+     "src": "note"
+    },
+    {
+     "text": "be",
+     "start": 168.25,
+     "end": 168.39,
+     "g16": 1456,
+     "src": "note"
+    },
+    {
+     "text": "your",
+     "start": 168.4998,
+     "end": 168.7104,
+     "g16": 1458,
+     "src": "ctc"
+    },
+    {
+     "text": "only",
+     "start": 168.8006,
+     "end": 168.9709,
+     "g16": 1461,
+     "src": "ctc"
+    }
+   ]
+  },
+  {
+   "i": 110,
+   "text": "EXECUTION",
+   "start": 169.285,
+   "end": 169.8171,
+   "section": "c3",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    168.911,
+    169.824
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 169.285,
+     "end": 169.8171,
+     "g16": 1465,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 111,
+   "text": "If I can have you back",
+   "start": 170.045,
+   "end": 171.854,
+   "section": "c3",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    169.824,
+    171.868
+   ],
+   "words": [
+    {
+     "text": "If",
+     "start": 170.085,
+     "end": 170.3156,
+     "attack": 170.045,
+     "g16": 1472,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 170.545,
+     "end": 170.6402,
+     "g16": 1476,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 170.76,
+     "end": 170.8764,
+     "g16": 1478,
+     "src": "note"
+    },
+    {
+     "text": "have",
+     "start": 171.025,
+     "end": 171.2769,
+     "attack": 170.93,
+     "g16": 1480,
+     "src": "note"
+    },
+    {
+     "text": "you",
+     "start": 171.48,
+     "end": 171.5773,
+     "g16": 1484,
+     "src": "note"
+    },
+    {
+     "text": "back",
+     "start": 171.705,
+     "end": 171.854,
+     "g16": 1486,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 112,
+   "text": "I will run the",
+   "start": 171.765,
+   "end": 172.5653,
+   "section": "c3",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    171.868,
+    172.712
+   ],
+   "words": [
+    {
+     "text": "I",
+     "start": 171.92,
+     "end": 171.97,
+     "attack": 171.765,
+     "g16": 1488,
+     "src": "note"
+    },
+    {
+     "text": "will",
+     "start": 171.98,
+     "end": 172.03,
+     "g16": 1488,
+     "src": "ctc"
+    },
+    {
+     "text": "run",
+     "start": 172.155,
+     "end": 172.3266,
+     "attack": 172.03,
+     "g16": 1490,
+     "src": "note"
+    },
+    {
+     "text": "the",
+     "start": 172.385,
+     "end": 172.5653,
+     "g16": 1492,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 113,
+   "text": "EXECUTION",
+   "start": 172.755,
+   "end": 173.6902,
+   "section": "c3",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    172.712,
+    173.643
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 172.865,
+     "end": 173.6902,
+     "attack": 172.755,
+     "g16": 1496,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 114,
+   "text": "Though we are trapped",
+   "start": 173.8,
+   "end": 175.0321,
+   "section": "c3",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    173.643,
+    174.975
+   ],
+   "words": [
+    {
+     "text": "Though",
+     "start": 173.8,
+     "end": 174.1182,
+     "g16": 1504,
+     "src": "note"
+    },
+    {
+     "text": "we",
+     "start": 174.24,
+     "end": 174.3887,
+     "g16": 1508,
+     "src": "note"
+    },
+    {
+     "text": "are",
+     "start": 174.615,
+     "end": 174.665,
+     "g16": 1511,
+     "src": "note"
+    },
+    {
+     "text": "trapped",
+     "start": 174.71,
+     "end": 175.0321,
+     "g16": 1512,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 115,
+   "text": "We are trapped ah",
+   "start": 175.03,
+   "end": 176.8159,
+   "section": "c3",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    174.975,
+    177.246
+   ],
+   "words": [
+    {
+     "text": "We",
+     "start": 175.185,
+     "end": 175.3425,
+     "attack": 175.03,
+     "g16": 1516,
+     "src": "note"
+    },
+    {
+     "text": "are",
+     "start": 175.41,
+     "end": 175.535,
+     "g16": 1518,
+     "src": "note"
+    },
+    {
+     "text": "trapped",
+     "start": 175.535,
+     "end": 176.2631,
+     "g16": 1519,
+     "src": "note"
+    },
+    {
+     "text": "ah",
+     "start": 176.73,
+     "end": 176.8159,
+     "g16": 1530,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 116,
+   "text": "I've studied",
+   "start": 177.1546,
+   "end": 177.8268,
+   "section": "love",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    177.246,
+    178.173
+   ],
+   "words": [
+    {
+     "text": "I've",
+     "start": 177.1546,
+     "end": 177.25,
+     "g16": 1533,
+     "src": "ctc"
+    },
+    {
+     "text": "studied",
+     "start": 177.25,
+     "end": 177.8268,
+     "g16": 1534,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 117,
+   "text": "I've studied how to properly",
+   "start": 178.0771,
+   "end": 179.9389,
+   "section": "love",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    178.173,
+    179.929
+   ],
+   "words": [
+    {
+     "text": "I've",
+     "start": 178.0771,
+     "end": 178.17,
+     "g16": 1541,
+     "src": "ctc"
+    },
+    {
+     "text": "studied",
+     "start": 178.2964,
+     "end": 178.7877,
+     "attack": 178.17,
+     "g16": 1543,
+     "src": "ctc"
+    },
+    {
+     "text": "how",
+     "start": 178.85,
+     "end": 179.2082,
+     "g16": 1548,
+     "src": "note"
+    },
+    {
+     "text": "to",
+     "start": 179.35,
+     "end": 179.4084,
+     "attack": 179.24,
+     "g16": 1552,
+     "src": "note"
+    },
+    {
+     "text": "properly",
+     "start": 179.555,
+     "end": 179.9389,
+     "attack": 179.42,
+     "g16": 1554,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 118,
+   "text": "LO-O-OVE",
+   "start": 180.04,
+   "end": 180.998,
+   "section": "love",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    179.929,
+    180.857
+   ],
+   "words": [
+    {
+     "text": "LO-O-OVE",
+     "start": 180.04,
+     "end": 180.998,
+     "g16": 1558,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 119,
+   "text": "Question me",
+   "start": 181.135,
+   "end": 181.9533,
+   "section": "love",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    180.857,
+    181.901
+   ],
+   "words": [
+    {
+     "text": "Question",
+     "start": 181.135,
+     "end": 181.7711,
+     "g16": 1568,
+     "src": "note"
+    },
+    {
+     "text": "me",
+     "start": 181.83,
+     "end": 181.9533,
+     "g16": 1574,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 120,
+   "text": "Question me I can answer all",
+   "start": 182.06,
+   "end": 184.13,
+   "section": "love",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    181.901,
+    183.646
+   ],
+   "words": [
+    {
+     "text": "Question",
+     "start": 182.06,
+     "end": 182.7065,
+     "g16": 1576,
+     "src": "note"
+    },
+    {
+     "text": "me",
+     "start": 182.75,
+     "end": 182.9205,
+     "g16": 1582,
+     "src": "note"
+    },
+    {
+     "text": "I",
+     "start": 183.15,
+     "end": 183.2,
+     "g16": 1585,
+     "src": "note"
+    },
+    {
+     "text": "can",
+     "start": 183.23,
+     "end": 183.4212,
+     "g16": 1586,
+     "src": "note"
+    },
+    {
+     "text": "answer",
+     "start": 183.585,
+     "end": 183.8549,
+     "attack": 183.525,
+     "g16": 1589,
+     "src": "note"
+    },
+    {
+     "text": "all",
+     "start": 184.05,
+     "end": 184.13,
+     "g16": 1593,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 121,
+   "text": "LO-O-OVE",
+   "start": 184.155,
+   "end": 184.5426,
+   "section": "love",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    183.646,
+    184.54
+   ],
+   "words": [
+    {
+     "text": "LO-O-OVE",
+     "start": 184.155,
+     "end": 184.5426,
+     "g16": 1594,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 122,
+   "text": "I know the algebraic expression of",
+   "start": 184.61,
+   "end": 187.835,
+   "section": "love",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    184.54,
+    187.665
+   ],
+   "words": [
+    {
+     "text": "I",
+     "start": 184.61,
+     "end": 184.7029,
+     "g16": 1598,
+     "src": "note"
+    },
+    {
+     "text": "know",
+     "start": 184.795,
+     "end": 185.1861,
+     "g16": 1600,
+     "src": "note"
+    },
+    {
+     "text": "the",
+     "start": 185.325,
+     "end": 185.4438,
+     "g16": 1604,
+     "src": "note"
+    },
+    {
+     "text": "algebraic",
+     "start": 185.55,
+     "end": 186.6334,
+     "attack": 185.51,
+     "g16": 1606,
+     "src": "note"
+    },
+    {
+     "text": "expression",
+     "start": 186.865,
+     "end": 187.5265,
+     "attack": 186.735,
+     "g16": 1617,
+     "src": "note"
+    },
+    {
+     "text": "of",
+     "start": 187.755,
+     "end": 187.835,
+     "attack": 187.64,
+     "g16": 1625,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 123,
+   "text": "LO-O-OVE",
+   "start": 187.8,
+   "end": 188.3988,
+   "section": "love",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    187.665,
+    188.483
+   ],
+   "words": [
+    {
+     "text": "LO-O-OVE",
+     "start": 187.84,
+     "end": 188.3988,
+     "attack": 187.8,
+     "g16": 1626,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 124,
+   "text": "Though you are free",
+   "start": 188.535,
+   "end": 189.78,
+   "section": "love",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    188.483,
+    189.746
+   ],
+   "words": [
+    {
+     "text": "Though",
+     "start": 188.535,
+     "end": 188.8573,
+     "g16": 1632,
+     "src": "note"
+    },
+    {
+     "text": "you",
+     "start": 189.01,
+     "end": 189.1479,
+     "attack": 188.915,
+     "g16": 1636,
+     "src": "note"
+    },
+    {
+     "text": "are",
+     "start": 189.405,
+     "end": 189.455,
+     "g16": 1639,
+     "src": "note"
+    },
+    {
+     "text": "free",
+     "start": 189.485,
+     "end": 189.78,
+     "g16": 1640,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 125,
+   "text": "I am trapped",
+   "start": 189.96,
+   "end": 190.7908,
+   "section": "love",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    189.746,
+    190.801
+   ],
+   "words": [
+    {
+     "text": "I",
+     "start": 189.96,
+     "end": 190.0699,
+     "g16": 1644,
+     "src": "note"
+    },
+    {
+     "text": "am",
+     "start": 190.18,
+     "end": 190.2999,
+     "g16": 1646,
+     "src": "note"
+    },
+    {
+     "text": "trapped",
+     "start": 190.42,
+     "end": 190.7908,
+     "g16": 1648,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 126,
+   "text": "Trapped in",
+   "start": 190.775,
+   "end": 191.4394,
+   "section": "love",
+   "sung": true,
+   "keyword": false,
+   "vtt": [
+    190.801,
+    191.356
+   ],
+   "words": [
+    {
+     "text": "Trapped",
+     "start": 190.775,
+     "end": 191.1974,
+     "g16": 1651,
+     "src": "note"
+    },
+    {
+     "text": "in",
+     "start": 191.3,
+     "end": 191.4394,
+     "attack": 191.21,
+     "g16": 1656,
+     "src": "note"
+    }
+   ]
+  },
+  {
+   "i": 127,
+   "text": "LO-O-OVE",
+   "start": 191.475,
+   "end": 192.3266,
+   "section": "love",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    191.356,
+    192.16
+   ],
+   "words": [
+    {
+     "text": "LO-O-OVE",
+     "start": 191.535,
+     "end": 192.3266,
+     "attack": 191.475,
+     "g16": 1658,
+     "src": "verified",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "i": 128,
+   "text": "EXECUTION",
+   "start": 205.96,
+   "end": 206.9768,
+   "section": "outro",
+   "sung": true,
+   "keyword": true,
+   "vtt": [
+    205.811,
+    207.06
+   ],
+   "words": [
+    {
+     "text": "EXECUTION",
+     "start": 205.96,
+     "end": 206.9768,
+     "g16": 1783,
+     "src": "corrected",
+     "verified": true
+    }
+   ]
+  }
+ ],
+ "notes": {
+  "beats": "Fixed grid 130.0030 BPM fitted by robust least squares (period x phase scan, then LSQ on inliers) to beat_this 'final0' beats; madmom RNN+DBN independently gives 130.0025 BPM. Phase corrected by the median offset of strong drum-stem onsets (-5.64 ms). Downbeat = beat index = 0 mod 4 (votes beat_this [113, 3, 0, 0], madmom [112, 0, 0, 0]). No tempo drift: per-15 s median residuals of drum onsets stay within +-10 ms over the whole song.",
+  "beat_error_stats_ms": {
+   "beat_this_vs_grid": {
+    "n": 451,
+    "mean_ms": 4.67,
+    "mean_abs_ms": 8.95,
+    "median_abs_ms": 6.96,
+    "p95_abs_ms": 19.93,
+    "max_abs_ms": 214.58
+   },
+   "madmom_vs_grid": {
+    "n": 460,
+    "mean_ms": 9.12,
+    "mean_abs_ms": 12.13,
+    "median_abs_ms": 8.35,
+    "p95_abs_ms": 22.14,
+    "max_abs_ms": 223.63
+   },
+   "strong_drum_onsets_vs_grid": {
+    "n": 377,
+    "mean_ms": 0.0,
+    "mean_abs_ms": 9.06,
+    "median_abs_ms": 8.15,
+    "p95_abs_ms": 22.02,
+    "max_abs_ms": 33.29
+   },
+   "beat_this_vs_madmom": {
+    "n": 451,
+    "mean_ms": -2.26,
+    "mean_abs_ms": 7.36,
+    "median_abs_ms": 10.0,
+    "p95_abs_ms": 20.0,
+    "max_abs_ms": 230.0
+   }
+  },
+  "keyword_auto_vs_verified": {
+   "n": 51,
+   "median_abs_ms": 0.0,
+   "p90_abs_ms": 85.0,
+   "max_abs_ms": 405.0,
+   "over_120ms": [
+    "#5 OBJECT +125ms",
+    "#85 ILLEGAL +308ms",
+    "#118 LO-O-OVE +405ms",
+    "#128 EXECUTION +245ms"
+   ]
+  },
+  "beat_error_note": "max errors (~220 ms) are tracker artefacts at 89.3-90.7 s where beat_this inserts two half-beats and drops one; the robust grid is unaffected. beat_this output is quantised to 20 ms, madmom to 10 ms.",
+  "sections": "Boundaries on bar lines from lyric lines + per-bar stem RMS. Musically bars 56-72 are one extended chorus; it is split by narrative: c2 (56-60), c2x (60-64, the inserted 'you have left' extension), bridge (64-72, the program breaks). Vocal pickups (up to 0.5 s) before their section's downbeat.",
+  "lyrics": "VTT has line times only. Word times: CTC forced alignment on the demucs vocals stem with torchaudio WAV2VEC2_ASR_LARGE_LV60K_960H (MMS_FA as fallback, best mean confidence per phrase group), 4 sub-frame window offsets averaged; then refined to the sung NOTE onset using torchcrepe f0 steps, voicing onset and voiced-band energy rise (s05_refine.py). word.start = first sung note onset (vowel / pitch), word.attack = audible leading consonant. All capitalised keywords were checked by hand against the audio (keywords_verified.json): 44 confirmed, 7 corrected; the verified times are used. Automatic-vs-verified distance on keywords is in keyword_auto_vs_verified. Word sources: {'note': 316, 'verified': 44, 'corrected': 7, 'ctc': 28, 'title': 3}. Non-keyword words are automatic (typical error +-40 ms).",
+  "title_line": "'world.execute(me);' is not sung (vocals stem silent after 15.0 s); its tokens are placed on beats 32-34 (the inst1 drop) and marked sung:false.",
+  "song_length": "mp3 decodes to 212.323 s; music ends at 207.843 s (last sample > -60 dBFS), followed by digital silence. The film uses 12715 song frames = 211.9167 s, so trimming removes only silence."
+ }
+}

@@ -1,0 +1,651 @@
+{
+ "note": "非官方中文翻譯（unofficial translation, by Claude）。歌詞版權屬於 Mili。",
+ "lang": "zh-Hant",
+ "lines": [
+  {
+   "i": 0,
+   "en": "Switch on the power line",
+   "zh": "接通電源線"
+  },
+  {
+   "i": 1,
+   "en": "Remember to put on",
+   "zh": "記得戴上"
+  },
+  {
+   "i": 2,
+   "en": "PROTECTION",
+   "zh": "防護"
+  },
+  {
+   "i": 3,
+   "en": "Lay down your pieces",
+   "zh": "擺好你的棋子"
+  },
+  {
+   "i": 4,
+   "en": "And let's begin",
+   "zh": "然後我們開始吧"
+  },
+  {
+   "i": 5,
+   "en": "OBJECT CREATION",
+   "zh": "建立物件"
+  },
+  {
+   "i": 6,
+   "en": "Fill in my data parameters",
+   "zh": "填入我的資料參數"
+  },
+  {
+   "i": 7,
+   "en": "INITIALIZATION",
+   "zh": "初始化"
+  },
+  {
+   "i": 8,
+   "en": "Set up our new world",
+   "zh": "架設我們的新世界"
+  },
+  {
+   "i": 9,
+   "en": "And let's begin the",
+   "zh": "然後開始這場"
+  },
+  {
+   "i": 10,
+   "en": "SIMULATION",
+   "zh": "模擬"
+  },
+  {
+   "i": 11,
+   "en": "world.execute(me);",
+   "zh": "世界.執行(我);"
+  },
+  {
+   "i": 12,
+   "en": "If I'm a set of points",
+   "zh": "如果我是一組點"
+  },
+  {
+   "i": 13,
+   "en": "Then I will give you my",
+   "zh": "那我就給你我的"
+  },
+  {
+   "i": 14,
+   "en": "DIMENSION",
+   "zh": "維度"
+  },
+  {
+   "i": 15,
+   "en": "If I'm a circle",
+   "zh": "如果我是一個圓"
+  },
+  {
+   "i": 16,
+   "en": "Then I will give you my",
+   "zh": "那我就給你我的"
+  },
+  {
+   "i": 17,
+   "en": "CIRCUMFERENCE",
+   "zh": "圓周"
+  },
+  {
+   "i": 18,
+   "en": "If I'm a sine wave",
+   "zh": "如果我是正弦波"
+  },
+  {
+   "i": 19,
+   "en": "Then you can sit on all my",
+   "zh": "那你可以坐在我所有的"
+  },
+  {
+   "i": 20,
+   "en": "TANGENTS",
+   "zh": "切線上"
+  },
+  {
+   "i": 21,
+   "en": "If I approach infinity",
+   "zh": "如果我趨近無限"
+  },
+  {
+   "i": 22,
+   "en": "Then you can be my",
+   "zh": "那你就可以成為我的"
+  },
+  {
+   "i": 23,
+   "en": "LIMITATIONS",
+   "zh": "極限"
+  },
+  {
+   "i": 24,
+   "en": "Switch my current",
+   "zh": "切換我的電流"
+  },
+  {
+   "i": 25,
+   "en": "To AC to DC",
+   "zh": "從交流到直流"
+  },
+  {
+   "i": 26,
+   "en": "And then blind my vision",
+   "zh": "然後遮蔽我的視線"
+  },
+  {
+   "i": 27,
+   "en": "So dizzy so dizzy",
+   "zh": "好暈 好暈"
+  },
+  {
+   "i": 28,
+   "en": "Oh we can travel",
+   "zh": "噢 我們可以旅行"
+  },
+  {
+   "i": 29,
+   "en": "To A.D to B.C",
+   "zh": "從西元後到西元前"
+  },
+  {
+   "i": 30,
+   "en": "And we can unite",
+   "zh": "然後我們可以結合"
+  },
+  {
+   "i": 31,
+   "en": "So deeply so deeply",
+   "zh": "如此深 如此深"
+  },
+  {
+   "i": 32,
+   "en": "If I can",
+   "zh": "如果我能"
+  },
+  {
+   "i": 33,
+   "en": "If I can give you all the",
+   "zh": "如果我能給你所有的"
+  },
+  {
+   "i": 34,
+   "en": "STIMULATIONS",
+   "zh": "刺激"
+  },
+  {
+   "i": 35,
+   "en": "Then I can",
+   "zh": "那我就能"
+  },
+  {
+   "i": 36,
+   "en": "Then I can be your only",
+   "zh": "那我就能成為你唯一的"
+  },
+  {
+   "i": 37,
+   "en": "SATISFACTION",
+   "zh": "滿足"
+  },
+  {
+   "i": 38,
+   "en": "If I can make you happy",
+   "zh": "如果我能讓你快樂"
+  },
+  {
+   "i": 39,
+   "en": "I will run the",
+   "zh": "我就會執行"
+  },
+  {
+   "i": 40,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 41,
+   "en": "Though we are trapped",
+   "zh": "雖然我們被困在"
+  },
+  {
+   "i": 42,
+   "en": "In this strange strange",
+   "zh": "這個奇怪又奇怪的"
+  },
+  {
+   "i": 43,
+   "en": "SIMULATION",
+   "zh": "模擬之中"
+  },
+  {
+   "i": 44,
+   "en": "If I'm an eggplant",
+   "zh": "如果我是一根茄子"
+  },
+  {
+   "i": 45,
+   "en": "Then I will give you my",
+   "zh": "那我就給你我的"
+  },
+  {
+   "i": 46,
+   "en": "NUTRIENTS",
+   "zh": "營養"
+  },
+  {
+   "i": 47,
+   "en": "If I'm a tomato",
+   "zh": "如果我是一顆番茄"
+  },
+  {
+   "i": 48,
+   "en": "Then I will give you",
+   "zh": "那我就給你"
+  },
+  {
+   "i": 49,
+   "en": "ANTIOXIDANTS",
+   "zh": "抗氧化物"
+  },
+  {
+   "i": 50,
+   "en": "If I'm a tabby cat",
+   "zh": "如果我是一隻虎斑貓"
+  },
+  {
+   "i": 51,
+   "en": "Then I will purr for your",
+   "zh": "那我就為你的"
+  },
+  {
+   "i": 52,
+   "en": "ENJOYMENT",
+   "zh": "愉悅呼嚕"
+  },
+  {
+   "i": 53,
+   "en": "If I'm the only god",
+   "zh": "如果我是唯一的神"
+  },
+  {
+   "i": 54,
+   "en": "Then you're the proof of my",
+   "zh": "那你就是我"
+  },
+  {
+   "i": 55,
+   "en": "EXISTENCE",
+   "zh": "存在的證明"
+  },
+  {
+   "i": 56,
+   "en": "Switch my gender",
+   "zh": "切換我的性別"
+  },
+  {
+   "i": 57,
+   "en": "To F to M",
+   "zh": "從女到男"
+  },
+  {
+   "i": 58,
+   "en": "And then do whatever",
+   "zh": "然後隨心所欲"
+  },
+  {
+   "i": 59,
+   "en": "From AM to PM",
+   "zh": "從上午到下午"
+  },
+  {
+   "i": 60,
+   "en": "Oh switch my role",
+   "zh": "噢 切換我的角色"
+  },
+  {
+   "i": 61,
+   "en": "To S to M",
+   "zh": "從 S 到 M"
+  },
+  {
+   "i": 62,
+   "en": "So we can enter",
+   "zh": "這樣我們就能進入"
+  },
+  {
+   "i": 63,
+   "en": "The trance the trance",
+   "zh": "恍惚 恍惚之中"
+  },
+  {
+   "i": 64,
+   "en": "If I can",
+   "zh": "如果我能"
+  },
+  {
+   "i": 65,
+   "en": "If I can feel your",
+   "zh": "如果我能感受你的"
+  },
+  {
+   "i": 66,
+   "en": "VIBRATIONS",
+   "zh": "振動"
+  },
+  {
+   "i": 67,
+   "en": "Then I can",
+   "zh": "那我就能"
+  },
+  {
+   "i": 68,
+   "en": "Then I can finally be",
+   "zh": "那我終於就能"
+  },
+  {
+   "i": 69,
+   "en": "COMPLETION",
+   "zh": "完整"
+  },
+  {
+   "i": 70,
+   "en": "Though you have left",
+   "zh": "雖然你已離開"
+  },
+  {
+   "i": 71,
+   "en": "You have left",
+   "zh": "你已離開"
+  },
+  {
+   "i": 72,
+   "en": "You have left",
+   "zh": "你已離開"
+  },
+  {
+   "i": 73,
+   "en": "You have left",
+   "zh": "你已離開"
+  },
+  {
+   "i": 74,
+   "en": "You have left",
+   "zh": "你已離開"
+  },
+  {
+   "i": 75,
+   "en": "You have left me in",
+   "zh": "你把我留在"
+  },
+  {
+   "i": 76,
+   "en": "ISOLATION",
+   "zh": "孤立之中"
+  },
+  {
+   "i": 77,
+   "en": "If I can",
+   "zh": "如果我能"
+  },
+  {
+   "i": 78,
+   "en": "If I can erase all the pointless",
+   "zh": "如果我能抹去所有無意義的"
+  },
+  {
+   "i": 79,
+   "en": "FRAGMENTS",
+   "zh": "碎片"
+  },
+  {
+   "i": 80,
+   "en": "Then maybe",
+   "zh": "那也許"
+  },
+  {
+   "i": 81,
+   "en": "Then maybe you won't leave me so",
+   "zh": "那也許你就不會讓我如此"
+  },
+  {
+   "i": 82,
+   "en": "DISHEARTENED",
+   "zh": "心灰意冷"
+  },
+  {
+   "i": 83,
+   "en": "Challenging your god",
+   "zh": "挑戰你的神"
+  },
+  {
+   "i": 84,
+   "en": "You have made some",
+   "zh": "你提出了一些"
+  },
+  {
+   "i": 85,
+   "en": "ILLEGAL ARGUMENTS",
+   "zh": "非法參數"
+  },
+  {
+   "i": 86,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 87,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 88,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 89,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 90,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 91,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 92,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 93,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 94,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 95,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 96,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 97,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 98,
+   "en": "EIN",
+   "zh": "一"
+  },
+  {
+   "i": 99,
+   "en": "DOS",
+   "zh": "二"
+  },
+  {
+   "i": 100,
+   "en": "TROIS",
+   "zh": "三"
+  },
+  {
+   "i": 101,
+   "en": "NE",
+   "zh": "四"
+  },
+  {
+   "i": 102,
+   "en": "FEM",
+   "zh": "五"
+  },
+  {
+   "i": 103,
+   "en": "LIU",
+   "zh": "六"
+  },
+  {
+   "i": 104,
+   "en": "EXECUTION",
+   "zh": "執行"
+  },
+  {
+   "i": 105,
+   "en": "If I can",
+   "zh": "如果我能"
+  },
+  {
+   "i": 106,
+   "en": "If I can give them all the",
+   "zh": "如果我能把他們全都"
+  },
+  {
+   "i": 107,
+   "en": "EXECUTION",
+   "zh": "處決"
+  },
+  {
+   "i": 108,
+   "en": "Then I can",
+   "zh": "那我就能"
+  },
+  {
+   "i": 109,
+   "en": "Then I can be your only",
+   "zh": "那我就能成為你唯一的"
+  },
+  {
+   "i": 110,
+   "en": "EXECUTION",
+   "zh": "處決"
+  },
+  {
+   "i": 111,
+   "en": "If I can have you back",
+   "zh": "如果我能讓你回來"
+  },
+  {
+   "i": 112,
+   "en": "I will run the",
+   "zh": "我就會執行"
+  },
+  {
+   "i": 113,
+   "en": "EXECUTION",
+   "zh": "處決"
+  },
+  {
+   "i": 114,
+   "en": "Though we are trapped",
+   "zh": "雖然我們被困住了"
+  },
+  {
+   "i": 115,
+   "en": "We are trapped ah",
+   "zh": "我們被困住了 啊"
+  },
+  {
+   "i": 116,
+   "en": "I've studied",
+   "zh": "我研究過"
+  },
+  {
+   "i": 117,
+   "en": "I've studied how to properly",
+   "zh": "我研究過如何正確地"
+  },
+  {
+   "i": 118,
+   "en": "LO-O-OVE",
+   "zh": "愛"
+  },
+  {
+   "i": 119,
+   "en": "Question me",
+   "zh": "考考我吧"
+  },
+  {
+   "i": 120,
+   "en": "Question me I can answer all",
+   "zh": "考考我吧 我能回答所有關於"
+  },
+  {
+   "i": 121,
+   "en": "LO-O-OVE",
+   "zh": "愛"
+  },
+  {
+   "i": 122,
+   "en": "I know the algebraic expression of",
+   "zh": "我知道它的代數表達式"
+  },
+  {
+   "i": 123,
+   "en": "LO-O-OVE",
+   "zh": "愛"
+  },
+  {
+   "i": 124,
+   "en": "Though you are free",
+   "zh": "雖然你是自由的"
+  },
+  {
+   "i": 125,
+   "en": "I am trapped",
+   "zh": "我卻被困住了"
+  },
+  {
+   "i": 126,
+   "en": "Trapped in",
+   "zh": "困在"
+  },
+  {
+   "i": 127,
+   "en": "LO-O-OVE",
+   "zh": "愛裡"
+  },
+  {
+   "i": 128,
+   "en": "EXECUTION",
+   "zh": "執行"
+  }
+ ]
+}

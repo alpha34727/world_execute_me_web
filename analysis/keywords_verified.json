@@ -1,0 +1,416 @@
+{
+ "about": "Hand verification of every capitalised keyword against the audio (Phase 1). 'start' is the verified time and is always used; 'auto_when_verified' is what the automatic aligner gave at inspection time. Because the audio is fixed, the verified times stay valid when the automatic pipeline is re-run; s06_timing.py reports the distance between the current automatic result and each verified start (and warns above 120 ms). Convention: start = onset of the first sung note (vowel / pitch onset), attack = leading consonant.",
+ "method": "check_keywords.py (per-word spectrogram + f0 + novelty) and check_lines.py (line context, syllable counting against f0 notes and the 16th grid)",
+ "date": "2026-10-11",
+ "entries": [
+  {
+   "line": 2,
+   "word": "PROTECTION",
+   "verdict": "ok",
+   "auto_when_verified": 3.265,
+   "start": 3.265,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 5,
+   "word": "OBJECT",
+   "start": 6.465,
+   "verdict": "corrected",
+   "auto_when_verified": 6.59,
+   "evidence": "small upward pitch step at 6.465 = vowel \"O\" (beat 13.5); auto 6.59 was \"-ject\""
+  },
+  {
+   "line": 5,
+   "word": "CREATION",
+   "start": 6.935,
+   "verdict": "corrected",
+   "attack": 6.85,
+   "auto_when_verified": 6.85,
+   "evidence": "vowel/f0 onset 6.935 on 16th grid; \"cr\" consonant 6.85 kept as attack"
+  },
+  {
+   "line": 7,
+   "word": "INITIALIZATION",
+   "verdict": "ok",
+   "auto_when_verified": 10.17,
+   "start": 10.17,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 10,
+   "word": "SIMULATION",
+   "verdict": "ok",
+   "auto_when_verified": 14.095,
+   "start": 14.095,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 14,
+   "word": "DIMENSION",
+   "verdict": "ok",
+   "auto_when_verified": 32.8,
+   "start": 32.8,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 17,
+   "word": "CIRCUMFERENCE",
+   "verdict": "ok",
+   "auto_when_verified": 36.505,
+   "start": 36.505,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 20,
+   "word": "TANGENTS",
+   "start": 40.125,
+   "verdict": "corrected",
+   "auto_when_verified": 40.2618,
+   "evidence": "f0 drops from \"my\" at 40.12; TAN 40.13 / GENTS 40.38 / \"If\" 40.65 (matches VTT boundary); auto 40.26 was mid-\"TAN\""
+  },
+  {
+   "line": 23,
+   "word": "LIMITATIONS",
+   "verdict": "ok",
+   "auto_when_verified": 43.65,
+   "start": 43.65,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 34,
+   "word": "STIMULATIONS",
+   "verdict": "ok",
+   "auto_when_verified": 62.105,
+   "start": 62.105,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 37,
+   "word": "SATISFACTION",
+   "verdict": "ok",
+   "auto_when_verified": 65.785,
+   "start": 65.785,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 40,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 69.49,
+   "start": 69.49,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 43,
+   "word": "SIMULATION",
+   "verdict": "ok",
+   "auto_when_verified": 73.185,
+   "start": 73.185,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 46,
+   "word": "NUTRIENTS",
+   "verdict": "ok",
+   "auto_when_verified": 77.07,
+   "start": 77.07,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 49,
+   "word": "ANTIOXIDANTS",
+   "verdict": "ok",
+   "auto_when_verified": 80.565,
+   "start": 80.565,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 52,
+   "word": "ENJOYMENT",
+   "verdict": "ok",
+   "auto_when_verified": 84.475,
+   "start": 84.475,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 55,
+   "word": "EXISTENCE",
+   "verdict": "ok",
+   "auto_when_verified": 88.17,
+   "start": 88.17,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 66,
+   "word": "VIBRATIONS",
+   "verdict": "ok",
+   "auto_when_verified": 106.395,
+   "start": 106.395,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 69,
+   "word": "COMPLETION",
+   "verdict": "ok",
+   "auto_when_verified": 110.305,
+   "start": 110.305,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 76,
+   "word": "ISOLATION",
+   "start": 117.455,
+   "verdict": "corrected",
+   "auto_when_verified": 117.54,
+   "evidence": "I-SO-LA-TION = 117.45 / 117.70 / 117.93 / 118.15; auto 117.54 was mid-\"I\""
+  },
+  {
+   "line": 79,
+   "word": "FRAGMENTS",
+   "verdict": "ok",
+   "auto_when_verified": 121.63,
+   "start": 121.63,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 82,
+   "word": "DISHEARTENED",
+   "verdict": "ok",
+   "auto_when_verified": 125.075,
+   "start": 125.075,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 85,
+   "word": "ILLEGAL",
+   "start": 131.315,
+   "verdict": "corrected",
+   "auto_when_verified": 131.655,
+   "evidence": "strong note onset on beat 284 (131.315); auto 131.655 was 2nd syllable"
+  },
+  {
+   "line": 85,
+   "word": "ARGUMENTS",
+   "verdict": "ok",
+   "auto_when_verified": 132.485,
+   "start": 132.485,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 86,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 147.935,
+   "start": 147.935,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 87,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 148.96,
+   "start": 148.96,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 88,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 149.795,
+   "start": 149.795,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 89,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 150.715,
+   "start": 150.715,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 90,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 151.655,
+   "start": 151.655,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 91,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 152.6527,
+   "start": 152.6527,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 92,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 153.55,
+   "start": 153.55,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 93,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 154.415,
+   "start": 154.415,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 94,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 155.315,
+   "start": 155.315,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 95,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 156.345,
+   "start": 156.345,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 96,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 157.25,
+   "start": 157.25,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 97,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 158.105,
+   "start": 158.105,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 98,
+   "word": "EIN",
+   "verdict": "ok",
+   "auto_when_verified": 159.035,
+   "start": 159.035,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 99,
+   "word": "DOS",
+   "verdict": "ok",
+   "auto_when_verified": 159.475,
+   "start": 159.475,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 100,
+   "word": "TROIS",
+   "verdict": "ok",
+   "auto_when_verified": 159.93,
+   "start": 159.93,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 101,
+   "word": "NE",
+   "verdict": "ok",
+   "auto_when_verified": 160.405,
+   "start": 160.405,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 102,
+   "word": "FEM",
+   "verdict": "ok",
+   "auto_when_verified": 160.835,
+   "start": 160.835,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 103,
+   "word": "LIU",
+   "verdict": "ok",
+   "auto_when_verified": 161.335,
+   "start": 161.335,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 104,
+   "word": "EXECUTION",
+   "start": 161.77,
+   "verdict": "corrected",
+   "auto_when_verified": 161.88,
+   "evidence": "voice re-enters after silence at 161.77 (beat 350); auto 161.88 was the \"ks\" burst"
+  },
+  {
+   "line": 107,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 165.6,
+   "start": 165.6,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 110,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 169.285,
+   "start": 169.285,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 113,
+   "word": "EXECUTION",
+   "verdict": "ok",
+   "auto_when_verified": 172.865,
+   "start": 172.865,
+   "evidence": "note onset; EX short vowel followed by ks-burst pattern consistent across the chant (off-beat ones are real syncopation)"
+  },
+  {
+   "line": 118,
+   "word": "LO-O-OVE",
+   "verdict": "ok",
+   "auto_when_verified": 180.04,
+   "start": 180.04,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 121,
+   "word": "LO-O-OVE",
+   "verdict": "ok",
+   "auto_when_verified": 184.155,
+   "start": 184.155,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 123,
+   "word": "LO-O-OVE",
+   "verdict": "ok",
+   "auto_when_verified": 187.84,
+   "start": 187.84,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 127,
+   "word": "LO-O-OVE",
+   "verdict": "ok",
+   "auto_when_verified": 191.535,
+   "start": 191.535,
+   "evidence": "start sits on the sung note onset (f0 step / voiced-energy onset) in line-context view"
+  },
+  {
+   "line": 128,
+   "word": "EXECUTION",
+   "start": 205.96,
+   "verdict": "corrected",
+   "auto_when_verified": 206.16,
+   "evidence": "voice onset after silence 205.96; auto 206.16 was 2nd syllable"
+  }
+ ]
+}

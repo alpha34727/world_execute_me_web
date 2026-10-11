@@ -1,0 +1,147 @@
+{
+ "file": "features.f32",
+ "dtype": "float32 little-endian",
+ "layout": "row-major [rows][channels]",
+ "fps": 60,
+ "rows": 12741,
+ "channels": [
+  "rms",
+  "rms_drums",
+  "rms_bass",
+  "rms_vocals",
+  "rms_other",
+  "onset",
+  "onset_drums",
+  "centroid",
+  "flux",
+  "mel_00",
+  "mel_01",
+  "mel_02",
+  "mel_03",
+  "mel_04",
+  "mel_05",
+  "mel_06",
+  "mel_07",
+  "mel_08",
+  "mel_09",
+  "mel_10",
+  "mel_11",
+  "mel_12",
+  "mel_13",
+  "mel_14",
+  "mel_15"
+ ],
+ "time_of_row": "t = row / 60 seconds of song time (analysis windows are centred on t; n_fft 2048, hop 735)",
+ "range": "0..1 (clipped)",
+ "normalisation": "per channel: (x - p1) / (p99 - p1) over non-silent rows (mix peak > -60 dBFS); rms_drums/bass/vocals/other use only rows where that stem is above -50 dBFS, so a silent stem reads 0",
+ "units_before_normalisation": {
+  "rms*": "dBFS of frame RMS (mix and each demucs stem)",
+  "onset": "librosa onset strength of the 128-band log-mel mix (spectral flux)",
+  "onset_drums": "librosa onset strength of the drums stem",
+  "centroid": "log2(spectral centroid Hz + 1) of the mix",
+  "flux": "L2 norm of the positive change of the L1-normalised magnitude spectrum",
+  "mel_00..mel_15": "dB of 16 mel bands 30 Hz - 16 kHz of the mix (00 = lowest)"
+ },
+ "p1_p99": {
+  "rms": {
+   "p1": -17.504493,
+   "p99": -4.879213
+  },
+  "rms_drums": {
+   "p1": -47.878236,
+   "p99": -6.048833
+  },
+  "rms_bass": {
+   "p1": -32.428071,
+   "p99": -11.822329
+  },
+  "rms_vocals": {
+   "p1": -43.346475,
+   "p99": -11.558786
+  },
+  "rms_other": {
+   "p1": -47.578061,
+   "p99": -13.420521
+  },
+  "onset": {
+   "p1": 0.314127,
+   "p99": 7.264236
+  },
+  "onset_drums": {
+   "p1": 0.02722,
+   "p99": 16.337508
+  },
+  "centroid": {
+   "p1": 9.869962,
+   "p99": 12.256708
+  },
+  "flux": {
+   "p1": 0.016244,
+   "p99": 0.114159
+  },
+  "mel_00": {
+   "p1": 12.270396,
+   "p99": 26.780496
+  },
+  "mel_01": {
+   "p1": -5.15457,
+   "p99": 22.072611
+  },
+  "mel_02": {
+   "p1": -11.186244,
+   "p99": 19.453555
+  },
+  "mel_03": {
+   "p1": -13.375025,
+   "p99": 23.159356
+  },
+  "mel_04": {
+   "p1": -15.51212,
+   "p99": 17.885001
+  },
+  "mel_05": {
+   "p1": -16.249744,
+   "p99": 16.239544
+  },
+  "mel_06": {
+   "p1": -12.470731,
+   "p99": 12.570705
+  },
+  "mel_07": {
+   "p1": -12.882509,
+   "p99": 11.415355
+  },
+  "mel_08": {
+   "p1": -15.258411,
+   "p99": 10.188071
+  },
+  "mel_09": {
+   "p1": -19.004805,
+   "p99": 8.257775
+  },
+  "mel_10": {
+   "p1": -21.818911,
+   "p99": 7.627774
+  },
+  "mel_11": {
+   "p1": -27.325674,
+   "p99": 5.513796
+  },
+  "mel_12": {
+   "p1": -35.383626,
+   "p99": 4.734444
+  },
+  "mel_13": {
+   "p1": -41.092981,
+   "p99": 1.315788
+  },
+  "mel_14": {
+   "p1": -42.581116,
+   "p99": -0.461334
+  },
+  "mel_15": {
+   "p1": -50.211041,
+   "p99": -5.727824
+  }
+ }
+}

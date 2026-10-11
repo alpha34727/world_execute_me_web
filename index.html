@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>world.execute (me) ;</title>
+    <link rel="icon" href="data:," />
+    <style>
+      html, body { margin: 0; height: 100%; background: #000; color: #9ad; font: 14px/1.4 ui-monospace, monospace; }
+      body { display: grid; place-items: center; overflow: hidden; }
+      #stage { display: block; width: 100vw; height: 56.25vw; max-height: 100vh; max-width: 177.78vh; margin: auto; }
+      #status { position: fixed; left: 16px; bottom: 12px; opacity: .7; }
+    </style>
+  </head>
+  <body>
+    <canvas id="stage"></canvas>
+    <div id="status"></div>
+    <script type="module" src="/src/player/main.js"></script>
+  </body>
+</html>

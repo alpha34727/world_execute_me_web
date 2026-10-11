@@ -1,0 +1,4802 @@
+[
+ {
+  "text": "Switch on the power line",
+  "vtt_start": 0.1,
+  "vtt_end": 1.74,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Switch",
+    "start": 0.095,
+    "end": 0.5331,
+    "score": 0.464,
+    "start_ctc": 0.1627,
+    "src": "note",
+    "conf": 0.715,
+    "attack": 0.015
+   },
+   {
+    "text": "on",
+    "start": 0.815,
+    "end": 0.9281,
+    "score": 0.97,
+    "start_ctc": 0.8481,
+    "src": "note",
+    "conf": 0.155,
+    "attack": 0.705
+   },
+   {
+    "text": "the",
+    "start": 1.035,
+    "end": 1.0992,
+    "score": 0.965,
+    "start_ctc": 1.0236,
+    "src": "note",
+    "conf": 0.941
+   },
+   {
+    "text": "power",
+    "start": 1.185,
+    "end": 1.4485,
+    "score": 0.975,
+    "start_ctc": 1.1638,
+    "src": "note",
+    "conf": 0.631
+   },
+   {
+    "text": "line",
+    "start": 1.515,
+    "end": 1.7887,
+    "score": 0.985,
+    "start_ctc": 1.5485,
+    "src": "note",
+    "conf": 0.168,
+    "attack": 1.465
+   }
+  ]
+ },
+ {
+  "text": "Remember to put on",
+  "vtt_start": 1.74,
+  "vtt_end": 2.92,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Remember",
+    "start": 1.89,
+    "end": 2.4252,
+    "score": 0.99,
+    "start_ctc": 1.9005,
+    "src": "note",
+    "conf": 0.364,
+    "attack": 1.85
+   },
+   {
+    "text": "to",
+    "start": 2.495,
+    "end": 2.6154,
+    "score": 0.72,
+    "start_ctc": 2.5253,
+    "src": "note",
+    "conf": 0.66
+   },
+   {
+    "text": "put",
+    "start": 2.79,
+    "end": 2.974,
+    "score": 0.069,
+    "start_ctc": 2.7355,
+    "src": "note",
+    "conf": 0.484,
+    "attack": 2.745
+   },
+   {
+    "text": "on",
+    "start": 3.025,
+    "end": 3.1825,
+    "score": 0.459,
+    "start_ctc": 3.116,
+    "src": "note",
+    "conf": 0.227
+   }
+  ]
+ },
+ {
+  "text": "PROTECTION",
+  "vtt_start": 2.92,
+  "vtt_end": 3.873,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "PROTECTION",
+    "start": 3.265,
+    "end": 3.7967,
+    "score": 0.933,
+    "start_ctc": 3.2561,
+    "src": "note",
+    "conf": 0.928,
+    "attack": 3.19
+   }
+  ]
+ },
+ {
+  "text": "Lay down your pieces",
+  "vtt_start": 3.873,
+  "vtt_end": 5.491,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Lay",
+    "start": 3.94,
+    "end": 4.1671,
+    "score": 0.494,
+    "start_ctc": 3.9301,
+    "src": "note",
+    "conf": 1.335,
+    "attack": 3.91
+   },
+   {
+    "text": "down",
+    "start": 4.375,
+    "end": 4.5976,
+    "score": 0.705,
+    "start_ctc": 4.3674,
+    "src": "note",
+    "conf": 1.108
+   },
+   {
+    "text": "your",
+    "start": 4.645,
+    "end": 4.8079,
+    "score": 0.741,
+    "start_ctc": 4.6677,
+    "src": "note",
+    "conf": 0.679
+   },
+   {
+    "text": "pieces",
+    "start": 4.87,
+    "end": 5.3885,
+    "score": 0.838,
+    "start_ctc": 4.8479,
+    "src": "note",
+    "conf": 0.78
+   }
+  ]
+ },
+ {
+  "text": "And let's begin",
+  "vtt_start": 5.491,
+  "vtt_end": 6.38,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "And",
+    "start": 5.58,
+    "end": 5.7189,
+    "score": 0.652,
+    "start_ctc": 5.6088,
+    "src": "note",
+    "conf": 0.33,
+    "attack": 5.535
+   },
+   {
+    "text": "let's",
+    "start": 5.745,
+    "end": 5.9515,
+    "score": 0.193,
+    "start_ctc": 5.7689,
+    "src": "note",
+    "conf": 0.436
+   },
+   {
+    "text": "begin",
+    "start": 6.02,
+    "end": 6.3796,
+    "score": 0.6,
+    "start_ctc": 5.9892,
+    "src": "note",
+    "conf": 0.734,
+    "attack": 5.995
+   }
+  ]
+ },
+ {
+  "text": "OBJECT CREATION",
+  "vtt_start": 6.38,
+  "vtt_end": 7.446,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "OBJECT",
+    "start": 6.59,
+    "end": 6.8482,
+    "score": 0.226,
+    "start_ctc": 6.5498,
+    "src": "note",
+    "conf": 0.713,
+    "attack": 6.45
+   },
+   {
+    "text": "CREATION",
+    "start": 6.85,
+    "end": 7.4909,
+    "score": 0.961,
+    "start_ctc": 6.8702,
+    "src": "note",
+    "conf": 0.283
+   }
+  ]
+ },
+ {
+  "text": "Fill in my data parameters",
+  "vtt_start": 7.446,
+  "vtt_end": 10.091,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Fill",
+    "start": 7.64,
+    "end": 7.8613,
+    "score": 0.316,
+    "start_ctc": 7.5894,
+    "src": "note",
+    "conf": 0.48
+   },
+   {
+    "text": "in",
+    "start": 8.085,
+    "end": 8.2504,
+    "score": 0.856,
+    "start_ctc": 8.1916,
+    "src": "note",
+    "conf": 0.258,
+    "attack": 8.05
+   },
+   {
+    "text": "my",
+    "start": 8.335,
+    "end": 8.4908,
+    "score": 0.641,
+    "start_ctc": 8.3731,
+    "src": "note",
+    "conf": 0.597
+   },
+   {
+    "text": "data",
+    "start": 8.57,
+    "end": 9.0135,
+    "score": 0.729,
+    "start_ctc": 8.5509,
+    "src": "note",
+    "conf": 0.514
+   },
+   {
+    "text": "parameters",
+    "start": 9.225,
+    "end": 10.2142,
+    "score": 0.708,
+    "start_ctc": 9.1919,
+    "src": "note",
+    "conf": 0.651
+   }
+  ]
+ },
+ {
+  "text": "INITIALIZATION",
+  "vtt_start": 10.091,
+  "vtt_end": 11.095,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "INITIALIZATION",
+    "start": 10.17,
+    "end": 11.155,
+    "score": 0.765,
+    "start_ctc": 10.2842,
+    "src": "note",
+    "conf": 0.301,
+    "attack": 10.125
+   }
+  ]
+ },
+ {
+  "text": "Set up our new world",
+  "vtt_start": 11.095,
+  "vtt_end": 12.906,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Set",
+    "start": 11.2878,
+    "end": 11.4928,
+    "score": 0.875,
+    "start_ctc": 11.2878,
+    "src": "ctc",
+    "conf": 0.0,
+    "attack": 11.215
+   },
+   {
+    "text": "up",
+    "start": 11.785,
+    "end": 11.9839,
+    "score": 0.823,
+    "start_ctc": 11.8884,
+    "src": "note",
+    "conf": 0.367,
+    "attack": 11.735
+   },
+   {
+    "text": "our",
+    "start": 12.095,
+    "end": 12.2087,
+    "score": 0.195,
+    "start_ctc": 12.1432,
+    "src": "note",
+    "conf": 0.372
+   },
+   {
+    "text": "new",
+    "start": 12.2487,
+    "end": 12.4333,
+    "score": 0.594,
+    "start_ctc": 12.2487,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "world",
+    "start": 12.58,
+    "end": 12.8472,
+    "score": 0.746,
+    "start_ctc": 12.549,
+    "src": "note",
+    "conf": 0.638,
+    "attack": 12.555
+   }
+  ]
+ },
+ {
+  "text": "And let's begin the",
+  "vtt_start": 12.906,
+  "vtt_end": 13.891,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "And",
+    "start": 12.915,
+    "end": 13.06,
+    "score": 0.632,
+    "start_ctc": 12.9895,
+    "src": "note",
+    "conf": 0.324,
+    "attack": 12.775
+   },
+   {
+    "text": "let's",
+    "start": 13.185,
+    "end": 13.285,
+    "score": 0.857,
+    "start_ctc": 13.1496,
+    "src": "note",
+    "conf": 0.639,
+    "attack": 13.06
+   },
+   {
+    "text": "begin",
+    "start": 13.395,
+    "end": 13.7602,
+    "score": 0.718,
+    "start_ctc": 13.3698,
+    "src": "note",
+    "conf": 0.792,
+    "attack": 13.285
+   },
+   {
+    "text": "the",
+    "start": 13.88,
+    "end": 13.9866,
+    "score": 0.185,
+    "start_ctc": 13.8542,
+    "src": "note",
+    "conf": 0.529
+   }
+  ]
+ },
+ {
+  "text": "SIMULATION",
+  "vtt_start": 13.891,
+  "vtt_end": 14.888,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "SIMULATION",
+    "start": 14.095,
+    "end": 14.9114,
+    "score": 0.399,
+    "start_ctc": 14.0505,
+    "src": "note",
+    "conf": 0.387
+   }
+  ]
+ },
+ {
+  "text": "world.execute(me);",
+  "vtt_start": 16.0,
+  "vtt_end": 23.08,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "world.",
+    "start": 15.505,
+    "end": 15.71,
+    "score": 0.015,
+    "start_ctc": 15.5287,
+    "src": "note",
+    "conf": 0.396
+   },
+   {
+    "text": "execute",
+    "start": 15.71,
+    "end": 15.9208,
+    "score": 0.008,
+    "start_ctc": 15.7691,
+    "src": "note",
+    "conf": 0.425
+   },
+   {
+    "text": "(me);",
+    "start": 15.955,
+    "end": 16.0525,
+    "score": 0.003,
+    "start_ctc": 16.0124,
+    "src": "note",
+    "conf": 0.18
+   }
+  ]
+ },
+ {
+  "text": "If I'm a set of points",
+  "vtt_start": 29.709,
+  "vtt_end": 31.116,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 29.795,
+    "end": 29.9621,
+    "score": 0.27,
+    "start_ctc": 29.8497,
+    "src": "note",
+    "conf": 0.467,
+    "attack": 29.765
+   },
+   {
+    "text": "I'm",
+    "start": 30.32,
+    "end": 30.4759,
+    "score": 0.518,
+    "start_ctc": 30.398,
+    "src": "note",
+    "conf": 0.128
+   },
+   {
+    "text": "a",
+    "start": 30.525,
+    "end": 30.5825,
+    "score": 0.132,
+    "start_ctc": 30.5625,
+    "src": "note",
+    "conf": 0.509
+   },
+   {
+    "text": "set",
+    "start": 30.7,
+    "end": 30.755,
+    "score": 0.442,
+    "start_ctc": 30.6783,
+    "src": "note",
+    "conf": 0.493,
+    "attack": 30.6
+   },
+   {
+    "text": "of",
+    "start": 30.815,
+    "end": 30.9486,
+    "score": 0.033,
+    "start_ctc": 30.9027,
+    "src": "note",
+    "conf": 0.262,
+    "attack": 30.755
+   },
+   {
+    "text": "points",
+    "start": 31.03,
+    "end": 31.309,
+    "score": 0.666,
+    "start_ctc": 30.9986,
+    "src": "note",
+    "conf": 0.694
+   }
+  ]
+ },
+ {
+  "text": "Then I will give you my",
+  "vtt_start": 31.116,
+  "vtt_end": 32.682,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 31.375,
+    "end": 31.5493,
+    "score": 0.741,
+    "start_ctc": 31.363,
+    "src": "note",
+    "conf": 0.662,
+    "attack": 31.25
+   },
+   {
+    "text": "I",
+    "start": 31.625,
+    "end": 31.675,
+    "score": 0.996,
+    "start_ctc": 31.7395,
+    "src": "note",
+    "conf": 0.201
+   },
+   {
+    "text": "will",
+    "start": 31.82,
+    "end": 32.0098,
+    "score": 0.999,
+    "start_ctc": 31.8358,
+    "src": "note",
+    "conf": 0.268,
+    "attack": 31.675
+   },
+   {
+    "text": "give",
+    "start": 32.095,
+    "end": 32.2901,
+    "score": 0.987,
+    "start_ctc": 32.0799,
+    "src": "note",
+    "conf": 0.954,
+    "attack": 32.05
+   },
+   {
+    "text": "you",
+    "start": 32.3,
+    "end": 32.4403,
+    "score": 0.994,
+    "start_ctc": 32.3567,
+    "src": "note",
+    "conf": 0.587
+   },
+   {
+    "text": "my",
+    "start": 32.5404,
+    "end": 32.7039,
+    "score": 0.991,
+    "start_ctc": 32.5404,
+    "src": "ctc",
+    "conf": 0.0
+   }
+  ]
+ },
+ {
+  "text": "DIMENSION",
+  "vtt_start": 32.682,
+  "vtt_end": 33.412,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "DIMENSION",
+    "start": 32.8,
+    "end": 33.3813,
+    "score": 0.61,
+    "start_ctc": 32.784,
+    "src": "note",
+    "conf": 0.392
+   }
+  ]
+ },
+ {
+  "text": "If I'm a circle",
+  "vtt_start": 33.412,
+  "vtt_end": 34.646,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 33.5,
+    "end": 33.6617,
+    "score": 0.818,
+    "start_ctc": 33.6016,
+    "src": "note",
+    "conf": 0.35,
+    "attack": 33.44
+   },
+   {
+    "text": "I'm",
+    "start": 34.0849,
+    "end": 34.1923,
+    "score": 0.448,
+    "start_ctc": 34.0849,
+    "src": "ctc",
+    "conf": 0.0,
+    "attack": 33.98
+   },
+   {
+    "text": "a",
+    "start": 34.22,
+    "end": 34.295,
+    "score": 0.166,
+    "start_ctc": 34.2797,
+    "src": "note",
+    "conf": 0.358
+   },
+   {
+    "text": "circle",
+    "start": 34.395,
+    "end": 35.0255,
+    "score": 0.415,
+    "start_ctc": 34.3825,
+    "src": "note",
+    "conf": 0.846,
+    "attack": 34.295
+   }
+  ]
+ },
+ {
+  "text": "Then I will give you my",
+  "vtt_start": 34.646,
+  "vtt_end": 36.287,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 35.09,
+    "end": 35.2435,
+    "score": 0.276,
+    "start_ctc": 35.1133,
+    "src": "note",
+    "conf": 0.99,
+    "attack": 34.93
+   },
+   {
+    "text": "I",
+    "start": 35.335,
+    "end": 35.4637,
+    "score": 0.999,
+    "start_ctc": 35.4437,
+    "src": "note",
+    "conf": 0.267
+   },
+   {
+    "text": "will",
+    "start": 35.555,
+    "end": 35.724,
+    "score": 0.996,
+    "start_ctc": 35.5417,
+    "src": "note",
+    "conf": 0.591
+   },
+   {
+    "text": "give",
+    "start": 35.79,
+    "end": 35.9862,
+    "score": 0.991,
+    "start_ctc": 35.7841,
+    "src": "note",
+    "conf": 1.245,
+    "attack": 35.75
+   },
+   {
+    "text": "you",
+    "start": 36.02,
+    "end": 36.1463,
+    "score": 0.999,
+    "start_ctc": 36.0644,
+    "src": "note",
+    "conf": 0.795,
+    "attack": 35.99
+   },
+   {
+    "text": "my",
+    "start": 36.275,
+    "end": 36.3664,
+    "score": 0.902,
+    "start_ctc": 36.2446,
+    "src": "note",
+    "conf": 0.111
+   }
+  ]
+ },
+ {
+  "text": "CIRCUMFERENCE",
+  "vtt_start": 36.287,
+  "vtt_end": 37.067,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "CIRCUMFERENCE",
+    "start": 36.505,
+    "end": 37.197,
+    "score": 0.33,
+    "start_ctc": 36.4632,
+    "src": "note",
+    "conf": 0.803,
+    "attack": 36.37
+   }
+  ]
+ },
+ {
+  "text": "If I'm a sine wave",
+  "vtt_start": 37.067,
+  "vtt_end": 38.596,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 37.335,
+    "end": 37.385,
+    "score": 0.599,
+    "start_ctc": 37.3045,
+    "src": "note",
+    "conf": 0.209
+   },
+   {
+    "text": "I'm",
+    "start": 37.735,
+    "end": 37.8865,
+    "score": 0.393,
+    "start_ctc": 37.7863,
+    "src": "note",
+    "conf": 0.135,
+    "attack": 37.585
+   },
+   {
+    "text": "a",
+    "start": 37.905,
+    "end": 37.98,
+    "score": 0.251,
+    "start_ctc": 37.9666,
+    "src": "note",
+    "conf": 0.413
+   },
+   {
+    "text": "sine",
+    "start": 38.06,
+    "end": 38.3878,
+    "score": 0.424,
+    "start_ctc": 38.0657,
+    "src": "note",
+    "conf": 0.387,
+    "attack": 37.98
+   },
+   {
+    "text": "wave",
+    "start": 38.4571,
+    "end": 38.7274,
+    "score": 0.632,
+    "start_ctc": 38.4571,
+    "src": "ctc",
+    "conf": 0.0
+   }
+  ]
+ },
+ {
+  "text": "Then you can sit on all my",
+  "vtt_start": 38.596,
+  "vtt_end": 40.049,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 38.77,
+    "end": 38.9271,
+    "score": 0.422,
+    "start_ctc": 38.7871,
+    "src": "note",
+    "conf": 1.209,
+    "attack": 38.685
+   },
+   {
+    "text": "you",
+    "start": 39.045,
+    "end": 39.1283,
+    "score": 0.943,
+    "start_ctc": 39.0082,
+    "src": "note",
+    "conf": 0.596,
+    "attack": 38.97
+   },
+   {
+    "text": "can",
+    "start": 39.255,
+    "end": 39.3481,
+    "score": 0.963,
+    "start_ctc": 39.2276,
+    "src": "note",
+    "conf": 0.727,
+    "attack": 39.21
+   },
+   {
+    "text": "sit",
+    "start": 39.475,
+    "end": 39.5884,
+    "score": 0.412,
+    "start_ctc": 39.4279,
+    "src": "note",
+    "conf": 1.025,
+    "attack": 39.37
+   },
+   {
+    "text": "on",
+    "start": 39.72,
+    "end": 39.77,
+    "score": 0.006,
+    "start_ctc": 39.6685,
+    "src": "note",
+    "conf": 0.359,
+    "attack": 39.685
+   },
+   {
+    "text": "all",
+    "start": 39.7986,
+    "end": 39.855,
+    "score": 0.335,
+    "start_ctc": 39.7986,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "my",
+    "start": 39.9388,
+    "end": 40.0288,
+    "score": 0.214,
+    "start_ctc": 39.9388,
+    "src": "ctc",
+    "conf": 0.0,
+    "attack": 39.855
+   }
+  ]
+ },
+ {
+  "text": "TANGENTS",
+  "vtt_start": 40.049,
+  "vtt_end": 40.706,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "TANGENTS",
+    "start": 40.155,
+    "end": 40.9033,
+    "score": 0.289,
+    "start_ctc": 40.2593,
+    "src": "note",
+    "conf": 0.147,
+    "attack": 40.095
+   }
+  ]
+ },
+ {
+  "text": "If I approach infinity",
+  "vtt_start": 40.706,
+  "vtt_end": 42.346,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 40.885,
+    "end": 41.0636,
+    "score": 0.49,
+    "start_ctc": 40.978,
+    "src": "note",
+    "conf": 0.328,
+    "attack": 40.815
+   },
+   {
+    "text": "I",
+    "start": 41.075,
+    "end": 41.145,
+    "score": 0.577,
+    "start_ctc": 41.1437,
+    "src": "note",
+    "conf": 0.36
+   },
+   {
+    "text": "approach",
+    "start": 41.145,
+    "end": 41.455,
+    "score": 0.43,
+    "start_ctc": 41.2283,
+    "src": "note",
+    "conf": 0.14
+   },
+   {
+    "text": "infinity",
+    "start": 41.57,
+    "end": 42.2698,
+    "score": 0.959,
+    "start_ctc": 41.6332,
+    "src": "note",
+    "conf": 0.271,
+    "attack": 41.455
+   }
+  ]
+ },
+ {
+  "text": "Then you can be my",
+  "vtt_start": 42.346,
+  "vtt_end": 43.507,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 42.475,
+    "end": 42.6142,
+    "score": 0.639,
+    "start_ctc": 42.43,
+    "src": "note",
+    "conf": 1.041,
+    "attack": 42.43
+   },
+   {
+    "text": "you",
+    "start": 42.72,
+    "end": 42.82,
+    "score": 0.256,
+    "start_ctc": 42.6904,
+    "src": "note",
+    "conf": 0.676,
+    "attack": 42.67
+   },
+   {
+    "text": "can",
+    "start": 42.88,
+    "end": 43.0546,
+    "score": 0.876,
+    "start_ctc": 42.8907,
+    "src": "note",
+    "conf": 0.585,
+    "attack": 42.82
+   },
+   {
+    "text": "be",
+    "start": 43.18,
+    "end": 43.2913,
+    "score": 0.936,
+    "start_ctc": 43.1475,
+    "src": "note",
+    "conf": 0.897
+   },
+   {
+    "text": "my",
+    "start": 43.42,
+    "end": 43.5517,
+    "score": 0.552,
+    "start_ctc": 43.3879,
+    "src": "note",
+    "conf": 0.138
+   }
+  ]
+ },
+ {
+  "text": "LIMITATIONS",
+  "vtt_start": 43.507,
+  "vtt_end": 44.452,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "LIMITATIONS",
+    "start": 43.575,
+    "end": 44.503,
+    "score": 0.199,
+    "start_ctc": 43.6552,
+    "src": "note",
+    "conf": 0.091,
+    "attack": 43.49
+   }
+  ]
+ },
+ {
+  "text": "Switch my current",
+  "vtt_start": 44.452,
+  "vtt_end": 45.85,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Switch",
+    "start": 44.56,
+    "end": 44.8764,
+    "score": 0.267,
+    "start_ctc": 44.5231,
+    "src": "note",
+    "conf": 0.529
+   },
+   {
+    "text": "my",
+    "start": 45.0,
+    "end": 45.2441,
+    "score": 0.582,
+    "start_ctc": 45.031,
+    "src": "note",
+    "conf": 1.051
+   },
+   {
+    "text": "current",
+    "start": 45.445,
+    "end": 45.9251,
+    "score": 0.84,
+    "start_ctc": 45.3969,
+    "src": "note",
+    "conf": 0.214,
+    "attack": 45.405
+   }
+  ]
+ },
+ {
+  "text": "To AC to DC",
+  "vtt_start": 45.85,
+  "vtt_end": 47.672,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "To",
+    "start": 46.135,
+    "end": 46.2178,
+    "score": 0.924,
+    "start_ctc": 46.1331,
+    "src": "note",
+    "conf": 0.854,
+    "attack": 46.055
+   },
+   {
+    "text": "AC",
+    "start": 46.3657,
+    "end": 46.8574,
+    "score": 0.206,
+    "start_ctc": 46.3657,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "to",
+    "start": 47.065,
+    "end": 47.1468,
+    "score": 0.44,
+    "start_ctc": 47.0386,
+    "src": "note",
+    "conf": 0.322
+   },
+   {
+    "text": "DC",
+    "start": 47.315,
+    "end": 47.7361,
+    "score": 0.398,
+    "start_ctc": 47.3153,
+    "src": "note",
+    "conf": 0.337
+   }
+  ]
+ },
+ {
+  "text": "And then blind my vision",
+  "vtt_start": 47.672,
+  "vtt_end": 49.534,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "And",
+    "start": 47.925,
+    "end": 47.975,
+    "score": 0.873,
+    "start_ctc": 47.8779,
+    "src": "note",
+    "conf": 0.099
+   },
+   {
+    "text": "then",
+    "start": 48.02,
+    "end": 48.1168,
+    "score": 0.408,
+    "start_ctc": 47.9965,
+    "src": "note",
+    "conf": 0.886
+   },
+   {
+    "text": "blind",
+    "start": 48.26,
+    "end": 48.5595,
+    "score": 0.24,
+    "start_ctc": 48.2598,
+    "src": "note",
+    "conf": 0.898
+   },
+   {
+    "text": "my",
+    "start": 48.725,
+    "end": 48.9394,
+    "score": 0.838,
+    "start_ctc": 48.6802,
+    "src": "note",
+    "conf": 0.168
+   },
+   {
+    "text": "vision",
+    "start": 49.16,
+    "end": 49.5202,
+    "score": 0.922,
+    "start_ctc": 49.1587,
+    "src": "note",
+    "conf": 1.193
+   }
+  ]
+ },
+ {
+  "text": "So dizzy so dizzy",
+  "vtt_start": 49.534,
+  "vtt_end": 51.363,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "So",
+    "start": 49.845,
+    "end": 49.9408,
+    "score": 0.661,
+    "start_ctc": 49.8206,
+    "src": "note",
+    "conf": 0.898,
+    "attack": 49.765
+   },
+   {
+    "text": "dizzy",
+    "start": 50.095,
+    "end": 50.4612,
+    "score": 0.091,
+    "start_ctc": 50.0816,
+    "src": "note",
+    "conf": 0.32
+   },
+   {
+    "text": "so",
+    "start": 50.685,
+    "end": 50.8624,
+    "score": 0.868,
+    "start_ctc": 50.732,
+    "src": "note",
+    "conf": 0.637,
+    "attack": 50.605
+   },
+   {
+    "text": "dizzy",
+    "start": 51.01,
+    "end": 51.3829,
+    "score": 0.159,
+    "start_ctc": 51.0222,
+    "src": "note",
+    "conf": 0.511
+   }
+  ]
+ },
+ {
+  "text": "Oh we can travel",
+  "vtt_start": 51.363,
+  "vtt_end": 53.225,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Oh",
+    "start": 51.485,
+    "end": 51.7359,
+    "score": 0.138,
+    "start_ctc": 51.5857,
+    "src": "note",
+    "conf": 0.268
+   },
+   {
+    "text": "we",
+    "start": 51.935,
+    "end": 52.1215,
+    "score": 0.291,
+    "start_ctc": 51.946,
+    "src": "note",
+    "conf": 0.825
+   },
+   {
+    "text": "can",
+    "start": 52.3372,
+    "end": 52.6421,
+    "score": 0.842,
+    "start_ctc": 52.3372,
+    "src": "ctc",
+    "conf": 0.0,
+    "attack": 52.24
+   },
+   {
+    "text": "travel",
+    "start": 52.825,
+    "end": 53.187,
+    "score": 0.968,
+    "start_ctc": 52.7867,
+    "src": "note",
+    "conf": 0.239,
+    "attack": 52.765
+   }
+  ]
+ },
+ {
+  "text": "To A.D to B.C",
+  "vtt_start": 53.225,
+  "vtt_end": 55.083,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "To",
+    "start": 53.395,
+    "end": 53.6053,
+    "score": 0.822,
+    "start_ctc": 53.479,
+    "src": "note",
+    "conf": 0.379,
+    "attack": 53.3
+   },
+   {
+    "text": "A.D",
+    "start": 53.79,
+    "end": 54.142,
+    "score": 0.366,
+    "start_ctc": 53.8936,
+    "src": "note",
+    "conf": 0.18
+   },
+   {
+    "text": "to",
+    "start": 54.465,
+    "end": 54.5544,
+    "score": 0.722,
+    "start_ctc": 54.4142,
+    "src": "note",
+    "conf": 0.462,
+    "attack": 54.43
+   },
+   {
+    "text": "B.C",
+    "start": 54.695,
+    "end": 55.2017,
+    "score": 0.38,
+    "start_ctc": 54.6945,
+    "src": "note",
+    "conf": 0.693
+   }
+  ]
+ },
+ {
+  "text": "And we can unite",
+  "vtt_start": 55.083,
+  "vtt_end": 56.916,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "And",
+    "start": 55.195,
+    "end": 55.3753,
+    "score": 0.528,
+    "start_ctc": 55.2752,
+    "src": "note",
+    "conf": 0.234
+   },
+   {
+    "text": "we",
+    "start": 55.62,
+    "end": 55.7842,
+    "score": 0.076,
+    "start_ctc": 55.6023,
+    "src": "note",
+    "conf": 0.827,
+    "attack": 55.46
+   },
+   {
+    "text": "can",
+    "start": 56.04,
+    "end": 56.3064,
+    "score": 0.365,
+    "start_ctc": 56.0161,
+    "src": "note",
+    "conf": 0.177,
+    "attack": 56.005
+   },
+   {
+    "text": "unite",
+    "start": 56.525,
+    "end": 57.0673,
+    "score": 0.384,
+    "start_ctc": 56.5839,
+    "src": "note",
+    "conf": 0.455,
+    "attack": 56.44
+   }
+  ]
+ },
+ {
+  "text": "So deeply so deeply",
+  "vtt_start": 56.916,
+  "vtt_end": 59.223,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "So",
+    "start": 57.23,
+    "end": 57.3376,
+    "score": 0.59,
+    "start_ctc": 57.2101,
+    "src": "note",
+    "conf": 1.093,
+    "attack": 57.165
+   },
+   {
+    "text": "deeply",
+    "start": 57.475,
+    "end": 57.8506,
+    "score": 0.134,
+    "start_ctc": 57.4502,
+    "src": "note",
+    "conf": 0.584
+   },
+   {
+    "text": "so",
+    "start": 58.155,
+    "end": 58.2787,
+    "score": 0.495,
+    "start_ctc": 58.1263,
+    "src": "note",
+    "conf": 1.253,
+    "attack": 58.025
+   },
+   {
+    "text": "deeply",
+    "start": 58.41,
+    "end": 58.8294,
+    "score": 0.235,
+    "start_ctc": 58.3878,
+    "src": "note",
+    "conf": 0.242
+   }
+  ]
+ },
+ {
+  "text": "If I can",
+  "vtt_start": 59.223,
+  "vtt_end": 59.687,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 59.575,
+    "end": 59.625,
+    "score": 0.661,
+    "start_ctc": 59.5318,
+    "src": "note",
+    "conf": 0.279,
+    "attack": 59.485
+   },
+   {
+    "text": "I",
+    "start": 59.78,
+    "end": 59.8806,
+    "score": 0.612,
+    "start_ctc": 59.8606,
+    "src": "note",
+    "conf": 0.277,
+    "attack": 59.665
+   },
+   {
+    "text": "can",
+    "start": 60.02,
+    "end": 60.1323,
+    "score": 0.21,
+    "start_ctc": 59.9707,
+    "src": "note",
+    "conf": 0.788,
+    "attack": 59.975
+   }
+  ]
+ },
+ {
+  "text": "If I can give you all the",
+  "vtt_start": 59.687,
+  "vtt_end": 61.958,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 60.405,
+    "end": 60.4713,
+    "score": 0.422,
+    "start_ctc": 60.3812,
+    "src": "note",
+    "conf": 0.165,
+    "attack": 60.245
+   },
+   {
+    "text": "I",
+    "start": 60.72,
+    "end": 60.8217,
+    "score": 0.903,
+    "start_ctc": 60.8017,
+    "src": "note",
+    "conf": 0.235
+   },
+   {
+    "text": "can",
+    "start": 60.94,
+    "end": 61.053,
+    "score": 0.776,
+    "start_ctc": 60.9107,
+    "src": "note",
+    "conf": 0.616,
+    "attack": 60.895
+   },
+   {
+    "text": "give",
+    "start": 61.155,
+    "end": 61.3624,
+    "score": 0.662,
+    "start_ctc": 61.1531,
+    "src": "note",
+    "conf": 1.168
+   },
+   {
+    "text": "you",
+    "start": 61.4333,
+    "end": 61.5321,
+    "score": 0.704,
+    "start_ctc": 61.4333,
+    "src": "ctc",
+    "conf": 0.067,
+    "attack": 61.38
+   },
+   {
+    "text": "all",
+    "start": 61.755,
+    "end": 61.8329,
+    "score": 0.119,
+    "start_ctc": 61.7328,
+    "src": "note",
+    "conf": 0.192
+   },
+   {
+    "text": "the",
+    "start": 61.87,
+    "end": 61.95,
+    "score": 0.139,
+    "start_ctc": 61.8529,
+    "src": "note",
+    "conf": 0.631
+   }
+  ]
+ },
+ {
+  "text": "STIMULATIONS",
+  "vtt_start": 61.958,
+  "vtt_end": 62.589,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "STIMULATIONS",
+    "start": 62.105,
+    "end": 62.9944,
+    "score": 0.084,
+    "start_ctc": 62.0835,
+    "src": "note",
+    "conf": 0.575,
+    "attack": 61.98
+   }
+  ]
+ },
+ {
+  "text": "Then I can",
+  "vtt_start": 62.589,
+  "vtt_end": 63.535,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 63.12,
+    "end": 63.3148,
+    "score": 0.158,
+    "start_ctc": 63.0645,
+    "src": "note",
+    "conf": 0.15,
+    "attack": 62.975
+   },
+   {
+    "text": "I",
+    "start": 63.315,
+    "end": 63.365,
+    "score": 0.01,
+    "start_ctc": 63.3448,
+    "src": "note",
+    "conf": 0.139
+   },
+   {
+    "text": "can",
+    "start": 63.47,
+    "end": 63.5749,
+    "score": 0.081,
+    "start_ctc": 63.4749,
+    "src": "note",
+    "conf": 0.244
+   }
+  ]
+ },
+ {
+  "text": "Then I can be your only",
+  "vtt_start": 63.535,
+  "vtt_end": 65.397,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 63.95,
+    "end": 64.2635,
+    "score": 0.245,
+    "start_ctc": 63.9178,
+    "src": "note",
+    "conf": 0.305
+   },
+   {
+    "text": "I",
+    "start": 64.4982,
+    "end": 64.5482,
+    "score": 0.211,
+    "start_ctc": 64.4982,
+    "src": "ctc",
+    "conf": 0.068,
+    "attack": 64.42
+   },
+   {
+    "text": "can",
+    "start": 64.585,
+    "end": 64.7584,
+    "score": 0.89,
+    "start_ctc": 64.6139,
+    "src": "note",
+    "conf": 0.615
+   },
+   {
+    "text": "be",
+    "start": 64.88,
+    "end": 64.99,
+    "score": 0.892,
+    "start_ctc": 64.8498,
+    "src": "note",
+    "conf": 0.731
+   },
+   {
+    "text": "your",
+    "start": 65.0987,
+    "end": 65.2905,
+    "score": 0.658,
+    "start_ctc": 65.0987,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "only",
+    "start": 65.395,
+    "end": 65.6511,
+    "score": 0.908,
+    "start_ctc": 65.4549,
+    "src": "note",
+    "conf": 0.253,
+    "attack": 65.355
+   }
+  ]
+ },
+ {
+  "text": "SATISFACTION",
+  "vtt_start": 65.397,
+  "vtt_end": 66.601,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "SATISFACTION",
+    "start": 65.785,
+    "end": 66.5744,
+    "score": 0.908,
+    "start_ctc": 65.7452,
+    "src": "note",
+    "conf": 1.106,
+    "attack": 65.685
+   }
+  ]
+ },
+ {
+  "text": "If I can make you happy",
+  "vtt_start": 66.601,
+  "vtt_end": 68.252,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 66.745,
+    "end": 66.9066,
+    "score": 0.088,
+    "start_ctc": 66.7981,
+    "src": "note",
+    "conf": 0.173
+   },
+   {
+    "text": "I",
+    "start": 67.18,
+    "end": 67.2537,
+    "score": 0.242,
+    "start_ctc": 67.2337,
+    "src": "note",
+    "conf": 0.229
+   },
+   {
+    "text": "can",
+    "start": 67.395,
+    "end": 67.5004,
+    "score": 0.502,
+    "start_ctc": 67.3471,
+    "src": "note",
+    "conf": 0.524,
+    "attack": 67.37
+   },
+   {
+    "text": "make",
+    "start": 67.64,
+    "end": 67.81,
+    "score": 0.057,
+    "start_ctc": 67.6274,
+    "src": "note",
+    "conf": 0.876
+   },
+   {
+    "text": "you",
+    "start": 67.855,
+    "end": 67.9407,
+    "score": 0.643,
+    "start_ctc": 67.8547,
+    "src": "note",
+    "conf": 0.575,
+    "attack": 67.81
+   },
+   {
+    "text": "happy",
+    "start": 68.085,
+    "end": 68.4384,
+    "score": 0.442,
+    "start_ctc": 68.0551,
+    "src": "note",
+    "conf": 0.395,
+    "attack": 68.025
+   }
+  ]
+ },
+ {
+  "text": "I will run the",
+  "vtt_start": 68.252,
+  "vtt_end": 69.259,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "I",
+    "start": 68.57,
+    "end": 68.6373,
+    "score": 0.046,
+    "start_ctc": 68.6173,
+    "src": "note",
+    "conf": 0.539
+   },
+   {
+    "text": "will",
+    "start": 68.76,
+    "end": 68.9778,
+    "score": 0.036,
+    "start_ctc": 68.7888,
+    "src": "note",
+    "conf": 0.315
+   },
+   {
+    "text": "run",
+    "start": 69.035,
+    "end": 69.1615,
+    "score": 0.253,
+    "start_ctc": 69.0214,
+    "src": "note",
+    "conf": 0.405
+   },
+   {
+    "text": "the",
+    "start": 69.295,
+    "end": 69.4017,
+    "score": 0.061,
+    "start_ctc": 69.2416,
+    "src": "note",
+    "conf": 0.186,
+    "attack": 69.215
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 69.259,
+  "vtt_end": 70.084,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 69.495,
+    "end": 70.2823,
+    "score": 0.82,
+    "start_ctc": 69.5597,
+    "src": "note",
+    "conf": 0.328
+   }
+  ]
+ },
+ {
+  "text": "Though we are trapped",
+  "vtt_start": 70.084,
+  "vtt_end": 71.764,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Though",
+    "start": 70.42,
+    "end": 70.7219,
+    "score": 0.111,
+    "start_ctc": 70.4224,
+    "src": "note",
+    "conf": 0.195
+   },
+   {
+    "text": "we",
+    "start": 70.87,
+    "end": 70.945,
+    "score": 0.119,
+    "start_ctc": 70.8797,
+    "src": "note",
+    "conf": 0.328
+   },
+   {
+    "text": "are",
+    "start": 71.1,
+    "end": 71.23,
+    "score": 0.352,
+    "start_ctc": 71.1429,
+    "src": "note",
+    "conf": 0.598,
+    "attack": 70.945
+   },
+   {
+    "text": "trapped",
+    "start": 71.315,
+    "end": 71.7417,
+    "score": 0.243,
+    "start_ctc": 71.2717,
+    "src": "note",
+    "conf": 0.424,
+    "attack": 71.23
+   }
+  ]
+ },
+ {
+  "text": "In this strange strange",
+  "vtt_start": 71.764,
+  "vtt_end": 73.169,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "In",
+    "start": 71.805,
+    "end": 71.9235,
+    "score": 0.583,
+    "start_ctc": 71.8819,
+    "src": "note",
+    "conf": 0.243,
+    "attack": 71.745
+   },
+   {
+    "text": "this",
+    "start": 72.025,
+    "end": 72.11,
+    "score": 0.273,
+    "start_ctc": 72.0035,
+    "src": "note",
+    "conf": 0.534
+   },
+   {
+    "text": "strange",
+    "start": 72.145,
+    "end": 72.53,
+    "score": 0.352,
+    "start_ctc": 72.2028,
+    "src": "note",
+    "conf": 0.093,
+    "attack": 72.11
+   },
+   {
+    "text": "strange",
+    "start": 72.6,
+    "end": 73.0042,
+    "score": 0.305,
+    "start_ctc": 72.664,
+    "src": "note",
+    "conf": 0.135,
+    "attack": 72.53
+   }
+  ]
+ },
+ {
+  "text": "SIMULATION",
+  "vtt_start": 73.169,
+  "vtt_end": 74.045,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "SIMULATION",
+    "start": 73.19,
+    "end": 74.0249,
+    "score": 0.124,
+    "start_ctc": 73.1635,
+    "src": "note",
+    "conf": 0.445
+   }
+  ]
+ },
+ {
+  "text": "If I'm an eggplant",
+  "vtt_start": 74.045,
+  "vtt_end": 75.422,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 74.095,
+    "end": 74.2529,
+    "score": 0.772,
+    "start_ctc": 74.1929,
+    "src": "note",
+    "conf": 0.339,
+    "attack": 74.04
+   },
+   {
+    "text": "I'm",
+    "start": 74.729,
+    "end": 74.8138,
+    "score": 0.723,
+    "start_ctc": 74.729,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "an",
+    "start": 74.885,
+    "end": 74.9785,
+    "score": 0.404,
+    "start_ctc": 74.9385,
+    "src": "note",
+    "conf": 0.428
+   },
+   {
+    "text": "eggplant",
+    "start": 75.155,
+    "end": 75.615,
+    "score": 0.579,
+    "start_ctc": 75.1064,
+    "src": "note",
+    "conf": 0.306,
+    "attack": 75.015
+   }
+  ]
+ },
+ {
+  "text": "Then I will give you my",
+  "vtt_start": 75.422,
+  "vtt_end": 76.959,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 75.705,
+    "end": 75.8794,
+    "score": 0.28,
+    "start_ctc": 75.7072,
+    "src": "note",
+    "conf": 0.642,
+    "attack": 75.645
+   },
+   {
+    "text": "I",
+    "start": 75.955,
+    "end": 76.0757,
+    "score": 0.777,
+    "start_ctc": 76.0556,
+    "src": "note",
+    "conf": 0.25,
+    "attack": 75.925
+   },
+   {
+    "text": "will",
+    "start": 76.17,
+    "end": 76.336,
+    "score": 0.21,
+    "start_ctc": 76.1357,
+    "src": "note",
+    "conf": 0.887
+   },
+   {
+    "text": "give",
+    "start": 76.405,
+    "end": 76.6002,
+    "score": 0.918,
+    "start_ctc": 76.3799,
+    "src": "note",
+    "conf": 0.528,
+    "attack": 76.36
+   },
+   {
+    "text": "you",
+    "start": 76.63,
+    "end": 76.7366,
+    "score": 0.99,
+    "start_ctc": 76.6465,
+    "src": "note",
+    "conf": 1.17
+   },
+   {
+    "text": "my",
+    "start": 76.79,
+    "end": 77.0436,
+    "score": 0.663,
+    "start_ctc": 76.8404,
+    "src": "note",
+    "conf": 0.198
+   }
+  ]
+ },
+ {
+  "text": "NUTRIENTS",
+  "vtt_start": 76.959,
+  "vtt_end": 77.576,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "NUTRIENTS",
+    "start": 77.075,
+    "end": 77.755,
+    "score": 0.373,
+    "start_ctc": 77.149,
+    "src": "note",
+    "conf": 0.639,
+    "attack": 77.04
+   }
+  ]
+ },
+ {
+  "text": "If I'm a tomato",
+  "vtt_start": 77.576,
+  "vtt_end": 79.226,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 77.795,
+    "end": 77.9554,
+    "score": 0.482,
+    "start_ctc": 77.8752,
+    "src": "note",
+    "conf": 0.292,
+    "attack": 77.73
+   },
+   {
+    "text": "I'm",
+    "start": 78.25,
+    "end": 78.5021,
+    "score": 0.179,
+    "start_ctc": 78.329,
+    "src": "note",
+    "conf": 0.216,
+    "attack": 78.21
+   },
+   {
+    "text": "a",
+    "start": 78.57,
+    "end": 78.6367,
+    "score": 0.269,
+    "start_ctc": 78.6167,
+    "src": "note",
+    "conf": 0.323
+   },
+   {
+    "text": "tomato",
+    "start": 78.695,
+    "end": 79.1615,
+    "score": 0.639,
+    "start_ctc": 78.6968,
+    "src": "note",
+    "conf": 0.576,
+    "attack": 78.665
+   }
+  ]
+ },
+ {
+  "text": "Then I will give you",
+  "vtt_start": 79.226,
+  "vtt_end": 80.62,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 79.39,
+    "end": 79.5632,
+    "score": 0.415,
+    "start_ctc": 79.3706,
+    "src": "note",
+    "conf": 1.221,
+    "attack": 79.365
+   },
+   {
+    "text": "I",
+    "start": 79.64,
+    "end": 79.7634,
+    "score": 0.989,
+    "start_ctc": 79.7433,
+    "src": "note",
+    "conf": 0.236
+   },
+   {
+    "text": "will",
+    "start": 79.875,
+    "end": 80.0316,
+    "score": 0.935,
+    "start_ctc": 79.8434,
+    "src": "note",
+    "conf": 0.598
+   },
+   {
+    "text": "give",
+    "start": 80.09,
+    "end": 80.2819,
+    "score": 0.986,
+    "start_ctc": 80.0996,
+    "src": "note",
+    "conf": 0.974,
+    "attack": 80.055
+   },
+   {
+    "text": "you",
+    "start": 80.305,
+    "end": 80.424,
+    "score": 0.987,
+    "start_ctc": 80.332,
+    "src": "note",
+    "conf": 0.858
+   }
+  ]
+ },
+ {
+  "text": "ANTIOXIDANTS",
+  "vtt_start": 80.62,
+  "vtt_end": 81.351,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "ANTIOXIDANTS",
+    "start": 80.565,
+    "end": 81.4737,
+    "score": 0.402,
+    "start_ctc": 80.6224,
+    "src": "note",
+    "conf": 0.335,
+    "attack": 80.5
+   }
+  ]
+ },
+ {
+  "text": "If I'm a tabby cat",
+  "vtt_start": 81.351,
+  "vtt_end": 82.833,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 81.49,
+    "end": 81.6346,
+    "score": 0.724,
+    "start_ctc": 81.5745,
+    "src": "note",
+    "conf": 0.207,
+    "attack": 81.41
+   },
+   {
+    "text": "I'm",
+    "start": 82.15,
+    "end": 82.2148,
+    "score": 0.892,
+    "start_ctc": 82.1046,
+    "src": "note",
+    "conf": 0.336
+   },
+   {
+    "text": "a",
+    "start": 82.325,
+    "end": 82.375,
+    "score": 0.891,
+    "start_ctc": 82.315,
+    "src": "note",
+    "conf": 0.492,
+    "attack": 82.27
+   },
+   {
+    "text": "tabby",
+    "start": 82.395,
+    "end": 82.6446,
+    "score": 0.616,
+    "start_ctc": 82.4041,
+    "src": "note",
+    "conf": 0.239
+   },
+   {
+    "text": "cat",
+    "start": 82.715,
+    "end": 82.9652,
+    "score": 0.961,
+    "start_ctc": 82.7248,
+    "src": "note",
+    "conf": 0.461
+   }
+  ]
+ },
+ {
+  "text": "Then I will purr for your",
+  "vtt_start": 82.833,
+  "vtt_end": 84.268,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 83.08,
+    "end": 83.2664,
+    "score": 0.848,
+    "start_ctc": 83.0761,
+    "src": "note",
+    "conf": 0.776,
+    "attack": 82.96
+   },
+   {
+    "text": "I",
+    "start": 83.41,
+    "end": 83.4767,
+    "score": 0.979,
+    "start_ctc": 83.4567,
+    "src": "note",
+    "conf": 0.134,
+    "attack": 83.345
+   },
+   {
+    "text": "will",
+    "start": 83.52,
+    "end": 83.717,
+    "score": 0.941,
+    "start_ctc": 83.5468,
+    "src": "note",
+    "conf": 0.436
+   },
+   {
+    "text": "purr",
+    "start": 83.745,
+    "end": 83.9273,
+    "score": 0.755,
+    "start_ctc": 83.7571,
+    "src": "note",
+    "conf": 0.488
+   },
+   {
+    "text": "for",
+    "start": 84.025,
+    "end": 84.14,
+    "score": 0.962,
+    "start_ctc": 83.9874,
+    "src": "note",
+    "conf": 0.508,
+    "attack": 83.93
+   },
+   {
+    "text": "your",
+    "start": 84.265,
+    "end": 84.348,
+    "score": 0.398,
+    "start_ctc": 84.2378,
+    "src": "note",
+    "conf": 0.165,
+    "attack": 84.14
+   }
+  ]
+ },
+ {
+  "text": "ENJOYMENT",
+  "vtt_start": 84.268,
+  "vtt_end": 85.078,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "ENJOYMENT",
+    "start": 84.475,
+    "end": 85.1163,
+    "score": 0.982,
+    "start_ctc": 84.531,
+    "src": "note",
+    "conf": 0.936
+   }
+  ]
+ },
+ {
+  "text": "If I'm the only god",
+  "vtt_start": 85.078,
+  "vtt_end": 86.538,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 85.33,
+    "end": 85.38,
+    "score": 0.997,
+    "start_ctc": 85.2919,
+    "src": "note",
+    "conf": 0.403
+   },
+   {
+    "text": "I'm",
+    "start": 85.735,
+    "end": 85.8769,
+    "score": 0.71,
+    "start_ctc": 85.7625,
+    "src": "note",
+    "conf": 0.55,
+    "attack": 85.61
+   },
+   {
+    "text": "the",
+    "start": 85.94,
+    "end": 86.005,
+    "score": 0.09,
+    "start_ctc": 85.9649,
+    "src": "note",
+    "conf": 0.681
+   },
+   {
+    "text": "only",
+    "start": 86.005,
+    "end": 86.3032,
+    "score": 0.976,
+    "start_ctc": 86.0971,
+    "src": "note",
+    "conf": 0.248
+   },
+   {
+    "text": "god",
+    "start": 86.39,
+    "end": 86.6637,
+    "score": 0.526,
+    "start_ctc": 86.3833,
+    "src": "note",
+    "conf": 0.659
+   }
+  ]
+ },
+ {
+  "text": "Then you're the proof of my",
+  "vtt_start": 86.538,
+  "vtt_end": 87.922,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 86.785,
+    "end": 86.914,
+    "score": 0.513,
+    "start_ctc": 86.7518,
+    "src": "note",
+    "conf": 1.153,
+    "attack": 86.685
+   },
+   {
+    "text": "you're",
+    "start": 87.01,
+    "end": 87.1907,
+    "score": 0.678,
+    "start_ctc": 86.9841,
+    "src": "note",
+    "conf": 0.774,
+    "attack": 86.96
+   },
+   {
+    "text": "the",
+    "start": 87.245,
+    "end": 87.3181,
+    "score": 0.957,
+    "start_ctc": 87.2381,
+    "src": "note",
+    "conf": 0.617,
+    "attack": 87.22
+   },
+   {
+    "text": "proof",
+    "start": 87.36,
+    "end": 87.625,
+    "score": 0.961,
+    "start_ctc": 87.4046,
+    "src": "note",
+    "conf": 0.424
+   },
+   {
+    "text": "of",
+    "start": 87.7,
+    "end": 87.8386,
+    "score": 0.991,
+    "start_ctc": 87.7917,
+    "src": "note",
+    "conf": 0.28,
+    "attack": 87.625
+   },
+   {
+    "text": "my",
+    "start": 87.92,
+    "end": 88.0922,
+    "score": 0.976,
+    "start_ctc": 87.9386,
+    "src": "note",
+    "conf": 0.5
+   }
+  ]
+ },
+ {
+  "text": "EXISTENCE",
+  "vtt_start": 87.922,
+  "vtt_end": 88.587,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXISTENCE",
+    "start": 88.17,
+    "end": 88.7994,
+    "score": 0.625,
+    "start_ctc": 88.2589,
+    "src": "note",
+    "conf": 0.207
+   }
+  ]
+ },
+ {
+  "text": "Switch my gender",
+  "vtt_start": 88.587,
+  "vtt_end": 90.197,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Switch",
+    "start": 88.85,
+    "end": 89.1396,
+    "score": 0.242,
+    "start_ctc": 88.8579,
+    "src": "note",
+    "conf": 1.153
+   },
+   {
+    "text": "my",
+    "start": 89.3,
+    "end": 89.5273,
+    "score": 0.81,
+    "start_ctc": 89.317,
+    "src": "note",
+    "conf": 1.036
+   },
+   {
+    "text": "gender",
+    "start": 89.665,
+    "end": 90.1581,
+    "score": 0.703,
+    "start_ctc": 89.7001,
+    "src": "note",
+    "conf": 0.327
+   }
+  ]
+ },
+ {
+  "text": "To F to M",
+  "vtt_start": 90.197,
+  "vtt_end": 92.015,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "To",
+    "start": 90.39,
+    "end": 90.5086,
+    "score": 0.947,
+    "start_ctc": 90.3884,
+    "src": "note",
+    "conf": 0.857,
+    "attack": 90.255
+   },
+   {
+    "text": "F",
+    "start": 90.92,
+    "end": 91.19,
+    "score": 0.173,
+    "start_ctc": 90.8901,
+    "src": "note",
+    "conf": 0.434
+   },
+   {
+    "text": "to",
+    "start": 91.3,
+    "end": 91.4798,
+    "score": 0.97,
+    "start_ctc": 91.3615,
+    "src": "note",
+    "conf": 0.122,
+    "attack": 91.19
+   },
+   {
+    "text": "M",
+    "start": 91.815,
+    "end": 91.942,
+    "score": 0.315,
+    "start_ctc": 91.8386,
+    "src": "note",
+    "conf": 0.124,
+    "attack": 91.69
+   }
+  ]
+ },
+ {
+  "text": "And then do whatever",
+  "vtt_start": 92.015,
+  "vtt_end": 93.953,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "And",
+    "start": 92.13,
+    "end": 92.2823,
+    "score": 0.77,
+    "start_ctc": 92.1807,
+    "src": "note",
+    "conf": 0.192,
+    "attack": 92.09
+   },
+   {
+    "text": "then",
+    "start": 92.32,
+    "end": 92.441,
+    "score": 0.303,
+    "start_ctc": 92.3223,
+    "src": "note",
+    "conf": 1.107
+   },
+   {
+    "text": "do",
+    "start": 92.575,
+    "end": 92.67,
+    "score": 0.698,
+    "start_ctc": 92.5425,
+    "src": "note",
+    "conf": 0.189,
+    "attack": 92.54
+   },
+   {
+    "text": "whatever",
+    "start": 93.06,
+    "end": 93.8228,
+    "score": 0.934,
+    "start_ctc": 93.1024,
+    "src": "note",
+    "conf": 0.227
+   }
+  ]
+ },
+ {
+  "text": "From AM to PM",
+  "vtt_start": 93.953,
+  "vtt_end": 95.465,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "From",
+    "start": 94.025,
+    "end": 94.3234,
+    "score": 0.946,
+    "start_ctc": 94.0631,
+    "src": "note",
+    "conf": 0.27
+   },
+   {
+    "text": "AM",
+    "start": 94.445,
+    "end": 94.814,
+    "score": 0.08,
+    "start_ctc": 94.424,
+    "src": "note",
+    "conf": 0.252,
+    "attack": 94.37
+   },
+   {
+    "text": "to",
+    "start": 95.055,
+    "end": 95.1847,
+    "score": 0.956,
+    "start_ctc": 95.0641,
+    "src": "note",
+    "conf": 0.133
+   },
+   {
+    "text": "PM",
+    "start": 95.305,
+    "end": 95.565,
+    "score": 0.161,
+    "start_ctc": 95.2848,
+    "src": "note",
+    "conf": 0.434
+   }
+  ]
+ },
+ {
+  "text": "Oh switch my role",
+  "vtt_start": 95.465,
+  "vtt_end": 97.739,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Oh",
+    "start": 95.8,
+    "end": 96.0884,
+    "score": 0.453,
+    "start_ctc": 95.8929,
+    "src": "note",
+    "conf": 0.295
+   },
+   {
+    "text": "switch",
+    "start": 96.235,
+    "end": 96.54,
+    "score": 0.407,
+    "start_ctc": 96.1838,
+    "src": "note",
+    "conf": 1.195,
+    "attack": 96.115
+   },
+   {
+    "text": "my",
+    "start": 96.695,
+    "end": 97.0295,
+    "score": 0.561,
+    "start_ctc": 96.6936,
+    "src": "note",
+    "conf": 1.493,
+    "attack": 96.54
+   },
+   {
+    "text": "role",
+    "start": 97.17,
+    "end": 97.5343,
+    "score": 0.525,
+    "start_ctc": 97.1497,
+    "src": "note",
+    "conf": 0.939
+   }
+  ]
+ },
+ {
+  "text": "To S to M",
+  "vtt_start": 97.739,
+  "vtt_end": 99.349,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "To",
+    "start": 97.86,
+    "end": 97.9607,
+    "score": 0.818,
+    "start_ctc": 97.8305,
+    "src": "note",
+    "conf": 0.865,
+    "attack": 97.835
+   },
+   {
+    "text": "S",
+    "start": 98.48,
+    "end": 98.6552,
+    "score": 0.41,
+    "start_ctc": 98.4951,
+    "src": "note",
+    "conf": 0.188
+   },
+   {
+    "text": "to",
+    "start": 98.765,
+    "end": 98.8818,
+    "score": 0.717,
+    "start_ctc": 98.7517,
+    "src": "note",
+    "conf": 0.175
+   },
+   {
+    "text": "M",
+    "start": 99.2022,
+    "end": 99.2889,
+    "score": 0.295,
+    "start_ctc": 99.2022,
+    "src": "ctc",
+    "conf": 0.0
+   }
+  ]
+ },
+ {
+  "text": "So we can enter",
+  "vtt_start": 99.349,
+  "vtt_end": 101.474,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "So",
+    "start": 99.325,
+    "end": 99.6528,
+    "score": 0.711,
+    "start_ctc": 99.4024,
+    "src": "note",
+    "conf": 0.127
+   },
+   {
+    "text": "we",
+    "start": 99.925,
+    "end": 100.1302,
+    "score": 0.11,
+    "start_ctc": 99.9099,
+    "src": "note",
+    "conf": 0.928,
+    "attack": 99.89
+   },
+   {
+    "text": "can",
+    "start": 100.385,
+    "end": 100.6225,
+    "score": 0.296,
+    "start_ctc": 100.3536,
+    "src": "note",
+    "conf": 0.482,
+    "attack": 100.33
+   },
+   {
+    "text": "enter",
+    "start": 100.85,
+    "end": 101.2547,
+    "score": 0.726,
+    "start_ctc": 100.9315,
+    "src": "note",
+    "conf": 0.664,
+    "attack": 100.805
+   }
+  ]
+ },
+ {
+  "text": "The trance the trance",
+  "vtt_start": 101.474,
+  "vtt_end": 103.489,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "The",
+    "start": 101.53,
+    "end": 101.6252,
+    "score": 0.608,
+    "start_ctc": 101.505,
+    "src": "note",
+    "conf": 0.518,
+    "attack": 101.5
+   },
+   {
+    "text": "trance",
+    "start": 101.645,
+    "end": 102.256,
+    "score": 0.378,
+    "start_ctc": 101.6953,
+    "src": "note",
+    "conf": 0.344
+   },
+   {
+    "text": "the",
+    "start": 102.475,
+    "end": 102.5463,
+    "score": 0.595,
+    "start_ctc": 102.4262,
+    "src": "note",
+    "conf": 0.796,
+    "attack": 102.43
+   },
+   {
+    "text": "trance",
+    "start": 102.595,
+    "end": 103.1752,
+    "score": 0.376,
+    "start_ctc": 102.6185,
+    "src": "note",
+    "conf": 0.902
+   }
+  ]
+ },
+ {
+  "text": "If I can",
+  "vtt_start": 103.489,
+  "vtt_end": 104.197,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 103.83,
+    "end": 103.88,
+    "score": 0.752,
+    "start_ctc": 103.7878,
+    "src": "note",
+    "conf": 0.355,
+    "attack": 103.68
+   },
+   {
+    "text": "I",
+    "start": 104.135,
+    "end": 104.2083,
+    "score": 0.938,
+    "start_ctc": 104.1883,
+    "src": "note",
+    "conf": 0.286
+   },
+   {
+    "text": "can",
+    "start": 104.32,
+    "end": 104.4486,
+    "score": 0.762,
+    "start_ctc": 104.2884,
+    "src": "note",
+    "conf": 0.856
+   }
+  ]
+ },
+ {
+  "text": "If I can feel your",
+  "vtt_start": 104.197,
+  "vtt_end": 106.293,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 104.61,
+    "end": 104.7603,
+    "score": 0.637,
+    "start_ctc": 104.6802,
+    "src": "note",
+    "conf": 0.095,
+    "attack": 104.545
+   },
+   {
+    "text": "I",
+    "start": 105.01,
+    "end": 105.1183,
+    "score": 0.968,
+    "start_ctc": 105.0983,
+    "src": "note",
+    "conf": 0.534
+   },
+   {
+    "text": "can",
+    "start": 105.24,
+    "end": 105.3608,
+    "score": 0.595,
+    "start_ctc": 105.2096,
+    "src": "note",
+    "conf": 0.726,
+    "attack": 105.21
+   },
+   {
+    "text": "feel",
+    "start": 105.49,
+    "end": 105.7202,
+    "score": 0.145,
+    "start_ctc": 105.4789,
+    "src": "note",
+    "conf": 0.813,
+    "attack": 105.395
+   },
+   {
+    "text": "your",
+    "start": 105.95,
+    "end": 106.2401,
+    "score": 0.159,
+    "start_ctc": 105.8904,
+    "src": "note",
+    "conf": 0.793,
+    "attack": 105.825
+   }
+  ]
+ },
+ {
+  "text": "VIBRATIONS",
+  "vtt_start": 106.293,
+  "vtt_end": 107.22,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "VIBRATIONS",
+    "start": 106.395,
+    "end": 107.3019,
+    "score": 0.659,
+    "start_ctc": 106.4004,
+    "src": "note",
+    "conf": 1.267
+   }
+  ]
+ },
+ {
+  "text": "Then I can",
+  "vtt_start": 107.22,
+  "vtt_end": 107.903,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 107.31,
+    "end": 107.6027,
+    "score": 0.242,
+    "start_ctc": 107.362,
+    "src": "note",
+    "conf": 0.249,
+    "attack": 107.275
+   },
+   {
+    "text": "I",
+    "start": 107.6826,
+    "end": 107.7326,
+    "score": 0.001,
+    "start_ctc": 107.6826,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "can",
+    "start": 107.7627,
+    "end": 107.9028,
+    "score": 0.008,
+    "start_ctc": 107.7627,
+    "src": "ctc",
+    "conf": 0.0
+   }
+  ]
+ },
+ {
+  "text": "Then I can finally be",
+  "vtt_start": 107.903,
+  "vtt_end": 110.221,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 108.1634,
+    "end": 108.6016,
+    "score": 0.372,
+    "start_ctc": 108.1634,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "I",
+    "start": 108.8119,
+    "end": 108.8619,
+    "score": 0.104,
+    "start_ctc": 108.8119,
+    "src": "ctc",
+    "conf": 0.0,
+    "attack": 108.76
+   },
+   {
+    "text": "can",
+    "start": 108.94,
+    "end": 109.0623,
+    "score": 0.398,
+    "start_ctc": 108.9176,
+    "src": "note",
+    "conf": 1.076,
+    "attack": 108.91
+   },
+   {
+    "text": "finally",
+    "start": 109.16,
+    "end": 109.9736,
+    "score": 0.359,
+    "start_ctc": 109.1381,
+    "src": "note",
+    "conf": 0.809
+   },
+   {
+    "text": "be",
+    "start": 110.06,
+    "end": 110.2001,
+    "score": 0.694,
+    "start_ctc": 110.0818,
+    "src": "note",
+    "conf": 0.713
+   }
+  ]
+ },
+ {
+  "text": "COMPLETION",
+  "vtt_start": 110.221,
+  "vtt_end": 110.9,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "COMPLETION",
+    "start": 110.305,
+    "end": 110.8949,
+    "score": 0.843,
+    "start_ctc": 110.294,
+    "src": "note",
+    "conf": 0.485
+   }
+  ]
+ },
+ {
+  "text": "Though you have left",
+  "vtt_start": 110.9,
+  "vtt_end": 112.12,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Though",
+    "start": 111.01,
+    "end": 111.39,
+    "score": 0.176,
+    "start_ctc": 111.005,
+    "src": "note",
+    "conf": 0.815
+   },
+   {
+    "text": "you",
+    "start": 111.48,
+    "end": 111.6059,
+    "score": 0.909,
+    "start_ctc": 111.5142,
+    "src": "note",
+    "conf": 0.194,
+    "attack": 111.39
+   },
+   {
+    "text": "have",
+    "start": 111.715,
+    "end": 111.8462,
+    "score": 0.934,
+    "start_ctc": 111.6889,
+    "src": "note",
+    "conf": 1.032,
+    "attack": 111.625
+   },
+   {
+    "text": "left",
+    "start": 111.95,
+    "end": 112.2441,
+    "score": 0.913,
+    "start_ctc": 111.9363,
+    "src": "note",
+    "conf": 0.688,
+    "attack": 111.86
+   }
+  ]
+ },
+ {
+  "text": "You have left",
+  "vtt_start": 112.22,
+  "vtt_end": 113.02,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "You",
+    "start": 112.4,
+    "end": 112.5272,
+    "score": 0.829,
+    "start_ctc": 112.3944,
+    "src": "note",
+    "conf": 0.53,
+    "attack": 112.26
+   },
+   {
+    "text": "have",
+    "start": 112.62,
+    "end": 112.8,
+    "score": 0.857,
+    "start_ctc": 112.5973,
+    "src": "note",
+    "conf": 0.744,
+    "attack": 112.56
+   },
+   {
+    "text": "left",
+    "start": 112.855,
+    "end": 113.1581,
+    "score": 0.801,
+    "start_ctc": 112.87,
+    "src": "note",
+    "conf": 1.122,
+    "attack": 112.8
+   }
+  ]
+ },
+ {
+  "text": "You have left",
+  "vtt_start": 113.1,
+  "vtt_end": 114.06,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "You",
+    "start": 113.32,
+    "end": 113.4505,
+    "score": 0.744,
+    "start_ctc": 113.2972,
+    "src": "note",
+    "conf": 0.931,
+    "attack": 113.185
+   },
+   {
+    "text": "have",
+    "start": 113.555,
+    "end": 113.66,
+    "score": 0.909,
+    "start_ctc": 113.5266,
+    "src": "note",
+    "conf": 0.382
+   },
+   {
+    "text": "left",
+    "start": 113.795,
+    "end": 114.1194,
+    "score": 0.256,
+    "start_ctc": 113.8108,
+    "src": "note",
+    "conf": 0.373,
+    "attack": 113.66
+   }
+  ]
+ },
+ {
+  "text": "You have left",
+  "vtt_start": 114.18,
+  "vtt_end": 114.84,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "You",
+    "start": 114.26,
+    "end": 114.3713,
+    "score": 0.656,
+    "start_ctc": 114.2212,
+    "src": "note",
+    "conf": 0.534,
+    "attack": 114.14
+   },
+   {
+    "text": "have",
+    "start": 114.41,
+    "end": 114.59,
+    "score": 0.702,
+    "start_ctc": 114.4314,
+    "src": "note",
+    "conf": 0.527
+   },
+   {
+    "text": "left",
+    "start": 114.73,
+    "end": 115.0507,
+    "score": 0.413,
+    "start_ctc": 114.7489,
+    "src": "note",
+    "conf": 0.623,
+    "attack": 114.59
+   }
+  ]
+ },
+ {
+  "text": "You have left",
+  "vtt_start": 114.92,
+  "vtt_end": 115.68,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "You",
+    "start": 115.085,
+    "end": 115.2922,
+    "score": 0.767,
+    "start_ctc": 115.152,
+    "src": "note",
+    "conf": 0.319,
+    "attack": 115.005
+   },
+   {
+    "text": "have",
+    "start": 115.41,
+    "end": 115.55,
+    "score": 0.896,
+    "start_ctc": 115.3612,
+    "src": "note",
+    "conf": 0.74
+   },
+   {
+    "text": "left",
+    "start": 115.625,
+    "end": 115.942,
+    "score": 0.949,
+    "start_ctc": 115.6525,
+    "src": "note",
+    "conf": 0.622,
+    "attack": 115.55
+   }
+  ]
+ },
+ {
+  "text": "You have left me in",
+  "vtt_start": 115.78,
+  "vtt_end": 117.24,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "You",
+    "start": 116.09,
+    "end": 116.233,
+    "score": 0.881,
+    "start_ctc": 116.1129,
+    "src": "note",
+    "conf": 1.176,
+    "attack": 115.935
+   },
+   {
+    "text": "have",
+    "start": 116.3,
+    "end": 116.4923,
+    "score": 0.98,
+    "start_ctc": 116.3131,
+    "src": "note",
+    "conf": 0.867
+   },
+   {
+    "text": "left",
+    "start": 116.53,
+    "end": 116.83,
+    "score": 0.262,
+    "start_ctc": 116.5629,
+    "src": "note",
+    "conf": 1.129
+   },
+   {
+    "text": "me",
+    "start": 116.985,
+    "end": 117.0938,
+    "score": 0.12,
+    "start_ctc": 117.0436,
+    "src": "note",
+    "conf": 0.343,
+    "attack": 116.83
+   },
+   {
+    "text": "in",
+    "start": 117.22,
+    "end": 117.3,
+    "score": 0.034,
+    "start_ctc": 117.2538,
+    "src": "note",
+    "conf": 0.48,
+    "attack": 117.145
+   }
+  ]
+ },
+ {
+  "text": "ISOLATION",
+  "vtt_start": 117.274,
+  "vtt_end": 118.333,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "ISOLATION",
+    "start": 117.415,
+    "end": 118.2966,
+    "score": 0.257,
+    "start_ctc": 117.4153,
+    "src": "note",
+    "conf": 0.603,
+    "attack": 117.36
+   }
+  ]
+ },
+ {
+  "text": "If I can",
+  "vtt_start": 118.333,
+  "vtt_end": 118.979,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 118.4,
+    "end": 118.5735,
+    "score": 0.261,
+    "start_ctc": 118.5091,
+    "src": "note",
+    "conf": 0.301
+   },
+   {
+    "text": "I",
+    "start": 118.865,
+    "end": 118.9654,
+    "score": 0.439,
+    "start_ctc": 118.9454,
+    "src": "note",
+    "conf": 0.614,
+    "attack": 118.835
+   },
+   {
+    "text": "can",
+    "start": 119.1,
+    "end": 119.2199,
+    "score": 0.819,
+    "start_ctc": 119.0597,
+    "src": "note",
+    "conf": 0.785,
+    "attack": 119.065
+   }
+  ]
+ },
+ {
+  "text": "If I can erase all the pointless",
+  "vtt_start": 118.979,
+  "vtt_end": 120.86,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 119.34,
+    "end": 119.4782,
+    "score": 0.349,
+    "start_ctc": 119.4142,
+    "src": "note",
+    "conf": 0.371
+   },
+   {
+    "text": "I",
+    "start": 119.77,
+    "end": 119.8745,
+    "score": 0.416,
+    "start_ctc": 119.8545,
+    "src": "note",
+    "conf": 0.603,
+    "attack": 119.68
+   },
+   {
+    "text": "can",
+    "start": 120.01,
+    "end": 120.161,
+    "score": 0.697,
+    "start_ctc": 119.9808,
+    "src": "note",
+    "conf": 1.111,
+    "attack": 119.98
+   },
+   {
+    "text": "erase",
+    "start": 120.26,
+    "end": 120.6633,
+    "score": 0.329,
+    "start_ctc": 120.353,
+    "src": "note",
+    "conf": 0.253
+   },
+   {
+    "text": "all",
+    "start": 120.695,
+    "end": 120.8752,
+    "score": 0.26,
+    "start_ctc": 120.7717,
+    "src": "note",
+    "conf": 0.183
+   },
+   {
+    "text": "the",
+    "start": 120.93,
+    "end": 121.0153,
+    "score": 0.225,
+    "start_ctc": 120.9219,
+    "src": "note",
+    "conf": 0.74
+   },
+   {
+    "text": "pointless",
+    "start": 121.175,
+    "end": 121.5442,
+    "score": 0.245,
+    "start_ctc": 121.1354,
+    "src": "note",
+    "conf": 0.303,
+    "attack": 121.135
+   }
+  ]
+ },
+ {
+  "text": "FRAGMENTS",
+  "vtt_start": 120.86,
+  "vtt_end": 121.728,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "FRAGMENTS",
+    "start": 121.625,
+    "end": 122.0561,
+    "score": 0.523,
+    "start_ctc": 121.5896,
+    "src": "note",
+    "conf": 0.46,
+    "attack": 121.495
+   }
+  ]
+ },
+ {
+  "text": "Then maybe",
+  "vtt_start": 121.728,
+  "vtt_end": 122.714,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 122.05,
+    "end": 122.415,
+    "score": 0.175,
+    "start_ctc": 122.0832,
+    "src": "note",
+    "conf": 1.0
+   },
+   {
+    "text": "maybe",
+    "start": 122.5364,
+    "end": 122.8767,
+    "score": 0.744,
+    "start_ctc": 122.5364,
+    "src": "ctc",
+    "conf": 0.0
+   }
+  ]
+ },
+ {
+  "text": "Then maybe you won't leave me so",
+  "vtt_start": 122.714,
+  "vtt_end": 124.89,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 123.02,
+    "end": 123.297,
+    "score": 0.276,
+    "start_ctc": 123.0043,
+    "src": "note",
+    "conf": 0.993
+   },
+   {
+    "text": "maybe",
+    "start": 123.47,
+    "end": 123.8263,
+    "score": 0.599,
+    "start_ctc": 123.4571,
+    "src": "note",
+    "conf": 0.159
+   },
+   {
+    "text": "you",
+    "start": 123.95,
+    "end": 124.0655,
+    "score": 0.077,
+    "start_ctc": 123.9575,
+    "src": "note",
+    "conf": 0.651
+   },
+   {
+    "text": "won't",
+    "start": 124.16,
+    "end": 124.3559,
+    "score": 0.149,
+    "start_ctc": 124.1566,
+    "src": "note",
+    "conf": 0.404
+   },
+   {
+    "text": "leave",
+    "start": 124.3859,
+    "end": 124.44,
+    "score": 0.194,
+    "start_ctc": 124.3859,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "me",
+    "start": 124.585,
+    "end": 124.718,
+    "score": 0.511,
+    "start_ctc": 124.6262,
+    "src": "note",
+    "conf": 0.593,
+    "attack": 124.44
+   },
+   {
+    "text": "so",
+    "start": 124.845,
+    "end": 124.9666,
+    "score": 0.691,
+    "start_ctc": 124.8164,
+    "src": "note",
+    "conf": 0.382,
+    "attack": 124.745
+   }
+  ]
+ },
+ {
+  "text": "DISHEARTENED",
+  "vtt_start": 124.89,
+  "vtt_end": 125.708,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "DISHEARTENED",
+    "start": 125.075,
+    "end": 125.7388,
+    "score": 0.329,
+    "start_ctc": 125.0583,
+    "src": "note",
+    "conf": 0.487
+   }
+  ]
+ },
+ {
+  "text": "Challenging your god",
+  "vtt_start": 125.708,
+  "vtt_end": 128.661,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Challenging",
+    "start": 125.795,
+    "end": 127.0984,
+    "score": 0.18,
+    "start_ctc": 125.8564,
+    "src": "note",
+    "conf": 0.608,
+    "attack": 125.73
+   },
+   {
+    "text": "your",
+    "start": 127.125,
+    "end": 127.4995,
+    "score": 0.455,
+    "start_ctc": 127.1798,
+    "src": "note",
+    "conf": 0.115
+   },
+   {
+    "text": "god",
+    "start": 127.65,
+    "end": 128.6007,
+    "score": 0.251,
+    "start_ctc": 127.6297,
+    "src": "note",
+    "conf": 0.842
+   }
+  ]
+ },
+ {
+  "text": "You have made some",
+  "vtt_start": 128.661,
+  "vtt_end": 131.224,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "You",
+    "start": 129.0,
+    "end": 129.1399,
+    "score": 0.99,
+    "start_ctc": 129.0196,
+    "src": "note",
+    "conf": 1.222
+   },
+   {
+    "text": "have",
+    "start": 129.27,
+    "end": 129.4105,
+    "score": 0.979,
+    "start_ctc": 129.2445,
+    "src": "note",
+    "conf": 0.171
+   },
+   {
+    "text": "made",
+    "start": 129.465,
+    "end": 130.2225,
+    "score": 0.991,
+    "start_ctc": 129.4965,
+    "src": "note",
+    "conf": 0.707
+   },
+   {
+    "text": "some",
+    "start": 130.395,
+    "end": 130.8139,
+    "score": 0.983,
+    "start_ctc": 130.3728,
+    "src": "note",
+    "conf": 0.211,
+    "attack": 130.26
+   }
+  ]
+ },
+ {
+  "text": "ILLEGAL ARGUMENTS",
+  "vtt_start": 131.224,
+  "vtt_end": 133.612,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "ILLEGAL",
+    "start": 131.6235,
+    "end": 132.2874,
+    "score": 0.199,
+    "start_ctc": 131.6235,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "ARGUMENTS",
+    "start": 132.485,
+    "end": 133.6707,
+    "score": 0.869,
+    "start_ctc": 132.518,
+    "src": "note",
+    "conf": 0.841
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 147.66,
+  "vtt_end": 148.56,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 147.935,
+    "end": 148.724,
+    "score": 0.984,
+    "start_ctc": 147.9845,
+    "src": "note",
+    "conf": 0.449,
+    "attack": 147.85
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 148.6,
+  "vtt_end": 149.44,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 148.96,
+    "end": 149.6597,
+    "score": 0.779,
+    "start_ctc": 148.9426,
+    "src": "note",
+    "conf": 0.916,
+    "attack": 148.83
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 149.52,
+  "vtt_end": 150.46,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 149.775,
+    "end": 150.5699,
+    "score": 0.728,
+    "start_ctc": 149.8651,
+    "src": "note",
+    "conf": 0.115
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 150.54,
+  "vtt_end": 151.4,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 150.715,
+    "end": 151.4942,
+    "score": 0.783,
+    "start_ctc": 150.7876,
+    "src": "note",
+    "conf": 0.568,
+    "attack": 150.64
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 151.52,
+  "vtt_end": 152.18,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 151.655,
+    "end": 152.4047,
+    "score": 0.935,
+    "start_ctc": 151.7102,
+    "src": "note",
+    "conf": 0.495,
+    "attack": 151.59
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 152.28,
+  "vtt_end": 153.1,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 152.6527,
+    "end": 153.3346,
+    "score": 0.876,
+    "start_ctc": 152.6527,
+    "src": "ctc",
+    "conf": 0.048,
+    "attack": 152.575
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 153.16,
+  "vtt_end": 153.9,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 153.56,
+    "end": 154.2477,
+    "score": 0.921,
+    "start_ctc": 153.5573,
+    "src": "note",
+    "conf": 0.504,
+    "attack": 153.445
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 153.98,
+  "vtt_end": 155.12,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 154.415,
+    "end": 155.2097,
+    "score": 0.278,
+    "start_ctc": 154.4481,
+    "src": "note",
+    "conf": 0.655,
+    "attack": 154.325
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 155.2,
+  "vtt_end": 156.02,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 155.315,
+    "end": 156.0703,
+    "score": 0.987,
+    "start_ctc": 155.3832,
+    "src": "note",
+    "conf": 0.812
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 156.08,
+  "vtt_end": 156.96,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 156.3171,
+    "end": 156.9928,
+    "score": 0.988,
+    "start_ctc": 156.3171,
+    "src": "ctc",
+    "conf": 0.0,
+    "attack": 156.265
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 157.04,
+  "vtt_end": 157.92,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 157.25,
+    "end": 157.9078,
+    "score": 0.876,
+    "start_ctc": 157.2404,
+    "src": "note",
+    "conf": 0.258,
+    "attack": 157.185
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 158.0,
+  "vtt_end": 158.8,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 158.105,
+    "end": 158.8895,
+    "score": 0.903,
+    "start_ctc": 158.1459,
+    "src": "note",
+    "conf": 0.305,
+    "attack": 158.035
+   }
+  ]
+ },
+ {
+  "text": "EIN",
+  "vtt_start": 158.9,
+  "vtt_end": 159.321,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EIN",
+    "start": 159.12,
+    "end": 159.2589,
+    "score": 0.227,
+    "start_ctc": 159.1586,
+    "src": "note",
+    "conf": 0.16,
+    "attack": 158.99
+   }
+  ]
+ },
+ {
+  "text": "DOS",
+  "vtt_start": 159.321,
+  "vtt_end": 159.657,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "DOS",
+    "start": 159.475,
+    "end": 159.7502,
+    "score": 0.55,
+    "start_ctc": 159.4594,
+    "src": "note",
+    "conf": 0.911
+   }
+  ]
+ },
+ {
+  "text": "TROIS",
+  "vtt_start": 159.657,
+  "vtt_end": 160.244,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "TROIS",
+    "start": 159.9,
+    "end": 160.0711,
+    "score": 0.319,
+    "start_ctc": 159.8713,
+    "src": "note",
+    "conf": 0.48
+   }
+  ]
+ },
+ {
+  "text": "NE",
+  "vtt_start": 160.244,
+  "vtt_end": 160.693,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "NE",
+    "start": 160.33,
+    "end": 160.6324,
+    "score": 0.509,
+    "start_ctc": 160.3916,
+    "src": "note",
+    "conf": 0.343
+   }
+  ]
+ },
+ {
+  "text": "FEM",
+  "vtt_start": 160.693,
+  "vtt_end": 161.124,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "FEM",
+    "start": 160.83,
+    "end": 161.0563,
+    "score": 0.104,
+    "start_ctc": 160.791,
+    "src": "note",
+    "conf": 0.579,
+    "attack": 160.8
+   }
+  ]
+ },
+ {
+  "text": "LIU",
+  "vtt_start": 161.124,
+  "vtt_end": 161.584,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "LIU",
+    "start": 161.315,
+    "end": 161.4871,
+    "score": 0.086,
+    "start_ctc": 161.2814,
+    "src": "note",
+    "conf": 0.36,
+    "attack": 161.205
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 161.584,
+  "vtt_end": 162.632,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 161.88,
+    "end": 162.6092,
+    "score": 0.405,
+    "start_ctc": 161.8278,
+    "src": "note",
+    "conf": 0.477,
+    "attack": 161.74
+   }
+  ]
+ },
+ {
+  "text": "If I can",
+  "vtt_start": 162.632,
+  "vtt_end": 163.315,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 162.79,
+    "end": 162.9562,
+    "score": 0.095,
+    "start_ctc": 162.8096,
+    "src": "note",
+    "conf": 0.339
+   },
+   {
+    "text": "I",
+    "start": 163.175,
+    "end": 163.225,
+    "score": 0.125,
+    "start_ctc": 163.1837,
+    "src": "note",
+    "conf": 0.533
+   },
+   {
+    "text": "can",
+    "start": 163.405,
+    "end": 163.561,
+    "score": 0.327,
+    "start_ctc": 163.3639,
+    "src": "note",
+    "conf": 0.438,
+    "attack": 163.375
+   }
+  ]
+ },
+ {
+  "text": "If I can give them all the",
+  "vtt_start": 163.315,
+  "vtt_end": 165.166,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 163.67,
+    "end": 163.8515,
+    "score": 0.35,
+    "start_ctc": 163.7413,
+    "src": "note",
+    "conf": 0.131
+   },
+   {
+    "text": "I",
+    "start": 164.09,
+    "end": 164.1821,
+    "score": 0.482,
+    "start_ctc": 164.1621,
+    "src": "note",
+    "conf": 0.228
+   },
+   {
+    "text": "can",
+    "start": 164.325,
+    "end": 164.4453,
+    "score": 0.338,
+    "start_ctc": 164.2823,
+    "src": "note",
+    "conf": 0.672,
+    "attack": 164.29
+   },
+   {
+    "text": "give",
+    "start": 164.545,
+    "end": 164.7056,
+    "score": 0.116,
+    "start_ctc": 164.5454,
+    "src": "note",
+    "conf": 1.089
+   },
+   {
+    "text": "them",
+    "start": 164.775,
+    "end": 164.9034,
+    "score": 0.172,
+    "start_ctc": 164.7457,
+    "src": "note",
+    "conf": 0.625
+   },
+   {
+    "text": "all",
+    "start": 165.115,
+    "end": 165.1951,
+    "score": 0.092,
+    "start_ctc": 165.115,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "the",
+    "start": 165.235,
+    "end": 165.3442,
+    "score": 0.08,
+    "start_ctc": 165.2441,
+    "src": "note",
+    "conf": 1.286
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 165.166,
+  "vtt_end": 166.016,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 165.6,
+    "end": 166.3252,
+    "score": 0.322,
+    "start_ctc": 165.5546,
+    "src": "note",
+    "conf": 0.431
+   }
+  ]
+ },
+ {
+  "text": "Then I can",
+  "vtt_start": 166.016,
+  "vtt_end": 167.022,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 166.4,
+    "end": 166.7655,
+    "score": 0.326,
+    "start_ctc": 166.3877,
+    "src": "note",
+    "conf": 0.861
+   },
+   {
+    "text": "I",
+    "start": 166.875,
+    "end": 166.9773,
+    "score": 0.351,
+    "start_ctc": 166.9572,
+    "src": "note",
+    "conf": 0.107
+   },
+   {
+    "text": "can",
+    "start": 167.09,
+    "end": 167.2377,
+    "score": 0.378,
+    "start_ctc": 167.0574,
+    "src": "note",
+    "conf": 0.736,
+    "attack": 167.055
+   }
+  ]
+ },
+ {
+  "text": "Then I can be your only",
+  "vtt_start": 167.022,
+  "vtt_end": 168.911,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Then",
+    "start": 167.34,
+    "end": 167.6685,
+    "score": 0.366,
+    "start_ctc": 167.2983,
+    "src": "note",
+    "conf": 0.644
+   },
+   {
+    "text": "I",
+    "start": 167.899,
+    "end": 167.949,
+    "score": 0.14,
+    "start_ctc": 167.899,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "can",
+    "start": 168.025,
+    "end": 168.1494,
+    "score": 0.413,
+    "start_ctc": 167.9791,
+    "src": "note",
+    "conf": 0.524,
+    "attack": 167.98
+   },
+   {
+    "text": "be",
+    "start": 168.25,
+    "end": 168.39,
+    "score": 0.336,
+    "start_ctc": 168.2396,
+    "src": "note",
+    "conf": 0.807
+   },
+   {
+    "text": "your",
+    "start": 168.4998,
+    "end": 168.7104,
+    "score": 0.063,
+    "start_ctc": 168.4998,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "only",
+    "start": 168.8006,
+    "end": 168.9709,
+    "score": 0.066,
+    "start_ctc": 168.8006,
+    "src": "ctc",
+    "conf": 0.0
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 168.911,
+  "vtt_end": 169.824,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 169.29,
+    "end": 169.8171,
+    "score": 0.168,
+    "start_ctc": 169.2541,
+    "src": "note",
+    "conf": 0.606
+   }
+  ]
+ },
+ {
+  "text": "If I can have you back",
+  "vtt_start": 169.824,
+  "vtt_end": 171.868,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "If",
+    "start": 170.085,
+    "end": 170.3156,
+    "score": 0.197,
+    "start_ctc": 170.1475,
+    "src": "note",
+    "conf": 0.766,
+    "attack": 170.045
+   },
+   {
+    "text": "I",
+    "start": 170.545,
+    "end": 170.6402,
+    "score": 0.639,
+    "start_ctc": 170.6202,
+    "src": "note",
+    "conf": 0.233
+   },
+   {
+    "text": "can",
+    "start": 170.76,
+    "end": 170.8764,
+    "score": 0.627,
+    "start_ctc": 170.7603,
+    "src": "note",
+    "conf": 1.001
+   },
+   {
+    "text": "have",
+    "start": 171.025,
+    "end": 171.2769,
+    "score": 0.56,
+    "start_ctc": 170.9805,
+    "src": "note",
+    "conf": 0.227,
+    "attack": 170.93
+   },
+   {
+    "text": "you",
+    "start": 171.48,
+    "end": 171.5773,
+    "score": 0.243,
+    "start_ctc": 171.4371,
+    "src": "note",
+    "conf": 0.549
+   },
+   {
+    "text": "back",
+    "start": 171.705,
+    "end": 171.854,
+    "score": 0.048,
+    "start_ctc": 171.6875,
+    "src": "note",
+    "conf": 1.095
+   }
+  ]
+ },
+ {
+  "text": "I will run the",
+  "vtt_start": 171.868,
+  "vtt_end": 172.712,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "I",
+    "start": 171.92,
+    "end": 171.97,
+    "score": 0.035,
+    "start_ctc": 171.8777,
+    "src": "note",
+    "conf": 0.926,
+    "attack": 171.765
+   },
+   {
+    "text": "will",
+    "start": 171.98,
+    "end": 172.03,
+    "score": 0.07,
+    "start_ctc": 171.9178,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "run",
+    "start": 172.155,
+    "end": 172.3266,
+    "score": 0.109,
+    "start_ctc": 172.1864,
+    "src": "note",
+    "conf": 0.338,
+    "attack": 172.03
+   },
+   {
+    "text": "the",
+    "start": 172.385,
+    "end": 172.5653,
+    "score": 0.077,
+    "start_ctc": 172.395,
+    "src": "note",
+    "conf": 0.627
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 172.712,
+  "vtt_end": 173.643,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 172.87,
+    "end": 173.6902,
+    "score": 0.212,
+    "start_ctc": 172.8274,
+    "src": "note",
+    "conf": 0.479,
+    "attack": 172.755
+   }
+  ]
+ },
+ {
+  "text": "Though we are trapped",
+  "vtt_start": 173.643,
+  "vtt_end": 174.975,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Though",
+    "start": 173.8,
+    "end": 174.1182,
+    "score": 0.092,
+    "start_ctc": 173.7976,
+    "src": "note",
+    "conf": 0.238
+   },
+   {
+    "text": "we",
+    "start": 174.24,
+    "end": 174.3887,
+    "score": 0.18,
+    "start_ctc": 174.2436,
+    "src": "note",
+    "conf": 0.252
+   },
+   {
+    "text": "are",
+    "start": 174.615,
+    "end": 174.665,
+    "score": 0.299,
+    "start_ctc": 174.5627,
+    "src": "note",
+    "conf": 0.561
+   },
+   {
+    "text": "trapped",
+    "start": 174.71,
+    "end": 175.0321,
+    "score": 0.395,
+    "start_ctc": 174.6516,
+    "src": "note",
+    "conf": 0.465
+   }
+  ]
+ },
+ {
+  "text": "We are trapped ah",
+  "vtt_start": 174.975,
+  "vtt_end": 177.246,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "We",
+    "start": 175.185,
+    "end": 175.3425,
+    "score": 0.448,
+    "start_ctc": 175.1823,
+    "src": "note",
+    "conf": 0.287,
+    "attack": 175.03
+   },
+   {
+    "text": "are",
+    "start": 175.41,
+    "end": 175.535,
+    "score": 0.18,
+    "start_ctc": 175.4437,
+    "src": "note",
+    "conf": 0.601
+   },
+   {
+    "text": "trapped",
+    "start": 175.535,
+    "end": 176.2631,
+    "score": 0.415,
+    "start_ctc": 175.5648,
+    "src": "note",
+    "conf": 0.125
+   },
+   {
+    "text": "ah",
+    "start": 176.73,
+    "end": 176.8159,
+    "score": 0.197,
+    "start_ctc": 176.6849,
+    "src": "note",
+    "conf": 0.197
+   }
+  ]
+ },
+ {
+  "text": "I've studied",
+  "vtt_start": 177.246,
+  "vtt_end": 178.173,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "I've",
+    "start": 177.1546,
+    "end": 177.25,
+    "score": 0.226,
+    "start_ctc": 177.1546,
+    "src": "ctc",
+    "conf": 0.0
+   },
+   {
+    "text": "studied",
+    "start": 177.25,
+    "end": 177.8268,
+    "score": 0.108,
+    "start_ctc": 177.3149,
+    "src": "note",
+    "conf": 0.206
+   }
+  ]
+ },
+ {
+  "text": "I've studied how to properly",
+  "vtt_start": 178.173,
+  "vtt_end": 179.929,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "I've",
+    "start": 178.0771,
+    "end": 178.17,
+    "score": 0.251,
+    "start_ctc": 178.0771,
+    "src": "ctc",
+    "conf": 0.067
+   },
+   {
+    "text": "studied",
+    "start": 178.2964,
+    "end": 178.7877,
+    "score": 0.219,
+    "start_ctc": 178.2964,
+    "src": "ctc",
+    "conf": 0.0,
+    "attack": 178.17
+   },
+   {
+    "text": "how",
+    "start": 178.85,
+    "end": 179.2082,
+    "score": 0.098,
+    "start_ctc": 178.8374,
+    "src": "note",
+    "conf": 0.323
+   },
+   {
+    "text": "to",
+    "start": 179.35,
+    "end": 179.4084,
+    "score": 0.294,
+    "start_ctc": 179.3077,
+    "src": "note",
+    "conf": 0.421,
+    "attack": 179.24
+   },
+   {
+    "text": "properly",
+    "start": 179.555,
+    "end": 179.9389,
+    "score": 0.074,
+    "start_ctc": 179.5083,
+    "src": "note",
+    "conf": 0.375,
+    "attack": 179.42
+   }
+  ]
+ },
+ {
+  "text": "LO-O-OVE",
+  "vtt_start": 179.929,
+  "vtt_end": 180.857,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "LO-O-OVE",
+    "start": 180.445,
+    "end": 180.998,
+    "score": 0.292,
+    "start_ctc": 180.4473,
+    "src": "note",
+    "conf": 0.393,
+    "attack": 180.285
+   }
+  ]
+ },
+ {
+  "text": "Question me",
+  "vtt_start": 180.857,
+  "vtt_end": 181.901,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Question",
+    "start": 181.135,
+    "end": 181.7711,
+    "score": 0.669,
+    "start_ctc": 181.0903,
+    "src": "note",
+    "conf": 0.346
+   },
+   {
+    "text": "me",
+    "start": 181.83,
+    "end": 181.9533,
+    "score": 0.335,
+    "start_ctc": 181.8471,
+    "src": "note",
+    "conf": 0.561
+   }
+  ]
+ },
+ {
+  "text": "Question me I can answer all",
+  "vtt_start": 181.901,
+  "vtt_end": 183.646,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Question",
+    "start": 182.06,
+    "end": 182.7065,
+    "score": 0.646,
+    "start_ctc": 182.0394,
+    "src": "note",
+    "conf": 0.447
+   },
+   {
+    "text": "me",
+    "start": 182.75,
+    "end": 182.9205,
+    "score": 0.282,
+    "start_ctc": 182.7867,
+    "src": "note",
+    "conf": 0.433
+   },
+   {
+    "text": "I",
+    "start": 183.15,
+    "end": 183.2,
+    "score": 0.317,
+    "start_ctc": 183.1143,
+    "src": "note",
+    "conf": 0.34
+   },
+   {
+    "text": "can",
+    "start": 183.23,
+    "end": 183.4212,
+    "score": 0.241,
+    "start_ctc": 183.2009,
+    "src": "note",
+    "conf": 0.683
+   },
+   {
+    "text": "answer",
+    "start": 183.585,
+    "end": 183.8549,
+    "score": 0.223,
+    "start_ctc": 183.568,
+    "src": "note",
+    "conf": 0.39,
+    "attack": 183.525
+   },
+   {
+    "text": "all",
+    "start": 184.05,
+    "end": 184.13,
+    "score": 0.058,
+    "start_ctc": 184.0151,
+    "src": "note",
+    "conf": 0.759
+   }
+  ]
+ },
+ {
+  "text": "LO-O-OVE",
+  "vtt_start": 183.646,
+  "vtt_end": 184.54,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "LO-O-OVE",
+    "start": 184.155,
+    "end": 184.5426,
+    "score": 0.081,
+    "start_ctc": 184.1491,
+    "src": "note",
+    "conf": 1.002
+   }
+  ]
+ },
+ {
+  "text": "I know the algebraic expression of",
+  "vtt_start": 184.54,
+  "vtt_end": 187.665,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "I",
+    "start": 184.61,
+    "end": 184.7029,
+    "score": 0.029,
+    "start_ctc": 184.6828,
+    "src": "note",
+    "conf": 0.383
+   },
+   {
+    "text": "know",
+    "start": 184.795,
+    "end": 185.1861,
+    "score": 0.032,
+    "start_ctc": 184.7957,
+    "src": "note",
+    "conf": 0.991
+   },
+   {
+    "text": "the",
+    "start": 185.325,
+    "end": 185.4438,
+    "score": 0.049,
+    "start_ctc": 185.2962,
+    "src": "note",
+    "conf": 0.187
+   },
+   {
+    "text": "algebraic",
+    "start": 185.55,
+    "end": 186.6334,
+    "score": 0.426,
+    "start_ctc": 185.6629,
+    "src": "note",
+    "conf": 0.156,
+    "attack": 185.51
+   },
+   {
+    "text": "expression",
+    "start": 186.865,
+    "end": 187.5265,
+    "score": 0.928,
+    "start_ctc": 186.8538,
+    "src": "note",
+    "conf": 0.187,
+    "attack": 186.735
+   },
+   {
+    "text": "of",
+    "start": 187.755,
+    "end": 187.835,
+    "score": 0.402,
+    "start_ctc": 187.7168,
+    "src": "note",
+    "conf": 0.651,
+    "attack": 187.64
+   }
+  ]
+ },
+ {
+  "text": "LO-O-OVE",
+  "vtt_start": 187.665,
+  "vtt_end": 188.483,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "LO-O-OVE",
+    "start": 187.84,
+    "end": 188.3988,
+    "score": 0.252,
+    "start_ctc": 187.8269,
+    "src": "note",
+    "conf": 1.169,
+    "attack": 187.8
+   }
+  ]
+ },
+ {
+  "text": "Though you are free",
+  "vtt_start": 188.483,
+  "vtt_end": 189.746,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Though",
+    "start": 188.535,
+    "end": 188.8573,
+    "score": 0.112,
+    "start_ctc": 188.4878,
+    "src": "note",
+    "conf": 0.463
+   },
+   {
+    "text": "you",
+    "start": 189.01,
+    "end": 189.1479,
+    "score": 0.577,
+    "start_ctc": 189.0185,
+    "src": "note",
+    "conf": 0.557,
+    "attack": 188.915
+   },
+   {
+    "text": "are",
+    "start": 189.405,
+    "end": 189.455,
+    "score": 0.138,
+    "start_ctc": 189.3489,
+    "src": "note",
+    "conf": 0.173
+   },
+   {
+    "text": "free",
+    "start": 189.485,
+    "end": 189.78,
+    "score": 0.134,
+    "start_ctc": 189.4397,
+    "src": "note",
+    "conf": 0.446
+   }
+  ]
+ },
+ {
+  "text": "I am trapped",
+  "vtt_start": 189.746,
+  "vtt_end": 190.801,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "I",
+    "start": 189.96,
+    "end": 190.0699,
+    "score": 0.481,
+    "start_ctc": 190.0498,
+    "src": "note",
+    "conf": 0.225
+   },
+   {
+    "text": "am",
+    "start": 190.18,
+    "end": 190.2999,
+    "score": 0.239,
+    "start_ctc": 190.2404,
+    "src": "note",
+    "conf": 0.391
+   },
+   {
+    "text": "trapped",
+    "start": 190.42,
+    "end": 190.7908,
+    "score": 0.08,
+    "start_ctc": 190.3804,
+    "src": "note",
+    "conf": 0.52
+   }
+  ]
+ },
+ {
+  "text": "Trapped in",
+  "vtt_start": 190.801,
+  "vtt_end": 191.356,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "Trapped",
+    "start": 190.775,
+    "end": 191.1974,
+    "score": 0.236,
+    "start_ctc": 190.8197,
+    "src": "note",
+    "conf": 0.116
+   },
+   {
+    "text": "in",
+    "start": 191.3,
+    "end": 191.4394,
+    "score": 0.178,
+    "start_ctc": 191.3587,
+    "src": "note",
+    "conf": 0.363,
+    "attack": 191.21
+   }
+  ]
+ },
+ {
+  "text": "LO-O-OVE",
+  "vtt_start": 191.356,
+  "vtt_end": 192.16,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "LO-O-OVE",
+    "start": 191.535,
+    "end": 192.3266,
+    "score": 0.182,
+    "start_ctc": 191.5473,
+    "src": "note",
+    "conf": 1.157,
+    "attack": 191.475
+   }
+  ]
+ },
+ {
+  "text": "EXECUTION",
+  "vtt_start": 205.811,
+  "vtt_end": 207.06,
+  "model": "lv60k",
+  "words": [
+   {
+    "text": "EXECUTION",
+    "start": 206.205,
+    "end": 206.9768,
+    "score": 0.324,
+    "start_ctc": 206.18,
+    "src": "note",
+    "conf": 0.714
+   }
+  ]
+ }
+]

@@ -1,0 +1,14 @@
+# Python 3.12 venv (uv venv --python 3.12 .venv). GPU: CUDA 12.8 wheels (RTX 50xx / Blackwell needs torch >= 2.7).
+# 1) uv pip install --python .venv/Scripts/python.exe torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128
+# 2) uv pip install --python .venv/Scripts/python.exe cython==3.3.0
+# 3) uv pip install --python .venv/Scripts/python.exe --no-build-isolation -r requirements.txt
+demucs==4.1.0
+librosa==1.0.0
+soundfile==0.14.0
+numpy==2.5.4
+scipy==1.18.1
+matplotlib==3.11.2
+pillow==12.3.0
+torchcrepe==0.0.24
+beat-this @ https://github.com/CPJKU/beat_this/archive/b95c8ab0c58c2d9fcfd40508ae8dffbc05ac4f5c.zip
+madmom @ git+https://github.com/CPJKU/madmom@27f032e8947204902c675e5e341a3faf5dc86dae

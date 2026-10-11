@@ -1,0 +1,23 @@
+# audio — copyright Mili; never commit
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.m4a
+analysis/stems/
+
+# python
+analysis/.venv/
+__pycache__/
+*.pyc
+
+# node / build
+node_modules/
+dist/
+
+# outputs (repo root only — analysis/out/ is tracked: the film is built from it)
+/out/
+/renders/
+
+# analysis QA sheets
+analysis/out/check/
