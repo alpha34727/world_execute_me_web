@@ -4,11 +4,12 @@
 //
 //   ctx.t, ctx.local, ctx.dur, ctx.p, ctx.frame        time (song s), time in shot, shot length, local/dur, film frame
 //   ctx.T, ctx.F, ctx.C (colours), ctx.W, ctx.H, ctx.scale
-//   ctx.bg(color) ctx.post({...}) ctx.subs(bool)
+//   ctx.bg(color) ctx.post({...}) ctx.subs(bool) ctx.mask(x, y, w, h) (knock out what is already drawn behind a text box)
 //   ctx.camera2D() ctx.camera3D({ fov, position, target, up, near, far }) ctx.project([x,y,z]) -> [x, y, w]
 //   ctx.line(pts, o) ctx.segments([[p,q],...], o) ctx.circle(x,y,r,o) ctx.ring(x,y,r,o) ctx.rect(x,y,w,h,o)
 //   ctx.text(str, x, y, o) -> { width } ctx.measure(str, o) ctx.text3D(str, [x,y,z], o) ctx.point3D([x,y,z], r, o)
 //   ctx.swarm(swarm, o) ctx.three(scene, camera) ctx.memo(key, () => value) ctx.sim(key, spec)
+//   swarm o: p stagger drift scatter size sizeVar color color2 colorVar alpha perspective focus aperture fog model time birth
 import * as THREE from 'three';
 import { parseColor } from './gl/common.js';
 import { COLOR } from '../theme.js';
@@ -47,6 +48,13 @@ export class DrawContext {
   // opaque background for this shot (e.g. paper); disables the default emissive lift
   bg(c) { this.bgColor = parseColor(c); this.postSettings.lift = [0, 0, 0]; }
   post(s) { Object.assign(this.postSettings, s); }
+  // text sitting on the 3D scene knocks out its box first: lines and particles already drawn behind it are darkened
+  // to ~15 % (four nested rects, a 16 px feather), so nothing strikes through a word (CLAUDE.md: a struck-through
+  // word reads as a wrong guess). Call it after the 3D content and before the text.
+  mask(x, y, w, h, strength = 1) {
+    if (w <= 0 || h <= 0 || strength <= 0.01) return;
+    for (let k = 0; k < 4; k++) { const g = (3 - k) * 4; this.rect(x - g, y - g, w + 2 * g, h + 2 * g, { fill: [0, 0, 0, 0.38 * strength], radius: 4 + g }); }
+  }
   subs(on) { this.showSubs = on; }
 
   camera2D() { this.cam = this.engine.cam2D; this.cam3 = null; }
@@ -104,7 +112,9 @@ export class DrawContext {
     let alpha = o.alpha ?? 1;
     if (o.fog) alpha *= 1 - Math.min(1, Math.max(0, (w - o.fog[0]) / (o.fog[1] - o.fog[0])));
     if (alpha <= 0.003) return null;
-    return this.text(str, x, y, { ...o, size: (o.size ?? 24) * k, alpha });
+    // minSize / maxSize (design px) keep perspective from shrinking or blowing up a label
+    const size = Math.min(o.maxSize ?? Infinity, Math.max(o.minSize ?? 0, (o.size ?? 24) * k));
+    return this.text(str, x, y, { ...o, size, alpha });
   }
   point3D(p, r, o = {}) {
     const [x, y, w] = this.project(p);

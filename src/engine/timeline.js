@@ -1,6 +1,7 @@
 // Chapters and shots.
 //   src/ch/NN_<section>.js:  export default chapter({ id, from?, to?, overlay?(ctx, t), shots: [{ id, at: T => s, draw(ctx, t), transitionIn? }] })
-//   shot extras: hud?: 'title' (draws Claude's HUD on the overlay; titles cross-dissolve in transitions), subs?: false
+//   shot extras: hud?: 'title' | (T, t) => 'title' (Claude's HUD on the overlay; titles cross-dissolve in transitions;
+//                the scene is darkened behind the HUD text — post.hudGuard), subs?: false
 // overlay (optional) draws on the overlay layer for the whole chapter — unaffected by transitions and post.
 // from/to default to the section's boundaries; they may be a section id or T => seconds.
 // A shot lasts until the next shot's `at` (across chapters). buildTimeline() validates everything up front.
@@ -27,7 +28,17 @@ function bound(v, T, id, which) {
   throw new Error(`chapter ${id}: bad ${which}`);
 }
 
-// opts.start / opts.end: the span the chapters must cover exactly (film: 0 .. T.songEnd)
+// The span a chapter set must cover exactly.
+//   film: 0 .. end of the last chapter present. During production (phase 4) chapters are added in order, so the film
+//         is a growing prefix of the song; test/timeline.test.js requires the full song once all 16 exist.
+//   test: the chapters' own declared range.
+export function spanOf(set, T, defs) {
+  const v = (x, w) => (typeof x === 'function' ? x(T) : T.section(x)[w]);
+  if (set === 'film') return { start: 0, end: Math.max(...defs.map((d) => v(d.to ?? d.id, 'end'))) };
+  return { start: Math.min(...defs.map((d) => v(d.from ?? d.id, 'start'))), end: Math.max(...defs.map((d) => v(d.to ?? d.id, 'end'))) };
+}
+
+// opts.start / opts.end: the span the chapters must cover exactly (see spanOf)
 export function buildTimeline(T, chapters, opts = {}) {
   const errors = [];
   const err = (m) => errors.push(m);

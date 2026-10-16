@@ -74,7 +74,38 @@
 - **ctx**（`draw(ctx, t)`，見 `src/engine/draw.js` 檔頭）：`t local dur p frame T F C W H scale`；`bg() post({bloom,threshold,knee,exposure,vignette,grain,ca,lift,rays}) subs(bool)`；`text3D(str,[x,y,z],o) point3D(p,r,o)`；線條 `persp`、`fog`；swarm `perspective` `focus` `aperture` `fog` `model`；`camera2D() camera3D({fov,position,target,up}) project(p)`；`line(pts,o) segments() circle() ellipse() ring() rect()`；`text(str,x,y,{font,size,color,align,baseline,tracking,reveal,glow}) measure()`；`swarm(sw,{p,stagger,drift,scatter,size,color,color2})`；`three(scene,camera)`；`memo(key,fn)` `memoReady(key,fn)` `sim(key,{init,step,dt})`。
 - 線條預設 MAX 混色（多段線接點不會變亮）；紙張插段用 `blend:'min'` 畫墨線。字型 key：`mono monoBold display displayMed zh zhBold`。
 - `src/lib/`：`hash.js`（含 GLSL 版）`ease.js` `sample.js`（polyline/circle/disc/rect/grid/fn/text 取樣）`hud.js`（corners/readout/aiHud/ruler/dimension）`console.js`（字幕）`warning.js` `pi.js`（spigot）`spark.js` `camera.js` `scene3d.js`（floorGrid/polarGrid/axisGizmo/dust）；Claude／LLM：`corpus.js`（歌詞序列）`ngram.js`（線上 bigram、lossCurve）`bpe.js` `embed.js`（PPMI-SVD、attention）`llmviz.js`（tokenChips/attentionMap/lossSparkline）`predict.js` `cc.js`（Claude Code：toolCall/todoList/spinner/transcript）。
-- shot 可宣告 `hud: '標題'`：Claude 的 HUD 改由 overlay 統一畫（轉場時標題交叉溶接，不會疊字）；shot 裡不要再直接呼叫 `aiHud`。
+- shot 可宣告 `hud: '標題'` 或 `hud: (T, t) => '標題'`：Claude 的 HUD 由 overlay 統一畫（轉場時標題交叉溶接，不會疊字），同時 post `hudGuard` 會把 HUD 文字區塊後面的 3D 內容壓暗（3D 線條不會穿過讀數）；shot 裡不要直接呼叫 `aiHud`。
+- 大寫關鍵字一律用 `lib/hero.js` 的 `hero(ctx, word, x, y, { size, align, chips })`（落地動畫＋BPE 切塊）。
+- 3D 標籤一律用 `lib/scene3d.js` 的 `labels3D(ctx, items, { obstacles })`：
+  - 依優先序放置，每個標籤試 8 個方位，不得壓到別的標籤、點、連線，也不得進 HUD 區；
+  - `maxSize`／`minSize` 控制透視造成的字級；
+  - 背景性的標籤 ≤ 14 px、淡色；主要標籤同時最多兩個。
+- 章節邊界和鏡頭一樣，剪在下強拍的前一幀：`from/to: (T) => T.cut(T.section(id).start)`。
+- 沒被唱的行（片名）不出字幕，由章節自己呈現。
+- 器樂段（沒有人聲）可以用字幕框寫一句雙語說明，告訴觀眾這個畫面在演什麼：`drawNote(ctx, en, zh, { from, to })`。
+- Claude 思考中：`thinking(ctx, x, y, { from, tokens })` 顯示 `✻ <動詞>… (秒數 · ↑ tokens · esc to interrupt)`。動詞從 `THINKING_VERBS` 每 2 拍換一個；秒數和 token 數必須是真的。
+- **能量層**（`lib/fx.js`，第 4 階段使用者回饋：intro 不夠絢麗，要達到第 2 階段測試片的程度）：每個 3D 鏡頭都要有 GPU 粒子的能量層——`embers`（景深 bokeh 的橘色餘燼場）、`burst`（爆炸，關鍵字／重拍上）、`stream`（粒子從 spark 飛出去組成結構）、`shockwave`（光環），再加上 spark 的光束（post `rays`）與 bloom。線框和網格不能單獨撐起一個畫面。
+- spark 在 3D 鏡頭裡用 `lib/spark.js` 的 `sparkAt(ctx, cam, { pos, px: 70, rays })`：固定螢幕大小（全片 70），加上白色核心和光束。全片同一個大小，不要忽大忽小。
+- 能量沿曲線流動（電流、梯度、訊號）用 `lib/fx.js` 的 `flow`。曲線是靜態的（memo 只建一次）；物件在動時，曲線用物件自己的座標，再傳 `model` 矩陣。
+- `ctx.memo` 的內容不能依賴「第一次被畫的是哪一幀」：要凍結某個姿勢，就明確用那個時間點算（例如 `molPose(T, w.start)`）。
+- 爆炸（burst）在第一幀不可以是一顆白球：`r0` 要拉開，核心用橘或金，alpha 在 2 幀內淡入（`clamp(dt * 30)`）。
+- **只有 spark 的核心可以是白色**：其他東西（酶、細胞核、軌道、標記、分裂的細胞、burst 的核心）都不能亮到接近純白；用橘／金／灰，必要時降低 `intensity` 與 glow，疊加後也要量色確認。
+- 靠近鏡頭的 3D 點（`point3D`、`dust`）會被透視放大成大圓盤；鏡頭穿過的物件要在接近時淡出。
+- 預測面板 `drawPrediction(…, { from })` 可提早打開（只有 spinner）；唱出關鍵字時候選會收起、只留判決（金色），猜錯的字用灰色刪除線——**紅色只留給崩壞**。前一個字和關鍵字靠得太近、候選來不及讀時，用 `keep: true`：唱出那一幀就收合，但保留第一名（灰色刪除線）在判決上方；`until` 控制何時淡出。
+- HUD 字級太小：θ 會像 0，上標的 ⁻、⁺ 和下標看不清楚。HUD 標題只用 ASCII 可讀的寫法，數學符號放在大一點的 3D 標籤或面板裡。
+- 關鍵字唱出幀的 burst 用 `p: (dt + 2 / 60) / dur`（唱出那一幀已經在第 2 幀），`r0` 拉開，核心用橘／金。
+- 藍色只屬於 you：BPE 切塊只用橘／金／灰，座標軸小圖示的 z 軸是灰色。
+- you 的線一律用 `lib/scene3d.js` 的 `youLine`（以 alpha 疊在 me 上，下面有 6 px 暗色 knock-out），不要用預設的 MAX 混色：橘＋藍用 MAX 會變成玫瑰色，那是 love 的顏色。
+- `labels3D` 的 obstacles 可以放螢幕框 `{ rect: [x0, y0, x1, y1] }`（關鍵字、面板），標籤加 `backing` 會壓暗後面的線條。3D 標籤不得被格線或光芒穿過，被穿過會讀成刪除線（＝猜錯）。
+- 疊在 3D 畫面上的文字，先呼叫 `ctx.mask(x, y, w, h)` 再畫字：已經畫在後面的線、粒子會被壓暗到約 15%。`hero`、`tokenChips`、有 backing 的 `labels3D` 會自動做。整張 2D 圖覆蓋全畫面時（例如畫中畫），HUD 區也要 mask。
+- Claude Code 的權限確認框用 `cc.js` 的 `permission`（you 的游標是藍色 ❯）。
+- 模型「自己說話」（取樣、greedy 解碼）一律用 `lib/decode.js`，輸出是算出來的，不手寫；亂數只用 hash（每一步一個 `rand(k, seed)`）。
+- JetBrains Mono 沒有的符號（→ ∞ ≈ √ ∂ 上標）由引擎退回 Noto Sans TC。上標太小時，自己排「底數＋縮小抬高的指數」（例如 `v1/asymptote.js` 的 `pow10Text`）。
+- Claude Code 的 ● 與打勾是橘色（綠色屬於 growth）。
+- diff 背景：`+` 是藍（給 you）、`−` 是橘（從 me 拿走）。
+- 粒子場的背景餘燼用中性的灰／白，橘色只屬於 me 和它放出的能量。
+- tokenizer 不認得的字元（`( ) ;`）顯示成虛線的 `unk` 切塊。
+- 製作期間 film 章節可以只有前幾章（`spanOf('film')` = 0 到最後一個已完成章節的結尾）；16 章都在之後，`test/timeline.test.js` 要求涵蓋整首歌。
 - 畫面管線：shot A（+轉場中的 B）各畫進 4×MSAA half-float RT → compositor → bloom → 最終 pass（色差、tonemap、字幕 overlay、暗角、顆粒、dither）→ RGBA8；算圖時再於 GPU 轉成 yuv420p（BT.709 limited）經 WebSocket 串流給 ffmpeg。
 
 ---

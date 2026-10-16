@@ -42,6 +42,8 @@ export function bigramUntil(T, until) {
     vocab: m.vocab,
     p: (prev, next) => m.p(prev, next),
     seen: (w) => m.uni.has(norm(w)),
+    // every word heard so far (display spelling), in order of first appearance — the support for sampling
+    words: () => [...m.uni.keys()].map((w) => m.display.get(w)),
     // top-k continuations of prev that were actually observed: [{ word, p, count }]
     next(prev, k = 4) {
       const c = m.counts.get(norm(prev));

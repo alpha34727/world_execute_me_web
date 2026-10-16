@@ -18,10 +18,4 @@ export async function loadChapterSet(set) {
   return defs;
 }
 
-// span a chapter set must cover: film = whole song, test = its own declared range
-export function spanOf(set, T, defs) {
-  if (set === 'film') return { start: 0, end: T.songEnd };
-  const fr = (v) => (typeof v === 'function' ? v(T) : T.section(v).start);
-  const to = (v) => (typeof v === 'function' ? v(T) : T.section(v).end);
-  return { start: Math.min(...defs.map((d) => fr(d.from))), end: Math.max(...defs.map((d) => to(d.to))) };
-}
+export { spanOf } from '../src/engine/timeline.js';

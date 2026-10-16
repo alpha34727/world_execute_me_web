@@ -28,7 +28,8 @@ function visibleChars(line, t) {
 export function drawSubtitles(ctx, t, T, zh) {
   const lines = T.lines;
   let i = -1;
-  for (let k = 0; k < lines.length; k++) { if (lines[k].words[0].start <= t) i = k; else break; }
+  // unsung lines (the title world.execute(me);) are shown by their chapter, not as subtitles
+  for (let k = 0; k < lines.length; k++) { if (lines[k].words[0].start > t) break; if (lines[k].sung !== false) i = k; }
   if (i < 0) return;
   const line = lines[i];
   const next = lines[i + 1];
@@ -39,7 +40,9 @@ export function drawSubtitles(ctx, t, T, zh) {
   const text = line.words.map((w) => w.text).join(' ');
   const n = visibleChars(line, t);
   const zhText = zh?.lines?.[line.i]?.zh ?? null;
-  const prev = i > 0 ? lines[i - 1] : null;
+  let pi = i - 1;
+  while (pi >= 0 && lines[pi].sung === false) pi--;
+  const prev = pi >= 0 ? lines[pi] : null;
   const prevAge = prev ? t - prev.end : Infinity;
   const showHist = prev && prevAge < 6 && prev.end > line.start - T.bars(2);
 
@@ -51,8 +54,9 @@ export function drawSubtitles(ctx, t, T, zh) {
   const wHist = showHist ? ctx.measure(histText, HIST) : 0;
   const w = Math.max(wEn, wZh, wHist) + 44;
   const top = showHist ? Y_HIST - 32 : Y_EN - 36;
-  // the plate is Claude Code's prompt box: rounded, hairline border
-  ctx.rect(X - 20, top, w, 1080 - 26 - top, { fill: [0, 0, 0, 0.42], stroke: COLOR.faint, width: 1.2, alpha: out, radius: 10 });
+  // the plate is Claude Code's prompt box: rounded, hairline border; nearly opaque, so 3D content (lines, bokeh)
+  // never runs through the text
+  ctx.rect(X - 20, top, w, 1080 - 26 - top, { fill: [0, 0, 0, 0.86], stroke: COLOR.faint, width: 1.2, alpha: out, radius: 10 });
 
   if (showHist) {
     const pa = clamp(1 - prevAge / 6) * 0.45 * out;
@@ -70,4 +74,20 @@ export function drawSubtitles(ctx, t, T, zh) {
     const k = Math.ceil(chars.length * (n / text.length));
     ctx.text(`// ${chars.slice(0, k).join('')}`, X, Y_ZH, { ...ZH, color: COLOR.dim, alpha: out });
   }
+}
+
+// A note in the console when nothing is sung (instrumentals): same plate and two lines as the subtitles, typed in.
+//   > english
+//   // 中文
+export function drawNote(ctx, en, zh, { from, to, alpha = 1 } = {}) {
+  const { t } = ctx;
+  if (t < from || t > to + 0.3) return;
+  const a = alpha * smoothstep(from, from + 0.15, t) * (1 - smoothstep(to, to + 0.3, t));
+  const n = Math.floor((t - from) * 60 * 1.5);
+  const w = Math.max(ctx.measure(`> ${en}`, EN), ctx.measure(`// ${zh}`, ZH)) + 44;
+  ctx.rect(X - 20, Y_EN - 36, w, 1080 - 26 - (Y_EN - 36), { fill: [0, 0, 0, 0.86], stroke: COLOR.faint, width: 1.2, alpha: a, radius: 10 });
+  ctx.text('>', X, Y_EN, { ...EN, color: COLOR.me, alpha: a });
+  ctx.text(en.slice(0, n), X + ctx.measure('> ', EN), Y_EN, { ...EN, color: COLOR.ink2, alpha: a });
+  const chars = [...zh];
+  ctx.text(`// ${chars.slice(0, Math.ceil((chars.length * Math.min(n, en.length)) / en.length)).join('')}`, X, Y_ZH, { ...ZH, color: COLOR.dim, alpha: a });
 }

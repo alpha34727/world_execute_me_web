@@ -66,3 +66,18 @@ export function sparkIcon(ctx, x, y, r, { t = ctx.t, color = COLOR.me, alpha = 1
     ctx.line([[x + Math.cos(a) * r * 0.12, y + Math.sin(a) * r * 0.12], [x + Math.cos(a) * L, y + Math.sin(a) * L]], { color, width: Math.max(1.4, r * 0.16 * R[i].w), alpha });
   }
 }
+
+// world-space size that makes the spark's rays ~px design pixels long for a camera (orbit()/camera3D options)
+export function sparkSize(cam, px, pos = [0, 0, 0]) {
+  const d = Math.hypot(cam.position[0] - pos[0], cam.position[1] - pos[1], cam.position[2] - pos[2]);
+  return (px / 540) * d * Math.tan(((cam.fov ?? 40) * Math.PI) / 360);
+}
+
+// me in a 3D shot: constant on-screen size (px ≈ ray length in design px), a white core that reads even when the
+// rays are seen edge-on, and light shafts from it (post rays). The film uses px = 70 throughout.
+// color: only for pre2's role swap (me wears you's blue for four beats)
+export function sparkAt(ctx, cam, { pos = [0, 0, 0], px = 70, rays = 0.35, alpha = 1, color = COLOR.me } = {}) {
+  drawSpark(ctx, { pos, size: sparkSize(cam, px, pos), alpha, color });
+  ctx.point3D(pos, 7, { fill: COLOR.ink, glow: 16, alpha });
+  if (rays > 0) { const sp = ctx.project(pos); ctx.post({ rays: [sp[0], sp[1], rays * 1.3 * alpha], bloom: 0.72 }); }
+}

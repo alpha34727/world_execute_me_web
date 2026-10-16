@@ -95,7 +95,7 @@ export class Engine {
         u.uP.value = o.p ?? 0; u.uStagger.value = o.stagger ?? 0.3; u.uTime.value = o.time ?? ctx.t;
         u.uDrift.value = o.drift ?? 0; u.uScatter.value = o.scatter ?? 0; u.uSize.value = o.size ?? 3;
         u.uSizeVar.value = o.sizeVar ?? 0.4; u.uPersp.value = o.perspective === true ? 6 : (o.perspective || 0); u.uColorVar.value = o.colorVar ?? 0;
-        u.uFocus.value = o.focus ?? 0; u.uAperture.value = o.aperture ?? 0; u.uFog.value.set(o.fog?.[0] ?? 0, o.fog?.[1] ?? 0);
+        u.uFocus.value = o.focus ?? 0; u.uAperture.value = o.aperture ?? 0; u.uFog.value.set(o.fog?.[0] ?? 0, o.fog?.[1] ?? 0); u.uBirth.value = o.birth ? 1 : 0;
         const ca = o.color ?? [1, 1, 1], cb = o.color2 ?? ca, al = o.alpha ?? 1;
         u.uColA.value.set(ca[0], ca[1], ca[2], (ca[3] ?? 1) * al); u.uColB.value.set(cb[0], cb[1], cb[2], (cb[3] ?? 1) * al);
         sw.mesh.material = m;
@@ -136,7 +136,7 @@ export class Engine {
     const t = frame / FPS - PREROLL;
     let post = { ...POST_DEFAULTS };
     let subs = true;
-    let hud = null; // [{ title, alpha }] — shots declare `hud: 'title'`; drawn once on the overlay, titles cross-dissolve
+    let hud = null; // { title, alpha } — shots declare `hud: 'title'` (or (T, t) => 'title'); drawn once on the overlay, titles cross-dissolve
     let info;
     let missing = 0;
     if (t < 0) {
@@ -170,12 +170,17 @@ export class Engine {
         }
         if (st.p > 0.5) subs = cb.showSubs && st.b.shot.subs !== false;
       } else Object.assign(post, pa);
+      if (hud) post.hudGuard = hud.alpha;
       this.compositor.render(this.renderer, this.camera, this.rtScene, this.rtA.texture, texB, st.transition, st.p, [this.width, this.height], this.scale);
       info = { t, frame, shot: st.b && st.p > 0.5 ? st.b.key : st.a.key, a: st.a.key, b: st.b?.key ?? null, p: st.p, transition: st.transition?.type ?? null, section: this.T.sectionAt(t)?.id ?? null };
     }
     const ov = this.drawLayer(this.rtOverlay, { key: '__overlay', t, start: 0, end: this.T.songEnd, frame }, (c) => {
       c.bg([0, 0, 0]);
-      if (hud && t >= 0) aiHud(c, hud);
+      if (hud && t >= 0) {
+        const title = typeof hud.title === 'function' ? hud.title(this.T, t) : hud.title;
+        aiHud(c, { ...hud, title });
+        post.hudTitle = title ? c.measure(title, { font: 'mono', size: 14 }) : 0; // the guard fits the title
+      }
       if (subs && t >= 0) drawSubtitles(c, t, this.T, this.showZh ? this.zh : null);
       const ch = t >= 0 ? this.timeline.chapters.find((x) => t >= x.from && t < x.to) : null;
       if (ch?.overlay) ch.overlay(c, t);

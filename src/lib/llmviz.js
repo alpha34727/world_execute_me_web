@@ -9,31 +9,51 @@ import { embeddings, attention } from './embed.js';
 import { lossCurve } from './ngram.js';
 import { wordsAt } from './corpus.js';
 
-const CHIP = [COLOR.me, COLOR.warm, COLOR.growth, COLOR.you, COLOR.love];
+// alternating so neighbouring pieces read apart; no blue (you) or green/red (story colours) in the chips
+const CHIP = [COLOR.me, COLOR.warm, COLOR.dim];
 
 // centred at x; y = chip text baseline. Appears at `at`, pieces split apart one after another.
+// Returns the chips' boxes [{ piece, id, x, y, w, h }] (design px) so callers can point at a piece.
 export function tokenChips(ctx, word, x, y, { at = word.start, size = 26, alpha = 1, label = true } = {}) {
   const { T, t } = ctx;
-  if (t < at) return;
-  const pieces = bpe(T).encode(word.text);
+  if (t < at) return [];
+  // runs of known characters go through the BPE; characters outside its alphabet ( ( ) ; ) are shown as unknown
+  const B = bpe(T), pieces = [];
+  let run = '';
+  const flush = () => { if (run) pieces.push(...B.encode(run)); run = ''; };
+  for (const ch of word.text) {
+    if (/[A-Za-z0-9'\-.]/.test(ch) && B.vocab.includes(ch.toLowerCase())) run += ch;
+    else { flush(); pieces.push({ piece: ch, id: null }); }
+  }
+  flush();
   const pad = 9, gapMax = 10;
   const ws = pieces.map((p) => ctx.measure(p.piece, { font: 'mono', size }) + pad * 2);
   const split = easeOutCubic(clamp((t - at) / T.beats(0.6)));
   const gap = gapMax * split;
   const total = ws.reduce((s, w) => s + w, 0) + gap * (pieces.length - 1);
   let cx = x - total / 2;
+  const boxes = [];
   pieces.forEach((p, i) => {
+    boxes.push({ piece: p.piece, id: p.id, x: cx, y: y - size * 0.95, w: ws[i], h: size * 1.3 });
+    ctx.mask(cx - 8, y - size * 0.95 - 8, ws[i] + 16, size * 1.3 + size * 0.95 + 16, alpha * smoothstep(at + i * T.beats(0.06), at + i * T.beats(0.06) + T.beats(0.15), t));
     const a = alpha * smoothstep(at + i * T.beats(0.06), at + i * T.beats(0.06) + T.beats(0.15), t);
-    const col = CHIP[i % CHIP.length];
-    ctx.rect(cx, y - size * 0.95, ws[i], size * 1.3, { fill: col, alpha: a * 0.2, stroke: col, width: 1.2, radius: 4 });
-    ctx.text(p.piece, cx + ws[i] / 2, y, { font: 'mono', size, align: 'center', color: COLOR.ink, alpha: a });
-    ctx.text(String(p.id), cx + ws[i] / 2, y + size * 0.95, { font: 'mono', size: Math.max(13, Math.round(size * 0.55)), align: 'center', color: col, alpha: a * 0.9 });
+    const unk = p.id === null;
+    const col = unk ? COLOR.faint : CHIP[i % CHIP.length];
+    if (unk) {
+      const x0 = cx, y0 = y - size * 0.95, x1 = cx + ws[i], y1 = y0 + size * 1.3;
+      ctx.line([[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]], { color: col, width: 1.2, alpha: a, dash: 4, gap: 4 });
+    } else ctx.rect(cx, y - size * 0.95, ws[i], size * 1.3, { fill: col, alpha: a * 0.2, stroke: col, width: 1.2, radius: 4 });
+    ctx.text(p.piece, cx + ws[i] / 2, y, { font: 'mono', size, align: 'center', color: unk ? COLOR.dim : COLOR.ink, alpha: a });
+    ctx.text(unk ? 'unk' : String(p.id), cx + ws[i] / 2, y + size * 0.95, { font: 'mono', size: Math.max(13, Math.round(size * 0.55)), align: 'center', color: unk ? COLOR.faint : col, alpha: a * 0.9 });
     cx += ws[i] + gap;
   });
   if (label) {
-    const n = pieces.length;
-    ctx.text(`BPE · ${n} token${n > 1 ? 's' : ''}`, x + total / 2 + 18, y - size * 0.3, { font: 'mono', size: 13, color: COLOR.dim, alpha: alpha * split });
+    const n = pieces.filter((p) => p.id !== null).length;
+    const note = `BPE · ${n} token${n > 1 ? 's' : ''}`;
+    ctx.mask(x + total / 2 + 10, y - size * 0.3 - 18, ctx.measure(note, { font: 'mono', size: 13 }) + 16, 26, alpha * split);
+    ctx.text(note, x + total / 2 + 18, y - size * 0.3, { font: 'mono', size: 13, color: COLOR.dim, alpha: alpha * split });
   }
+  return boxes;
 }
 
 // words: word objects (in sung order). Row i = the attention of word i over words 0..i (causal mask: upper triangle empty).

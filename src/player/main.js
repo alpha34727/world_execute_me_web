@@ -9,7 +9,7 @@ import '@fontsource/space-grotesk/700.css';
 import '@fontsource/noto-sans-tc/400.css';
 import '@fontsource/noto-sans-tc/700.css';
 import { loadData, loadChapters, hasFilmChapters } from '../engine/assets.js';
-import { buildTimeline } from '../engine/timeline.js';
+import { buildTimeline, spanOf } from '../engine/timeline.js';
 import { Engine } from '../engine/renderer.js';
 import { FPS, PREROLL, TOTAL_FRAMES } from '../sections.js';
 import { FONT } from '../theme.js';
@@ -19,12 +19,6 @@ import { installUi } from './ui.js';
 const params = new URLSearchParams(location.search);
 const status = document.getElementById('status');
 const canvas = document.getElementById('stage');
-
-function spanOf(set, T, defs) {
-  if (set === 'film') return { start: 0, end: T.songEnd };
-  const v = (x, w) => (typeof x === 'function' ? x(T) : T.section(x)[w]);
-  return { start: Math.min(...defs.map((d) => v(d.from, 'start'))), end: Math.max(...defs.map((d) => v(d.to, 'end'))) };
-}
 
 async function boot() {
   const set = params.get('ch') ?? (hasFilmChapters() ? 'film' : 'test');
@@ -39,7 +33,7 @@ async function boot() {
   const engine = new Engine({ canvas, T, F, timeline, zh });
   const frames = {
     first: set === 'film' ? 0 : T.frameOf(span.start),
-    end: set === 'film' ? TOTAL_FRAMES : T.frameOf(span.end),
+    end: set === 'film' && span.end >= T.songEnd ? TOTAL_FRAMES : T.frameOf(span.end),
   };
   const ctx = { set, T, F, zh, timeline, engine, span, frames, FPS, PREROLL };
   if (params.has('render')) installRenderApi(ctx);

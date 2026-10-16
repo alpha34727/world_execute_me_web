@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { buildTimeline } from '../src/engine/timeline.js';
+import { SECTIONS } from '../src/sections.js';
 import { loadT, loadChapterSet, spanOf } from './helpers.js';
 
 const T = loadT();
@@ -70,3 +71,10 @@ for (const set of ['film', 'test']) {
     for (const s of tl.shots) assert.ok(s.end > s.start, s.key);
   });
 }
+
+test('film covers the whole song (all 16 chapters, in order)', async (t) => {
+  const defs = await loadChapterSet('film');
+  if (defs.length < SECTIONS.length) return t.todo(`${defs.length}/${SECTIONS.length} chapters built`);
+  assert.deepEqual(defs.map((d) => d.id), SECTIONS);
+  assert.equal(spanOf('film', T, defs).end, T.songEnd);
+});

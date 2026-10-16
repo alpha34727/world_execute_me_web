@@ -27,6 +27,7 @@ uniform float uColorVar;
 uniform float uFocus;    // clip w of the focal plane (0 = no depth of field)
 uniform float uAperture; // circle of confusion growth (design px per unit of defocus)
 uniform vec2 uFog;       // fog near/far in clip w (far = 0: off)
+uniform float uBirth;    // 1: a particle is invisible until its own morph starts, then fades in (streams from a point)
 out vec2 vC; out vec4 vCol;
 float easeIO(float t) { return t < 0.5 ? 4.0 * t * t * t : 1.0 - pow(-2.0 * t + 2.0, 3.0) / 2.0; }
 void main() {
@@ -56,7 +57,7 @@ void main() {
   vC = corner / (size * 0.5);
   vec4 col = mix(uColA, uColB, e);
   col.rgb *= 1.0 + uColorVar * (aRand.y - 0.5) * 2.0;
-  col.a *= alphaK;
+  col.a *= alphaK * mix(1.0, smoothstep(0.0, 0.12, q), uBirth);
   vCol = col;
   gl_Position = vec4((s + corner) / uRes * 2.0 - 1.0, 0.0, 1.0);
 }`;
@@ -78,7 +79,7 @@ const sharedMaterial = materialSet((blend) => rawMaterial({
     uP: { value: 0 }, uStagger: { value: 0.3 }, uTime: { value: 0 }, uDrift: { value: 0 }, uScatter: { value: 0 },
     uSize: { value: 3 }, uSizeVar: { value: 0.4 }, uPersp: { value: 0 },
     uColA: { value: new THREE.Vector4(1, 1, 1, 1) }, uColB: { value: new THREE.Vector4(1, 1, 1, 1) }, uColorVar: { value: 0 },
-    uFocus: { value: 0 }, uAperture: { value: 0 }, uFog: { value: new THREE.Vector2(0, 0) },
+    uFocus: { value: 0 }, uAperture: { value: 0 }, uFog: { value: new THREE.Vector2(0, 0) }, uBirth: { value: 0 },
   },
 }));
 

@@ -8,8 +8,10 @@ import { HASH_GLSL } from '../../lib/hash.js';
 import { COLOR } from '../../theme.js';
 
 export const POST_DEFAULTS = {
-  lift: COLOR.bg,
-  rays: [0.5, 0.5, 0], // light shafts: [x, y (design px, y down) of the source, strength]; 0 = off     // background added under the emissive scene (Claude dark); [0,0,0] for opaque shots
+  lift: COLOR.bg,      // background added under the emissive scene (Claude dark); [0,0,0] for opaque shots
+  rays: [0.5, 0.5, 0], // light shafts: [x, y (design px, y down) of the source, strength]; 0 = off
+  hudGuard: 0,         // 0..1: darken the scene behind the HUD text blocks (set by the renderer when a HUD is shown)
+  hudTitle: 0,         // width (design px) of the HUD title at x = 460: its guard fits the text, not a fixed box
   bloom: 0.55,        // strength
   threshold: 0.62,    // soft threshold on max channel
   knee: 0.35,
@@ -57,8 +59,10 @@ const FINAL = /* glsl */ `
 ${HASH_GLSL}
 uniform sampler2D uScene; uniform sampler2D uBloom; uniform sampler2D uOverlay;
 uniform float uBloomStrength; uniform float uExposure; uniform float uVignette; uniform float uGrain; uniform float uCA;
-uniform float uFrame; uniform float uScale; uniform vec3 uLift; uniform vec3 uRays;
+uniform float uFrame; uniform float uScale; uniform vec3 uLift; uniform vec3 uRays; uniform float uHudGuard; uniform float uHudTitle;
 in vec2 vUv; out vec4 outColor;
+// soft mask of a design-space rect (centre c, half size h), feathered over f px
+float softRect(vec2 p, vec2 c, vec2 h, float f) { return 1.0 - smoothstep(0.0, f, length(max(abs(p - c) - h, 0.0))); }
 vec3 shoulder(vec3 c) {
   const float s = 0.82;
   vec3 over = max(c - s, 0.0);
@@ -77,6 +81,14 @@ void main() {
     vec2 q = vUv + d * hash01(gl_FragCoord.xy, uFrame);
     for (int i = 0; i < 28; i++) { acc += texture(uBloom, q).rgb * w; wsum += w; w *= 0.93; q += d; }
     col += acc / wsum * uRays.z;
+  }
+  if (uHudGuard > 0.0) {
+    // keep 3D content from running behind the HUD readouts (top-left identity block, top-right bar/section)
+    vec2 p = vec2(vUv.x * 1920.0, (1.0 - vUv.y) * 1080.0);
+    // the masks cover the HUD blocks and feather out over 24 px; at most 82 % darker (no hard black boxes)
+    float m = max(softRect(p, vec2(235.0, 73.0), vec2(195.0, 39.0), 24.0), softRect(p, vec2(1767.0, 52.0), vec2(118.0, 18.0), 24.0));
+    if (uHudTitle > 0.0) m = max(m, softRect(p, vec2(460.0 + uHudTitle * 0.5, 61.0), vec2(uHudTitle * 0.5 + 16.0, 12.0), 24.0));
+    col *= 1.0 - 0.82 * m * uHudGuard;
   }
   col = shoulder(max(col * uExposure, 0.0) + uLift);
   vec4 ov = texture(uOverlay, vUv);
@@ -129,7 +141,7 @@ export class Post {
       vertex: FULLSCREEN_VERT, fragment: FINAL, blend: 'none',
       uniforms: {
         uScene: { value: null }, uBloom: { value: null }, uOverlay: { value: null }, uBloomStrength: { value: 0.5 }, uExposure: { value: 1 },
-        uVignette: { value: 0.3 }, uGrain: { value: 0.04 }, uCA: { value: 0.003 }, uFrame: { value: 0 }, uScale: { value: 1 }, uLift: { value: new THREE.Vector3() }, uRays: { value: new THREE.Vector3() },
+        uVignette: { value: 0.3 }, uGrain: { value: 0.04 }, uCA: { value: 0.003 }, uFrame: { value: 0 }, uScale: { value: 1 }, uLift: { value: new THREE.Vector3() }, uRays: { value: new THREE.Vector3() }, uHudGuard: { value: 0 }, uHudTitle: { value: 0 },
       },
     });
     this.yuv = rawMaterial({ vertex: FULLSCREEN_VERT, fragment: YUV, blend: 'none', uniforms: { uSrc: { value: null }, uSize: { value: new THREE.Vector2() } } });
@@ -182,6 +194,8 @@ export class Post {
     f.uGrain.value = s.grain; f.uCA.value = s.ca; f.uFrame.value = frame; f.uScale.value = scale;
     f.uLift.value.set(s.lift[0], s.lift[1], s.lift[2]);
     f.uRays.value.set(s.rays[0] / 1920, 1 - s.rays[1] / 1080, s.rays[2]);
+    f.uHudGuard.value = s.hudGuard ?? 0;
+    f.uHudTitle.value = s.hudTitle ?? 0;
     this.pass(renderer, camera, this.final, target);
   }
 

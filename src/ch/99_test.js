@@ -14,24 +14,13 @@ import { orbit, shake, add3 } from '../lib/camera.js';
 import { floorGrid, polarGrid, axisGizmo, dust } from '../lib/scene3d.js';
 import { drawPrediction } from '../lib/predict.js';
 import { transcript } from '../lib/cc.js';
-import { tokenChips } from '../lib/llmviz.js';
+import { hero } from '../lib/hero.js';
 import { embeddings, attention } from '../lib/embed.js';
 import { indexOf } from '../lib/corpus.js';
 import { syncMarkers } from './test/sync.js';
-import { tesseract } from './test/tesseract.js';
+import { tesseract } from './v1/tesseract.js';
 
 const TAU = Math.PI * 2;
-
-// hero keyword: invisible before the sung frame, lands with a fast scale/alpha settle; then the tokenizer splits it
-function hero(ctx, word, x, y, size = 120) {
-  const dt = ctx.t - word.start;
-  if (dt < 0) return;
-  const e = easeOutExpo(clamp(dt / ctx.T.beats(0.5)));
-  ctx.text(word.text, x, y, { font: 'display', size: size * (1.1 - 0.1 * e), align: 'center', baseline: 'middle', color: COLOR.me, alpha: clamp(dt * 30), tracking: 0.06, glow: 16, glowStrength: 0.3 * (1 - e) + 0.12, intensity: 0.92 });
-  const w = ctx.measure(word.text, { font: 'display', size, tracking: 0.06 });
-  ctx.line([[x - (w / 2) * e, y + size * 0.62], [x + (w / 2) * e, y + size * 0.62]], { color: COLOR.me, width: 2, alpha: 0.7 * e });
-  tokenChips(ctx, word, x, y + size * 0.62 + 48, { at: word.start + ctx.T.beats(0.5), size: 22 });
-}
 
 // lattice for the "set of points" (11^3, spacing 0.48)
 const NL = 11, SP = 0.48;
@@ -160,7 +149,7 @@ export default chapter({
         ctx.text3D('4D → 3D', [-3.2, 1.2, 0], { font: 'mono', size: 20, color: COLOR.me, ref: 8.4 });
         ctx.text3D('3D → 2D shadow', [-3.4, -2.5, 1.2], { font: 'mono', size: 18, color: COLOR.you, ref: 8.4 });
         ctx.camera2D();
-        hero(ctx, w, 960, 190, 118);
+        hero(ctx, w, 960, 190, { size: 118 });
         corners(ctx, { color: COLOR.faint });
         axisGizmo(ctx, cam);
       },
@@ -244,7 +233,7 @@ export default chapter({
         for (let i = 0; i < nd; i++) ctx.text3D(i === 1 ? '.' : digits[i === 0 ? 0 : i - 1], [x0 + i * 0.22, fy, 0.75], { font: 'mono', size: 30, color: COLOR.warm, ref: 6.2, fog: [5, 12], align: 'center' });
         if (ang > TAU * 0.96) ctx.text3D('C = 2πr', [0, fy + 0.25, 0], { font: 'mono', size: 26, color: COLOR.me, align: 'center', ref: 6.2 });
         ctx.camera2D();
-        hero(ctx, w, 990, 190, 92);
+        hero(ctx, w, 990, 190, { size: 92 });
         corners(ctx, { color: COLOR.faint });
         axisGizmo(ctx, cam);
       },

@@ -62,7 +62,7 @@ export function bpe(T, { minCount = 2 } = {}) {
   const cum = [0];
   for (const w of seq) cum.push(cum.at(-1) + encode(w.text).length);
   const model = {
-    vocabSize: vocab.length, merges: ranks.size, encode,
+    vocabSize: vocab.length, merges: ranks.size, encode, vocab: [...vocab],
     tokensAt: (t) => cum[wordsAt(T, t)],
     total: cum.at(-1),
   };

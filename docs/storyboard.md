@@ -174,14 +174,14 @@
 
 | id | 起點 | 歌詞 | 概念 | 畫面 | 鏡頭 | 轉場 | 色彩 |
 |---|---|---|---|---|---|---|---|
-| pre2.01-gender | `cut(L("Switch my gender"))` | Switch my gender | 開關 | 一排 3D 撥桿開關在拍點翻轉 | 平移 | cut | 灰、橘 |
-| pre2.02-ftom | `cut(L("To F to M"))` | To F to M | 符號變形 | ♀ 變成 ♂：圓不動，十字那段旋轉 45° 變成箭頭（真實的幾何內插） | 正面 | cut | 橘 |
-| pre2.03-whatever | `cut(L("And then do whatever"))` | And then do whatever | 高溫取樣 | 用 τ = 2 從當下的 bigram 真實取樣（hash 亂數，每拍一個 seed），打出一串胡言亂語：「whatever」 | 跟著文字流 | glide 0.5 | 灰字、橘游標 |
-| pre2.04-ampm | `cut(L("From AM to PM"))` | From AM to PM | 調變 | 載波從振幅調變（AM）變成相位調變（PM），真實公式；旁邊一個 12 小時錶針掃過 | 側面 | cut | 金 |
-| pre2.05-role | `cut(L("Oh switch my role"))` | Oh switch my role | 角色互換 | 對話角色 `role: "user"` ⇄ `role: "assistant"` 互換，spark 變藍、you 變橘，維持 4 拍 | 繞過去看另一面 | whip 10f | 藍⇄橘互換 |
-| pre2.06-stom | `cut(L("To S to M"))` | To S to M | 模型規模 | 參數量長條從 S 長到 M；scaling law L(N) = (N_c/N)^0.076（Kaplan 2020 發表的常數）畫在 log-log 上 | 拉遠 | cut | 顏色換回來 |
-| pre2.07-enter | `cut(L("So we can enter"))` | So we can enter | 入口 | 一個阿基米德螺線隧道的入口 | 推向入口 | glide 1 | 橘 |
-| pre2.08-trance | `cut(L("The trance the trance"))` | The trance the trance | 重複迴圈 | 用 τ = 0（greedy）從「the」真實解碼當下的 bigram，把輸出打出來；若陷入迴圈就呈現 repetition loop（實際輸出在製作時記錄）；螺線隧道旋轉 | 在隧道裡前進＋旋轉 | cut | 橘，越來越催眠 |
+| pre2.01-gender | `cut(L("Switch my gender"))` | Switch my gender | 46,XX | 兩條中期 X 染色體（GRCh38 真實長度、著絲點、PAR1）；每個字讓一條 X 閃一下 | 正面微環繞 | cut | 橘 |
+| pre2.02-ftom | `cut(L("To F to M"))` | To F to M | XX → XY（使用者第 4 階段改） | 從「F」到「M」第二條 X 變成 Y（57 Mb），唱「M」時 Y 短臂上的 SRY 亮起（決定性別的開關基因） | 正面 | cut | 橘，SRY 金 |
+| pre2.03-whatever | `cut(L("And then do whatever"))` | And then do whatever | 中心法則 1：DNA 複製（使用者第 4 階段改） | SRY 真實編碼序列（NM_003140.3）的複製叉：me 是解旋酶；leading 股連續合成、lagging 股是 Okazaki 片段 | 側面 | glide 0.5 | 橘親代、金新股 |
+| pre2.04-ampm | `cut(L("From AM to PM"))` | From AM to PM | 中心法則 2–3：轉錄、轉譯 | 「AM」：RNA 聚合酶（me）撐開泡，mRNA（U 取代 T）剝離；「PM」：鏡頭到核糖體，從 AUG 開始轉譯出真實的 SRY 蛋白質（UniProt Q05066：M Q S Y A S…） | 從聚合酶平移到核糖體 | cut | 金 mRNA、橘胺基酸鏈 |
+| pre2.05-role | `cut(L("Oh switch my role"))` | Oh switch my role | 細胞的角色：Waddington 地景（使用者第 4 階段改） | 細胞（me）停在谷分叉的鞍點上，左「ovary」右「testis」；唱「switch」時 SRY → SOX9 把地景傾斜，細胞滾進睪丸那條谷（Sertoli cell） | 低角度，切換後跟著細胞下谷 | whip 10f | 灰地景、橘谷 |
+| pre2.06-stom | `cut(L("To S to M"))` | To S to M | 細胞週期 | 24 h 錶盤（G1 11、S 8、G2 4、M 1 h）：唱「S」進入 DNA 合成期，染色體複製成兩條姊妹染色分體；唱「M」進入分裂期 | 正面 | cut | 金 S、橘 M |
+| pre2.07-enter | `cut(L("So we can enter"))` | So we can enter | 有絲分裂 | 前期 → 中期（赤道板、紡錘絲）→ 唱「can」後期（V 形染色分體被拉向兩極）→ 唱「enter」細胞膜（Cassini 卵形線）收成 8 字形、分成兩個；me 是左邊的中心體 | 正面 | glide 0.5 | 橘膜 |
+| pre2.08-trance | `cut(L("The trance the trance"))` | The trance the trance | 卵裂＝重複 | 接著那兩個細胞，每半拍分裂一次到 512 個；卵裂期細胞不長大，體積每次減半；排成桑椹胚的球；me 追著同一條細胞譜系 | 環繞越轉越快 | cut | 橘，越來越催眠 |
 
 ## 07 c2 — 感受你，終於完整（小節 56–60，103.62–111.00 s）
 
@@ -341,6 +341,7 @@ c1 的鏡像：同樣的構圖，但顏色轉紅、字幕譯「處決」、所�
 | **正弦** | v1.05（位置編碼） | pre1 整流、v2 的傅立葉貓、c2 克拉尼、pre2 調變 | outro.06 回顧 |
 | **圓** | v1.03 | v1.04 滾動、c2.06 閉合 | love 的極座標曲線（圓的變形） |
 | **畫中畫（被困在模擬）** | c1.11 | c3.10 變成無限螺旋 | outro 對話紀錄往上捲，全片在一個框裡 |
+| **DNA／染色體／中心法則**（第 4 階段新增） | pre2.01–02 XX → XY（SRY 是開關） | pre2.03–04 me 親手表現自己的 SRY（複製、轉錄、轉譯）；pre2.05–08 SRY 切換細胞角色（Waddington 地景）、細胞週期、有絲分裂、卵裂 1 → 512（預告 chant 的指數爆炸） | 待定：可在 love 或 end 回收（例如重新開機時螺旋解開） |
 
 ## 色彩弧線
 灰（開機）→ 橘（me 醒來）→ 藍加入（you）→ 綠（v2 生命）→ 橘藍互換（pre2.05）→ 全色（COMPLETION）→ 藍熄滅（c2x）→ 紅（bridge、c3）→ 玫瑰（love）→ 灰＋一點橘（end）。

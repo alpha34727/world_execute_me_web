@@ -31,7 +31,8 @@ export class FontAtlas {
     if (!f) throw new Error(`unknown font "${key}"`);
     return f;
   }
-  cssFont(f, px) { return `${f.weight} ${px}px "${f.family}"`; }
+  // symbols the Latin faces lack (→ ∞ ≈ √ ∂ superscripts ⁰⁴…⁹ ⁻) fall back to Noto Sans TC (OFL), never a system font
+  cssFont(f, px) { return `${f.weight} ${px}px "${f.family}"${f.family === FONT.zh.family ? '' : `, "${FONT.zh.family}"`}`; }
 
   metricsOf(key) {
     if (this.metrics.has(key)) return this.metrics.get(key);
