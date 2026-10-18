@@ -3,7 +3,7 @@
 //   otherwise      timeline.at(t) -> shot A (+ shot B during a transition) -> compositor -> post (+ subtitle overlay)
 import * as THREE from 'three';
 import { FPS, PREROLL, DESIGN } from '../sections.js';
-import { designViewProj } from './gl/common.js';
+import { designViewProj, rawMaterial, fullscreenMesh, FULLSCREEN_VERT } from './gl/common.js';
 import { LineBatch } from './gl/lines.js';
 import { ShapeBatch } from './gl/shapes.js';
 import { FontAtlas, TextBatch } from './gl/text.js';
@@ -48,6 +48,8 @@ export class Engine {
     this.renderer.setSize(w, h, false);
     const mk = (opts) => new THREE.WebGLRenderTarget(w, h, { depthBuffer: false, minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, ...opts });
     for (const k of ['rtA', 'rtB', 'rtScene', 'rtOverlay', 'rtFinal']) this[k]?.dispose();
+    for (const s of this.replays?.values() ?? []) s.rt.dispose();
+    this.replays?.clear();
     this.rtA = mk({ type: THREE.HalfFloatType, samples: 4 });
     this.rtB = mk({ type: THREE.HalfFloatType, samples: 4 });
     this.rtScene = mk({ type: THREE.HalfFloatType });
@@ -66,13 +68,12 @@ export class Engine {
     return ctx;
   }
 
-  flush(ctx, rt, clearAlpha) {
+  flush(ctx, rt, clearAlpha, res = [this.width, this.height], scale = this.scale) {
     const r = this.renderer;
     r.setRenderTarget(rt);
     r.setClearColor(new THREE.Color(ctx.bgColor[0], ctx.bgColor[1], ctx.bgColor[2]), clearAlpha);
     r.clear(true, false, false);
     const cmds = ctx.cmds;
-    const res = [this.width, this.height];
     this.atlas.flush();
     let i = 0;
     while (i < cmds.length) {
@@ -82,16 +83,16 @@ export class Engine {
         while (j < cmds.length && cmds[j].kind === c0.kind && cmds[j].blend === c0.blend && cmds[j].cam === c0.cam) j++;
       }
       const run = cmds.slice(i, j);
-      if (c0.kind === 'lines') this.drawBatch(this.lines, run, (b, c) => b.push(c.data.pts, c.data.o), c0, res);
-      else if (c0.kind === 'shapes') this.drawBatch(this.shapes, run, (b, c) => b.push(c.data), c0, res);
+      if (c0.kind === 'lines') this.drawBatch(this.lines, run, (b, c) => b.push(c.data.pts, c.data.o), c0, res, scale);
+      else if (c0.kind === 'shapes') this.drawBatch(this.shapes, run, (b, c) => b.push(c.data), c0, res, scale);
       else if (c0.kind === 'text') {
-        this.drawBatch(this.text, run, (b, c) => b.push(c.data.str, c.data.x, c.data.y, c.data.o), c0, res);
+        this.drawBatch(this.text, run, (b, c) => b.push(c.data.str, c.data.x, c.data.y, c.data.o), c0, res, scale);
       } else if (c0.kind === 'swarm') {
         const { sw, o } = c0.data;
         const m = swarmMaterial(c0.blend);
         const u = m.uniforms;
         u.uViewProj.value.copy(c0.cam); if (o.model) u.uViewProj.value.multiply(o.model);
-        u.uRes.value.set(res[0], res[1]); u.uScale.value = this.scale;
+        u.uRes.value.set(res[0], res[1]); u.uScale.value = scale;
         u.uP.value = o.p ?? 0; u.uStagger.value = o.stagger ?? 0.3; u.uTime.value = o.time ?? ctx.t;
         u.uDrift.value = o.drift ?? 0; u.uScatter.value = o.scatter ?? 0; u.uSize.value = o.size ?? 3;
         u.uSizeVar.value = o.sizeVar ?? 0.4; u.uPersp.value = o.perspective === true ? 6 : (o.perspective || 0); u.uColorVar.value = o.colorVar ?? 0;
@@ -109,7 +110,7 @@ export class Engine {
     }
   }
 
-  drawBatch(batch, run, push, c0, res) {
+  drawBatch(batch, run, push, c0, res, scale) {
     batch.buf.reset();
     for (const c of run) push(batch, c);
     const n = batch.buf.count;
@@ -119,11 +120,80 @@ export class Engine {
     const u = batch.uniforms;
     u.uViewProj.value.copy(c0.cam);
     if (u.uRes) u.uRes.value.set(res[0], res[1]);
-    u.uScale.value = this.scale;
+    u.uScale.value = scale;
     batch.mesh.material = batch.material(c0.blend);
     this.scratch.add(batch.mesh);
     this.renderer.render(this.scratch, this.camera);
     this.scratch.remove(batch.mesh);
+  }
+
+  // Replay (outro): the film's own frame at song time t2 — its shot layer(s) and transition, without HUD, subtitles,
+  // chapter overlay or post — rendered into a w×h texture owned by `id`. A pure function of (t2, w, h), so a slot
+  // that already holds exactly that frame is reused (unless glyphs were still loading). -> { texture, missing }
+  // overlay: also draw the chapter's overlay (its panels and readouts) on top of the shot
+  replay(id, t2, w, h, frame, { overlay = false } = {}) {
+    if (this.replaying) throw new Error('replay inside a replay');
+    w = Math.max(4, Math.round(w)); h = Math.max(4, Math.round(h));
+    this.replays ??= new Map();
+    const tmp = (opts) => new THREE.WebGLRenderTarget(w, h, { depthBuffer: false, minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, type: THREE.HalfFloatType, ...opts });
+    let slot = this.replays.get(id);
+    if (!slot || slot.w !== w || slot.h !== h) { slot?.rt.dispose(); slot = { rt: tmp(), w, h, key: null }; this.replays.set(id, slot); }
+    const key = `${t2}|${overlay}`;
+    if (slot.key === key) return { texture: slot.rt.texture, missing: 0 };
+    const sk = `${w}x${h}`;
+    if (this.replayMS?.key !== sk) { for (const k of ['a', 'b', 'c']) this.replayMS?.[k].dispose(); this.replayMS = { key: sk, a: tmp({ samples: 4 }), b: tmp({ samples: 4 }), c: tmp() }; }
+    this.replayCtx ??= new DrawContext(this);
+    const ctx = this.replayCtx;
+    ctx.memos = this.ctx.memos; // the shots' static resources are shared with the film
+    const scale = w / DESIGN.W, res = [w, h];
+    const ch = overlay ? this.timeline.chapters.find((x) => t2 >= x.from && t2 < x.to) : null;
+    let lift = null;
+    const layer = (entry, rt, p) => {
+      ctx.begin({ key: entry.key, t: t2, start: entry.start, end: entry.end, frame, scale });
+      entry.shot.draw(ctx, t2);
+      this.flush(ctx, rt, 1, res, scale);
+      const l = ctx.postSettings.lift ?? POST_DEFAULTS.lift;
+      lift = lift ? lift.map((x, i) => x + (l[i] - x) * p) : l;
+      return ctx.missingGlyphs;
+    };
+    this.replaying = true;
+    let missing = 0;
+    try {
+      const st = this.timeline.at(t2);
+      missing += layer(st.a, this.replayMS.a, 0);
+      if (st.b) missing += layer(st.b, this.replayMS.b, st.p);
+      const out = ch?.overlay ? this.replayMS.c : slot.rt;
+      this.compositor.render(this.renderer, this.camera, out, this.replayMS.a.texture, st.b ? this.replayMS.b.texture : null, st.transition, st.p, res, scale);
+      if (ch?.overlay) {
+        // the chapter overlay sits on top of the lifted, tonemapped film (a panel's dark backing is darker than the
+        // background); the replay has no lift, so the overlay goes over the scene minus the lift it covers, and the
+        // replaying shot's post adds the lift back (it lets the scene go down to -lift)
+        ctx.begin({ key: '__overlay', t: t2, start: 0, end: this.T.songEnd, frame, scale });
+        ctx.bg([0, 0, 0]);
+        ch.overlay(ctx, t2);
+        this.flush(ctx, this.replayMS.b, 0, res, scale);
+        missing += ctx.missingGlyphs;
+        this.replayOver ??= this.makeReplayOver();
+        const u = this.replayOver.material.uniforms;
+        u.uScene.value = this.replayMS.c.texture; u.uOverlay.value = this.replayMS.b.texture; u.uLift.value.set(lift[0], lift[1], lift[2]);
+        this.renderer.setRenderTarget(slot.rt);
+        this.renderer.render(this.replayOver.scene, this.camera);
+      }
+    } finally { this.replaying = false; }
+    slot.key = missing ? null : key;
+    return { texture: slot.rt.texture, missing };
+  }
+
+  makeReplayOver() {
+    const material = rawMaterial({
+      vertex: FULLSCREEN_VERT, blend: 'none',
+      fragment: /* glsl */ `uniform sampler2D uScene; uniform sampler2D uOverlay; uniform vec3 uLift; in vec2 vUv; out vec4 outColor;
+void main() { vec4 ov = texture(uOverlay, vUv); outColor = vec4(texture(uScene, vUv).rgb * (1.0 - ov.a) + ov.rgb - uLift * ov.a, 1.0); }`,
+      uniforms: { uScene: { value: null }, uOverlay: { value: null }, uLift: { value: new THREE.Vector3() } },
+    });
+    const scene = new THREE.Scene();
+    scene.add(fullscreenMesh(material));
+    return { scene, material };
   }
 
   renderShot(entry, t, frame, rt) {
@@ -177,7 +247,7 @@ export class Engine {
     const ov = this.drawLayer(this.rtOverlay, { key: '__overlay', t, start: 0, end: this.T.songEnd, frame }, (c) => {
       c.bg([0, 0, 0]);
       if (hud && t >= 0) {
-        const title = typeof hud.title === 'function' ? hud.title(this.T, t) : hud.title;
+        const title = typeof hud.title === 'function' ? hud.title(this.T, t, this.F) : hud.title;
         aiHud(c, { ...hud, title });
         post.hudTitle = title ? c.measure(title, { font: 'mono', size: 14 }) : 0; // the guard fits the title
       }

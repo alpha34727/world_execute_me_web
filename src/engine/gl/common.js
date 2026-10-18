@@ -70,6 +70,9 @@ export class InstanceBuffer {
       attr.setUsage(THREE.DynamicDrawUsage);
       this.geometry.setAttribute(name, attr);
     }
+    // three.js caches the instance limit from the first attributes it binds (WebGLBindingStates): without this, a
+    // buffer that grows after its first draw silently drops every instance past the old capacity
+    this.geometry._maxInstanceCount = undefined;
   }
   reset() { this.count = 0; }
   // returns base index of n reserved instances

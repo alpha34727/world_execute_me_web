@@ -8,6 +8,7 @@ import '@fontsource/space-grotesk/500.css';
 import '@fontsource/space-grotesk/700.css';
 import '@fontsource/noto-sans-tc/400.css';
 import '@fontsource/noto-sans-tc/700.css';
+import '@fontsource/newsreader/500.css';
 import { loadData, loadChapters, hasFilmChapters } from '../engine/assets.js';
 import { buildTimeline, spanOf } from '../engine/timeline.js';
 import { Engine } from '../engine/renderer.js';

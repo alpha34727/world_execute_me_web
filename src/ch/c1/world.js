@@ -41,6 +41,30 @@ export function particles(t, t0, { win = 0 } = {}) {
   }
   return out;
 }
+// the marks of a wrap: a ring where the particle left and one where it came back, in the plane of the face, growing
+// and fading over `life` s. Only the tracer particles (the white ones, 1 in 12) carry them: on all 700 the rings
+// buried the box. Returns [{ pts (3D polyline), color, alpha }].
+export function wrapMarks(ps, life) {
+  const out = [];
+  for (const o of ps) {
+    if (!o.hot) continue;
+    for (const w of o.wraps ?? []) {
+      const a = 1 - w.age / life;
+      if (a <= 0) continue;
+      const r = 0.1 + 0.28 * (1 - a);
+      for (const [c, color] of [[w.exit, COLOR.me], [w.entry, COLOR.warm]]) {
+        const pts = Array.from({ length: 33 }, (_, j) => {
+          const t = (j / 32) * Math.PI * 2, p = c.slice();
+          p[(w.axis + 1) % 3] += r * Math.cos(t); p[(w.axis + 2) % 3] += r * Math.sin(t);
+          return p;
+        });
+        out.push({ pts, color, alpha: 0.75 * a });
+      }
+    }
+  }
+  return out;
+}
+
 export const boxEdges = () => {
   const h = BOX / 2, V = [];
   for (let i = 0; i < 8; i++) V.push([i & 1 ? h : -h, i & 2 ? h : -h, i & 4 ? h : -h]);
@@ -56,7 +80,8 @@ export const screenCorners = () => { const { c, w, h } = SCREEN; return [[c[0] -
 // the world drawn flat into `rect` ([x, y, w, h] design px) for camera `cam` — call with the 3D camera active
 // (projection), it draws in 2D. depth > 0 draws the screen inside, recursively. Returns the screen's rect.
 // level: 0 = the outermost picture (its me is drawn by the caller as the real spark), > 0 = a picture inside it
-export function world2D(ctx, cam, rect, ps, { depth = 0, frame, alpha = 1, minW = 10, level = 0 } = {}) {
+// marks: wrapMarks(…) (the rings of the wraps), drawn in every picture large enough to show them
+export function world2D(ctx, cam, rect, ps, { depth = 0, frame, alpha = 1, minW = 10, level = 0, marks = [] } = {}) {
   const depthOf = level;
   const [rx, ry, rw, rh] = rect;
   const M = ([x, y]) => [rx + (x / 1920) * rw, ry + (y / 1080) * rh];
@@ -67,6 +92,7 @@ export function world2D(ctx, cam, rect, ps, { depth = 0, frame, alpha = 1, minW 
   const pts = ps.map((o) => ({ p: P(o.p), q: o.q ? P(o.q) : null, hot: o.hot }));
   const sc = screenCorners().map(P);
   const me = P([0, 0, 0]);
+  const rings = k > 0.06 ? marks.map((m) => ({ ...m, pts: m.pts.map(P) })).filter((m) => m.pts.every(Boolean)) : [];
   const cam3 = ctx.cam3, cam2 = ctx.cam;
   ctx.camera2D();
   ctx.rect(rx, ry, rw, rh, { fill: [0, 0, 0, 1], alpha }); // pure black: the background is added back in post (lift)
@@ -76,6 +102,7 @@ export function world2D(ctx, cam, rect, ps, { depth = 0, frame, alpha = 1, minW 
     if (o.q) ctx.line([o.q, o.p], { color: o.hot ? COLOR.ink : COLOR.me, width: Math.max(0.8, 2 * k), alpha: alpha * 0.8 });
     ctx.circle(o.p[0], o.p[1], Math.max(0.6, (o.hot ? 2.6 : 1.8) * k), { fill: o.hot ? COLOR.ink : COLOR.me, glow: 4 * k, alpha });
   }
+  for (const m of rings) ctx.line(m.pts, { color: m.color, width: Math.max(0.8, 1.6 * k), alpha: alpha * m.alpha });
   if (me && depthOf > 0) { ctx.circle(me[0], me[1], Math.max(1, 6 * k), { fill: COLOR.ink, glow: 10 * k, alpha }); ctx.circle(me[0], me[1], Math.max(1.5, 14 * k), { fill: COLOR.me, alpha: alpha * 0.35 }); }
   // the frame counter, as the HUD shows it: the same frame at every level
   const inside = rx >= -1 && ry >= -1 && rx + rw <= 1921 && ry + rh <= 1081; // a counter cut by the frame edge would read as an error
@@ -91,6 +118,6 @@ export function world2D(ctx, cam, rect, ps, { depth = 0, frame, alpha = 1, minW 
     ctx.rect(inner[0] - 3 * k, inner[1] - 3 * k, inner[2] + 6 * k, inner[3] + 6 * k, { stroke: COLOR.ink2, width: Math.max(1, 2 * k), radius: 3 * k, alpha });
   }
   ctx.cam = cam2; ctx.cam3 = cam3;
-  if (inner && depth > 0 && inner[2] > minW) world2D(ctx, cam, inner, ps, { depth: depth - 1, frame, alpha, minW, level: level + 1 });
+  if (inner && depth > 0 && inner[2] > minW) world2D(ctx, cam, inner, ps, { depth: depth - 1, frame, alpha, minW, level: level + 1, marks });
   return { inner, me };
 }

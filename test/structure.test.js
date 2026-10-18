@@ -19,7 +19,7 @@ test('16 sections, unique ids', () => {
 });
 
 test('frame budget matches spec', () => {
-  assert.equal(TOTAL_FRAMES, 13015);
+  assert.equal(TOTAL_FRAMES, 13255);
   assert.equal(SONG_FRAMES, TOTAL_FRAMES - PREROLL * FPS);
 });
 

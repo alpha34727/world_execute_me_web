@@ -6,6 +6,7 @@
 import * as THREE from 'three';
 import { chapter } from '../engine/timeline.js';
 import { COLOR } from '../theme.js';
+import { editBody } from '../lib/edits.js';
 import { Swarm } from '../engine/gl/swarm.js';
 import * as S from '../lib/sample.js';
 import { corners } from '../lib/hud.js';
@@ -50,10 +51,10 @@ const TODO_END = (T) => T.barTime(16) + T.beats(1.5); // the plan hands over to 
 function session(T) {
   const kw = (k) => W(T, k).start;
   const D = kw('DIMENSION'), C = kw('CIRCUMFERENCE');
-  const diff = (at, until, x) => ({ kind: 'tool', at, until, name: 'Update', arg: 'me.js', body: [{ kind: 'del', text: `me.${x}` }, { kind: 'add', text: `you.${x}` }] });
+  const diff = (at, until, x) => ({ kind: 'tool', at, until, name: 'Update', arg: 'me.js', body: editBody(x) });
   return [
     { kind: 'todo', at: planStart(T), until: TODO_END(T), items: PLAN.map((k, i) => ({ text: k, done: kw(k), at: planTimes(T)[i] })) },
-    { ...diff(D + T.beats(1.75), D + T.beats(5.5), 'dimension = 4'), body: [{ kind: 'del', text: 'me.dimension = 4' }, { kind: 'add', text: 'you.dimension = 4' }] },
+    diff(D + T.beats(1.75), D + T.beats(5.5), 'dimension = 4'),
     diff(C + T.beats(1.75), C + T.beats(6), 'circumference'),
     diff(L(T, 'If I approach infinity').words[0].start + T.beats(0.25), L(T, 'Then you can be my').words[0].start + T.beats(1), 'tangents'),
   ];

@@ -78,6 +78,9 @@ export function sparkSize(cam, px, pos = [0, 0, 0]) {
 // color: only for pre2's role swap (me wears you's blue for four beats)
 export function sparkAt(ctx, cam, { pos = [0, 0, 0], px = 70, rays = 0.35, alpha = 1, color = COLOR.me } = {}) {
   drawSpark(ctx, { pos, size: sparkSize(cam, px, pos), alpha, color });
-  ctx.point3D(pos, 7, { fill: COLOR.ink, glow: 16, alpha });
+  // the core scales with distance like any 3D point, but only within 0.8–1.3× (a very close or very long lens would
+  // otherwise blow it up into a white ball or shrink it to a dot: the film has one spark size)
+  const w = ctx.project(pos)[2];
+  if (w > 0.2) ctx.point3D(pos, 7, { fill: COLOR.ink, glow: 16, alpha, ref: w * Math.min(1.3, Math.max(0.8, 6 / w)) });
   if (rays > 0) { const sp = ctx.project(pos); ctx.post({ rays: [sp[0], sp[1], rays * 1.3 * alpha], bloom: 0.72 }); }
 }

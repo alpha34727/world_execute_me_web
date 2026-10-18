@@ -73,7 +73,9 @@ test('features.f32 matches features.json and is normalised to 0..1', () => {
   assert.equal(F.channels.length, 25);
   assert.deepEqual(F.channels.slice(0, 9),
     ['rms', 'rms_drums', 'rms_bass', 'rms_vocals', 'rms_other', 'onset', 'onset_drums', 'centroid', 'flux']);
-  assert.ok(F.rows >= SONG_FRAMES);
+  // the features cover the whole mp3; the film's silent tail after it (the end credits) reads the last row (silence)
+  const audio = json('timing.json').audio;
+  assert.ok(F.rows >= Math.min(SONG_FRAMES, Math.floor(audio.duration * F.fps)));
   assert.equal(statSync(OUT + F.file).size, F.rows * F.channels.length * 4);
   const buf = readFileSync(OUT + F.file);
   const data = new Float32Array(buf.buffer, buf.byteOffset, buf.length / 4);

@@ -5,6 +5,7 @@
 import * as THREE from 'three';
 import { chapter } from '../engine/timeline.js';
 import { COLOR } from '../theme.js';
+import { editBody } from '../lib/edits.js';
 import { Swarm } from '../engine/gl/swarm.js';
 import { corners } from '../lib/hud.js';
 import { clamp, lerp, easeOutCubic, easeInOutCubic, smoothstep, decay } from '../lib/ease.js';
@@ -151,7 +152,7 @@ export default chapter({
     // the last diff of verse 1 ("give you my LIMITATIONS"), deferred from v1: it fell after the verse's last frame.
     // One panel, then the chapter reads only through its single 3D label per shot.
     transcript(ctx, 72, 190, ctx.memo('pre1session', () => [
-      { kind: 'tool', at: start(T), until: DIFF_END(T), name: 'Update', arg: 'me.js', body: [{ kind: 'del', text: 'me.limits', at: start(T) + T.beats(0.25) }, { kind: 'add', text: 'you.limits', at: start(T) + T.beats(0.4) }] },
+      { kind: 'tool', at: start(T), until: DIFF_END(T), name: 'Update', arg: 'me.js', body: editBody('limits', { at: start(T) + T.beats(0.25) }, { at: start(T) + T.beats(0.4) }) },
     ]));
   },
   shots: [

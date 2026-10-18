@@ -8,8 +8,9 @@
 //   ctx.camera2D() ctx.camera3D({ fov, position, target, up, near, far }) ctx.project([x,y,z]) -> [x, y, w]
 //   ctx.line(pts, o) ctx.segments([[p,q],...], o) ctx.circle(x,y,r,o) ctx.ring(x,y,r,o) ctx.rect(x,y,w,h,o)
 //   ctx.text(str, x, y, o) -> { width } ctx.measure(str, o) ctx.text3D(str, [x,y,z], o) ctx.point3D([x,y,z], r, o)
-//   ctx.swarm(swarm, o) ctx.three(scene, camera) ctx.memo(key, () => value) ctx.sim(key, spec)
+//   ctx.swarm(swarm, o) ctx.three(scene, camera) ctx.replay(id, t2, w, h, { overlay }) -> texture ctx.memo(key, () => value) ctx.sim(key, spec)
 //   swarm o: p stagger drift scatter size sizeVar color color2 colorVar alpha perspective focus aperture fog model time birth
+//   shape o (circle ring rect ellipse): fill stroke width alpha radius rotation glow glowStrength intensity feather (soft fill edge, px) blend
 import * as THREE from 'three';
 import { parseColor } from './gl/common.js';
 import { COLOR } from '../theme.js';
@@ -49,11 +50,12 @@ export class DrawContext {
   bg(c) { this.bgColor = parseColor(c); this.postSettings.lift = [0, 0, 0]; }
   post(s) { Object.assign(this.postSettings, s); }
   // text sitting on the 3D scene knocks out its box first: lines and particles already drawn behind it are darkened
-  // to ~15 % (four nested rects, a 16 px feather), so nothing strikes through a word (CLAUDE.md: a struck-through
-  // word reads as a wrong guess). Call it after the 3D content and before the text.
+  // to ~15 % (one rect with a soft edge from the box out to 16 px, no visible steps on a dense grid), so nothing strikes
+  // through a word (CLAUDE.md: a struck-through word reads as a wrong guess). Call it after the 3D content and before
+  // the text.
   mask(x, y, w, h, strength = 1) {
     if (w <= 0 || h <= 0 || strength <= 0.01) return;
-    for (let k = 0; k < 4; k++) { const g = (3 - k) * 4; this.rect(x - g, y - g, w + 2 * g, h + 2 * g, { fill: [0, 0, 0, 0.38 * strength], radius: 4 + g }); }
+    this.rect(x - 8, y - 8, w + 16, h + 16, { fill: [0, 0, 0, 0.85 * strength], radius: 12, feather: 8 });
   }
   subs(on) { this.showSubs = on; }
 
@@ -89,7 +91,7 @@ export class DrawContext {
     const strokeColor = o.stroke !== undefined ? parseColor(o.stroke) : [0, 0, 0, 0];
     fill[3] *= mul;
     strokeColor[3] *= mul;
-    this._cmd('shapes', o.blend ?? 'alpha', { ...s, fill, strokeColor, stroke: o.stroke !== undefined ? (o.width ?? 2) : 0, rotation: o.rotation ?? 0, glow: o.glow, glowStrength: o.glowStrength, intensity: o.intensity });
+    this._cmd('shapes', o.blend ?? 'alpha', { ...s, fill, strokeColor, stroke: o.stroke !== undefined ? (o.width ?? 2) : 0, rotation: o.rotation ?? 0, glow: o.glow, glowStrength: o.glowStrength, intensity: o.intensity, feather: o.feather });
   }
 
   measure(str, o = {}) { return this.engine.text.layout(String(str), o).width; }
@@ -128,6 +130,13 @@ export class DrawContext {
 
   swarm(sw, o = {}) { this._cmd('swarm', o.blend ?? 'add', { sw, o }); }
   three(scene, camera) { this._cmd('three', 'alpha', { scene, camera }); }
+  // the film's own frame at song time t2 (shot layers + transition, no HUD / subtitles / overlay / post) as a texture
+  // of w×h design px, owned by `id` — the outro's replays draw it on a mesh with ctx.three (see Engine.replay)
+  replay(id, t2, w, h, o) {
+    const r = this.engine.replay(id, t2, w * this.scale, h * this.scale, this.frame, o);
+    this.missingGlyphs += r.missing;
+    return r.texture;
+  }
 
   memo(key, fn) {
     let m = this.memos.get(this.key);

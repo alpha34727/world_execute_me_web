@@ -8,20 +8,20 @@ in vec4 aRect;   // cx, cy, half w, half h (design px)
 in vec4 aP;      // type (0 rect, 1 ellipse, 2 ring), corner radius / ring inner ratio, stroke width, rotation
 in vec4 aFill;
 in vec4 aStroke;
-in vec4 aQ;      // glow radius, glow strength, intensity, -
+in vec4 aQ;      // glow radius, glow strength, intensity, feather (soft fill edge, design px)
 uniform mat4 uViewProj;
 uniform vec2 uRes;
 uniform float uScale;
 out vec2 vLocal; out vec2 vHalf; out vec4 vP; out vec4 vFill; out vec4 vStroke; out vec4 vQ;
 void main() {
-  float pad = (aP.z * 0.5 + aQ.x * 2.5) + 2.0 / uScale;
+  float pad = (aP.z * 0.5 + aQ.x * 2.5 + aQ.w) + 2.0 / uScale;
   vec2 half_ = aRect.zw + pad;
   vec2 corner = vec2(position.x * 2.0 - 1.0, position.y) * half_;
   float c = cos(aP.w), s = sin(aP.w);
   vec2 world = aRect.xy + vec2(c * corner.x - s * corner.y, s * corner.x + c * corner.y);
   vLocal = corner * uScale; vHalf = aRect.zw * uScale;
   vP = vec4(aP.x, aP.y * uScale, aP.z * uScale, aP.y);
-  vFill = aFill; vStroke = aStroke; vQ = vec4(aQ.x * uScale, aQ.y, aQ.z, 0.0);
+  vFill = aFill; vStroke = aStroke; vQ = vec4(aQ.x * uScale, aQ.y, aQ.z, aQ.w * uScale);
   gl_Position = uViewProj * vec4(world, 0.0, 1.0);
 }`;
 
@@ -36,7 +36,7 @@ void main() {
   if (vP.x < 0.5) d = sdRoundRect(vLocal, vHalf, min(vP.y, min(vHalf.x, vHalf.y)));
   else d = sdEllipse(vLocal, vHalf);
   if (vP.x > 1.5) { float inner = min(vHalf.x, vHalf.y) * vP.w; d = abs(d + inner * 0.5 + 0.0) - inner * 0.5; }
-  float fill = 1.0 - smoothstep(-0.5, 0.5, d);
+  float fill = 1.0 - smoothstep(-0.5 - vQ.w, 0.5 + vQ.w, d);
   // straight colour in, premultiplied out
   vec3 rgb = (vFill.rgb * vFill.a * fill);
   float a = vFill.a * fill;
@@ -66,7 +66,7 @@ export class ShapeBatch {
     this.mesh = new THREE.Mesh(this.buf.geometry, this.material('alpha'));
     this.mesh.frustumCulled = false;
   }
-  // s: { type: 0|1|2, x, y, hw, hh, radius (corner) | inner (ring ratio), stroke, rotation, fill, strokeColor, glow, glowStrength, intensity }
+  // s: { type: 0|1|2, x, y, hw, hh, radius (corner) | inner (ring ratio), stroke, rotation, fill, strokeColor, glow, glowStrength, intensity, feather }
   push(s) {
     const i = this.buf.reserve(1);
     const A = this.buf.arrays;
@@ -74,6 +74,6 @@ export class ShapeBatch {
     A.aP.set([s.type, s.type === 2 ? (s.inner ?? 0.2) : (s.radius ?? 0), s.stroke ?? 0, s.rotation ?? 0], i * 4);
     A.aFill.set(s.fill ?? [0, 0, 0, 0], i * 4);
     A.aStroke.set(s.strokeColor ?? [0, 0, 0, 0], i * 4);
-    A.aQ.set([s.glow ?? 0, s.glow ? (s.glowStrength ?? 0.5) : 0, s.intensity ?? 1, 0], i * 4);
+    A.aQ.set([s.glow ?? 0, s.glow ? (s.glowStrength ?? 0.5) : 0, s.intensity ?? 1, s.feather ?? 0], i * 4);
   }
 }

@@ -90,7 +90,7 @@ void main() {
     if (uHudTitle > 0.0) m = max(m, softRect(p, vec2(460.0 + uHudTitle * 0.5, 61.0), vec2(uHudTitle * 0.5 + 16.0, 12.0), 24.0));
     col *= 1.0 - 0.82 * m * uHudGuard;
   }
-  col = shoulder(max(col * uExposure, 0.0) + uLift);
+  col = shoulder(max(col * uExposure, -uLift) + uLift); // a replayed panel backing may sit below the background (renderer.replay)
   vec4 ov = texture(uOverlay, vUv);
   col = col * (1.0 - ov.a) + ov.rgb;
   float vig = smoothstep(0.95, 0.25, length(dc * vec2(1.0, 0.82)));

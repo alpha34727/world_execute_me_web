@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite';
 import { cpSync, mkdirSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 // The player fetches analysis results and the translation at runtime; ship them with `vite build`.
 const shipData = () => ({
@@ -12,8 +14,21 @@ const shipData = () => ({
   },
 });
 
+// The bridge shows this repo's real source and the real error the timeline validator throws at me's illegal call:
+// gathered in Node (tools/repo-facts.mjs) and served as a module, so the player and the render show the same text.
+const repoFacts = () => ({
+  name: 'repo-facts',
+  resolveId: (id) => (id === 'virtual:repo-facts' ? '\0virtual:repo-facts' : null),
+  async load(id) {
+    if (id !== '\0virtual:repo-facts') return null;
+    const tool = await import(pathToFileURL(resolve('tools/repo-facts.mjs')).href);
+    for (const f of tool.WATCH) this.addWatchFile(resolve(f));
+    return `export default ${JSON.stringify(await tool.repoFacts())};`;
+  },
+});
+
 export default defineConfig({
   server: { fs: { allow: ['.'] } },
   build: { target: 'es2022', chunkSizeWarningLimit: 1500 },
-  plugins: [shipData()],
+  plugins: [shipData(), repoFacts()],
 });

@@ -40,6 +40,12 @@ const drums = (ctx) => 0.35 + 0.65 * ctx.F.get('rms_drums', ctx.t);
 const rotY = ([x, y, z], a) => { const c = Math.cos(a), s = Math.sin(a); return [c * x + s * z, y, -s * x + c * z]; };
 const sexM = (T, t) => { const f = wordIn(T, 'To F to M', 'F').start, m = wordIn(T, 'To F to M', 'M').start; return easeInOutCubic(clamp((t - f) / (m - f))); };
 const CHR_POS = [[-0.75, 0.15, 0], [0.75, 0.15, 0]];
+// gender and ftom share one camera: a single slow push-in and turn from the section's downbeat to "And then do
+// whatever" (user feedback: with a camera per shot it jumped back at the cut and pushed in again, like a replay)
+function chrCam(T, t) {
+  const t0 = start(T), t1 = cutOf(T, 'And then do whatever'), dt = t - t0;
+  return orbit({ target: add3([0.15, -0.3, 0], shake(t, 0.02, 61)), r: lerp(7.4, 6.2, easeOutCubic(clamp(dt / (t1 - t0)))), az: 0.42 - 0.06 * dt, el: lerp(0.1, 0.06, smoothstep(t0, t1, t)), fov: 40 });
+}
 function chromosome(ctx, m, pos, { ref, rot = 0, sry = 0, key, flash = 0 }) {
   const P = (q) => add3(rotY(q, rot), pos);
   // chromatin: particles filling both sister chromatids, carried from the X's shape to the Y's
@@ -135,7 +141,7 @@ export default chapter({
       draw(ctx) {
         const { T, t } = ctx;
         const t0 = start(T), dt = t - t0, ref = 5.6;
-        const cam = orbit({ target: add3([0.15, -0.3, 0], shake(t, 0.02, 61)), r: lerp(7.4, 6.6, easeOutCubic(clamp(dt / T.beats(3.3)))), az: 0.42 - 0.06 * dt, el: 0.1, fov: 40 });
+        const cam = chrCam(T, t);
         ctx.camera3D(cam);
         dust(ctx, { focus: ref });
         field(ctx, ref, { alpha: 0.6 + 0.3 * drums(ctx) });
@@ -162,8 +168,8 @@ export default chapter({
       at: (T) => cutOf(T, 'To F to M'),
       draw(ctx) {
         const { T, t } = ctx;
-        const t0 = cutOf(T, 'To F to M'), dt = t - t0, ref = 5.6;
-        const cam = orbit({ target: add3([0.15, -0.3, 0], shake(t, 0.02, 62)), r: lerp(7.0, 6.2, easeOutCubic(clamp(dt / T.beats(3.7)))), az: 0.22 - 0.06 * dt, el: 0.06, fov: 40 });
+        const ref = 5.6;
+        const cam = chrCam(T, t);
         ctx.camera3D(cam);
         dust(ctx, { focus: ref });
         field(ctx, ref, { alpha: 0.6 + 0.3 * drums(ctx) });

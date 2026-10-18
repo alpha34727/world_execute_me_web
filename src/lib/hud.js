@@ -2,6 +2,7 @@
 import { COLOR } from '../theme.js';
 import { sparkIcon } from './spark.js';
 import { bpe } from './bpe.js';
+import { contextAt } from './context.js';
 import { lossSparkline } from './llmviz.js';
 
 const SMALL = { font: 'mono', size: 15 };
@@ -75,13 +76,13 @@ export function dimension(ctx, a, b, label, { offset = 24, color = COLOR.dim, al
 }
 
 // Claude's identity HUD (replaces topBar in film shots):
-//   left   spark icon · "me = claude" · context: BPE tokens of the lyrics sung so far (fill bar)
+//   left   spark icon · "me = claude" · context: BPE tokens of the lyrics sung so far, after /compact (lib/context.js)
 //          · loss: the online bigram's surprisal (bits/word, last 24 words) + the whole song's training curve
 //   right  section · bar.beat
 export function aiHud(ctx, { title = null, alpha = 1, titleAlpha = 1 } = {}) {
   const { T, t } = ctx;
   const B = bpe(T);
-  const n = B.tokensAt(t);
+  const n = contextAt(T, t); // the BPE tokens sung so far (minus what the bridge's /compact drops)
   sparkIcon(ctx, 86, 62, 15, { alpha });
   ctx.text('me', 116, 58, { font: 'monoBold', size: 16, color: COLOR.me, alpha });
   ctx.text('= claude', 144, 58, { font: 'mono', size: 16, color: COLOR.ink2, alpha });

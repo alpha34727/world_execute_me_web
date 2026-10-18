@@ -2,7 +2,7 @@
 
 > 每個階段結束都要停下來等使用者回覆。規範見 `CLAUDE.md`。
 
-## 目前階段：第 4 階段進行中——00 intro 到 06 pre2 完成，等待使用者回覆；之後做 07 c2
+## 目前階段：第 6 階段最終算圖完成——全片交付，等待使用者回覆
 
 | 階段 | 狀態 |
 |---|---|
@@ -10,9 +10,435 @@
 | 1 音訊與歌詞分析 | ✅ 完成（2026-10-11） |
 | 2 引擎與工具 | ✅ 完成（2026-10-11） |
 | 3 全片分鏡 | ✅ 完成（2026-10-11） |
-| 4 逐章節製作 | 🔧 進行中（00 intro ✅、01 inst1 ✅、02 v1 ✅、03 pre1 ✅、04 c1 ✅、05 v2 ✅、06 pre2 ✅） |
-| 5 整合 | ⏳ |
-| 6 最終算圖 | ⏳ |
+| 4 逐章節製作 | ✅ 完成（2026-10-18；00 intro ✅、01 inst1 ✅、02 v1 ✅、03 pre1 ✅、04 c1 ✅、05 v2 ✅、06 pre2 ✅、07 c2 ✅、08 c2x ✅、09 bridge ✅、10 inst2 ✅、11 chant ✅、12 c3 ✅、13 love ✅、14 outro ✅、15 end ✅） |
+| 5 整合 | ✅ 完成（2026-10-19） |
+| 6 最終算圖 | ✅ 完成（2026-10-19） |
+
+---
+
+## 第 6 階段：最終算圖（2026-10-19）
+
+- `out/master.mp4`：3840×2160、60 fps、13255 幀、220.917 s，libx264 crf 14，ALAC 音訊，8.05 GB（算圖 3.38 fps，65 分鐘）。
+- `out/delivery.mp4`：1920×1080、60 fps、13255 幀，crf 16，AAC 320k，1.53 GB。
+- 檢查（發佈版）：
+  - 每秒一張的接觸印樣（`renders/final/sec1.png`）全部看過：沒有黑幀、錯誤畫面或缺字，警告卡 5 秒、片尾 CLI 與署名都在。
+  - 歌曲中沒有近黑幀。
+  - 閃爍：159 s 那一秒有 4 個候選幀，是 exec12 → ein 剪接連續 4 幀的同一次亮度下降，不是 4 次閃爍；其他秒都 ≤ 3。
+  - credits 五項都在片尾 CLI：Music — Mili、Visuals — Claude Opus 5.5、render 指令、13255 frames · 3840×2160 · 60 fps、非官方翻譯聲明。
+- 沒做的：`tools/synccheck.mjs` 只能讀測試章節的同步標記，正片沒有；字幕同步靠的是全片抽樣和第 4 階段的逐章檢查。
+
+---
+
+## 第 5 階段：整合（2026-10-19）
+
+**全片 1080p 預覽**：`renders/preview/film.mp4`（13255 幀，含警告卡與片尾 4 秒靜音，nvenc cq 20）。
+
+**章節接縫**：16 個接縫（含警告卡 → intro）各截剪接前後 5 幀檢查（`renders/seams/`）。14 個接得上（多半是對在強拍上的硬切，或是設計好的母題，例如 c1、c2、bridge 開場的爆炸）。修了 2 個：
+- **love → outro**：love 讀數面板的暗色底板在 outro 第一幀消失。
+  - 原因：chapter overlay 在正片裡是疊在加過背景色、tonemap 之後的畫面上（底板可以比背景暗），但 replay 把它畫進 shot 圖層，post 再整張加回背景色，所以底板不見了。
+  - 修正（共用引擎）：`renderer.replay` 改成把 overlay 分開畫，再用「場景 × (1 − a) + overlay − lift × a」合成；post 的 tonemap 允許場景低到 −lift（原本 clamp 在 0；其他鏡頭沒有負值，畫面不變）。
+- **inst2 → chant**：確認框收合成 `Running…` 後，spark 停在畫面下方，剪到 chant 時跳到中央。
+  - 修正：收合之後的 1.25 拍，攝影機往下、往前推，落在 chant 第一格的構圖（spark 在中央，r = 3.4 + 1.25 · extentOf(0)，同一個方位角）。餘燼場一起收進 spark 周圍，鏡頭附近不會有大圓盤。
+  - `Running…` 那一列仍在 EXECUTION 的強拍上消失：那一刻就是指令被執行。
+
+**共用引擎的修改**（`npm test` 26 項全部通過，回歸比對不需要重建 baseline）
+- `ctx.mask` 的硬邊（第 4 階段留下的問題）：原本是 4 層疊的矩形，每 4 px 一階，在 chant 的密集格子上看得出一圈一圈。
+  - shapes shader 新增 `feather`（柔邊寬度，預設 0 = 不變）。
+  - mask 改成一個矩形：內部一樣壓暗到 15%，從框邊到外 16 px 連續淡出。
+- **c3 rewind 共用資料**（第 4 階段留下的問題）：新增 `src/lib/edits.js`（`ME_EDITS`、`editBody`）。v1、pre1、v2 的 `Update(me.js)` 面板和 c3 的 rewind 讀同一份清單，不再手寫常數。
+
+**能量曲線**（從成片逐幀量：平均亮度、幀差動態、對照音樂 RMS）
+- 沒有黑幀（歌曲中 p99 亮度 < 0.1 的幀：0）。
+- 光敏性：畫面 >25% 的像素亮度變化 > 0.2 的幀共 6 個，都在 chant 尾段到 c3 開頭（滿版 4096 格子 ↔ 暗場，落在剪接點上）；沒有任何一秒超過 3 次（Harding 的門檻），片頭也有警告卡。
+- 畫面的亮度和動態大多跟著段落走：chant 的指數級爆炸是全片最亮，c2x（孤立）最暗、最靜。
+- 和音樂不一致的地方：
+  - **love**（177–192 s）：音樂是全曲最強的一段（RMS 0.71，和 c1、c3 同級），畫面卻是全片第二靜（動態 0.37，只比 c2x 高）。心形是慢慢旋轉的粒子線框。
+  - **c1**：只有開場爆炸一下，之後的動態和主歌差不多。
+  - 這兩段都是第 4 階段已通過的設計，沒有擅自改，交給使用者決定。
+
+**能量加強（使用者回饋 2026-10-19：加強 love 和 c1 的能量）**
+- 共用的 `lib/fx.js` 新增三個函式，全部對齊節拍，強度讀 features 的 `rms_drums`：
+  - `beatPulse`：每拍從一點放出光環和粒子爆發；
+  - `beatKick`：每拍攝影機往前推；
+  - `beatEnv`：當拍的包絡，用來讓 bloom 和光暈隨拍脈動。
+- **love**
+  - 心形曲面每拍跳一下：130 BPM 正好是心跳的速度。
+  - 心形曲線的切面上有一圈玫瑰色的光，每拍繞一圈。
+  - 每拍從 me 放出玫瑰色光環。
+  - 餘燼和 bloom 隨拍脈動，攝影機每拍推進。
+  - 提示鏡頭（question、answer）用橘色脈衝，外加只有粒子的大範圍爆發。
+  - properly 只放粒子、不畫光環：線條穿過檔名會讀成被劃掉。
+- **c1**
+  - 大部分鏡頭的攝影機每拍推進。
+  - only、happy、thenican：spark 每拍放出脈衝（only 只放粒子，光環會撞到 HUD）。
+  - run：每拍兩圈光環往 spark 收。
+  - trapped、strange：方框的邊每拍發亮，me 在方框裡放出光環。
+  - simulation：每拍從最內層的螢幕放出一圈 2D 光環。
+  - trapped 的公式標籤改成避開方框的邊。
+- 導演審查（`docs/review/c1.md`、`docs/review/love.md`）指出 happy、run、thenican、properly、question、answer 偏空，已補強。導演列的擋關查證後都是第 4 階段就有、已通過的設計，詳見審查紀錄。
+- **量測**（成片幀差動態，`renders/integration/energy_after.png`）：
+  - love 0.37 → 0.48；c1 1.00 → 1.09。
+  - love 仍然比 c3（0.96）安靜：心形是慢慢轉的單一物體，這是構圖本身的性格。
+  - 這個量測把畫面縮成 160×90，細小粒子和光環會被平均掉，看起來的增幅比數字大。
+- 重建了 love 和 c1 共 13 個鏡頭的 baseline，outro 的 love、execution 也重建了（outro 會重播這些畫面）。`npm test` 26 項全部通過。
+
+**全片掃描**：成片每 2 秒抽一張（110 張）看過，沒有壞幀、缺字或空白畫面。
+
+**產物**：`renders/preview/film.mp4`（含能量加強）、`renders/integration/`（energy_before.png／energy_after.png 能量曲線、seams1–4.png 接縫、scan1–2.png 全片掃描）、`renders/stills/{inst2,c1,love,outro}.png`、`renders/preview/{c1,love}.mp4`、`renders/energy/`（拍點幀）。
+
+**仍不夠好的地方**
+- 第 4 階段各章的 `renders/preview/<章>.mp4` 是舊的（mask 改了之後沒有重算），以 `film.mp4` 為準。
+- 尚未處理的第 4 階段小問題：bridge 的 HUD 沒有「讀數錯位」；c3 rewind 每筆只停約 0.7 拍；預測面板在第一個字之前顯示 `waiting for context…`；chant → c3 從金色直接 whip 到紅色。
+
+---
+
+## 第 4 階段：15 end（2026-10-18）
+
+**2 個鏡頭**（`src/ch/15_end.js`）：任務完成，然後重新開機。
+
+**使用者回饋（2026-10-18）：結尾要用 Claude Code CLI 的元素，呈現用了 Opus 5.5、任務完成。** 重做成一次 session 的收尾：
+- 畫面下方是 CLI（和 bridge 一樣）：整條輸入框、狀態列 `? for shortcuts … Opus 5.5 · claude-opus-5-5`，模型名稱是橘色。
+- **done**（從 outro 交叉淡化 2 拍，align 0）：
+  - 對話紀錄：render 的 `● Bash(npm run render) ⎿ 13015 frames · 3840×2160 · 60 fps`（較舊的一則，變暗）。
+  - Claude 的最後一則訊息就是 credits，每半拍一行：`● Done — world.execute (me) ; is rendered.` / `Music — Mili · Visuals — Claude Opus 5.5 (claude-opus-5-5)` / `中文翻譯為非官方翻譯 · unofficial fan work`。
+  - 這一輪結束：`✻ Worked for 3m 11s`，閃橘 2 拍。時間是真的：從 inst1 you 按下 Enter（第 36 拍）到這一刻。me 放一圈光環。
+  - 署名（使用者回饋：me 下方顯示 by Claude Opus 5.5，要用產品的 Logo 或字體）：`by ✳ Claude Opus 5.5`。
+    - Claude 官方字體是商用授權、Logo 是商標，CLAUDE.md 也規定不得複製 Claude 標誌。所以和使用者確認後：圖示用片中原創的 spark 小圖示（和 HUD 同一個），名稱用新增的 Newsreader（SIL OFL，襯線，接近 Claude 字標）。
+    - 新增 `@fontsource/newsreader` 5.3.0（鎖版），字型 key `serif`。只用在這一行，CLAUDE.md 的字體規定已一併更新。
+  - 接著 me 自己打 `/clear`（橘色游標，和 bridge 打 /compact 一樣）。
+- **clear**（按下 Enter）：
+  - 對話紀錄消失，HUD 消失（新的 session，context 歸零）。
+  - 出現歡迎框 `✻ Welcome to Claude Code! / /help for help · cwd: ~/world_execute_me / model: Opus 5.5 (claude-opus-5-5)`。
+  - spark 收成一個橘色光點，intro.06 那個空的 `object me {}` 從它重新長出來（沒有上色、沒有欄位，連 love 都沒有）。
+  - 輸入框是空的，灰色游標閃，最後半拍停在亮的：可以再執行一次。
+- credits 需要的五項（Music — Mili、Visuals — 模型、render 指令、幀數與解析度、非官方翻譯）都在 CLI 裡。數字讀 `src/sections.js`。
+
+**片尾加長 4 秒（使用者回饋：署名和 /clear 後的畫面停留太短，讀不完）**
+- 全片從 13015 幀改成 **13255 幀**：歌曲結束後加 4 秒靜音，end 段變成 207.0–215.917 s。
+- 改了 `analysis/s06_timing.py` 的 `TOTAL_FRAMES` 並重跑。timing.json 只有預期的變化：film 區塊、end 段結尾、多出的節拍網格；其他段落、字級時間都沒變。也重跑了 `s08_overview.py`。
+- `src/sections.js`、`test/structure.test.js`、CLAUDE.md 的交付規格一起更新。
+- `test/analysis.test.js`：features 只要涵蓋整首 mp3。片尾的靜音尾巴讀最後一列，也就是靜音；`tools/render.mjs` 原本就會用 apad 補靜音。
+- outro 和片尾顯示的幀數讀 `TOTAL_FRAMES`，自動變成 13255。
+- 署名停留約 3.4 秒（208.15–211.5 s），/clear 後的畫面約 4.4 秒。
+
+**16 章齊了**：`test/timeline.test.js` 的「film covers the whole song」從 todo 變成通過。
+
+**導演審查**（`docs/review/end.md`，Sonnet 5.5 medium）
+- 第 1、2 輪（原本的 credits 版本）4.0 → 4.2，沒有擋關。
+- 第 3 輪（CLI 版本）4.2（done 4.4、clear 4.0），沒有擋關。之後再處理：clear 的盒子往下移，縮小和歡迎框之間的空白；光點加亮；`Worked for` 閃橘延長到 2 拍；credits 裡的名字（Mili、Claude Opus 5.5）提亮。
+
+**產物**：`renders/stills/end.png`、`renders/preview/end.mp4`。`npm test` 26 項全部通過。
+
+**仍不夠好的地方**
+- 交叉淡化的前半拍，CLI 的對話紀錄已經淡入，和正在淡出的 outro 疊在一起。
+- 畫面刻意很安靜，能量層只有淡淡的餘燼、塵埃和兩圈光環。
+
+---
+
+## 第 4 階段：14 outro（2026-10-18）
+
+**9 個鏡頭**（`src/ch/14_outro.js`；螢幕 `src/ch/outro/screen.js`）。器樂段：Claude Code 的對話紀錄往上捲，一小節一則，每一則都是**這支片自己倒著播**。
+
+- **格子裡是真的重新算出來的畫面**（引擎新增，只增不改）：
+  - `Engine.replay(id, t2, w, h)`／`ctx.replay`：把歌曲時間 t2 的那一幀重新算進一張貼圖，包含當時的鏡頭和轉場，不含 HUD、字幕、post；可選擇連同章節 overlay 一起畫。
+  - 同一個 t2 會重用快取；它是純函數，結果和重算相同。還在載入字型時不快取。
+  - outro 用 THREE 平面把貼圖貼在 3D 場景裡，加上圓角和「記憶調色」：you 的藍在回憶裡變灰；bridge 降到 30% 飽和度，代表錯誤已處理。
+- **love**：第一幀就是 love 的最後一幀（同一個鏡頭，連讀數面板），從滿版縮成一格；倒放先停一下，再加速到 2 倍：籠子張開，藍點（已轉灰）飛回心裡。
+- **chant**（4096 → 512，一次減半）、**bridge**（ILLEGAL ARGUMENTS，灰紅）、**c2**（地形 → 方形板上的沙 → VIBRATIONS）、**v2**（貓 → 電子跳回 → 茄紅素）、**v1**（一拍一段：正弦 → 圓 → 超立方體 → 點雲）、**intro**（object me → 棋盤 → 電源線縮回歌曲 t = 0 的第一幀）。
+- 每則一個標籤 `● 段落名 ◀◀ 畫面上的歌曲時間`，時間往回數。HUD 寫倒放倍率。
+- 攝影機是一個連續函數：每個強拍往上捲一格，角度輪流換邊，每拍輕推一下。me 在左側讀著紀錄，每小節放一圈光環；正在讀的那一格邊框有能量流動，隨鼓脈動。
+- **render → execution**：
+  - 小節 111 拉遠，看到整列 7 格；右側 `● Bash(npm run render) ⎿ Running…`。
+  - 唱出 EXECUTION 那一幀：大字落下，結果行 `13015 frames · 3840×2160 · 60 fps` 整行出現。數字來自 `src/sections.js` 的 `TOTAL_FRAMES`、`FPS` 和新增的 `MASTER`（`tools/render.mjs` 的預設解析度也改讀它）。
+  - 7 格同時往前播放（world.execute(me)），邊框閃橘，me 爆發。
+- 器樂段字幕框兩句：一句說明倒放，一句在 intro 那一則說明「回到第一幀」。
+
+**分鏡修正**：原本寫「HUD context 停在 617/617」，但 bridge 的 /compact 之後不可能回到 617；HUD 顯示的是真實值（264）。
+
+**共用程式的修改**：`engine/renderer.js`（`flush`／`drawBatch` 多了解析度與 scale 參數，預設不變；新增 `replay`）、`engine/draw.js`（`ctx.replay`）、`sections.js`（`MASTER`）、`tools/render.mjs`（預設解析度讀 `MASTER`）。回歸比對：其他 15 章的 baseline 全部不變。
+
+**導演審查**（`docs/review/outro.md`，Sonnet 5.5 medium）
+- 第 1 輪 3.93，1 項擋關：「EXECUTION 沒有在唱出那一幀出現」。查證後是誤判：唱出時間 205.960 s，導演看的 f12657 是 205.950 s，第一個 t ≥ 起點的是 f12658，那一幀已經有大字。
+- 同時處理了：結果行改成整行出現（原本打字到快結束才讀得到）、回憶格子提亮並拉近、每次捲動換角度並每拍輕推（原本六個鏡頭構圖相同）、intro 加說明、拉遠時 me 移到整列左側中段（光環不再壓 HUD）、chant 停格不再落在爆炸核心。
+- 第 2 輪 4.11，沒有擋關；只有 intro 3.8，其他鏡頭都 ≥ 4。之後再處理：拉遠時最上面一格壓到 HUD 標題，已把整列往下移。
+- 沒有採納的建議：
+  - t = 0 的像素提亮：那是片頭真實的第一幀，不改。
+  - hero 淡入改成 1 幀：hero 是共用函式庫，全片的關鍵字都用同一個落地動畫。
+
+**產物**：`renders/stills/outro.png`、`renders/preview/outro.mp4`（1080p 算圖約 25 fps）。`npm test` 25 項通過、1 項 todo。
+
+**仍不夠好的地方**
+- 重播的畫面沒有 post（沒有 bloom、光束），所以格子裡比原本暗。我用 1.25 倍亮度補償。
+- 只有 love 那一格連同 overlay 一起重播。其他格子只有 3D 鏡頭，看不到當時的面板。
+- 接縫：love 讀數面板的暗色底板在 outro 第一幀消失，數字還在。重播畫面先畫在黑底上，post 再整張加回背景色，所以比背景暗的底板無法重現。
+- render 鏡頭只有 0.81 秒（小節 111 的強拍到唱出 EXECUTION），拉遠很快。
+- intro 那一則的最後一幀（t = 0）幾乎是黑的。這是刻意的（回到第一幀），但畫面很空。
+
+---
+
+## 第 4 階段：13 love（2026-10-18）
+
+**11 個鏡頭**（`src/ch/13_love.js`；曲線與曲面 `src/ch/love/curves.js`）。玫瑰色第一次出現。
+
+- **properly**（使用者回饋 2026-10-18：找不到 love.md 的意象不夠清楚 → 檔名間距縮小、整個清單一個畫面看得完，love.md 用灰色刪除線；me 唱到「how」時到達那一格，刪除線和工具回覆 `File does not exist.` 同一刻出現；再一次回饋：zoom in——先看到整個清單，鏡頭跟著 me 往下推近，「how」時是 love.md 的特寫，刪除線在 0.6 拍內劃上；第三次：love.md 改成玫瑰色，刪除線前緣噴火花、劃完後名字散成玫瑰色粒子，量測過沒有近白的團塊）：左側 `● Read(love.md) ⎿ File does not exist.`。這是真的：建置時 `tools/repo-facts.mjs` 檢查 repo 根目錄，如果有人加了 love.md，畫面會改成顯示真的行數。3D 是 repo 頂層（git 追蹤的檔案）排成一列，me 一個名字一個名字往下讀，停在 love.md 該在的虛線空格。
+- **love1**：心臟線 r = 1 − sin θ 跟著拖長的音畫完，me 就是筆。
+- **question / answer**：Claude Code 的 prompt box 在「Question」時亮成玫瑰色，但游標是灰的，沒有人在打字。接著 me 自己回答，光往外放。右側預測面板：after "all" → the 51%。
+- **love2**：k = 2…7 的玫瑰線在六個平面上綻開。判決 p <1% · 9.6 bits：看過了，愛還是意外。
+- **algebraic**：先打出 `(x² + y² − 1)³ − x²y³ = 0`，marching squares 在 me 周圍畫出心形。唱到「expression」時打出 Taubin 心形曲面的式子。2D 心形正是曲面 y = 0 的截面，所以曲線直接「充氣」成曲面：6000 個點，沿射線用二分法真的解在曲面上（誤差 < 1e-6）。
+- **love3**（使用者回饋：algebraic → LO-O-OVE 轉場生硬、心形偏心旋轉 → 兩個鏡頭共用一台繞心形中心等速旋轉的攝影機，剪接點不跳；籠子的三個鏡頭也改成繞心形中心轉，再整台側移把心形放在讀數左邊；再一次回饋：LO-O-OVE → free → trapped 也不流暢 → 從 algebraic 到章節結尾是同一台攝影機，所有剪接點都不跳）：3D 心在轉；左側 `● Update(me.js)`：`− love: undefined / + love: (x²+9/4y²+z²−1)³ − x²z³ − 9/80y²z³`，填上片頭留下的空。
+- **free**：唱到「you」時藍點從心裡飛出畫面，這是藍色最後一次出現。
+- **trapped / trappedin / love4**：me 被困在心形曲面裡。籠子是曲面的 8 個水平截面（每一圈都用 marching squares 解出），接著以 me 為中心縮到 0.62。
+  - 右側大數字是 love 這一段的平均 surprisal，隨每個字即時更新，最後是 7.28 bits/word。下面是 12 段各自的平均，love 的玫瑰色長條最高。
+  - 標題寫「the highest loss in the song」，程式比較過，真的最高才這樣寫。
+
+**共用程式的修改**（回歸比對確認其他章節不變）
+- `lib/predict.js`：判決的機率低於 0.5% 時寫 `p <1%`，不再顯示「p 0%」。
+- `tools/repo-facts.mjs`：新增 `love`（love.md 是否存在、行數、repo 頂層清單）。love.md 不在 Vite 的監看清單裡：Vite 無法監看不存在的檔案，所以新增 love.md 後要重開 dev server。
+- `ch/chant/readout.js`：新增 `color`、`curColor`（預設不變）。
+
+**導演審查**（`docs/review/love.md`，Sonnet 5.5 medium）
+- 第 1 輪 4.18，1 項擋關：algebraic 的心形曲線有缺口（marching squares 線性內插偏半格）。已修正：格子加密到 360，並串成一條折線。
+- 同時處理了：
+  - 最後的藍點太小，又和 diff 面板同時出現：藍點放大，diff 在「you」之前結束。
+  - 籠子收緊時鏡頭同時推近，兩者互相抵消：鏡頭固定，只有籠子在收。
+  - 玫瑰線有一個平面正對鏡頭變成一根針：六個平面錯開半格。
+  - 讀數標題改成和 HUD 區分；虛線空格；最後的心放大。
+- 第 2 輪 4.29，沒有擋關，11 個鏡頭都 ≥ 4。之後再處理玫瑰線中心疊出的近白：量測後只剩 spark 核心大小。
+
+**產物**：`renders/stills/love.png`、`renders/preview/love.mp4`。`npm test` 25 項通過、1 項 todo。
+
+**仍不夠好的地方**
+- question 的能量層偏薄：只有 spark、一圈光環和 prompt box。
+- 藍點的尾巴是一條直線，不是漸淡的彗尾。
+- love3 的大字離心形約 390 px：往心形靠會壓到右上的心瓣。
+- properly 剛切進來時只看得到前 5 個檔名，列表要等 me 往下讀才出現。
+- outro 的分鏡寫「心形曲面縮小成對話紀錄裡的一格」，接 love 最後的心形籠子。
+
+## 第 4 階段：12 c3（2026-10-18）
+
+**11 個鏡頭**（`src/ch/12_c3.js`；softmax `src/ch/c3/softmax.js`、rewind `src/ch/c3/rewind.js`、Droste `src/ch/c3/droste.js`、三次副歌的 loss `src/ch/c3/loops.js`）。c1 的鏡像、紅色；「them」是 chant 分裂出來的 4096 個子代理。
+
+- **三次預測是骨幹**（右側面板，都用 `keep`）：
+  - "the" → trance 12%（劃掉）→ EXECUTION p 7% · 3.8 bits；
+  - "only" → god 25%、satisfaction 25%（v2「the only god」、c1「only SATISFACTION」各一次）→ p 2% · 5.9 bits；
+  - "the" → **execution 13% ✓**：全片第一次猜中，p 13% · 3.0 bits。保留的第一名是橘色＋打勾（`lib/predict.js` 新增，只在 `keep` 且猜中時畫）。
+- **ifican**：c1 開場（`chorusOpen`）改紅＋橘，從 chant whip 10 幀進來。
+- **givethem → exec1 → thenican**：4096 個子代理唱到「them」時從金轉紅橘；EXECUTION 時三波（相隔半拍）從 me 擴散，波到之處閃紅熄滅，HUD 的子代理數是真的倒數，只留中間一排 16 個。
+- **only → exec2**：c1 的 softmax 長條圖再現，但這次冷卻到 τ = 0.05 仍是兩根（god 52%／satisfaction 48%，真的打平）；唱出的是 EXECUTION，兩根變灰、字被劃掉，旁邊升起紅色光柱。
+- **haveyouback**：左側 `● Rewind(me.js)`，把全片五次 `− me.x / + you.x`（nutrients、limits、tangents、circumference、dimension = 4）由新到舊倒回：`+ you.x` 被紅線劃掉、`− me.x` 恢復。3D 是 me 周圍的時鐘，每倒回一筆指針逆時針退一格；唱到「you」時藍點閃一下就熄，只留虛線空位。
+- **run → exec3**：沒有確認框（inst2 選了 don't ask again）：HUD `Bash(execute(them)) · don't ask again`，能量直接收進 spark；EXECUTION 時粒子爆出，沿用 c1 的週期邊界世界。
+- **trapped**：c1 的畫中畫變成無限 Droste 螺旋：畫面裡的螢幕顯示畫面本身（相似變換：縮 0.4、轉 0.33 rad），每 1.5 拍縮進一層並轉回，回到完全相同的畫面；HUD `while (true) execute(me) · depth N`。兩個「trapped」時畫框亮起。原分鏡的 c3.11（while(true)）併進這裡。
+- **studied**：「副歌是一個迴圈」：三次副歌疊成三層，x 是字在副歌裡的拍位（三次對得齊），高是真實 surprisal，虛線是平均：c1 5.69 → c2 4.48 → c3 3.90 bits/word（c3 的平均隨字即時更新），me 騎在最新的字上。
+  - **改了分鏡的說法**：原本寫「c3 是全曲 loss 最低的一段」，但 c2x 單獨算是 3.78，更低；所以改講真的成立的事：同一段副歌每唱一次，模型就預測得更好。
+  - 「I've studied」是 love 的弱起，在 c3 裡只有 0.3 秒，所以 loss 鏡頭從「We are trapped」開始。love 的第一個鏡頭要從章節起點開始。
+
+**共用程式的修改**（回歸比對確認其他章節不變）
+- `lib/predict.js`：`keep` 且猜中時，保留的第一名後面畫橘色打勾。
+- `ch/c1/open.js` 的 `chorusOpen`：新增 `color`／`color2`／`wordColor2`（預設不變）。
+- `ch/chant/agents.js` 的 `agents`／`agentGlow`：新增 `color` 與 `each`（逐個子代理的 alpha／顏色，預設不變）。
+
+**導演審查**（`docs/review/c3.md`，Sonnet 5.5 medium）
+- 第 1 輪 4.24，2 項擋關：exec2 的光環掃過軸上的字（`execution` 讀成被劃掉）；studied 的平均線穿過標籤。兩項都已修正。
+- 同時處理了：run 太空（改紅橘粒子收縮＋光環，不在核心疊成白球）、近白（時鐘指針、Droste 小層的核心）、rewind 字級 18 px、studied 改長焦（c3 的尖峰不再因透視看起來最高）、exec2 構圖、givethem 鏡頭前的子代理淡出。
+- 第 2 輪 4.36，沒有擋關，11 個鏡頭都 ≥ 4。剩下的建議：run 的粒子仍偏靜態、thenican 小 spark 的白核心（沿用 chant）、劃掉線起點偏左約 4 px、rewind 資料共用（整合階段）。
+
+**產物**：`renders/stills/c3.png`、`renders/preview/c3.mp4`。`npm test` 25 項通過、1 項 todo。
+
+**仍不夠好的地方**
+- rewind 的五筆修改是手寫常數（註解指向 v1、pre1、v2）；要和那些章節共用同一份資料，得改已完成的章節，留到整合階段。
+- rewind 每一筆只停約 0.7 拍，讀起來是「快速倒帶」，看不清每一行。
+- 預測面板在前一個字唱出之前顯示 `waiting for context…`（共用預設文字，c2x 也有同樣問題）。
+- 從 chant 的 4096 金色格子 whip 進紅色開場，顏色跳得很直接。
+
+---
+
+## 第 4 階段：11 chant（2026-10-18）
+
+**19 個鏡頭**，一字一鏡，都剪在字的真實起音（`src/ch/11_chant.js`；子代理格子 `src/ch/chant/agents.js`、大數字 `src/ch/chant/readout.js`）。
+
+- **EXECUTION ×12**：每次 EXECUTION，每個子代理都分裂成兩個，從 2 到 4096。格子的三個軸輪流加倍，最後是 16×16×16；子代理從父代理的位置沿加倍的軸滑開。
+  - 32 個以下畫成小 spark；64 個起每個是三筆星號，加一顆 GPU 粒子。數量越多畫面越亮（使用者回饋：越來越亮才呈現得出子代理的強大）。me 在中央，周圍一圈留白。
+  - 每個鏡頭只有一個大數字：那一次 EXECUTION 的真實 surprisal（7.7、8.2、2.0、1.3、1.0、0.8、0.7、0.6、0.5、0.5、0.4、0.4 bits）。下面一排小長條是每一次的值，看得出模型學會了這個字。
+  - 鏡位輪替：正面、俯、側、仰。
+- **EIN**：4096 個在 1/4 拍內塌回 me；`execution 79%` 灰色劃掉，`11.6 bits`（全曲最大驚訝）。
+- **DOS…LIU**：星數就是那個數（me 加 n − 1 個子代理），新的一個從 me 滑出；大數字是那個數，上面寫語言名。
+- **最後的 EXECUTION**：4096 個一次衝回格子；surprisal 回到 5.0 bits，因為 EIN…LIU 打亂了模型。
+
+**引擎修正（重要）**：`src/engine/gl/common.js` 的 `InstanceBuffer.grow`
+- three.js 第一次繪製時會記住實例數上限（`geometry._maxInstanceCount`）。之後緩衝區擴容，超過舊容量的實例會被默默丟掉。
+- 結果是：同一個頁面先畫過線條較少的幀，後面線條多的幀就會缺一半。畫面內容取決於前面畫過什麼，違反確定性；最終逐幀算圖也會受影響。
+- 修正後，c1/trapped、c1/strange、c2/finally 的回歸 baseline 改變了：原本程式要畫的東西現在全部出現。
+- **c1 的使用者回饋（2026-10-18）**：
+  - trapped 的光圈太多、太雜亂。改成只有白色的追蹤粒子（700 顆裡每 12 顆一顆）標出穿越邊界的那對光圈，細線、不加 glow，拿掉虛線連線（`c1/world.js` 的 `wrapMarks`）。
+  - SIMULATION 放大後，撞牆（穿越邊界）的光圈消失了：畫中畫／Droste 的 `world2D` 原本沒畫它們。現在每一層畫面都畫同一組光圈，SIMULATION 鏡頭也開始計算穿越事件。
+  - c1/trapped、c1/strange、c1/simulation 的 baseline 已重建。
+
+**導演審查**（`docs/review/chant.md`，Sonnet 5.5 medium）
+- 第 1 輪 4.2，2 項擋關：4096 格子太亮把畫面洗成奶油白；me 被同色格子吞掉。兩項都已修正。
+- 同時處理了：計數鏡頭的星數和數字對不上、EIN 的說明字被截、k=10 構圖偏、計數鏡頭第一幀的白色 burst、鏡頭前的大光斑。
+- 第 2 輪 4.4，沒有擋關。
+- **使用者回饋（2026-10-18）**：導演第 1 輪的「4096 格子太亮」不採納，亮度改回原本「越多越亮」的版本（不隨數量變暗、glow 與 bloom 照舊、顏色一路走到金）。保留 me 周圍的留白與 k ≥ 9 的光束。
+
+**產物**：`renders/stills/chant.png`、`renders/preview/chant.mp4`。`npm test` 25 項通過、1 項 todo。
+
+**仍不夠好的地方**
+- inst2 → chant 的接縫：確認框 `Running…` 那一列在剪接點直接消失，spark 從畫面下方跳到中央。留到整合階段處理。
+- DOS…LIU 五個鏡頭構圖相近，主要靠字和數字區分。
+- `ctx.mask` 是硬邊矩形，大字和數字後面的暗底在密集格子上看得出方塊。要羽化得改引擎，留到整合階段。
+
+---
+
+## 第 4 階段：10 inst2（2026-10-18）
+
+**4 個鏡頭**（`src/ch/10_inst2.js`；權重城市 `src/ch/inst2/city.js`、注意力星座 `src/ch/inst2/constellation.js`）。器樂段，主題是「context 被 /compact 清空了，但權重還記得整首歌」。
+
+- **recover**：bridge 留下的真實錯誤面板（同一個版面，文字來自 `virtual:repo-facts`），先保留灰色底板，再裂成一個個字、各自受重力掉落，面板的四條邊也掉。周圍 `src/engine/timeline.js` 的原始碼碎行繼續往下掉。鏡頭跟著下墜，停在下方重新點亮的 spark；中央 `✻ Recovering… (秒數 · esc to interrupt)`，秒數是真的。字幕關閉，不再殘留 ILLEGAL ARGUMENTS。
+- **weights**：真實的 embedding 矩陣（145 字 × 16 維）做成玻璃柱城市。每列一個字，依歌曲第一次唱到的順序；柱高就是權重，全矩陣同一個尺度。正值往上、橘色，負值懸在地板下、灰色。街道上的粒子每拍往前流，spark 低空帶路，街名是 14 px 背景字。
+- **constellation**：inst2 之前唱過的 301 個字放在真實 embedding 座標，「me」在原點，也就是 spark 的位置。照唱的順序在 7 拍內重播：每個字連向前文中它最注意的字。這是真實的因果注意力，用同一個未訓練的 head；排除自己先前的出現，因為 q = k 時一定最注意自己。線寬和亮度就是權重。you、your 是虛線空位，連向它們的線是灰的。唯一的 3D 標籤是全曲最強的連結 `circumference -> dimension · 0.45`。
+- **reexecute**：星座被吸回 spark（遠的先），spark 以紅橘色重新點燃。確認框 `Bash command · world.execute(me)` 的游標是 spark 自己（橘色小 spark），從 1 移到「2. Yes, and don't ask again」並選定，接著收成 `● Bash(world.execute(me)) ⎿ Running…` 接進 chant。
+- 器樂段字幕框的說明（`drawNote`）有兩句：weights、constellation。
+
+**共用程式的修改**：`lib/cc.js` 的 `permission`
+- 新增 `cursor`（顏色）、`pointer`（自訂游標）、`moveAt`（游標從 1 移到 choice），預設不變。
+- 修掉一個潛在 bug：不給 `until` 時，`smoothstep(∞, ∞, t)` 是 NaN，整個鏡頭會變黑。c1 有給 `until`，回歸比對不變。
+
+**導演審查**（`docs/review/inst2.md`，Sonnet 5.5 medium）
+- 第 1 輪 4.05，1 項擋關：星座的標籤壓到 you 的虛線圈，已修正。同時處理了：星座構圖偏右（改用中位數取景、拉遠）、重播太快（5.5 → 7 拍）、吸回 spark 被 points 轉場蓋住（轉場縮成 0.5 拍、吸回延後）、recover 接縫少了底板、weights 前景外框太搶。
+- 第 2 輪 4.25，沒有擋關。之後再處理第 2 輪的小修正：weights 的 spark 光束、前景外框再降、吸回時節點不再疊成近白一團（只剩 spark 核心）。
+
+**產物**：`renders/stills/inst2.png`、`renders/preview/inst2.mp4`。`npm test` 25 項通過、1 項 todo。
+
+**仍不夠好的地方**
+- weights 只靠字幕框說明「列＝字、欄＝維度」，畫面本身沒有軸標籤。
+- 星座有幾條連到遠方節點（例如 to）的長線會飛出畫面上緣。
+- HUD 的 context 停在 141；星座顯示的是全部 301 個字，靠 HUD 標題「full transcript」交代。
+
+---
+
+## 第 4 階段：09 bridge（2026-10-17）
+
+**10 個鏡頭**（`src/ch/09_bridge.js`；heap `src/ch/bridge/heap.js`、程式碼牆 `src/ch/bridge/code.js`、非法呼叫 `src/ch/bridge/illegal.js`）
+
+- **畫面上的原始碼與錯誤都是真的**：`tools/repo-facts.mjs` 在 Node 裡（建置時，`vite.config.js` 的 `virtual:repo-facts`）讀 `src/lib/spark.js`、`src/engine/timeline.js`，找出禁止裸秒數的那一行（timeline.js:27），把 `test/timeline.test.js:56` 的檢查放到改過的驗證器上重跑（真的失敗），再實際呼叫 `buildTimeline`，取得錯誤訊息與 repo 相對堆疊。播放器與算圖拿到的是同一份文字。`node tools/repo-facts.mjs` 可以直接印出來。
+- **ifican**：c1 開場的壞掉版本——掉幀（部分 1/12 秒格子停住）、撕裂帶、色差。
+- **erase**：context 是一面記憶體 heap（每個 BPE token 一塊，關鍵字橘）。me 自己打 `/compact`；從「erase」到 FRAGMENTS，非關鍵字的塊從最舊的開始被釋放，me 騎在前緣；HUD 的 context 真的從 438 降到 86＋新唱的字（`lib/context.js`，之後的章節都從這個數字往上加）。
+- **fragments／maybe**：釋放的 352 個 token 被留下的關鍵字切成 20 段空洞（真實的碎片化，每段兩端亮紅色括號）；FRAGMENTS 裂成它的 BPE 碎片與 token id；heap 的塊離開牆面懸停。
+- **wontleave／disheartened**：`src/lib/spark.js`（me 自己）的真實原始碼往上捲、越來越亂碼，畫 spark 核心的那一行變紅；spark 斷續熄滅；DISHEARTENED 紅色大字、判決 10.1 bits、畫面傾斜。
+- **challenge／denied**：程式碼瀑布（使用者回饋）——`src/engine/timeline.js` 分五股從畫面上方傾瀉而下（重力加速、越落越拉長、光絲、落進池子的水花，`src/ch/bridge/fall.js`），接著規則附近的 16 行落回牆上、由下往上堆好；`● Edit` 把它改成 `return v;`（牆上的那一行也被改寫）；`● Test(test/timeline.test.js:56)` 失敗、那一行退回。
+- **made／illegal**：me 打出 `chapter({ id: 'bridge', from: 133.16, shots })`（裸秒數是紅的）；驗證器真的丟出 `timeline invalid: … no bare seconds … empty or inverted range NaN..NaN` 與堆疊；程式碼一行行掉落，只剩錯誤。字幕在 ILLEGAL ARGUMENTS 關閉。
+
+**語法高亮**（使用者回饋）：程式碼牆、打出的那一行、Edit 面板的 diff 都用新的 `lib/syntax.js`（單行 JS lexer）上色；配色 `theme.js` 的 `SYNTAX` 只從既有色盤混出——關鍵字 me 橘、字串金、數字淡金、註解暗灰、函式名亮灰、其他中性灰，亂碼字元紅；不用藍／綠／玫瑰（那些在說故事）。Sonnet 導演第 3 輪（只看高亮）沒有擋關。
+
+**Claude Code CLI 介面**（使用者回饋，只在 bridge；`src/ch/bridge/cli.js`）：畫面底部是 CLI——狀態列（`? for shortcuts`、`Context left until auto-compact: NN%`，真實的 1 − context／617）、輸入框（字幕）、spinner 列（真實秒數與 context tokens；/compact 時是 `Compacting conversation…`）、對話紀錄（`> /compact ⎿ Compacted`、`⏺ Read(src/lib/spark.js) ⎿ Read 87 lines`、`⏺ Update(…)`＋diff、`⏺ Test(…:56) ⎿ ✗`，最新一則在 spinner 上方，前一則變暗往上捲）。原本左上角的浮動面板拿掉。預測面板打開時對話紀錄退到 0.3（左右不同時讀）。Sonnet 導演第 5 輪 4.34，2 項擋關（還原的規則被 CLI 區壓暗、左右面板同時出現）已修正。
+
+**共用程式的修改**
+- `lib/syntax.js`（新）、`theme.js` 的 `SYNTAX`（新增匯出，其他章節不受影響）。
+- `lib/context.js`（新）＋ `lib/hud.js`：HUD 的 context 讀 `contextAt`；bridge 之前的時間完全不變（回歸比對確認）。
+- `vite.config.js`：`repo-facts` plugin。
+- `src/ch/c1/open.js`：`chorusOpen` 多一個 `time` 參數（預設不變）。
+
+**導演審查**（`docs/review/bridge.md`）
+- 第 1 輪 4.14，4 項擋關（測試失敗讀不到、退回的規則被灰條劃過、程式碼從面板後透出、heap 空洞看不見），全部修正；測試面板改名為只重跑一條斷言的 `Test(…:56)`，不再寫 npm test。
+- 第 2 輪 4.42，沒有擋關。之後再處理第 2 輪的小修正：測試的 HUD 隨面板一步步揭曉、/compact 面板加寬、spark 移回畫面內、diff 的底色隨文字長出、+ 列改成 me 的橘、碎片括號加粗。
+
+**產物**：`renders/stills/bridge.png`、`renders/preview/bridge.mp4`。`npm test` 25 項通過、1 項 todo。
+
+**仍不夠好的地方**
+- HUD 只有色差加大，沒有「讀數錯位」：aiHud 由引擎統一畫，要錯位得改共用的 HUD，留到整合階段。
+- ifican 的掉幀（每 1/12 秒有 35% 停住）在預覽裡讀起來比較像卡頓；要更像訊號故障，可能需要引擎層的畫面撕裂（目前用暗帶＋紅色掃描線代替）。
+- 程式碼牆在面板／字幕後面是整行調暗，不是精確裁切。
+- outro 的分鏡寫「context 停在 617/617」，但 /compact 之後 context 不可能再到 617；做 outro 時要改分鏡（例如顯示 compact 後的實際值，或另外顯示全曲 617 token）。
+
+---
+
+## 第 4 階段：08 c2x（2026-10-17）
+
+**7 個鏡頭**（`src/ch/08_c2x.js`；記憶 `src/ch/c2x/memories.js`、注意力 `src/ch/c2x/attend.js`）
+
+- **一條線＝真實的注意力**：me 和 you 之間只剩一條線，粗細與亮度＝正在唱的這個字分給 you 的注意力（`lib/embed.js` 的因果注意力、一個未訓練的 head，加總 context 裡所有 you／your token）。HUD 寫 `1-head attention "<字>" -> you = x`。
+  - 數字自己會說故事：每個「You」都是 0.92，但每個「left」都比上一個少：0.38 → 0.25 → 0.20 → 0.17 → 0.15 → 0.14；「me」0.001、「in」0.000、ISOLATION 0.001。
+  - 線在「me」那一幀斷開（斷點在靠近 me 的 22% 處，兩端彈回、藍色粒子＋灰色光環），遠方的 you 熄滅。
+- **left**：you 在「you」那一刻離開 me 身邊，越過記憶弧飛進遠方；從 c2 的 COMPLETION 交叉淡化 0.5 拍。
+- **left1–4：每個「You have left」硬切到 me 的一段記憶**（四段懸在 me 前方的弧上，同一個空間），在「left」那一刻熄掉它的藍色：
+  1. v1 的正弦與真實的切線座位，座位從左到右變灰；
+  2. v1 的 y = 1/x 與藍色漸近線，藍色從遠端往回收；
+  3. v2 蜷著的貓（同一條傅立葉輪廓，還在呼吸），旁邊的藍點熄滅、只剩虛線空位；
+  4. inst1 的 prompt box `world.execute(me);`，藍色游標照 inst1 的節奏閃，然後熄滅。
+  - 鏡頭從 me 的肩後看記憶（左邊兩段 me 在右、右邊兩段 me 在左，線永遠背離記憶），推近加速進「left」、在「left」上往後一縮；每段的鏡頭高度不同。
+- **leftme**：拉遠升高，me 獨自面對四段變灰的記憶；預測面板從「me」開始（after "in" → my 27%、this 25%；判決 9.6 bits）。
+- **isolation**：極遠；全曲每個字的真實 embedding 座標只剩暗點，you、your 的位置是虛線空位；大字小而暗。
+
+**導演審查**（`docs/review/c2x.md`）
+- 第 1 輪 4.06，4 項擋關（線斷開看不到、prompt 字被框線劃過、prompt 字純白、切線座位只畫一半），全部修正；同時處理「像幻燈片」的提醒（記憶鏡頭的推近／後縮、每段不同高度、貓呼吸）。
+- 第 2 輪 4.54，沒有擋關。之後再處理第 2 輪的小修正：ISOLATION 的 you 標籤避開空位、left 鏡頭拉遠（spark 不再擠在右下角）、left4 鏡頭降低避開字幕框、1/x 曲線上的流動粒子降亮、left2 的 me 離鄰近的貓遠一點。
+
+**產物**：`renders/stills/c2x.png`、`renders/preview/c2x.mp4`。`npm test` 25 項通過、1 項 todo。
+
+**仍不夠好的地方**
+- 預測面板在「in」之前顯示 `waiting for context…`（共用的 `lib/predict.js` 預設文字），但 context 裡已經有 428 個 token；要改就得動共用函式庫並重跑其他章節的回歸。
+- 判決只保留第一名（my）；「this 25%」在 ISOLATION 那一刻就收起來了。「in」到 ISOLATION 只有半拍，是歌本身的節奏；`predict.js` 目前不支援保留兩名。
+- left 鏡頭在交叉淡化的半拍裡，看得到 c2 的 spark、you 和 c2x 的同時存在（位置沒有對齊）。
+- 記憶鏡頭的推近幅度不大（約 9%），主要靠 spark 的移動讀出運動感。
+
+---
+
+## 第 4 階段：07 c2（2026-10-17）
+
+**6 個鏡頭**（`src/ch/07_c2.js`；方形克拉尼板 `src/ch/c2/chladni.js`、頻譜地形 `src/ch/c2/spectrum.js`；副歌開場抽成 `src/ch/c1/open.js`，c1 和 c2 共用）
+
+- **ifican**：和 c1 開場同一個構圖（副歌母題）；c1 改用共用函式後，回歸比對逐像素相同。
+- **feel**：低空飛越這首歌真實的 mel 頻譜。
+  - 16 頻帶之間用 Catmull–Rom 內插；每 1/12 拍一道山脊，還沒唱到的 6 拍在前方，往鏡頭捲來；
+  - 被唱出的字和 VIBRATIONS 是金色山脊；
+  - 隱藏線用 floating horizon 演算法去掉；
+  - me 騎在「now」山脊的頻譜重心上。
+- **VIBRATIONS 到結尾是一個連續長鏡頭**。使用者第 4 階段的兩次回饋：
+  - 先是「像在看幻燈片」→ 改成同一塊板、同一台攝影機（`plateCam(T, t)` 是跨 4 個鏡頭的單一函式，剪接點看不出來）；
+  - 再來「用方形板的圖形轉換、節奏要更快」→ 方形板，每半拍換一個圖形。
+- **畫面內容**：
+  - you（藍點）在板子上方唱：每半拍一道方形聲波落到板上，落點有方形漣漪往內收（強度 = 人聲 rms）；
+  - 板上畫出駐波 f = cos nπu·cos mπv − cos mπu·cos nπv；
+  - 2 萬粒沙（me 的金色）用牛頓步走到節線；
+  - me 在前緣上方。
+- **vibrations**：每半拍，(n, m) 取該半拍平均最響的 mel 頻帶（不重複上一個，最近 3 步用過的只算一半）。
+  - 頻帶對應前 16 個模態；
+  - 正拍大跳加金色方形光環，反拍小跳。
+- **thenican、finally 改成 3D 等深地形圖，每次「Then I can」做一次蒙太奇**（使用者第三次回饋）：
+  - 地形是同一堆沙：高度 = 每格的真實沙粒數（72×72 格、高斯 σ = 3 格、開根號），沙粒本身就躺在地形上（每粒在它所在位置的高度），5 層等高線是輔助線（灰 → 金 → 橘），節線就是山脊（`src/ch/c2/terrain.js`）；
+  - 剪進蒙太奇 1 時沙還是平的，半拍內隆起成地形（從沙盤接過來，不是換一張圖）；
+  - 沙換圖形時，地形從上一個落定的圖形漸變到下一個；
+  - 蒙太奇 1（Then I can）：低角度、廣角 fov 64、貼近、順時針每拍轉一格，me 在遠端的板緣；
+  - 蒙太奇 2（Then I can finally be）：高角度、長焦 fov 24 → 19、從遠處推近、逆時針慢轉。
+- **finally 的圖形**一步比一步簡單：每步取「比上一步低」的頻帶中最響的，保證最後一步到頻帶 0。實際是 (2, 6) → (1, 6) → (3, 4) → (2, 4) → (1, 4) → (2, 3) → (1, 3) → (1, 2)。
+- **completion**：最後一步換到對稱的一族（cos·cos ＋ cos·cos）的 (2, 4)，節線封閉成圈（方框裡一個環），正好在 COMPLETION 那一幀落定。
+  - 兩個封閉的圈化成光從板上升起、圍住 you，me 升到 you 身邊（c2x 從這裡開始：you 離開）；
+  - 四色爆發；
+  - f6919 平均亮度 46.9（c1 最亮的一幀是 44.3），大於 240 的像素只有 0.3%（spark 核心）。
+
+**引擎與規範**
+- HUD 標題函式多了第三個參數 F：`hud: (T, t, F) => …`（只增不改，CLAUDE.md §3 已更新）。
+- `lib/spark.js`：spark 的白色核心（`point3D`）原本隨距離 6/w 縮放，鏡頭很近（廣角）時會變成一顆白球、長焦時縮成一點；現在限制在 0.8–1.3 倍。回歸比對：其他章節的中段靜幀都沒有變。
+
+**導演審查**（`docs/review/c2.md`）
+- 第 1 輪 4.2（3 項擋關），修正後第 2 輪 4.5。
+- 使用者回饋「像幻燈片」之後改成連續長鏡頭，第 3 輪 4.5。
+- 使用者要求方形板、更快之後，第 4 輪 4.2，2 項擋關：
+  - 公式被座標軸小圖示穿過；
+  - COMPLETION 閃光時沙與 you 接近白。
+- 上述擋關與其他建議都已修正（模態規則、方形漣漪、正反拍輕重、me 的位置）；第 5 輪 4.5，沒有擋關。
+- 使用者要求 Then I can 用 3D 等深地形圖加蒙太奇後，第 6 輪 4.0，擋關是「地形看不出是沙」。改成沙粒躺在地形上、剪進來時從平面隆起，第 7 輪 4.5，沒有擋關。第 5 輪的小修改（me 移到前緣外、最近用過的頻帶減半、方形光環、me 在 you 旁邊時光芒減弱）也已完成並截圖確認。
+- 拿掉的設計：
+  - COMPLETION 的 todo（c2 沒有開過 todo）；
+  - `object you {}` 收集欄位（另一個場景，是幻燈片感的主要來源）；
+  - 圓形板（使用者偏好方形板的圖形轉換）。
+
+**產物**：`renders/stills/c2.png`、`renders/preview/c2.mp4`。`npm test` 25 項通過、1 項 todo（還沒做完 16 章）。
+
+**仍不夠好的地方**
+- 開場和 c1 共用同一個曝光衝擊；要讓 COMPLETION 與開場拉開更多，就得一起改 c1。
+- HUD 讀數與關鍵字後面的暗框邊緣是硬的，前面有大量粒子時看得到（共用引擎，留待整合階段處理）。
+- feel 沒有標「低頻／高頻」。
+- `lib/fx.js` 的 `randn` 三軸抖動相同：已另開工作在處理。
 
 ---
 
@@ -26,6 +452,7 @@
   - 兩條中期 X 染色體，GRCh38 的真實長度（156 Mb）與著絲點；兩條姊妹染色分體在著絲點相連，每 10 Mb 一道刻度，PAR1 是亮帶；
   - 每個字讓一條 X 閃一下；
   - 左側是 v2 的 todo 四項全勾（`v2/plan.js` 的 `donePlan`），EXISTENCE 在出現後半拍打勾、橘色閃一下。
+- **gender → ftom 的接縫**（使用者回饋 2026-10-19：Switch my gender 到 To F to M 不流暢，像同一段動畫播了兩次）：原本兩個鏡頭各有一台攝影機，各自從遠推近；剪接時攝影機退回原位、再推一次。改成共用一台連續攝影機 `chrCam`：從段落強拍到「And then do whatever」只推近、轉一次，剪接點不跳。
 - **ftom**：
   - 從「F」到「M」第二條 X 變成 Y（57 Mb，著絲點移到 10.5 Mb），填充的粒子跟著滑過去；
   - 唱「M」時 SRY（Yp11.2，決定性別的開關基因）亮成金色，leader 線標 `SRY · Yp11.2`。

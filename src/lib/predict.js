@@ -56,12 +56,18 @@ export function drawPrediction(ctx, { x, y, prev, next, width = 340, k = 3, from
     ctx.rect(barX, yy - 15, Math.max(3, barW * c.p * grow), 16, { fill: col, alpha: a * fade * 0.85 });
     ctx.text(`${Math.round(c.p * 100)}%`, x + width, yy, { font: 'mono', size: 18, align: 'right', color: COLOR.dim, alpha: a * fade });
     if (locked && !hit) ctx.line([[x - 4, yy - 8], [x + ctx.measure(c.word, { font: 'mono', size: 22 }) + 4, yy - 8]], { color: COLOR.dim, width: 2.4, alpha: a * lockE * stay });
+    // a kept guess that was right: an orange tick after the word (the first hit of the film, c3)
+    if (locked && hit && kept && i === 0) {
+      const cx = x + ctx.measure(c.word.toLowerCase(), { font: 'mono', size: 22 }) + 16, d = clamp((t - next.start) / T.beats(0.25));
+      ctx.line([[cx, yy - 9], [cx + 6 * Math.min(1, d * 2), yy - 9 + 6 * Math.min(1, d * 2)], ...(d > 0.5 ? [[cx + 6 + 10 * (d - 0.5) * 2, yy - 3 - 13 * (d - 0.5) * 2]] : [])], { color: COLOR.me, width: 3, alpha: a });
+    }
   });
   const yy = y + 40 + rowsH + 14;
   ctx.line([[x, yy - 30], [x + width, yy - 30]], { color: COLOR.faint, width: 1, alpha: a });
   if (locked) {
     const bits = -Math.log2(pNext);
-    ctx.text(seen ? `p ${Math.round(pNext * 100)}% · ${bits.toFixed(1)} bits` : `new token · ${bits.toFixed(1)} bits`, x, yy, { font: 'monoBold', size: 20, color: COLOR.warm, alpha: a * lockE });
+    const pct = pNext >= 0.005 ? `${Math.round(pNext * 100)}%` : '<1%'; // never "p 0%": the word was possible, just unlikely
+    ctx.text(seen ? `p ${pct} · ${bits.toFixed(1)} bits` : `new token · ${bits.toFixed(1)} bits`, x, yy, { font: 'monoBold', size: 20, color: COLOR.warm, alpha: a * lockE });
   } else {
     // Claude Code's spinner while the next token is pending
     spinner(ctx, x + 9, yy - 7, { alpha: a });

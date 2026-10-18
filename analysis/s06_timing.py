@@ -5,7 +5,7 @@ import numpy as np
 import soundfile as sf
 from common import ANA, STEMS, read_json, write_json, SR, FPS
 
-PREROLL, TOTAL_FRAMES = 5, 13015
+PREROLL, TOTAL_FRAMES = 5, 13255  # +4 s of silence after the song (phase 4, user: the end credits need time to read)
 SONG_FRAMES = TOTAL_FRAMES - PREROLL * FPS
 FILM_SONG_END = SONG_FRAMES / FPS
 
@@ -157,7 +157,8 @@ timing = {
             f"{n_fix} corrected; the verified times are used. Automatic-vs-verified distance on keywords is in keyword_auto_vs_verified. "
             f"Word sources: {src_count}. Non-keyword words are automatic (typical error +-40 ms)."),
         "title_line": "'world.execute(me);' is not sung (vocals stem silent after 15.0 s); its tokens are placed on beats 32-34 (the inst1 drop) and marked sung:false.",
-        "song_length": f"mp3 decodes to {duration:.3f} s; music ends at {music_end:.3f} s (last sample > -60 dBFS), followed by digital silence. The film uses {SONG_FRAMES} song frames = {FILM_SONG_END:.4f} s, so trimming removes only silence.",
+        "song_length": f"mp3 decodes to {duration:.3f} s; music ends at {music_end:.3f} s (last sample > -60 dBFS), followed by digital silence. The film uses {SONG_FRAMES} song frames = {FILM_SONG_END:.4f} s" + (
+            f", {FILM_SONG_END - duration:.3f} s past the end of the mp3 (a silent tail for the end credits; the render pads the audio with silence)." if FILM_SONG_END > duration else ", so trimming removes only silence."),
     },
 }
 write_json("timing.json", timing)

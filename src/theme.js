@@ -25,6 +25,22 @@ export const HEX = {
 // as 0..1 RGB for drawing
 export const COLOR = Object.fromEntries(Object.entries(HEX).map(([k, v]) => [k, hex(v)]));
 
+// Syntax highlighting of this repo's source on screen (lib/syntax.js), built only from the palette above: keywords in
+// me's orange (it is me's code), strings in warm gold, numbers pale gold, comments faint; no blue / green / rose (those
+// tell the story) and red stays for breakdown (garbled characters).
+const mixHex = (a, b, k) => a.map((v, i) => v + (b[i] - v) * k);
+export const SYNTAX = {
+  keyword: COLOR.me,
+  string: COLOR.warm,
+  number: mixHex(COLOR.warm, COLOR.ink2, 0.45),
+  comment: COLOR.faint,
+  fn: COLOR.ink2,
+  ident: mixHex(COLOR.ink2, COLOR.dim, 0.45),
+  prop: COLOR.dim,
+  punct: mixHex(COLOR.dim, COLOR.faint, 0.45),
+  glitch: COLOR.error,
+};
+
 // Font faces (SIL OFL, loaded from @fontsource). base = SDF raster size in px (bigger for display type).
 export const FONT = {
   mono: { family: 'JetBrains Mono', weight: 400, base: 64 },
@@ -33,4 +49,5 @@ export const FONT = {
   displayMed: { family: 'Space Grotesk', weight: 500, base: 128 },
   zh: { family: 'Noto Sans TC', weight: 400, base: 64 },
   zhBold: { family: 'Noto Sans TC', weight: 700, base: 96 },
+  serif: { family: 'Newsreader', weight: 500, base: 128 }, // only the end's "by Claude Opus 5.5" (a serif close to the Claude wordmark; user's choice)
 };

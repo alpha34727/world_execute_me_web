@@ -10,9 +10,9 @@
  "film": {
   "fps": 60,
   "preroll": 5,
-  "total_frames": 13015,
-  "song_frames": 12715,
-  "song_end": 211.91667
+  "total_frames": 13255,
+  "song_frames": 12955,
+  "song_end": 215.91667
  },
  "grid": {
   "bpm": 130.00303,
@@ -20,8 +20,8 @@
   "t0": 0.23668114866914952,
   "beats_per_bar": 4,
   "note": "beat k at t0 + k*period (k may be negative); bar b starts at beat 4b; beat 0 is the first downbeat",
-  "beat_count": 459,
-  "bar_count": 115
+  "beat_count": 468,
+  "bar_count": 117
  },
  "beats": [
   0.23668,
@@ -482,7 +482,16 @@
   210.23179,
   210.69331,
   211.15484,
-  211.61637
+  211.61637,
+  212.0779,
+  212.53942,
+  213.00095,
+  213.46248,
+  213.92401,
+  214.38553,
+  214.84706,
+  215.30859,
+  215.77012
  ],
  "bars": [
   0.23668,
@@ -599,7 +608,9 @@
   205.15498,
   207.00109,
   208.8472,
-  210.69331
+  210.69331,
+  212.53942,
+  214.38553
  ],
  "sections": [
   {
@@ -725,7 +736,7 @@
   {
    "id": "end",
    "start": 207.00109,
-   "end": 211.91667,
+   "end": 215.91667,
    "bar_start": 112,
    "bar_end": null,
    "note": "Final EXECUTION rings out and decays (below -60 dBFS at ~207.8 s, digital silence from ~209.0 s) to the end of the film."
@@ -5742,6 +5753,6 @@
   "sections": "Boundaries on bar lines from lyric lines + per-bar stem RMS. Musically bars 56-72 are one extended chorus; it is split by narrative: c2 (56-60), c2x (60-64, the inserted 'you have left' extension), bridge (64-72, the program breaks). Vocal pickups (up to 0.5 s) before their section's downbeat.",
   "lyrics": "VTT has line times only. Word times: CTC forced alignment on the demucs vocals stem with torchaudio WAV2VEC2_ASR_LARGE_LV60K_960H (MMS_FA as fallback, best mean confidence per phrase group), 4 sub-frame window offsets averaged; then refined to the sung NOTE onset using torchcrepe f0 steps, voicing onset and voiced-band energy rise (s05_refine.py). word.start = first sung note onset (vowel / pitch), word.attack = audible leading consonant. All capitalised keywords were checked by hand against the audio (keywords_verified.json): 44 confirmed, 7 corrected; the verified times are used. Automatic-vs-verified distance on keywords is in keyword_auto_vs_verified. Word sources: {'note': 316, 'verified': 44, 'corrected': 7, 'ctc': 28, 'title': 3}. Non-keyword words are automatic (typical error +-40 ms).",
   "title_line": "'world.execute(me);' is not sung (vocals stem silent after 15.0 s); its tokens are placed on beats 32-34 (the inst1 drop) and marked sung:false.",
-  "song_length": "mp3 decodes to 212.323 s; music ends at 207.843 s (last sample > -60 dBFS), followed by digital silence. The film uses 12715 song frames = 211.9167 s, so trimming removes only silence."
+  "song_length": "mp3 decodes to 212.323 s; music ends at 207.843 s (last sample > -60 dBFS), followed by digital silence. The film uses 12955 song frames = 215.9167 s, 3.593 s past the end of the mp3 (a silent tail for the end credits; the render pads the audio with silence)."
  }
 }

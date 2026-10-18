@@ -6,6 +6,7 @@
 import * as THREE from 'three';
 import { chapter } from '../engine/timeline.js';
 import { COLOR } from '../theme.js';
+import { editBody } from '../lib/edits.js';
 import { Swarm } from '../engine/gl/swarm.js';
 import { corners } from '../lib/hud.js';
 import { hero } from '../lib/hero.js';
@@ -44,7 +45,7 @@ function session(T) {
   const kw = (k) => W(T, k).start, t0 = start(T);
   return [
     { kind: 'todo', at: t0, until: todoUntil(T), items: PLAN.map((k, i) => ({ text: k, done: kw(k), at: t0 + T.beats(0.25 + 0.5 * i) })) },
-    { kind: 'tool', at: kw('NUTRIENTS') + T.beats(1.75), until: diffUntil(T), name: 'Update', arg: 'me.js', body: [{ kind: 'del', text: 'me.nutrients' }, { kind: 'add', text: 'you.nutrients' }] },
+    { kind: 'tool', at: kw('NUTRIENTS') + T.beats(1.75), until: diffUntil(T), name: 'Update', arg: 'me.js', body: editBody('nutrients') },
   ];
 }
 

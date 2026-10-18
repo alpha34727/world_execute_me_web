@@ -155,10 +155,13 @@ const hashPick = (i, seed, n) => { let h = (i * 2654435761 + seed * 40503) >>> 0
 //   │   2. Yes, and don't ask again  │
 //   ╰   3. No                        ╯
 // at: appears · selectAt: option `choice` is chosen (flash) · collapseAt: the box folds into ● Bash(cmd) ⎿ Running…
-export function permission(ctx, cx, y, { at, cmd, desc = null, choice = 1, selectAt = Infinity, collapseAt = Infinity, until = Infinity, fade = 0.25, width = 620, alpha = 1 }) {
+// cursor: whose cursor it is (you's blue by default) · pointer(ctx, x, y, a): draws the cursor instead of the chevron
+// moveAt: the cursor starts on option 1 and moves to `choice` then (default: it starts on `choice`)
+export function permission(ctx, cx, y, { at, cmd, desc = null, choice = 1, selectAt = Infinity, collapseAt = Infinity, until = Infinity, fade = 0.25, width = 620, alpha = 1, cursor = COLOR.you, pointer = null, moveAt = -Infinity }) {
   const { T, t } = ctx;
   if (t < at || t > until + fade) return;
-  const a = alpha * smoothstep(at, at + 0.08, t) * (1 - smoothstep(until, until + fade, t));
+  // (until = Infinity: never fades; smoothstep(∞, ∞, t) would be NaN)
+  const a = alpha * smoothstep(at, at + 0.08, t) * (until === Infinity ? 1 : 1 - smoothstep(until, until + fade, t));
   const x = cx - width / 2;
   if (t >= collapseAt) {
     // the decision made: the prompt folds into the running tool call
@@ -184,14 +187,16 @@ export function permission(ctx, cx, y, { at, cmd, desc = null, choice = 1, selec
   yy += 8;
   ctx.text('Do you want to proceed?', x + 24, yy, { ...BODY, size: 20, color: COLOR.ink, alpha: a }); yy += LH + 4;
   const sel = t >= selectAt, fl = sel ? 1 - clamp((t - selectAt) / T.beats(0.5)) : 0;
+  const row = t >= moveAt ? choice : 1;
   opts.forEach((o, i) => {
-    const on = i + 1 === choice;
-    if (on && sel) ctx.rect(x + 16, yy - 24, width - 32, LH, { fill: COLOR.you, alpha: a * (0.25 + 0.35 * fl), radius: 4 });
-    if (on) { // ❯ drawn as a chevron: you's cursor
+    const on = i + 1 === row;
+    if (on && sel) ctx.rect(x + 16, yy - 24, width - 32, LH, { fill: cursor, alpha: a * (0.25 + 0.35 * fl), radius: 4 });
+    if (on) { // ❯ drawn as a chevron: you's cursor (or whoever's `pointer`)
       const blink = sel || Math.floor(T.beatAt(t) * 2) % 2 === 0;
-      if (blink) ctx.line([[x + 26, yy - 16], [x + 34, yy - 8], [x + 26, yy]], { color: COLOR.you, width: 2.6, alpha: a });
+      if (pointer) pointer(ctx, x + 30, yy - 8, a);
+      else if (blink) ctx.line([[x + 26, yy - 16], [x + 34, yy - 8], [x + 26, yy]], { color: cursor, width: 2.6, alpha: a });
     }
-    ctx.text(`${i + 1}. ${o}`, x + 48, yy, { ...BODY, size: 20, font: on ? 'monoBold' : 'mono', color: on ? COLOR.you : COLOR.dim, alpha: a });
+    ctx.text(`${i + 1}. ${o}`, x + 48, yy, { ...BODY, size: 20, font: on ? 'monoBold' : 'mono', color: on ? cursor : COLOR.dim, alpha: a });
     yy += LH;
   });
 }

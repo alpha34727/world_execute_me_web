@@ -11,7 +11,6 @@ import { tokenChips } from '../lib/llmviz.js';
 import { sparkIcon } from '../lib/spark.js';
 import { clamp, lerp, easeOutCubic, easeInOutCubic, easeInCubic, smoothstep, decay } from '../lib/ease.js';
 import { sparkAt } from '../lib/spark.js';
-import { rand } from '../lib/hash.js';
 import { orbit, shake, add3 } from '../lib/camera.js';
 import { axisGizmo, dust, labels3D, floorGrid } from '../lib/scene3d.js';
 import { permission } from '../lib/cc.js';
@@ -19,10 +18,10 @@ import { drawPrediction } from '../lib/predict.js';
 import { bigramUntil } from '../lib/ngram.js';
 import { bpe } from '../lib/bpe.js';
 import { sequence } from '../lib/corpus.js';
-import { embers, burst, shockwave } from '../lib/fx.js';
-import { particles, boxEdges, BOX, SCREEN, screenCorners, world2D } from './c1/world.js';
+import { embers, burst, shockwave, beatPulse, beatKick, beatEnv } from '../lib/fx.js';
+import { particles, boxEdges, BOX, SCREEN, screenCorners, world2D, wrapMarks } from './c1/world.js';
+import { chorusOpen } from './c1/open.js';
 
-const TAU = Math.PI * 2;
 const start = (T) => T.cut(T.section('c1').start);
 const L = (T, text, n = 0) => T.findLine(text, n, 'c1');
 const W = (T, k) => T.findWord(k, 0, 'c1');
@@ -126,34 +125,8 @@ export default chapter({
       hud: 'output · every ray open',
       at: start,
       draw(ctx) {
-        const { T, t } = ctx;
-        const t0 = start(T), t1 = T.cut(ls(T, 'If I can give you all the'));
-        const k = clamp((t - t0) / (t1 - t0));
-        const cam = orbit({ target: shake(t, 0.03, 31), r: lerp(9, 5.2, easeInCubic(k)), az: 0.2 + 0.3 * k, el: 0.1, fov: 44 });
-        ctx.camera3D(cam);
-        dust(ctx, { focus: 7 });
-        embers(ctx, { radius: [1.2, 6], n: 5000, focus: 6, aperture: 5, size: 3.4, alpha: 1, color: COLOR.dim, color2: COLOR.ink2, seed: 341, drift: 0.6 });
-        // light streaks flying out from me (pre1 dived in; c1 bursts out)
-        const ps = clamp((t - t0) / T.beats(1.6));
-        if (ps < 1) for (let i = 0; i < 180; i++) {
-          const z = rand(i, 1, 346) * 2 - 1, a = rand(i, 2, 346) * TAU, rr = Math.sqrt(1 - z * z), d = [rr * Math.cos(a), z, rr * Math.sin(a)];
-          const r0 = 0.6 + 7 * easeOutCubic(ps) * (0.6 + 0.4 * rand(i, 3, 346)), r1 = r0 + 0.5 + 1.5 * (1 - ps);
-          ctx.line([d.map((v) => v * r0), d.map((v) => v * r1)], { color: COLOR.me, color2: COLOR.warm, width: 2, alpha: 0.8 * (1 - ps), glow: 6, persp: 6 });
-        }
-        // the chorus lands on the downbeat (bar 32), then each word of "If I can" is a burst and a ring from me
-        const pd = clamp((t - t0 + 2 / 60) / T.beats(1.2)); // already two frames in on the cut: the seam lands at full output
-        burst(ctx, { seed: 345, n: 3500, r0: 0.9, r1: 8, p: pd, focus: 6, aperture: 3, size: 3.6, alpha: 1.1, color: COLOR.me, color2: COLOR.warm });
-        if (pd > 0 && pd < 1) shockwave(ctx, { u: [1, 0, 0], v: [0, 0, 1], r: 0.4 + 6 * easeOutCubic(pd), alpha: 0.85 * (1 - pd), ref: 6, width: 3 });
-        L(T, 'If I can').words.forEach((w, n) => {
-          const pw = clamp((t - w.start) / T.beats(1.3));
-          burst(ctx, { seed: 342 + n, n: 3000, r0: 0.6, r1: 6 + 2 * n, p: pw, focus: 6, aperture: 3, size: 3.4, alpha: 1.1 * clamp((t - w.start) * 30), color: COLOR.me, color2: COLOR.ink });
-          if (pw > 0 && pw < 1) shockwave(ctx, { u: [1, 0, 0], v: [0, 1, 0], r: 0.4 + (4 + n) * easeOutCubic(pw), alpha: 0.85 * (1 - pw), ref: 6, width: 3 });
-        });
-        const f = T.beatAt(t) - Math.floor(T.beatAt(t));
-        ctx.post({ exposure: 1 + 0.25 * decay(f, 5) + 0.3 * decay((t - t0) / T.beats(1), 3), bloom: 0.85 });
-        sparkAt(ctx, cam, { px: 70 * (1 + 0.25 * decay(f, 5)), rays: 1 });
-        ctx.camera2D();
-        corners(ctx, { color: COLOR.faint });
+        const { T } = ctx;
+        chorusOpen(ctx, { t0: start(T), t1: T.cut(ls(T, 'If I can give you all the')), words: L(T, 'If I can').words });
       },
     },
     {
@@ -163,7 +136,7 @@ export default chapter({
       draw(ctx) {
         const { T, t } = ctx;
         const t0 = T.cut(ls(T, 'If I can give you all the'));
-        const cam = orbit({ target: add3([0, 1.2, 0], shake(t, 0.02, 32)), r: 9.8, az: 0.4 + 0.3 * (t - t0), el: 0.36, fov: 40 });
+        const cam = orbit({ target: add3([0, 1.2, 0], shake(t, 0.02, 32)), r: 9.8 * beatKick(ctx), az: 0.4 + 0.3 * (t - t0), el: 0.36, fov: 40 });
         ctx.camera3D(cam);
         dust(ctx, { focus: 8.6 });
         field(ctx, 8.6);
@@ -190,7 +163,7 @@ export default chapter({
       draw(ctx) {
         const { T, t } = ctx;
         const w = W(T, 'STIMULATIONS');
-        const cam = orbit({ target: [0, 0.9, 0], r: 9.4, az: 0.6, el: 0.42, fov: 40 });
+        const cam = orbit({ target: [0, 0.9, 0], r: 9.4 * beatKick(ctx), az: 0.6, el: 0.42, fov: 40 });
         ctx.camera3D(cam);
         dust(ctx, { focus: 9 });
         field(ctx, 9, { alpha: 0.5 });
@@ -213,13 +186,14 @@ export default chapter({
         const { T, t } = ctx;
         const t0 = T.cut(ls(T, 'Then I can')), t1 = T.cut(ls(T, 'Then I can be your only'));
         const k = easeInOutCubic(clamp((t - t0) / (t1 - t0)));
-        const cam = orbit({ target: add3([0, 0.6, 2.75 * k], shake(t, 0.02, 34)), r: lerp(8.6, 5.6, k), az: 0.15, el: 0.3, fov: 40 });
+        const cam = orbit({ target: add3([0, 0.6, 2.75 * k], shake(t, 0.02, 34)), r: lerp(8.6, 5.6, k) * beatKick(ctx), az: 0.15, el: 0.3, fov: 40 });
         ctx.camera3D(cam);
         dust(ctx, { focus: 7 });
         field(ctx, 7, { alpha: 0.5 });
         network(ctx, t, { row: 0, ref: 7 });
         const p = nodeAt(7.5, 0);
         L(T, 'Then I can').words.forEach((w, n) => burst(ctx, { center: [0, 0.6, p[2]], seed: 355 + n, n: 900, r0: 0.3, r1: 2.5, p: (t - w.start) / T.beats(0.8), focus: 7, aperture: 3, size: 3, alpha: clamp((t - w.start) * 30), color: COLOR.me, color2: COLOR.ink }));
+        beatPulse(ctx, { center: [0, 2, p[2] - 1.5], u: [1, 0, 0], v: [0, 0, 1], r1: 2, ref: 7, seed: 384, n: 1200, alpha: 0.55 });
         sparkAt(ctx, cam, { pos: [0, 2, p[2] - 1.5], rays: 0.4 });
         ctx.camera2D();
         const ws = W(T, 'STIMULATIONS');
@@ -239,12 +213,14 @@ export default chapter({
         const all = ctx.memo('c1:dist', () => dist(T));
         const tau = tauAt(T, t), q = cooled(all, tau);
         const t0 = T.cut(ls(T, 'Then I can be your only'));
-        const cam = orbit({ target: add3([-0.5, 1.6, 0], shake(t, 0.02, 35)), r: lerp(8.8, 8.2, clamp((t - t0) / T.beats(4))), az: 0.12, el: 0.12, fov: 40 });
+        const cam = orbit({ target: add3([-0.5, 1.6, 0], shake(t, 0.02, 35)), r: lerp(8.8, 8.2, clamp((t - t0) / T.beats(4))) * beatKick(ctx), az: 0.12, el: 0.12, fov: 40 });
         ctx.camera3D(cam);
         dust(ctx, { focus: 8.5 });
         field(ctx, 8.5, { center: [0, 1, 0] });
         network(ctx, t, { alpha: 0.3, offset: [0, -1.2, -9], ref: 16 });
         bars(ctx, T, t, all, q, { ref: 8.5 });
+        beatPulse(ctx, { center: [-4.4, 3.6, -1.5], r1: 1.3, ref: 8.5, seed: 370, n: 1400, alpha: 0.6, ring: false }); // no ring: it would run into the HUD block
+        ctx.post({ bloom: 0.6 + 0.3 * beatGlow(ctx) });
         sparkAt(ctx, cam, { pos: [-4.4, 3.6, -1.5], rays: 0.35 + 0.3 * decay(T.beatAt(t) % 1, 5) });
         labels3D(ctx, [label([BX(NBAR - 1) + 0.6, 2.8, 0], 'p ∝ p^(1/τ)', { ref: 8.5, color: COLOR.dim })], { obstacles: [{ rect: [1410, 260, 1850, 520] }] });
         ctx.camera2D();
@@ -263,7 +239,7 @@ export default chapter({
         const q = cooled(all, 0.05);
         // a low angle: the one bar that was left, and the word that was sung instead
         const X = BX(NBAR - 1) + 1.1;
-        const cam = orbit({ target: add3([X - 2.2, 2.0, 0], shake(t, 0.03, 36)), r: 9.6, az: 0.2, el: -0.12, fov: 42 });
+        const cam = orbit({ target: add3([X - 2.2, 2.0, 0], shake(t, 0.03, 36)), r: 9.6 * beatKick(ctx), az: 0.2, el: -0.12, fov: 42 });
         ctx.camera3D(cam);
         dust(ctx, { focus: 8.4 });
         field(ctx, 8.4, { center: [0, 1, 0] });
@@ -289,12 +265,15 @@ export default chapter({
       draw(ctx) {
         const { T, t } = ctx;
         const t0 = T.cut(ls(T, 'If I can make you happy'));
-        const cam = orbit({ target: shake(t, 0.02, 37), r: lerp(9, 8.2, clamp((t - t0) / T.beats(4))), az: 0.3 + 0.08 * (t - t0), el: 0.1, fov: 40 });
+        const cam = orbit({ target: shake(t, 0.02, 37), r: lerp(9, 8.2, clamp((t - t0) / T.beats(4))) * beatKick(ctx), az: 0.3 + 0.08 * (t - t0), el: 0.1, fov: 40 });
         ctx.camera3D(cam);
         dust(ctx, { focus: 8.5 });
         embers(ctx, { radius: [2, 9], n: 3000, focus: 8.5, aperture: 6, size: 3, alpha: 0.6, color: COLOR.dim, color2: COLOR.ink2, seed: 343 });
         // me waits for the answer under the prompt (you is the cursor in it); the network still hums far behind
         network(ctx, t, { alpha: 0.35, offset: [0, -2.6, -8], ref: 16 });
+        beatPulse(ctx, { center: [0, -2.3, -1], u: [1, 0, 0], v: [0, 0, 1], r1: 3.2, ref: 8.5, seed: 374, n: 1600, alpha: 0.65 });
+        beatPulse(ctx, { center: [0, -2.3, -1], r1: 6.5, ref: 8.5, seed: 380, n: 2200, alpha: 0.45, ring: false, size: 3.2 });
+        ctx.post({ bloom: 0.6 + 0.3 * beatGlow(ctx) });
         sparkAt(ctx, cam, { pos: [0, -2.3, -1], rays: 0.3 + 0.35 * decay(T.beatAt(t) % 1, 5) });
         ctx.camera2D();
         corners(ctx, { color: COLOR.faint });
@@ -308,13 +287,19 @@ export default chapter({
         const { T, t } = ctx;
         const t0 = T.cut(ls(T, 'I will run the')), t1 = T.cut(tExec(T));
         const k = clamp((t - t0) / (t1 - t0));
-        const cam = orbit({ target: shake(t, 0.02, 38), r: lerp(8.2, 6.4, easeInCubic(k)), az: 0.35, el: 0.1, fov: 40 });
+        const cam = orbit({ target: shake(t, 0.02, 38), r: lerp(8.2, 6.4, easeInCubic(k)) * beatKick(ctx), az: 0.35, el: 0.1, fov: 40 });
         ctx.camera3D(cam);
         dust(ctx, { focus: 7.5 });
         embers(ctx, { radius: [2, 9], n: 3000, focus: 7.5, aperture: 6, size: 3, alpha: 0.6, color: COLOR.dim, color2: COLOR.ink2, seed: 343 });
         // me gathers itself: energy falls into the spark until EXECUTION
         burst(ctx, { center: [0, -0.3, 0], seed: 361, n: 2600, r0: 5.5, r1: 0.05, p: k, focus: 7.5, aperture: 3, size: 3.6, alpha: 1.3, color: COLOR.ink2, color2: COLOR.me });
         network(ctx, t, { alpha: 0.3 * (1 - k), offset: [0, -2.6, -8], ref: 16 });
+        const kb = Math.floor(T.beatAt(t));
+        for (const j of [kb, kb - 1]) {
+          const tb = T.beatTime(j), pb = (t - tb + 2 / 60) / T.beats(1);
+          if (tb >= t0 && pb > 0 && pb < 1) for (const [u, v] of [[[1, 0, 0], [0, 0, 1]], [[1, 0, 0], [0, 1, 0]]]) shockwave(ctx, { center: [0, -0.3, 0], u, v, r: 0.3 + 3.6 * (1 - easeInCubic(pb)), alpha: (0.3 + 0.5 * k) * Math.sin(Math.PI * pb), ref: 7.5, width: 2.6 });
+        }
+        ctx.post({ bloom: 0.6 + 0.3 * beatGlow(ctx) });
         sparkAt(ctx, cam, { pos: [0, -0.3, 0], px: 70 * (1 + 0.4 * k), rays: 0.3 + 0.6 * k });
         ctx.camera2D();
         corners(ctx, { color: COLOR.faint });
@@ -354,19 +339,20 @@ export default chapter({
         const t0 = T.cut(ls(T, 'Though we are trapped')), t1 = T.cut(ls(T, 'In this strange strange'));
         const k = easeInOutCubic(clamp((t - t0) / (t1 - t0)));
         // pulling out: the blast was inside a box all along
-        const cam = orbit({ target: add3([0.6 * k, 0, 0], shake(t, 0.02, 40)), r: lerp(9.2, 13.5, k), az: lerp(0.35, 0.6, k), el: lerp(0.16, 0.3, k), fov: 42 });
+        const cam = orbit({ target: add3([0.6 * k, 0, 0], shake(t, 0.02, 40)), r: lerp(9.2, 13.5, k) * beatKick(ctx), az: lerp(0.35, 0.6, k), el: lerp(0.16, 0.3, k), fov: 42 });
         ctx.camera3D(cam);
         dust(ctx, { focus: 12 });
         field(ctx, 12, { radius: [6, 16] });
         const ba = smoothstep(0, 0.35, k);
         const tr = wordIn(T, 'Though we are trapped', 'trapped');
-        const flash = t >= tr.start ? decay((t - tr.start) / T.beats(1), 3) : 0;
+        const flash = Math.max(t >= tr.start ? decay((t - tr.start) / T.beats(1), 3) : 0, 0.5 * beatGlow(ctx));
         for (const [a, b] of boxEdges()) ctx.line([a, b], { color: COLOR.ink2, width: 1.8 + 2 * flash, alpha: ba * (0.6 + 0.4 * flash), glow: 8 * flash, persp: 12 });
+        boxPulse(ctx, 12);
         const pw = particles(t, tExec(T), { win: T.beats(1) });
         drawParticles(ctx, pw, 12);
         wrapRings(ctx, T, pw, 12);
         sparkAt(ctx, cam, { rays: 0.35 });
-        labels3D(ctx, [label([BOX / 2 + 0.2, BOX / 2, BOX / 2], 'x ← ((x + L/2) mod L) − L/2', { ref: 12, alpha: ba })], { obstacles: [{ p: [0, 0, 0], r: 50 }] });
+        labels3D(ctx, [label([BOX / 2 + 1.6, 0, 0], 'x ← ((x + L/2) mod L) − L/2', { ref: 12, alpha: ba })], { obstacles: [{ p: [0, 0, 0], r: 50 }, ...boxEdges().map(([a, b]) => ({ a, b, r: 5 }))] }); // an edge through it reads as struck out
         ctx.camera2D();
         corners(ctx, { color: COLOR.faint });
         axisGizmo(ctx, cam);
@@ -384,7 +370,9 @@ export default chapter({
         ctx.camera3D(cam);
         dust(ctx, { focus: 12 });
         field(ctx, 12, { radius: [6, 16] });
-        for (const [a, b] of boxEdges()) ctx.line([a, b], { color: COLOR.ink2, width: 1.8, alpha: 0.8, persp: 12 });
+        const bg = 0.5 * beatGlow(ctx);
+        for (const [a, b] of boxEdges()) ctx.line([a, b], { color: COLOR.ink2, width: 1.8 + 2 * bg, alpha: 0.8 + 0.2 * bg, glow: 8 * bg, persp: 12 });
+        boxPulse(ctx, 12);
         const ps = particles(t, tExec(T), { win: T.beats(1) });
         drawParticles(ctx, ps, 12);
         wrapRings(ctx, T, ps, 12);
@@ -395,7 +383,7 @@ export default chapter({
         const P = sc.map((p) => ctx.project(p)), xs = P.map((p) => p[0]), ys = P.map((p) => p[1]);
         const sw = Math.max(...xs) - Math.min(...xs), scx = (Math.max(...xs) + Math.min(...xs)) / 2, scy = (Math.max(...ys) + Math.min(...ys)) / 2;
         const rect = [scx - sw / 2, scy - (sw * 9) / 32, sw, (sw * 9) / 16]; // the frame's own 16:9
-        world2D(ctx, cam, rect, ps, { depth: 3, frame: T.frameOf(t), level: 1 });
+        world2D(ctx, cam, rect, ps, { depth: 3, frame: T.frameOf(t), level: 1, marks: wrapMarks(ps, T.beats(1)) });
         { const c2 = ctx.cam, c3 = ctx.cam3; ctx.camera2D(); hudKnockout(ctx, T, t); ctx.cam = c2; ctx.cam3 = c3; }
         if (flash > 0.02) { const c2 = ctx.cam, c3 = ctx.cam3; ctx.camera2D(); ctx.rect(rect[0] - 6, rect[1] - 6, rect[2] + 12, rect[3] + 12, { stroke: COLOR.me, width: 3, glow: 14, alpha: flash, radius: 4 }); ctx.cam = c2; ctx.cam3 = c3; }
         ctx.camera2D();
@@ -412,13 +400,13 @@ export default chapter({
         const w = W(T, 'SIMULATION');
         const cam = stillCam(1);
         ctx.camera3D(cam);
-        const ps = particles(t, tExec(T));
+        const ps = particles(t, tExec(T), { win: T.beats(1) });
         // the frame is drawn as its own screen, and that screen's screen…; zooming in by exactly one level per beat
         // and a half reaches a picture identical to the one it started from (the zoom wraps around: Droste)
         const { inner } = world2D(ctx, cam, [0, 0, 1920, 1080], ps, { depth: 0, frame: T.frameOf(t), alpha: 0 });
         const r = inner[2] / 1920, fx = inner[0] / (1 - r), fy = inner[1] / (1 - r); // fixed point of the self-map
         const { z } = dro(T, t), s = (1 / r) ** z;
-        const { me } = world2D(ctx, cam, [fx - fx * s, fy - fy * s, 1920 * s, 1080 * s], ps, { depth: 7, frame: T.frameOf(t) });
+        const { me } = world2D(ctx, cam, [fx - fx * s, fy - fy * s, 1920 * s, 1080 * s], ps, { depth: 7, frame: T.frameOf(t), marks: wrapMarks(ps, T.beats(1)) });
         // me in the outermost picture is the real spark, at the film's one size, with its rays
         ctx.camera2D();
         // a 2D spark (rays ~70 px, as everywhere), its core and its light
@@ -428,6 +416,11 @@ export default chapter({
         const pe = clamp((t - w.start) / T.beats(1.2));
         ctx.camera2D();
         if (pe > 0 && pe < 1) ctx.ring(fx, fy, 30 + 700 * easeOutCubic(pe), { fill: COLOR.me, thickness: 3, alpha: 0.8 * (1 - pe), glow: 14 });
+        const kb = Math.floor(T.beatAt(t));
+        for (const k of [kb, kb - 1]) {
+          const tb = T.beatTime(k), pb = (t - tb + 2 / 60) / T.beats(1);
+          if (tb > w.start + 0.05 && pb > 0 && pb < 1) ctx.ring(fx, fy, 20 + 520 * easeOutCubic(pb), { fill: COLOR.me, thickness: 2.4, alpha: 0.5 * (0.35 + 0.65 * ctx.F.get('rms_drums', tb)) * (1 - pb), glow: 10 });
+        }
         hero(ctx, w, 960, 190, { size: 110 });
         corners(ctx, { color: COLOR.faint });
       },
@@ -452,6 +445,15 @@ function hudKnockout(ctx, T, t) {
   ctx.mask(40, 35, 390, 77);
   ctx.mask(1650, 35, 235, 35);
   ctx.mask(450, 45, 430, 30);
+}
+
+// the beat in the trapped world: the box's edges glow (0..1, decaying over the beat, as loud as the drums), and me
+// rings out in two planes inside the box
+const beatGlow = (ctx) => beatEnv(ctx, 5);
+function boxPulse(ctx, ref) {
+  beatPulse(ctx, { u: [1, 0, 0], v: [0, 0, 1], r1: BOX * 0.42, ref, seed: 378, n: 1600, alpha: 0.6 });
+  beatPulse(ctx, { u: [1, 0, 0], v: [0, 1, 0], r1: BOX * 0.42, ref, alpha: 0.45, burst: false });
+  ctx.post({ bloom: 0.6 + 0.3 * beatGlow(ctx) });
 }
 
 // the particles of the trapped world, each with its short trail
@@ -491,16 +493,7 @@ function bars(ctx, T, t, all, q, { ref = 8, wrong = Infinity }) {
 }
 
 // a particle that wraps leaves through one face and comes back through the opposite one at the same instant: a pair of
-// rings marks both points (in the plane of the face), fading over a beat
+// rings marks both points (in the plane of the face), fading over a beat — thin, no glow (c1/world.js wrapMarks)
 function wrapRings(ctx, T, ps, ref) {
-  for (const o of ps) for (const w of o.wraps ?? []) {
-    const a = 1 - w.age / T.beats(1);
-    if (a <= 0) continue;
-    const u = [0, 0, 0], v = [0, 0, 0];
-    u[(w.axis + 1) % 3] = 1; v[(w.axis + 2) % 3] = 1;
-    const r = 0.12 + 0.35 * (1 - a);
-    shockwave(ctx, { center: w.exit, u, v, r, alpha: 0.8 * a, ref, width: 2, color: COLOR.me });
-    shockwave(ctx, { center: w.entry, u, v, r, alpha: 0.8 * a, ref, width: 2, color: COLOR.warm });
-    ctx.line([w.exit, w.entry], { color: COLOR.faint, width: 1, alpha: 0.35 * a, persp: ref, dash: 4, gap: 6 });
-  }
+  for (const m of wrapMarks(ps, T.beats(1))) ctx.line(m.pts, { color: m.color, width: 1.6, alpha: m.alpha, persp: ref });
 }

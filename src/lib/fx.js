@@ -5,11 +5,14 @@
 //   stream     particles fly out of a source point and settle on target points (things are built from my energy)
 //   shockwave  an expanding ring of light in a plane
 //   flow       energy sliding along a parametric curve f(u), once per beat (currents, gradients, rays)
+//   beatPulse  the beat as energy: a ring and a burst out of a point on every beat, as loud as the drums
+//   beatKick   the camera's push on every beat (a factor for the orbit distance), as loud as the drums
+//   beatEnv    0..1: the current beat's envelope (decays over the beat), as loud as the drums (for glows, bloom)
 import * as THREE from 'three';
 import { COLOR } from '../theme.js';
 import { Swarm } from '../engine/gl/swarm.js';
 import { rand, randn } from './hash.js';
-import { clamp, easeOutCubic } from './ease.js';
+import { clamp, easeOutCubic, decay } from './ease.js';
 
 const unitDir = (i, seed) => {
   const z = rand(i, seed, 1) * 2 - 1, a = rand(i, seed, 2) * Math.PI * 2, r = Math.sqrt(1 - z * z);
@@ -116,4 +119,29 @@ export function flow(ctx, key, f, { u0, u1, du = 0.5, n = 1600, ref, fog, alpha 
     const p = (((beat + off) % 1) + 1) % 1;
     ctx.swarm(sw, { p, stagger: 0, scatter: 0, size, sizeVar: 0.7, perspective: true, focus: ref, aperture: 3, color, color2, colorVar: 0.3, alpha: alpha * Math.sin(Math.PI * p), fog, model });
   }
+}
+
+// the beat as energy: on every `every` beats a ring (in the plane u, v) and a burst out of `center`, scaled by how loud
+// the drums are on that beat (features rms_drums). The last beat's ring is still fading when the next one starts.
+// The burst starts at r0 = 0.25·r1 with a coloured core and fades in over 2 frames (never a white ball).
+export function beatPulse(ctx, { center = [0, 0, 0], u = [1, 0, 0], v = [0, 0, 1], r1 = 3, ref = 7, color = COLOR.me, color2 = COLOR.warm, seed = 4000, every = 1, dur = 1, alpha = 0.6, n = 900, size = 2.8, ring = true, burst: withBurst = true, perspective = true } = {}) {
+  const { T, F, t } = ctx;
+  const k0 = Math.floor(T.beatAt(t) / every);
+  for (let k = k0; k > k0 - 2; k--) {
+    const tb = T.beatTime(k * every), dt = t - tb, p = (dt + 2 / 60) / T.beats(dur * every);
+    if (dt < 0 || p >= 1) continue;
+    const g = (0.35 + 0.65 * F.get('rms_drums', tb)) * alpha;
+    if (ring) shockwave(ctx, { center, u, v, r: 0.25 * r1 + 0.75 * r1 * easeOutCubic(p), alpha: 0.8 * g * (1 - p) * clamp(dt * 30 + 0.5), color, ref, width: 2.4 });
+    if (withBurst) burst(ctx, { center, seed: seed + (((k % 4) + 4) % 4), n, r0: 0.25 * r1, r1, p, focus: ref, aperture: 3, size, alpha: g * clamp(dt * 30), color, color2, perspective });
+  }
+}
+
+// the camera's push on every beat: multiply an orbit distance by this (1 − up to `amount`, decaying over the beat)
+export function beatKick(ctx, amount = 0.05) {
+  return 1 - amount * beatEnv(ctx, 6);
+}
+export function beatEnv(ctx, k = 5) {
+  const { T, F, t } = ctx;
+  const b = T.beatAt(t), i = Math.floor(b);
+  return (0.35 + 0.65 * F.get('rms_drums', T.beatTime(i))) * decay(b - i, k);
 }

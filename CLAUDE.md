@@ -12,12 +12,12 @@
 - `Mili - world.execute(me);.vtt`：英文歌詞，只有「行」級時間戳
 
 畫面上的每一個像素都必須由本 repo 的程式碼即時算出。**禁止**：生成圖片、影片模型、圖庫素材、外部 3D 模型、任何不是由本 repo 程式碼產生的貼圖（由程式碼產生並快取的資料，例如 SDF 字型圖集，可以）。
-字型只能用 SIL OFL 授權的：JetBrains Mono、Space Grotesk、Noto Sans TC（字幕是繁體中文，用 TC 字形；PROMPT 原本建議 SC）。字型以 `@fontsource/*` npm 套件鎖版提供（套件內含 OFL 授權檔），依 unicode-range 分片按需載入。
+字型只能用 SIL OFL 授權的：JetBrains Mono、Space Grotesk、Noto Sans TC（字幕是繁體中文，用 TC 字形；PROMPT 原本建議 SC）；另有 Newsreader（襯線，接近 Claude 字標，第 4 階段使用者決定），只用在片尾的「by Claude Opus 5.5」。字型以 `@fontsource/*` npm 套件鎖版提供（套件內含 OFL 授權檔），依 unicode-range 分片按需載入。
 
 ### 交付物
 | 檔案 | 規格 |
 |---|---|
-| `out/master.mp4` | 3840×2160、60 fps、原曲音訊；前置 5 秒光敏性癲癇警告卡；**總共 13015 幀**；x264 crf 14 |
+| `out/master.mp4` | 3840×2160、60 fps、原曲音訊；前置 5 秒光敏性癲癇警告卡；**總共 13255 幀**（歌曲＋片尾 4 秒靜音，第 4 階段使用者決定）；x264 crf 14 |
 | `out/delivery.mp4` | 1920×1080、60 fps、crf 16、AAC |
 | 網頁播放器 | WebGL2 即時算出同一支片、與影片**逐幀一致**；可拖曳時間軸、`?t=秒` 跳轉、切換中文字幕 |
 
@@ -26,9 +26,9 @@
 ## 2. 時間的定義（所有程式共用）
 
 - **歌曲時間 `t`**（秒）：0 = mp3 第一個取樣。所有 shot、所有分析資料都用歌曲時間。
-- **影片時間** `ft = frame / 60`；`t = ft − PREROLL`，`PREROLL = 5`。`frame ∈ [0, 13015)`。
+- **影片時間** `ft = frame / 60`；`t = ft − PREROLL`，`PREROLL = 5`。`frame ∈ [0, 13255)`。
   - `ft < 5`：光敏性癲癇警告卡（不是章節，由 `src/lib/warning.js` 畫）。
-  - 歌曲部分 12715 幀 = 211.9167 s。mp3 長 212.323 s，尾端差值需在第 1 階段確認是否為靜音／編碼器 padding（見 progress.md 待辦）。
+  - 歌曲部分 12955 幀 = 215.9167 s，比 mp3（212.323 s）長 3.6 s：片尾 credits 需要閱讀時間，第 4 階段使用者決定在歌曲後加 4 秒靜音（`analysis/s06_timing.py` 的 `TOTAL_FRAMES`；算圖時音訊以 apad 補靜音）。
 - 每一幀在**精確的** `frame/60` 取樣，不依賴即時效能。
 - `LEAD = 1/60`：剪接點 = 鼓點或人聲起音時間 − 1 幀。
 
@@ -38,7 +38,7 @@
 - **字級時間**：`word.start` = 這個字第一個唱出音符的起點（母音／音高起點，也就是音樂上的「那一拍」）；`word.attack` = 明顯提早的前導子音（可能沒有）。大寫關鍵字要在 `start` 那一幀出現，剪接則用 `start − LEAD`。
 - 51 個大寫關鍵字的時間都經過人工對照音訊驗證，以 `analysis/keywords_verified.json` 為準（`src: verified | corrected`）。要改關鍵字時間只能改這個檔並重跑 `s06_timing.py`，不要改 `analysis/out/`。
 - `world.execute(me);` 這行**沒有被唱出來**（`sung: false`），三個 token 放在 inst1 的第 32–34 拍。
-- 音樂在 207.8 s 降到 −60 dBFS 以下，約 209.0 s 起是數位靜音；影片的歌曲部分到 211.917 s。
+- 音樂在 207.8 s 降到 −60 dBFS 以下，約 209.0 s 起是數位靜音；影片的歌曲部分到 215.917 s（end 段 207.0–215.917 s）。
 
 ---
 
@@ -71,10 +71,10 @@
 - `src/engine/features.js` → **F**：`get(name, t)`（線性內插）`avg` `peak` `mel(t)`。
 - `src/engine/timeline.js` → `chapter({ id, from?, to?, overlay?(ctx,t), shots })`；`buildTimeline(T, defs, {start,end})` 先驗證全部（重疊、越界、首鏡頭、章節相接、轉場窗、重複 id、裸秒數）再回傳 `at(t) → { a, b, p, transition }`。
 - 轉場 `transitionIn: { type: 'cut'|'whip'|'glide'|'xfade'|'points', beats? | frames?, align?, dir?, axis? }`；時長只能用拍數或幀數。轉場窗 = [cut − align·dur, cut + (1−align)·dur]。
-- **ctx**（`draw(ctx, t)`，見 `src/engine/draw.js` 檔頭）：`t local dur p frame T F C W H scale`；`bg() post({bloom,threshold,knee,exposure,vignette,grain,ca,lift,rays}) subs(bool)`；`text3D(str,[x,y,z],o) point3D(p,r,o)`；線條 `persp`、`fog`；swarm `perspective` `focus` `aperture` `fog` `model`；`camera2D() camera3D({fov,position,target,up}) project(p)`；`line(pts,o) segments() circle() ellipse() ring() rect()`；`text(str,x,y,{font,size,color,align,baseline,tracking,reveal,glow}) measure()`；`swarm(sw,{p,stagger,drift,scatter,size,color,color2})`；`three(scene,camera)`；`memo(key,fn)` `memoReady(key,fn)` `sim(key,{init,step,dt})`。
-- 線條預設 MAX 混色（多段線接點不會變亮）；紙張插段用 `blend:'min'` 畫墨線。字型 key：`mono monoBold display displayMed zh zhBold`。
-- `src/lib/`：`hash.js`（含 GLSL 版）`ease.js` `sample.js`（polyline/circle/disc/rect/grid/fn/text 取樣）`hud.js`（corners/readout/aiHud/ruler/dimension）`console.js`（字幕）`warning.js` `pi.js`（spigot）`spark.js` `camera.js` `scene3d.js`（floorGrid/polarGrid/axisGizmo/dust）；Claude／LLM：`corpus.js`（歌詞序列）`ngram.js`（線上 bigram、lossCurve）`bpe.js` `embed.js`（PPMI-SVD、attention）`llmviz.js`（tokenChips/attentionMap/lossSparkline）`predict.js` `cc.js`（Claude Code：toolCall/todoList/spinner/transcript）。
-- shot 可宣告 `hud: '標題'` 或 `hud: (T, t) => '標題'`：Claude 的 HUD 由 overlay 統一畫（轉場時標題交叉溶接，不會疊字），同時 post `hudGuard` 會把 HUD 文字區塊後面的 3D 內容壓暗（3D 線條不會穿過讀數）；shot 裡不要直接呼叫 `aiHud`。
+- **ctx**（`draw(ctx, t)`，見 `src/engine/draw.js` 檔頭）：`t local dur p frame T F C W H scale`；`bg() post({bloom,threshold,knee,exposure,vignette,grain,ca,lift,rays}) subs(bool)`；`text3D(str,[x,y,z],o) point3D(p,r,o)`；線條 `persp`、`fog`；swarm `perspective` `focus` `aperture` `fog` `model`；`camera2D() camera3D({fov,position,target,up}) project(p)`；`line(pts,o) segments() circle() ellipse() ring() rect()`（shape 可加 `feather` 柔邊，`ctx.mask` 用它）；`text(str,x,y,{font,size,color,align,baseline,tracking,reveal,glow}) measure()`；`swarm(sw,{p,stagger,drift,scatter,size,color,color2})`；`three(scene,camera)`；`replay(id,t2,w,h,{overlay})`（重新算出歌曲時間 t2 的畫面成貼圖，outro 用；不含 HUD／字幕／post；在 replay 裡再呼叫 replay 會報錯）；`memo(key,fn)` `memoReady(key,fn)` `sim(key,{init,step,dt})`。
+- 線條預設 MAX 混色（多段線接點不會變亮）；紙張插段用 `blend:'min'` 畫墨線。字型 key：`mono monoBold display displayMed zh zhBold serif`。
+- `src/lib/`：`hash.js`（含 GLSL 版）`ease.js` `sample.js`（polyline/circle/disc/rect/grid/fn/text 取樣）`hud.js`（corners/readout/aiHud/ruler/dimension）`console.js`（字幕）`warning.js` `pi.js`（spigot）`spark.js` `camera.js` `scene3d.js`（floorGrid/polarGrid/axisGizmo/dust）；Claude／LLM：`corpus.js`（歌詞序列）`ngram.js`（線上 bigram、lossCurve）`bpe.js` `context.js`（HUD 的 context 計數；bridge 的 `/compact` 真的把非關鍵字 token 釋放）`embed.js`（PPMI-SVD、attention）`llmviz.js`（tokenChips/attentionMap/lossSparkline）`predict.js` `cc.js`（Claude Code：toolCall/todoList/spinner/transcript）`edits.js`（「give you my X」對 me.js 的編輯清單：v1、pre1、v2 的 Update 面板與 c3 的 rewind 共用）。
+- shot 可宣告 `hud: '標題'` 或 `hud: (T, t, F) => '標題'`：Claude 的 HUD 由 overlay 統一畫（轉場時標題交叉溶接，不會疊字），同時 post `hudGuard` 會把 HUD 文字區塊後面的 3D 內容壓暗（3D 線條不會穿過讀數）；shot 裡不要直接呼叫 `aiHud`。
 - 大寫關鍵字一律用 `lib/hero.js` 的 `hero(ctx, word, x, y, { size, align, chips })`（落地動畫＋BPE 切塊）。
 - 3D 標籤一律用 `lib/scene3d.js` 的 `labels3D(ctx, items, { obstacles })`：
   - 依優先序放置，每個標籤試 8 個方位，不得壓到別的標籤、點、連線，也不得進 HUD 區；
@@ -162,7 +162,7 @@
 - Claude dark（`#141413`）底，終端機／HUD／工程圖美學。shot 圖層畫在純黑上，背景色在 post 以 `lift` 加回（暗淡的線才不會被 MAX 混色吃掉；紙張插段用 `ctx.bg(paper)` 會自動關掉 lift）。角落放小型讀數、座標軸、尺寸標註線；發光線條、GPU 粒子。
 - 後製：輕微 bloom、底片顆粒（hash 產生、逐幀確定）、暗角。
 - 可以有一兩段米白紙張質感的「工程圖」插段當作對比。
-- 字體：JetBrains Mono（程式碼、讀數、字幕）、Space Grotesk（大寫關鍵字主視覺）、Noto Sans TC（中文字幕，繁體）。
+- 字體：JetBrains Mono（程式碼、讀數、字幕）、Space Grotesk（大寫關鍵字主視覺）、Noto Sans TC（中文字幕，繁體）、Newsreader（字型 key `serif`，只用在片尾署名）。
 
 ### 閱讀預算（第 2 階段使用者回饋：畫面太滿、節奏快，觀眾讀不完）
 - **同一時間只有一個需要閱讀的焦點**：大寫關鍵字，或一個面板（左側終端機或右側模型面板，不同時出現）。字幕和 HUD 不算，但 HUD 只放周邊的小字。
