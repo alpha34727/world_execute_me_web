@@ -136,6 +136,11 @@ docs/              分鏡（storyboard.md）、進度（progress.md）、各章�
   - 字型（各自的 SIL Open Font License）。
 - 使用 Mili 的作品請遵守 [Mili 的著作權指引](https://projectmili.com/copyright-guidelines)：商業用途要另外取得授權；用 AI 製作的作品要清楚標示。
 
+## Contributors
+
+- **[alpha34727](https://github.com/alpha34727)**：企劃、方向與每個階段的審核決定。
+- **[Claude](https://github.com/claude)**（Claude Opus 5.5，透過 Claude Code）：音訊分析管線、渲染引擎、16 個章節、測試、算圖工具與文件的程式碼。
+
 ## Credits
 
 - Music — **Mili**（〈world.execute (me) ;〉）
