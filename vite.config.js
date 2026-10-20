@@ -27,8 +27,14 @@ const repoFacts = () => ({
   },
 });
 
-export default defineConfig({
+// `vite build` uses relative URLs, so dist/ works from any path (GitHub Pages serves it under /<repo>/)
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? './' : '/',
   server: { fs: { allow: ['.'] } },
-  build: { target: 'es2022', chunkSizeWarningLimit: 1500 },
+  build: {
+    target: 'es2022', chunkSizeWarningLimit: 1500,
+    // three in one chunk of its own: split between the entry and a chapter chunk, its modules ran out of order
+    rollupOptions: { output: { manualChunks: (id) => (id.includes('/node_modules/three/') ? 'three' : undefined) } },
+  },
   plugins: [shipData(), repoFacts()],
-});
+}));

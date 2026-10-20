@@ -1,4 +1,5 @@
-# audio — copyright Mili; never commit
+# audio and lyrics — copyright Mili; never commit
+*.vtt
 *.mp3
 *.wav
 *.flac

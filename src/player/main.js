@@ -1,5 +1,6 @@
 // Web player + headless render API (same engine, same frames).
 //   /?t=32.5        start at song time 32.5 s (negative = inside the warning card)
+//   /?res=720&fps=30  render resolution (auto | 540…2160) and fps cap while playing (60 | 30 | 24 | 15)
 //   /?ch=test       chapter set (film | test); default film if any film chapter exists
 //   /?render=1      no UI / audio; exposes window.__wem for tools/render.mjs, stills.mjs, tests
 import '@fontsource/jetbrains-mono/400.css';

@@ -1,6 +1,6 @@
 # analysis/ — 音訊與歌詞分析管線
 
-輸入：根目錄的 mp3 與 vtt。輸出：`analysis/out/`（**禁止手動修改**，有問題就重跑）。管線是確定性的：同一個 mp3 重跑，所有產物位元相同（demucs 有固定 seed，並開啟 deterministic 模式）。
+輸入：根目錄的 mp3 與 vtt（受著作權保護，都不在 repo 裡，需自行準備）。輸出：`analysis/out/`（**禁止手動修改**，有問題就重跑）。管線是確定性的：同一個 mp3 重跑，所有產物位元相同（demucs 有固定 seed，並開啟 deterministic 模式）。
 
 ## 安裝與執行
 見 `requirements.txt` 開頭的三行安裝指令（uv + Python 3.12 + CUDA 12.8 torch）。
